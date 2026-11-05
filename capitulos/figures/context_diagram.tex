@@ -1,0 +1,33 @@
+% Diagrama de contexto: subsistemas propios (gris) y elementos externos (borde discontinuo).
+% Abajo, los tres periféricos; arriba, la aplicación, Windows, el simulador y la pantalla del dash.
+\begin{figure}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tikzpicture}[
+			>=Stealth,
+			caja/.style={draw, thick, rounded corners, align=center, minimum width=3.3cm, minimum height=1.1cm, font=\small},
+			externo/.style={caja, dashed, fill=gray!8},
+			propio/.style={caja, fill=gray!22},
+			etiq/.style={font=\scriptsize, align=center, fill=white, inner sep=1pt}
+			]
+			\node[externo] (pantalla) at (-7,2) {Monitor del dash\\o dispositivo móvil};
+			\node[propio]  (app)      at (-3,0) {Aplicación\\VH SimGrid};
+			\node[externo] (os)       at (3,0)  {Windows\\(DirectInput, USB HID)};
+			\node[externo] (sim)      at (7,2)  {Simulador de\\conducción};
+			\node[propio]  (dd)       at (-5,-3.6) {Volante\\VH Grid DD15};
+			\node[propio]  (axis)     at (0,-3.6)  {Pedalera\\VH Axis};
+			\node[propio]  (apex)     at (5,-3.6)  {Aro\\VH Formula Apex};
+
+			\draw[->, thick] (sim.west) -- node[etiq, above] {telemetría (memoria compartida o UDP)} (sim.west -| app.north) -- (app.north);
+			\draw[<->, thick] (sim.south) |- node[etiq, pos=0.25, right] {ejes, botones\\y efectos FFB} (os.east);
+			\draw[->, thick] (app.west) -| node[etiq, pos=0.3, above] {dash} (pantalla.south);
+			\foreach \p in {dd, axis, apex} {
+				\draw[<->, thick] (os.south) -- (\p.north);
+				\draw[<->, thick, dashed] (app.south) -- (\p.north);
+			}
+			\node[etiq] at (2.2,-1.6) {USB HID};
+			\node[etiq] at (-2.6,-1.6) {configuración};
+	\end{tikzpicture}}
+	\caption[Diagrama de contexto de VH SimGrid]{Diagrama de contexto de VH SimGrid. En gris oscuro, los subsistemas propios; con borde discontinuo, los elementos externos. (Fuente propia)}
+	\label{fig:contexto}
+\end{figure}

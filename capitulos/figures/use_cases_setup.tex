@@ -1,0 +1,40 @@
+% Casos de uso de la configuración del puesto (UML): se hacen antes de conducir.
+% El piloto participa en todos salvo en CU6, que solo hace el constructor; CU5 lo comparten.
+\begin{figure}[H]
+	\centering
+	\resizebox{0.85\textwidth}{!}{%
+		\begin{tikzpicture}[
+			>=Stealth,
+			cu/.style={draw, thick, ellipse, align=center, minimum width=9.8cm, minimum height=0.9cm, inner sep=1pt, font=\small, fill=white},
+			actor/.pic={
+				\draw[thick] (0,0.62) circle (0.13);
+				\draw[thick] (0,0.49) -- (0,0.15);
+				\draw[thick] (-0.25,0.38) -- (0.25,0.38);
+				\draw[thick] (0,0.15) -- (-0.18,-0.15);
+				\draw[thick] (0,0.15) -- (0.18,-0.15);
+			}
+			]
+			\draw[thick, fill=gray!6] (2.3,-0.7) rectangle (13.1,9.85);
+			\node[font=\small\bfseries, anchor=north] at (7.7,9.8) {VH SimGrid};
+
+			\node[cu] (c1)  at (7.7,8.75) {CU1. Realizar la primera puesta en marcha};
+			\node[cu] (c2)  at (7.7,7.5)  {CU2. Configurar el volante};
+			\node[cu] (c3)  at (7.7,6.25) {CU3. Calibrar la pedalera};
+			\node[cu] (c4)  at (7.7,5.0)  {CU4. Configurar las luces del aro};
+			\node[cu] (c15) at (7.7,3.75) {CU15. Configurar la pantalla del aro};
+			\node[cu] (c7)  at (7.7,2.5)  {CU7. Gestionar perfiles y copias de seguridad};
+			\node[cu] (c5)  at (7.7,1.25) {CU5. Actualizar el firmware de un periférico};
+			\node[cu] (c6)  at (7.7,0.0)  {CU6. Flashear el firmware inicial del volante};
+
+			\pic at (0.8,5.2) {actor};
+			\node[font=\small, below] at (0.8,4.8) {Piloto};
+			\pic at (0.8,0.3) {actor};
+			\node[font=\small, below] at (0.8,-0.1) {Constructor};
+
+			\foreach \c in {c1,c2,c3,c4,c15,c7,c5} \draw (1.2,5.55) -- (\c.west);
+			\draw (1.2,0.65) -- (c5.west);
+			\draw (1.2,0.65) -- (c6.west);
+	\end{tikzpicture}}
+	\caption[Diagrama de casos de uso de la configuración del puesto]{Diagrama de casos de uso de la configuración del puesto. (Fuente propia)}
+	\label{fig:cu-configuracion}
+\end{figure}

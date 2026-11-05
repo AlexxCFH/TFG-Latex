@@ -1,0 +1,171 @@
+% =====================================================================
+%  PREÁMBULO: paquetes y configuración
+% =====================================================================
+
+% ---------- Idioma y codificación ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, catalan, spanish, es-noquoting, es-tabla]{babel}   % el último idioma es el principal; es-noquoting: "<<" no abre comillas, las comillas latinas se escriben « » directamente; es-tabla: «Tabla» y no «Cuadro» (guía EPS 4.2)
+\usepackage{csquotes}
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice de contenidos}}   % nombre de la guía EPS 2.5
+
+% ---------- Márgenes ----------
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=3cm,inner=3cm,outer=2.5cm,marginparwidth=2cm]{geometry}
+
+% ---------- Interlineado ----------
+% Interlineado 1,5 como el de Word en TODO el documento: texto, notas, pies de figura, tablas y bibliografía.
+% No se usa setspace porque este deja en sencillo las notas y los flotantes. LaTeX ya separa las líneas
+% 1,2 veces el tamaño de letra, así que 1,24 x 1,2 ≈ 1,5 líneas.
+\linespread{1.24}
+
+% ---------- Matemáticas y listas ----------
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+% ---------- Tipos de letra (guía EPS 1.2) ----------
+% Familia 2 (Palatino) para el texto, los títulos y las fórmulas (en itálica); familia 1 (TeX Gyre Heros,
+% clon libre de Helvética) para la bibliografía; familia 3 (Courier) para el código.
+% La guía solo «recomienda» la familia 1 para los títulos; se dejan en Palatino, igual que el texto.
+\usepackage{newpxtext}                   % también pone TeX Gyre Heros como familia sin serifa
+\usepackage{newpxmath}
+\renewcommand{\ttdefault}{pcr}
+
+% ---------- Formato de títulos ----------
+\usepackage{titlesec}
+\titleformat{\paragraph}[block]{\normalfont\large\bfseries}{\theparagraph}{1em}{}
+
+% ---------- Figuras ----------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}                     % \captionsetup para ajustar los pies de una figura concreta
+% Colocación de figuras: que compartan página con el texto en lugar de quedarse solas en una
+% página con huecos arriba y abajo
+\renewcommand{\topfraction}{0.85}        % hasta el 85 % de una página puede ser figuras arriba
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.1}        % basta un 10 % de texto para que la página no sea solo de figuras
+\renewcommand{\floatpagefraction}{0.85}  % página solo de figuras únicamente si estas la llenan casi entera
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+
+% Ningún párrafo se parte dejando menos de tres líneas al final o al principio de una página
+\usepackage[defaultlines=3, all]{nowidow}
+\raggedbottom                            % a dos caras LaTeX estira el espacio vertical para igualar el pie de las páginas; con figuras [H] deja huecos
+\usepackage{eso-pic}                     % imagen de fondo en la portada
+\usepackage[absolute, overlay]{textpos}
+
+% ---------- Gráficas (pgfplots) ----------
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning, arrows.meta, fit, backgrounds, shapes.geometric}   % esquemas de bloques
+\definecolor{serie1}{HTML}{2A78D6}       % azul: serie principal
+\definecolor{serie2}{HTML}{EB6834}       % naranja: segunda serie
+\definecolor{tintasecundaria}{HTML}{52514E}
+\pgfplotsset{
+	grafica/.style={
+		width=0.92\linewidth, height=6cm,
+		axis lines*=left, axis line style={tintasecundaria},
+		tick style={tintasecundaria}, tick label style={font=\small, text=tintasecundaria},
+		label style={font=\small}, grid style={gray!20}, ymajorgrids,
+		/pgf/number format/use comma, /pgf/number format/1000 sep={\,},
+		legend style={draw=none, font=\small, legend columns=-1},
+	},
+}
+
+% ---------- Tablas ----------
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{eurosym}                     % \euro en las tablas de precios
+
+% ---------- Páginas en horizontal ----------
+\usepackage{pdflscape}                   % \begin{landscape} ... \end{landscape}
+\usepackage{rotating}
+\usepackage{afterpage}                   % \afterpage{...}: la página horizontal sale tras la actual, sin dejar hueco
+
+% ---------- Cajas, colores y notas ----------
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{todonotes}                   % \todo{...} para notas pendientes
+
+% Marca visible para las citas que aún faltan; buscar "\citapendiente" antes de entregar
+\newcommand{\citapendiente}{\unskip\textsuperscript{\textcolor{red}{[cita]}}}
+
+% Nota de fuente al pie de una tabla o figura (guía EPS 4.3). Uso: \fuente{elaboración propia}
+\newcommand{\fuente}[1]{\par\smallskip{\footnotesize Fuente: #1.}\par}
+
+% ---------- Código fuente ----------
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Índice de código}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={const, let, var, function, return, async, await, export, import, from, for, of, if, else, new, class},
+	keywordstyle=\color{blue}\bfseries,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{gray}\itshape,
+	string=[b]',
+	morestring=[b]",
+	stringstyle=\color{teal},
+	sensitive=true
+}
+
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,
+	breakindent=0pt,
+	columns=fullflexible,
+	keepspaces=true,
+	captionpos=b,
+	showstringspaces=false,
+	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1
+	         {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {Ñ}{{\~N}}1
+}
+
+\lstdefinestyle{codigo}{
+	frame=single,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	stringstyle=\color{teal},
+	commentstyle=\color{gray},
+	tabsize=4
+}
+
+% ---------- Enlaces ----------
+\usepackage[hidelinks, hypertexnames=false]{hyperref}   % la portada y los preliminares repiten números de página
+
+% ---------- Referencias, bibliografía ----------
+\usepackage[backend=biber, style=authoryear, maxcitenames=2, sorting=nyt]{biblatex}
+\addbibresource{referencias.bib}
+% Las URL largas de la bibliografía pueden partirse en cualquier carácter (si no, se salen del margen)
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburlucpenalty}{9000}
+\setcounter{biburllcpenalty}{9000}
+\appto{\bibsetup}{\sloppy\raggedright}   % sin justificar: las URL que no se pueden partir dejaban líneas muy estiradas
+\renewcommand*{\bibfont}{\sffamily}      % guía EPS 2.8: la bibliografía va en familia 1
+
+% ---------- Glosario (después de hyperref) ----------
+\PassOptionsToPackage{lang-warn=false}{datatool-base}   % datatool no trae módulos de idioma instalados
+\usepackage[toc, acronym, nolangwarn]{glossaries}   % nolangwarn: no hay módulo de glossaries para catalán
+\makeglossaries
+
+% ---------- Encabezado y pie ----------
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}            % el cuerpo va en \large y la cabecera no cabía en 12pt
+\pagestyle{fancy}
+\fancyhf{}
+% Guía EPS 1.4: a dos caras, con cabeceras distintas en páginas pares e impares.
+% El número va siempre en el borde exterior; el capítulo en las pares y la sección en las impares.
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\usepackage{emptypage}                   % las páginas en blanco que añade el modo a dos caras, sin cabecera
+
+% Estilo para las páginas que abren capítulo
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+}

@@ -1,0 +1,60 @@
+% Esquema de comunicación entre el piloto, los periféricos y el ordenador.
+% Azul (serie1): entradas, del piloto al simulador. Naranja (serie2): salidas, del simulador a los periféricos.
+% Gris: interacción física con el piloto. Coordenadas en cm; cada flecha tiene su propio carril para no cruzarse.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+		font=\small,
+		bloque/.style={draw=tintasecundaria, rounded corners=3pt, fill=white, align=center,
+			minimum width=3.2cm, minimum height=1.1cm, inner sep=3pt},
+		pc/.style={bloque, minimum height=2.0cm},
+		grupo/.style={draw=tintasecundaria!55, dashed, rounded corners=6pt, inner sep=7pt},
+		titulo/.style={font=\small\bfseries, text=tintasecundaria},
+		entrada/.style={-{Stealth[length=2.4mm]}, line width=1.2pt, serie1},
+		salida/.style={-{Stealth[length=2.4mm]}, line width=1.2pt, serie2},
+		fisica/.style={-{Stealth[length=2.2mm]}, line width=0.9pt, tintasecundaria!85},
+		etiqueta/.style={font=\scriptsize, inner sep=1.5pt, align=center},
+	]
+		% --- Bloques ---
+		\node[bloque, minimum width=2.2cm, minimum height=5.6cm] (piloto) at (1.1,0.75)
+			{\textbf{Piloto}\\[6pt] manos\\[2pt] pies\\[2pt] vista y oído};
+		\node[bloque] (aro)      at (5.6, 3.0)  {\textbf{Aro}\\ botones, levas, LEDs};
+		\node[bloque] (base)     at (5.6, 1.5)  {\textbf{Base \textit{direct drive}}\\ encoder y motor};
+		\node[bloque] (pedalera) at (5.6, 0.0)  {\textbf{Pedalera}\\ sensores};
+		\node[bloque] (dash)     at (5.6, -1.5) {\textbf{Dashboard}\\ pantalla};
+		\node[pc]     (sim)      at (12.0, 1.5) {\textbf{Simulador}\\ modelo físico del\\ coche y la pista};
+		\node[pc]     (apoyo)    at (12.0, -1.5) {\textbf{Software de apoyo}\\ dashes, LEDs};
+
+		\begin{scope}[on background layer]
+			\node[grupo, fit=(aro)(dash), label={[titulo]above:Periféricos}] (gperif) {};
+			\node[grupo, fit=(sim)(apoyo), label={[titulo]above:Ordenador}] (gpc) {};
+		\end{scope}
+
+		% --- Interacción física (gris) ---
+		\draw[fisica] (2.2, 3.0)  -- node[etiqueta, above] {girar,\\ pulsar} (aro.west);
+		\draw[fisica] (base.west) -- node[etiqueta, above] {par en\\ las manos} (2.2, 1.5);
+		\draw[fisica] (2.2, 0.0)  -- node[etiqueta, above] {pisar} (pedalera.west);
+		\draw[fisica] (dash.west) -- node[etiqueta, above] {mirar} (2.2, -1.5);
+		\draw[fisica, dashed] (gpc.south) -- (12.0, -3.05) -- node[etiqueta, above, pos=0.5] {imagen y sonido} (1.1, -3.05) -- (piloto.south);
+
+		% --- Entradas (azul): periféricos -> simulador ---
+		\draw[entrada] (7.2, 3.0)  -- (8.0, 3.0) -- (8.0, 2.35) -- node[etiqueta, above, pos=0.5] {USB HID:\\ ejes y botones} (10.4, 2.35);
+		\draw[entrada] (7.2, 1.8)  -- (10.4, 1.8);
+		\draw[entrada] (7.2, 0.0)  -- (8.0, 0.0) -- (8.0, 0.65) -- (10.4, 0.65);
+
+		% --- Salidas (naranja): simulador -> periféricos ---
+		\draw[salida] (10.4, 1.2) -- node[etiqueta, below, pos=0.5] {force feedback} (7.2, 1.2);
+		\draw[salida] (sim.south) -- node[etiqueta, right] {telemetría} (apoyo.north);
+		\draw[salida] (apoyo.west) -- node[etiqueta, above] {datos} (dash.east);
+		\draw[salida] (13.6, -1.5) -- (14.3, -1.5) -- (14.3, 4.45) -- node[etiqueta, above, pos=0.5] {LEDs de revoluciones y avisos} (6.6, 4.45) -- (6.6, 3.55);
+
+		% --- Leyenda ---
+		\begin{scope}[shift={(2.6,-3.85)}, font=\scriptsize]
+			\draw[entrada] (0,0) -- (0.6,0); \node[anchor=west] at (0.7,0) {entrada al simulador};
+			\draw[salida]  (4.0,0) -- (4.6,0); \node[anchor=west] at (4.7,0) {salida hacia los periféricos};
+			\draw[fisica]  (8.7,0) -- (9.3,0); \node[anchor=west] at (9.4,0) {interacción física};
+		\end{scope}
+	\end{tikzpicture}
+	\caption[Comunicación entre el simulador y los periféricos]{Comunicación entre el piloto, los periféricos y el ordenador. Los periféricos envían al simulador la posición del volante, de los pedales y de los botones (entradas) y reciben de él el force feedback y los datos de telemetría que encienden los LEDs y el dashboard (salidas). (Fuente propia)}
+	\label{fig:comunicacion-perifericos}
+\end{figure}

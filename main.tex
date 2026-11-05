@@ -1,0 +1,65 @@
+% =====================================================================
+%  PLANTILLA TFG
+%  Compilar: pdflatex -> makeglossaries -> biber -> pdflatex x2
+%  (o Latexmk, que hace todo solo gracias al archivo .latexmkrc)
+% =====================================================================
+\documentclass[11pt,twoside]{report}   % guía EPS 1.4: edición a dos caras
+
+\input{preambulo}   % paquetes, estilos, encabezados, código...
+\input{glosario}    % términos del glosario y acrónimos
+
+% Metadatos del PDF
+\hypersetup{
+	pdftitle={Diseño y desarrollo de un ecosistema para simulación de carreras de coches},
+	pdfauthor={Alejandro Villena Herreros}
+}
+
+\begin{document}
+	\large
+
+	% ---------- PARTE PRELIMINAR ----------
+	\input{preliminares/portada}
+	\pagenumbering{roman}
+	\input{preliminares/licencia}
+	\input{preliminares/resumen}
+	\input{preliminares/motivacion}
+	\input{preliminares/agradecimientos}
+	\input{preliminares/citas}
+
+	% ---------- ÍNDICES ----------
+	% Guía EPS 2.5: contenidos, figuras, tablas y abreviaturas, en este orden y cada uno en página nueva
+	\tableofcontents
+	\listoffigures
+	\listoftables
+	\lstlistoflistings   % índice de código (bórralo si no usas listings)
+	\printglossary[type=\acronymtype, title=Acrónimos]
+
+	% ---------- CUERPO ----------
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+
+	\include{capitulos/01_introduccion}
+	\include{capitulos/02_contexto_propuesta}
+	\include{capitulos/03_objetivos}
+	\include{capitulos/04_estado_arte}
+	\include{capitulos/05_metodologia}
+	\include{capitulos/06_planificacion}
+	\include{capitulos/07_requisitos}
+	\include{capitulos/08_diseno}
+	\include{capitulos/09_implementacion}
+	\include{capitulos/10_resultados}
+	\include{capitulos/11_conclusiones}
+
+	% ---------- APÉNDICES ----------
+	\appendix
+	\include{apendices/A_apendice}
+
+	% ---------- BIBLIOGRAFÍA ----------
+	\setlength{\bibitemsep}{1em}
+	\printbibliography[heading=bibintoc, title={Bibliografía}]
+
+	% ---------- GLOSARIO ----------
+	\printglossary[title=Glosario]
+
+\end{document}

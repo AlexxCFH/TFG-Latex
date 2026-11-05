@@ -1,0 +1,31 @@
+% Facturación anual de Endor AG, empresa propietaria de Fanatec (millones de euros).
+% Datos y fuentes:
+%   2016-2021  Börsengeflüster, "Endor: Voll auf Wachstumskurs" (tabla de Umsatzerlöse)
+%   2020       Endor AG, cifras preliminares 2020: 90 M€ frente a 38,8 M€ en 2019 (+132 %)
+%   2021       Endor AG, cifras preliminares 2021: un 10 % menos por falta de suministro
+%   2022       TraderFox (119,19 M€); Landshuter Rundschau cita 119 M€
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			grafica,
+			ybar, bar width=18pt,
+			ymin=0, ymax=135,
+			xtick=data,
+			xticklabel style={/pgf/number format/1000 sep={}},
+			ylabel={Facturación (millones de euros)},
+			nodes near coords,
+			every node near coord/.append style={font=\footnotesize, text=black,
+				/pgf/number format/fixed, /pgf/number format/precision=1},
+			enlarge x limits=0.08,
+		]
+			\addplot[fill=serie1, draw=none]
+				coordinates {
+					(2016, 10.2) (2017, 18.4) (2018, 22.1) (2019, 38.8)
+					(2020, 90.2) (2021, 81.3) (2022, 119.2)
+				};
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Facturación anual de Endor AG (Fanatec)]{Facturación anual de Endor AG, la empresa propietaria de Fanatec, entre 2016 y 2022. El salto de 2020 coincide con la pandemia y la caída de 2021 se debe a la falta de suministro de componentes. Fuente: comunicados de resultados de Endor AG \parencite{endor_web}.}
+	\label{fig:fanatec-facturacion}
+\end{figure}

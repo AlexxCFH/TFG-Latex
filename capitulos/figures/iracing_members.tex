@@ -1,0 +1,35 @@
+% Evolución de los miembros de iRacing (miles).
+% Datos y fuentes:
+%   jul 2012  35 000   iRacing, "iRacing Tops 35,000 Members"
+%   sep 2014  52 000   iRacing, "A Billion Laps . . . and Counting!"
+%   ene 2020 110 000   The Drive, citando al CFO Anthony Gardner (suscriptores activos)
+%   abr 2020 160 000   The Drive, ídem
+%   may 2020 170 000   iRacing, "iRacing Adds Multiple Servers..." (miembros activos)
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			grafica,
+			xmin=2011.5, xmax=2021,
+			ymin=0, ymax=190,
+			clip=false,
+			xtick={2012,2014,2016,2018,2020},
+			xticklabel style={/pgf/number format/1000 sep={}},
+			ylabel={Miembros (miles)},
+		]
+			\fill[serie2!12] (axis cs:2020.2,0) rectangle (axis cs:2021,190);
+			\node[font=\footnotesize, text=tintasecundaria, anchor=south] at (axis cs:2020.6,190) {COVID-19};
+			\addplot[serie1, line width=1.5pt, mark=*, mark size=2.5pt, mark options={fill=serie1, draw=white}]
+				coordinates {
+					(2012.54, 35) (2014.69, 52)
+					(2020.04, 110) (2020.27, 160) (2020.34, 170)
+				};
+			\node[font=\footnotesize, anchor=south] at (axis cs:2012.54,37) {35\,000};
+			\node[font=\footnotesize, anchor=south] at (axis cs:2014.69,54) {52\,000};
+			\node[font=\footnotesize, anchor=east] at (axis cs:2019.95,110) {110\,000};
+			\node[font=\footnotesize, anchor=east] at (axis cs:2020.15,170) {170\,000};
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Evolución de los miembros de iRacing]{Evolución de los miembros de iRacing entre 2012 y 2020. Los datos de 2012 y 2014 son miembros registrados y los de 2020, miembros activos. Fuente: comunicados de iRacing \parencite{iracing_news}.}
+	\label{fig:iracing-miembros}
+\end{figure}

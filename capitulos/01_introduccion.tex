@@ -1,0 +1,47 @@
+% !TeX root = ../main.tex
+\chapter{Introducción}
+
+Texto de la introducción. Ejemplos de uso de la plantilla:
+
+\begin{itemize}[label=$\bullet$]
+	\item Cita entre paréntesis: \citapendiente{}.
+	\item Cita en el texto: según \citapendiente{}, \dots
+	\item Término del glosario: una \gls{api} expone varios \glspl{endpoint}.
+	\item Acrónimo (la primera vez sale completo): \gls{tfg}, y después \gls{tfg}.
+	\item Nota a pie con enlace\footnote{\url{https://www.ejemplo.com}}.
+	\item Nota pendiente en el margen.\todo{Revisar este párrafo}
+\end{itemize}
+
+% ---------- Figura ----------
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/ejemplo.png}
+	\caption[Figura de ejemplo]{Figura de ejemplo. (Fuente propia)}
+	\label{fig:ejemplo}
+\end{figure}
+
+Como se ve en la Figura~\ref{fig:ejemplo}, \dots
+
+% ---------- Tabla ----------
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\textwidth}{p{3cm} >{\raggedright\arraybackslash}X}
+		\textbf{Columna 1} & \textbf{Columna 2} \\
+		\midrule
+		Dato & Descripción más larga que se ajusta al ancho disponible. \\
+		\midrule
+		Dato & Otra descripción. \\
+	\end{tabularx}
+	\caption{Tabla de ejemplo}
+	\label{tab:ejemplo}
+\end{table}
+
+% ---------- Código ----------
+\begin{lstlisting}[language=JavaScript, style=codigo, caption={Código de ejemplo}, label={lst:ejemplo}]
+// Comentario de ejemplo
+export async function saludar(nombre) {
+	const mensaje = "Hola, " + nombre;
+	return mensaje;
+}
+\end{lstlisting}

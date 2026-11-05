@@ -1,0 +1,41 @@
+% Capas que separan al simulador del motor de una base y qué proyecto abierto cubre cada una.
+% Columna central: capas de una base. Barras a la derecha: alcance de cada proyecto. Izquierda: periféricos sin motor.
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[
+		font=\small,
+		bloque/.style={draw=tintasecundaria, rounded corners=3pt, fill=white, align=center,
+			minimum width=4.2cm, minimum height=1.0cm, inner sep=3pt},
+		flecha/.style={-{Stealth[length=2.2mm]}, line width=1.0pt, tintasecundaria!85},
+		etiqueta/.style={font=\scriptsize, inner sep=1.5pt, align=left},
+		alcance/.style={line width=4pt, line cap=round},
+		proyecto/.style={font=\scriptsize\bfseries, align=center},
+	]
+		% --- Capas de una base ---
+		\node[bloque] (pc) at (0, 6.6) {\textbf{Simulador} (ordenador)};
+		\node[bloque] (c1) at (0, 4.6) {\textbf{1. Comunicación USB}\\ dispositivo HID};
+		\node[bloque] (c2) at (0, 2.6) {\textbf{2. Cálculo del force feedback}\\ efectos y ajustes};
+		\node[bloque] (c3) at (0, 0.6) {\textbf{3. Control del motor}\\ FOC};
+		\node[bloque] (motor) at (0, -1.4) {\textbf{Motor y encoder}};
+
+		% --- Flujo ---
+		\draw[flecha] ([xshift=-6mm]pc.south) -- node[etiqueta, left] {efectos\\ HID PID} ([xshift=-6mm]c1.north);
+		\draw[flecha] ([xshift=6mm]c1.north) -- node[etiqueta, right] {posición\\ del volante} ([xshift=6mm]pc.south);
+		\draw[flecha] (c1) -- (c2);
+		\draw[flecha] (c2) -- node[etiqueta, right] {consigna de par} (c3);
+		\draw[flecha] ([xshift=-6mm]c3.south) -- node[etiqueta, left] {corrientes\\ de fase} ([xshift=-6mm]motor.north);
+		\draw[flecha] ([xshift=6mm]motor.north) -- node[etiqueta, right] {posición\\ del rotor} ([xshift=6mm]c3.south);
+
+		% --- Alcance de cada proyecto ---
+		\draw[alcance, serie1] (3.2, 0 |- c1.north) -- node[proyecto, text=serie1, above, sloped] {OpenFFBoard} (3.2, 0 |- c2.south);
+		\draw[alcance, serie2] (4.4, 0 |- c3.north) -- node[proyecto, text=serie2, above, sloped] {ODrive} (4.4, 0 |- c3.south);
+		\draw[alcance, tintasecundaria] (5.6, 0 |- c1.north) -- node[proyecto, text=tintasecundaria, above, sloped] {FFBeast} (5.6, 0 |- c3.south);
+
+		% --- Periféricos sin motor ---
+		\node[bloque, minimum width=3.4cm] (ard) at (-5.0, 4.6)
+			{\textbf{Aro o pedalera}\\ sensores + capa 1\\ \scriptsize(Arduino Joystick Library)};
+		\draw[flecha] (ard.north) |- node[etiqueta, above, pos=0.75] {ejes y botones} (pc.west);
+	\end{tikzpicture}
+	\caption[Capas entre el simulador y el motor de una base, y alcance de cada proyecto abierto]{Capas entre el simulador y el motor de una base, y alcance de cada proyecto abierto. (Fuente propia)}
+	\label{fig:capas-abiertas}
+\end{figure}

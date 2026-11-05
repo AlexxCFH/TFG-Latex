@@ -1,0 +1,43 @@
+% Estimaciones del mercado de simuladores de carreras según cada consultora (miles de millones de dólares).
+% Datos y fuentes (valor de partida -> previsión):
+%   MarketsandMarkets         0,50 (2024) -> 1,10 (2030)
+%   Mordor Intelligence       0,98 (2025) -> 2,04 (2030)
+%   Market Research Future    1,05 (2025) -> 4,31 (2035)
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			grafica,
+			scale only axis, width=0.5\linewidth, height=5.5cm,
+			xbar=3pt, bar width=8pt,
+			xmin=0, xmax=5.2,
+			area legend,
+			legend style={/tikz/every even column/.append style={column sep=10pt}},
+			xmajorgrids, ymajorgrids=false,
+			axis lines*=left,
+			symbolic y coords={Market Research Future,Mordor Intelligence,MarketsandMarkets},
+			ytick=data,
+			y dir=reverse,
+			enlarge y limits=0.15,
+			xlabel={Tamaño del mercado (miles de millones de dólares)},
+			point meta=explicit symbolic,
+			nodes near coords,
+			every node near coord/.append style={font=\scriptsize, text=black, anchor=west},
+			legend style={at={(0.5,1.02)}, anchor=south},
+		]
+			\addplot[fill=serie1, draw=none] coordinates {
+				(0.50,MarketsandMarkets) [0,50 (2024)]
+				(0.98,Mordor Intelligence) [0,98 (2025)]
+				(1.05,Market Research Future) [1,05 (2025)]
+			};
+			\addplot[fill=serie2, draw=none] coordinates {
+				(1.10,MarketsandMarkets) [1,10 (2030)]
+				(2.04,Mordor Intelligence) [2,04 (2030)]
+				(4.31,Market Research Future) [4,31 (2035)]
+			};
+			\legend{Valor de partida, Previsión}
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Estimaciones del mercado de simuladores de carreras]{Estimaciones del tamaño del mercado de simuladores de carreras según tres consultoras, con el año de cada valor. Fuente: resúmenes públicos de los informes de MarketsandMarkets, Mordor Intelligence y Market Research Future \parencite{marketsandmarkets_racing_sim, mordor_2025_racing_sim, mrfr_2025_racing_sim}.}
+	\label{fig:mercado-estimaciones}
+\end{figure}

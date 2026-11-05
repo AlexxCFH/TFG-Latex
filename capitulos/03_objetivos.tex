@@ -1,0 +1,244 @@
+\chapter{Objetivos}
+\label{cap:objetivos}
+
+ En este capítulo se detallan los objetivos funcionales, es decir, lo que cada parte del sistema debe hacer (sección~\ref{sec:objetivos-funcionales}), y los objetivos no funcionales, que fijan cómo debe hacerlo, es decir, con qué rendimiento, seguridad, compatibilidad y facilidad de uso (sección~\ref{sec:objetivos-no-funcionales}). Cada objetivo recibe un identificador, que se emplea en los capítulos de diseño, implementación y validación para comprobar que se ha cumplido.
+
+%======================================================================
+\section{Objetivo general}
+\label{sec:objetivo-general}
+
+El objetivo general de este trabajo es \textbf{diseñar, construir y validar un ecosistema de simracing de fabricación propia, formado por un volante \emph{direct drive} con force feedback, una pedalera con célula de carga en el freno y sensores de efecto Hall en el resto de pedales, y un aro similar al de un Fórmula 1 con LEDs, botones, encoders rotativos y una pantalla que muestra la información importante del vehículo y de la pista, todo ello con un acabado profesional. Estos elementos estarán coordinados por una aplicación de escritorio que configure los tres periféricos en vivo y añada las herramientas de apoyo al piloto que hoy exigen programas separados}.
+
+El sistema debe ofrecer prestaciones comparables a las de los equipos comerciales de gama media con un coste claramente inferior, funcionar con los simuladores más extendidos sin drivers ni software adicional y poder usarse a diario por un piloto sin conocimientos de electrónica ni de programación.
+
+Este objetivo general se descompone en dos grupos de objetivos específicos:
+
+\begin{itemize}
+	\item \textbf{Objetivos funcionales (OF)}: las funciones concretas que debe ofrecer cada periférico y la aplicación.
+	\item \textbf{Objetivos no funcionales (ONF)}: las cualidades que debe tener el sistema en su conjunto, como el rendimiento, la seguridad, la compatibilidad, la usabilidad, la mantenibilidad, la fiabilidad, la privacidad, el coste y la legalidad.
+\end{itemize}
+
+%======================================================================
+\section{Objetivos funcionales}
+\label{sec:objetivos-funcionales}
+
+Los objetivos funcionales se agrupan por subsistema, siguiendo la misma división que la propuesta de solución (sección~\ref{sec:propuesta}): la base \emph{direct drive} VH Grid DD15, la pedalera VH Axis, el aro VH Formula Apex y la aplicación VH SimGrid. A esta última, por su amplitud, se le dedican dos grupos: el de configuración de los periféricos y el de herramientas de apoyo al piloto.
+
+\subsection{Volante VH Grid DD15}
+\label{subsec:of-volante}
+
+La base es el periférico más exigente del sistema, porque debe transmitir al piloto las fuerzas que calcula el simulador con fidelidad y sin retardo apreciable. Sus objetivos funcionales se recogen en la tabla~\ref{tab:of-volante}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Objetivos funcionales del volante VH Grid DD15.}
+	\label{tab:of-volante}
+	\small
+	\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{ID} & \textbf{Objetivo} & \textbf{Descripción} \\
+		\midrule
+		OF-01 & Volante FFB nativo &
+		Ser reconocido por Windows como un volante con force feedback mediante el estándar USB HID PID, sin instalar drivers ni dejar software residente. \\
+		OF-02 & Efectos DirectInput &
+		Reproducir los efectos estándar que piden los simuladores: fuerza constante, muelle (\emph{spring}), amortiguación (\emph{damper}), fricción e inercia, cada uno con su ganancia ajustable. \\
+		OF-03 & Rango de giro y centrado &
+		Permitir ajustar el rango de giro entre 90° y 1440° y fijar el centro del volante desde la aplicación. \\
+		OF-04 & Ajuste de la sensación &
+		Ofrecer el ajuste de la fuerza máxima, el suavizado de la señal, el refuerzo de las fuerzas pequeñas, la dureza del tope de giro y los efectos base del volante. \\
+		OF-05 & Ecualizador y curva FFB &
+		Proporcionar un ecualizador de 6 bandas entre 5 y 60~Hz y una curva de respuesta de 9 puntos que traduzca la fuerza pedida por el juego en la fuerza entregada por el motor. \\
+		OF-06 & Calibración anti-cogging &
+		Medir y compensar el rizado magnético del motor y guardar la calibración en la memoria flash de la base. \\
+		OF-07 & Monitorización del motor &
+		Mostrar en vivo el estado del motor y un registro de los últimos segundos del giro y de la fuerza, con el nivel de saturación (\emph{clipping}) marcado. \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+\subsection{Pedalera VH Axis}
+\label{subsec:of-pedalera}
+
+La pedalera debe medir la posición del acelerador y del embrague y, en el caso del freno, la fuerza que aplica el pie, ya que es la magnitud que el piloto controla en una frenada real. Sus objetivos se resumen en la tabla~\ref{tab:of-pedalera}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Objetivos funcionales de la pedalera VH Axis.}
+	\label{tab:of-pedalera}
+	\small
+	\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{ID} & \textbf{Objetivo} & \textbf{Descripción} \\
+		\midrule
+		OF-08 & Tres ejes de mando &
+		Presentarse ante el sistema operativo como un mando USB con tres ejes: acelerador, freno y embrague. \\
+		OF-09 & Freno por fuerza &
+		Medir la fuerza del freno con una célula de carga, en lugar del recorrido, y permitir calibrarlo en kilos. \\
+		OF-10 & Calibración guiada &
+		Guiar al usuario en la calibración del reposo y del fondo de cada pedal. \\
+		OF-11 & Curva de respuesta &
+		Ofrecer por pedal una curva de respuesta editable con preajustes, zona muerta e inversión del sentido. \\
+		OF-12 & Traza en vivo &
+		Mostrar en la aplicación la posición de los tres pedales en tiempo real. \\
+		OF-13 & Ajustes persistentes &
+		Guardar la configuración en la EEPROM de la pedalera, de forma que se conserve al desconectarla. \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+\subsection{Aro VH Formula Apex}
+\label{subsec:of-aro}
+
+El aro reúne los mandos que el piloto usa durante la conducción y una tira de LEDs que le informa del régimen del motor y de los eventos de la carrera sin apartar la vista de la pista. Sus objetivos se recogen en la tabla~\ref{tab:of-aro}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Objetivos funcionales del aro VH Formula Apex.}
+	\label{tab:of-aro}
+	\small
+	\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{ID} & \textbf{Objetivo} & \textbf{Descripción} \\
+		\midrule
+		OF-14 & Botones y encoders &
+		Ofrecer una matriz de botones y varios encoders que funcionen como botones de un mando USB estándar. \\
+		OF-15 & Palancas de embrague &
+		Incorporar palancas de embrague con modo de funcionamiento y punto de mordida configurables. \\
+		OF-16 & Barra de RPM &
+		Mostrar las revoluciones en la tira de LEDs con modo, llenado y umbrales por LED configurables, y ajustarlos de forma automática al régimen real de cada coche. \\
+		OF-17 & Luces por eventos &
+		Asignar a cada LED eventos de la carrera (banderas, TC, ABS, DRS, ERS, limitador, pit lane, coches cerca, freno, acelerador, combustible\ldots) con su rango, sus colores y su estilo: fijo, parpadeo, respiración o desplazamiento. \\
+		OF-18 & Perfiles de luces &
+		Agrupar las asignaciones de luces en carpetas y guardarlas en perfiles por juego y por coche. \\
+		OF-19 & Brillo &
+		Ajustar el brillo de la tira, con un nivel nocturno propio, y conservarlo aunque el aro arranque sin el PC conectado. \\
+		OF-20 & Pantalla &
+		Reproducir dashes con información del vehículo y datos de la sesión, y permitir modificar parámetros del equipo desde el propio aro. \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+\subsection{Aplicación VH SimGrid: configuración de los periféricos}
+\label{subsec:of-app-config}
+
+La aplicación es el elemento que convierte los tres periféricos en un único sistema. Su primer cometido es detectarlos, configurarlos y mantenerlos actualizados, como se detalla en la tabla~\ref{tab:of-app-config}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Objetivos funcionales de la aplicación: configuración de los periféricos.}
+	\label{tab:of-app-config}
+	\small
+	\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{ID} & \textbf{Objetivo} & \textbf{Descripción} \\
+		\midrule
+		OF-21 & Detección automática &
+		Detectar y conectar los periféricos al enchufarlos, mostrar su estado y reconectarlos solos si se pierde la conexión. \\
+		OF-22 & Configuración en vivo &
+		Aplicar cualquier cambio de ajuste en el periférico al momento, sin reflashear su firmware. \\
+		OF-23 & Perfiles automáticos &
+		Gestionar perfiles de configuración (GT3, Fórmula, Rally\ldots) y aplicarlos solos al detectar el juego que se está ejecutando. \\
+		OF-24 & Actualización de firmware &
+		Comprobar la versión del firmware de cada periférico al conectarlo y, si hay una más reciente, grabarla desde la propia aplicación con un clic, sin herramientas externas. \\
+		OF-25 & Recepción de telemetría &
+		Recibir la telemetría de los simuladores compatibles y mostrar sus variables en vivo para comprobar que llegan. \\
+		OF-26 & Lanzador de juegos &
+		Mostrar los simuladores instalados, indicar cuáles tienen la telemetría configurada y abrirlos desde la aplicación. \\
+		OF-27 & Asistente inicial &
+		Guiar al usuario en la primera puesta en marcha del volante, los pedales, el aro y la telemetría de sus juegos. \\
+		OF-28 & Copia de seguridad &
+		Exportar e importar en un único fichero todos los ajustes y perfiles, y generar un fichero de diagnóstico para el soporte. \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+\subsection{Aplicación VH SimGrid: herramientas de apoyo al piloto}
+\label{subsec:of-app-apoyo}
+
+El segundo cometido de la aplicación es reunir en un mismo programa las herramientas que hoy se cubren con aplicaciones de terceros: el dash, el ingeniero de pista y el análisis de telemetría. Sus objetivos se recogen en la tabla~\ref{tab:of-app-apoyo}.
+
+\begin{table}[H]
+	\centering
+	\caption{Objetivos funcionales de la aplicación: herramientas de apoyo al piloto.}
+	\label{tab:of-app-apoyo}
+	\small
+	\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{ID} & \textbf{Objetivo} & \textbf{Descripción} \\
+		\midrule
+		OF-29 & Dash &
+		Mostrar dashes con los datos de la telemetría en un monitor o en un móvil vinculado mediante un código QR, con una galería de diseños de serie que se puedan exportar e importar. \\
+		OF-30 & Editor de dashes &
+		Permitir diseñar dashes desde cero o modificar los existentes con elementos gráficos, varias pantallas, fórmulas y canales calculados, y probarlos en vivo. \\
+		OF-31 & Menú del dash &
+		Ofrecer un menú que se abra con los botones del aro para cambiar ajustes sin soltar el volante y lanzar macros cuyo efecto se compruebe por telemetría. \\
+		OF-32 & Ingeniero de pista por voz &
+		Informar al piloto por radio durante la conducción y responder a sus preguntas por voz, activadas con un botón del aro. \\
+		OF-33 & Avisos configurables &
+		Agrupar los avisos del ingeniero por familias (spotter, combustible, ritmo, neumáticos, daños, rivales, estrategia, boxes\ldots), permitir silenciar o ajustar cada una y evitar hablar en los momentos de máxima carga, como una frenada. \\
+		OF-34 & Estrategia de carrera &
+		Calcular y comparar estrategias de paradas según el reglamento de la carrera, guardarlas por coche y circuito, rellenarlas con datos medidos en pista y hacer que el ingeniero las siga en carrera. \\
+		OF-35 & Grabación de sesiones &
+		Grabar de forma automática la telemetría de cada sesión, con un buscador y filtros por juego, coche y circuito. \\
+		OF-36 & Análisis de telemetría &
+		Analizar las sesiones vuelta a vuelta y canal a canal, comparando con una vuelta de referencia, con hojas de piloto, vehículo, suspensión y circuito. \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+%======================================================================
+\section{Objetivos no funcionales}
+\label{sec:objetivos-no-funcionales}
+
+Los objetivos no funcionales no describen una función concreta, sino las condiciones que debe cumplir el sistema en su conjunto. En un equipo que mueve un motor de potencia unido a las manos del piloto, algunos de ellos, como la seguridad, son tan importantes como las propias funciones. Se agrupan en nueve categorías, recogidas en la tabla~\ref{tab:onf}.
+
+\begin{itemize}
+	\item \textbf{Rendimiento.} El piloto percibe cualquier retardo entre lo que ocurre en el simulador y lo que nota en las manos o en los pies, por lo que los periféricos deben leer y responder con una frecuencia alta y estable.
+	\item \textbf{Seguridad.} La base \emph{direct drive} puede desarrollar un par capaz de lesionar al usuario o de dañar la electrónica, de modo que el firmware debe protegerlo ante fallos y situaciones anómalas.
+	\item \textbf{Compatibilidad.} El sistema debe funcionar con los simuladores y el sistema operativo que usa la mayoría de los pilotos, sin depender de drivers propios.
+	\item \textbf{Usabilidad.} El usuario objetivo es un piloto, no un técnico, así que la configuración debe ser visual, guiada y aplicarse al momento.
+	\item \textbf{Mantenibilidad.} Las actualizaciones deben ser sencillas y no hacer perder los ajustes del usuario.
+	\item \textbf{Fiabilidad.} Los periféricos deben conservar su configuración y seguir funcionando como mandos aunque la aplicación no esté abierta.
+	\item \textbf{Privacidad.} Los datos del usuario, su voz y su telemetría no deben salir de su equipo.
+	\item \textbf{Coste.} El conjunto debe ser claramente más barato que un puesto comercial de prestaciones equivalentes, que el capítulo~\ref{cap:problema-solucion} sitúa por encima de los 1.200~€.
+	\item \textbf{Legalidad.} El sistema debe respetar las licencias del software y de las voces de terceros que incorpora, y no reproducir marcas ni diseños protegidos.
+\end{itemize}
+
+{\small
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{2.9cm}p{\dimexpr\textwidth-5.3cm\relax}@{}}
+	\caption{Objetivos no funcionales del ecosistema VH SimGrid.}
+	\label{tab:onf} \\
+	\toprule
+	\textbf{ID} & \textbf{Categoría} & \textbf{Descripción} \\
+	\midrule
+	\endfirsthead
+	\toprule
+	\textbf{ID} & \textbf{Categoría} & \textbf{Descripción} \\
+	\midrule
+	\endhead
+		ONF-01 & Rendimiento &
+		La pedalera debe leer los pedales a unos 1000~Hz y filtrar el ruido de los sensores sin añadir un retardo perceptible. \\
+		ONF-02 & Rendimiento &
+		La base debe reproducir los efectos de force feedback con una respuesta suave y sin oscilaciones, y aplicar los cambios de ajuste en vivo sin interrumpir la conducción. \\
+		ONF-03 & Seguridad &
+		El firmware de la base debe incluir guardia de sobrevelocidad, protección térmica, tope de giro progresivo, limitador de la energía regenerada y detección de oscilaciones, y estas protecciones deben probarse en situaciones reales. \\
+		ONF-04 & Compatibilidad &
+		El sistema debe funcionar en Windows~10 y~11, y los periféricos deben ser reconocidos como dispositivos USB HID estándar, sin drivers propios. \\
+		ONF-05 & Compatibilidad &
+		La aplicación debe recibir la telemetría de al menos los simuladores más extendidos: Assetto Corsa y sus variantes, Le Mans Ultimate, iRacing, rFactor~2, Automobilista, RaceRoom, F1, rally y BeamNG. \\
+		ONF-06 & Usabilidad &
+		Toda la configuración debe hacerse desde una interfaz gráfica, con un asistente de primera puesta en marcha, en español o en inglés y con tema claro u oscuro. \\
+		ONF-07 & Usabilidad &
+		Los ajustes de uso diario (giro, fuerza máxima, recorrido de los pedales) deben estar accesibles desde la pantalla de inicio. \\
+		ONF-08 & Mantenibilidad &
+		La instalación y las actualizaciones no deben requerir permisos de administrador ni herramientas externas, y deben conservar los perfiles, dashes y calibraciones. \\
+		ONF-09 & Fiabilidad &
+		Cada periférico debe guardar su configuración en su propia memoria no volátil y funcionar como un mando estándar aunque la aplicación no esté abierta. \\
+		ONF-10 & Privacidad &
+		La síntesis y el reconocimiento de voz del ingeniero deben ejecutarse en local, y las grabaciones de telemetría deben quedarse en el disco del usuario. \\
+		ONF-11 & Coste &
+		El coste de los materiales de los tres periféricos debe ser claramente inferior al de un puesto comercial de gama media con prestaciones equivalentes. \\
+		ONF-12 & Legalidad &
+		El software debe respetar las licencias de los componentes de terceros que incorpora y de las voces que utiliza, y no reproducir marcas ni diseños protegidos. \\
+		\bottomrule
+\end{longtable}}

@@ -1,0 +1,2563 @@
+% !TeX root = ../main.tex
+\chapter{Análisis y especificación de requisitos}
+\label{cap:requisitos}
+En el capítulo~\ref{cap:objetivos} se fijaron los objetivos del trabajo, es decir, qué se pretende conseguir con el sistema planteado, VH SimGrid. Este capítulo traduce esos objetivos en requisitos, es decir, en enunciados concretos y verificables de lo que el sistema debe hacer y de las condiciones en que debe hacerlo. Los requisitos son el punto de partida del diseño y de la implementación, que se describen en los capítulos siguientes, y la referencia frente a la que se valida el resultado.
+
+La especificación sigue la práctica IEEE~830-1998 para la especificación de requisitos del software (\emph{Software Requirements Specification}, SRS)~\cite{ieee830}, que es la referencia clásica en ingeniería del software. Esta norma fue sustituida por la ISO/IEC/IEEE~29148~\cite{iso29148}, que recoge su contenido y lo amplía a los requisitos de sistema (\emph{System Requirements Specification}, SyRS), es decir, a productos que combinan hardware y software. Como VH SimGrid es precisamente un sistema de este tipo, formado por tres periféricos con su firmware y una aplicación de escritorio, se adopta la estructura de capítulos de la IEEE~830 y se completa con lo que la ISO/IEC/IEEE~29148 añade para los sistemas, las interfaces hardware, las restricciones físicas y de fabricación y la trazabilidad de cada requisito hasta los objetivos de los que procede.
+
+La IEEE~830 enumera las características que debe reunir una buena especificación, y que se han tenido en cuenta al redactar los requisitos: deben ser \textbf{correctos}, porque cada uno responde a una necesidad real del sistema; \textbf{inequívocos}, con una única interpretación posible; \textbf{completos}, cubriendo todas las funciones y restricciones relevantes; \textbf{consistentes}, sin contradicciones entre ellos; \textbf{clasificados} por prioridad; \textbf{verificables}, con un procedimiento finito que permita comprobar su cumplimiento; \textbf{modificables}, gracias a una estructura y una numeración ordenadas; y \textbf{trazables}, de modo que se conozca el origen de cada requisito y se pueda seguir en las fases posteriores.
+
+\section{Descripción general}
+\label{sec:req-descripcion}
+\subsection{Perspectiva del producto}
+\label{subsec:perspectiva}
+VH SimGrid nace como un ecosistema independiente: no es la evolución de ningún sistema anterior ni un componente de un sistema mayor. Está formado por cuatro subsistemas, que coinciden con los grupos de objetivos funcionales del capítulo~\ref{cap:objetivos}:
+
+\begin{itemize}
+	\item \textbf{VH Grid DD15}: base de volante \emph{direct drive} con force feedback, construida sobre una controladora MKS ODrive Mini (STM32F405) y un motor de patinete eléctrico.
+	\item \textbf{VH Axis}: pedalera de tres pedales, con sensores Hall en el acelerador y el embrague y una célula de carga en el freno, gobernada por un Arduino Micro.
+	\item \textbf{VH Formula Apex}: aro con tira de LEDs, matriz de botones, encoders, palancas de embrague y una pantalla, gobernado por un ATmega32U4.
+	\item \textbf{Aplicación VH SimGrid}: aplicación de escritorio para Windows que configura los tres periféricos en vivo y reúne el dash, el ingeniero de pista y el análisis de telemetría.
+\end{itemize}
+
+Aunque el producto es autónomo, se integra en un entorno que no controla: desde el sistema operativo Windows y la interfaz DirectInput, a través de la cual los simuladores leen los mandos y envían el force feedback, hasta los propios simuladores, que publican la telemetría de la sesión. La figura~\ref{fig:contexto} muestra este contexto. Los periféricos tienen dos vías de comunicación con el PC: la misma que usa cualquier mando USB, por la que el simulador lee los ejes y los botones y envía los efectos de fuerza, y una vía de configuración por la que la aplicación ajusta sus parámetros. Esta separación permite que los periféricos funcionen como mandos normales aunque la aplicación esté cerrada.
+ 
+\input{capitulos/figures/context_diagram}
+ 
+ Siguiendo la IEEE~830, la perspectiva del producto se completa con la descripción de sus interfaces y sus condiciones de operación:
+ 
+ \begin{description}
+ 	\item[Interfaces de usuario.] El piloto interactúa con el sistema de tres formas. La primera es la aplicación de escritorio, organizada en páginas (Inicio, Volante, Aro, Pedalera, Dash, Ingeniero, Análisis y Ajustes), desde la que calibra y personaliza los periféricos, configura el ingeniero de pista virtual y analiza sus sesiones en detalle con todos los parámetros de telemetría registrados. La segunda son los mandos y la pantalla del aro, con los que consulta el dash y cambia ajustes durante la conducción. La tercera es la voz: el ingeniero le informa por radio mientras está en pista y responde a sus preguntas.
+ 	\item[Interfaces hardware.] Los tres periféricos se conectan al PC por USB. La base force feedback necesita además una fuente de alimentación para el motor, dimensionada para la corriente de pico de la controladora. El ingeniero requiere un micrófono y unos altavoces o auriculares, y el dash, un monitor adicional o un dispositivo móvil.
+ 	\item[Interfaces software.] El volante se presenta a Windows como un dispositivo USB HID con el perfil de force feedback PID (\emph{Physical Interface Device}), que DirectInput reconoce de forma nativa. La pedalera y el aro se presentan como mandos HID estándar. La aplicación lee la telemetría de los simuladores por los medios que cada uno ofrece: memoria compartida en la mayoría de los simuladores de circuito y paquetes UDP en otros, como la saga F1 o los títulos de rally.
+ 	\item[Interfaces de comunicaciones.] Toda la comunicación con los periféricos es local, por USB. El dash en un móvil usa la red local, y el móvil se vincula escaneando un código QR. El sistema no necesita conexión a Internet salvo para comprobar si hay versiones nuevas.
+ 	\item[Restricciones de memoria.] El firmware debe caber en los microcontroladores elegidos: 1~MB de flash y 192~kB de RAM en el STM32F405 del volante, y 32~kB de flash y 2,5~kB de RAM en los ATmega32U4 de la pedalera y del aro. La configuración persistente se guarda en la flash del volante y en la EEPROM de los otros dos periféricos.
+ 	\item[Operaciones.] El uso normal no requiere intervención técnica: los periféricos se detectan solos y los ajustes se aplican en vivo. Las únicas operaciones de mantenimiento son la actualización del firmware, que se hace desde la aplicación, y el primer flasheo de la base force feedback, que se hace una sola vez con STM32CubeProgrammer.
+ \end{description}
+ 
+ En cuanto a las \textbf{funciones del producto}, el sistema permite al piloto conducir con force feedback, pedales y mandos propios en cualquier simulador compatible con DirectInput; ajustar cada periférico en vivo y guardar esos ajustes en perfiles; recibir información de la carrera en las luces del aro, en un dash y por la voz del ingeniero; planificar la estrategia de carrera; y analizar después las sesiones grabadas. La sección~\ref{sec:req-especificos} detalla cada una de estas funciones.
+ 
+ 
+\subsection{Características de los actores}
+\label{subsec:actores}
+
+Los usuarios de VH SimGrid se agrupan en los perfiles de la tabla~\ref{tab:actores}. Se distinguen por su relación con el sistema y por sus conocimientos técnicos, que condicionan los requisitos de usabilidad. A ellos se suma un actor que no es una persona, el simulador de conducción, que participa en los casos de uso como fuente de la telemetría y destino de los mandos.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\small
+	\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.9cm}|}
+		\hline
+		\textbf{Actor} & \textbf{Descripción} & \textbf{Conocimientos} \\
+		\hline
+		Piloto aficionado & Usuario principal. Corre en simuladores de forma habitual y quiere un equipo que funcione al conectarlo, con ajustes sencillos y perfiles ya preparados. & Uso general de Windows y de los simuladores. Ninguno de electrónica ni de programación. \\
+		\hline
+		Piloto avanzado & Busca exprimir el equipo: afina el force feedback por bandas, diseña sus dashes, planifica estrategias y analiza su telemetría vuelta a vuelta. & Conoce los conceptos de reglaje y de telemetría. No necesita conocimientos de electrónica. \\
+		\hline
+		Constructor & Monta los periféricos a partir de los componentes, graba el primer firmware del volante y resuelve las incidencias de hardware. & Electrónica básica, soldadura y montaje mecánico. Uso de herramientas de flasheo. \\
+		\hline
+		Simulador de conducción & Actor externo, no humano. Publica la telemetría de la sesión y se comunica con los periféricos a través de DirectInput. & No aplica. \\
+		\hline
+	\end{tabularx}
+	\caption{Perfiles de los actores del sistema}
+	\label{tab:actores}
+\end{table}
+
+En la práctica una misma persona puede desempeñar varios perfiles. Separar en actores permite, sin embargo, diseñar cada parte del sistema para quien de verdad la va a usar: la aplicación se piensa para un piloto aficionado, mientras que las tareas que requieren conocimientos técnicos quedan limitadas al montaje y al primer flasheo.
+
+\subsection{Restricciones generales}
+\label{subsec:restricciones}
+El desarrollo está sujeto a varias restricciones que no surgen de lo que el sistema debe hacer, sino del contexto en el que se construye. Limitan las decisiones de diseño y se reflejan en varios requisitos no funcionales.
+
+\begin{description}
+	\item[Presupuesto.] Por coherencia con el objetivo ONF-11, el coste total de los materiales del equipo debe quedar claramente por debajo del de un puesto comercial de gama media de prestaciones equivalentes, que, como se vio en el capítulo~\ref{cap:problema-solucion}, supera los 1.200~€.
+	\item[Componentes disponibles.] Solo se emplean componentes que se pueden comprar al por menor en tiendas de electrónica o en línea, sin pedidos mínimos industriales ni piezas a medida. De ahí la elección de una controladora de motor de código abierto (MKS ODrive Mini, compatible con ODrive), un motor de buje de patinete eléctrico como motor de par, placas Arduino y microcontroladores ATmega32U4, sensores Hall, una célula de carga con un amplificador INA333, LEDs WS2812 y un expansor de E/S MCP23017. El firmware debe adaptarse a lo que estos componentes ofrecen, y no al revés.
+	\item[Fabricación casera.] Todas las piezas deben poder fabricarse y montarse con herramientas de taller doméstico, sin maquinaria industrial. Esto condiciona la mecánica de los periféricos y obliga a que el software compense algunas limitaciones del hardware, como el rizado magnético (\emph{cogging}) del motor de patinete, que se corrige con una calibración en el firmware.
+	\item[Plataforma.] La aplicación se desarrolla solo para Windows 10 y 11, que es el sistema en el que se ejecutan prácticamente todos los simuladores de conducción.
+	\item[Licencias.] Los componentes de terceros (el núcleo del firmware ODrive, TinyUSB, el descriptor HID PID derivado de OpenFFBoard, Piper, Vosk y las voces del ingeniero) imponen sus propias licencias, cuyos avisos y atribuciones deben respetarse en la distribución.
+	\item[Recursos humanos y tiempo.] El sistema lo desarrolla una sola persona, en el plazo fijado en la planificación (capítulo~\ref{cap:planificacion}). Esto obliga a priorizar los requisitos y a reutilizar componentes probados cuando existen.
+\end{description}
+
+\subsection{Suposiciones y dependencias}
+\label{subsec:suposiciones}
+Los requisitos se han redactado dando por ciertas las siguientes condiciones. Si alguna dejara de cumplirse, los requisitos afectados tendrían que revisarse.
+
+\begin{enumerate}
+	\item El PC del usuario ejecuta Windows 10 u 11 y tiene puertos USB libres para los tres periféricos.
+	\item Los simuladores siguen admitiendo volantes con force feedback a través de DirectInput y del perfil HID PID, como hacen hoy los títulos compatibles.
+	\item Los simuladores siguen publicando su telemetría por memoria compartida o por UDP, y el usuario activa en cada juego la opción de telemetría cuando es necesaria. El formato de estos datos lo define cada desarrollador y puede cambiar entre versiones.
+	\item La base dispone de una fuente de alimentación capaz de entregar la corriente que pide el motor, y el montaje mecánico fija la base con firmeza.
+	\item El equipo tiene potencia suficiente para ejecutar en local la síntesis de voz (Piper) y el reconocimiento de voz (Vosk) mientras corre el simulador.
+	\item La controladora del volante llega de fábrica sin el firmware propio, por lo que su primer flasheo debe hacerse por DFU con el puente BOOT0. A partir de entonces, todas las actualizaciones se hacen desde la aplicación.
+\end{enumerate}
+
+\section{Requisitos específicos}
+\label{sec:req-especificos}
+
+Esta sección especifica los requisitos de VH SimGrid con el nivel de detalle necesario para diseñar el sistema y comprobar después que los cumple. Siguiendo la IEEE~830~\cite{ieee830}, se distinguen dos tipos: los requisitos funcionales, que describen lo que el sistema debe hacer (apartado~\ref{subsec:rf}), y los requisitos no funcionales, que fijan las cualidades con que debe hacerlo, como la latencia, la seguridad o el coste (apartado~\ref{subsec:rnf}).
+
+Cada requisito se describe en una tabla con los siguientes campos:
+
+\begin{description}
+	\item[Identificador.] Código único formado por el prefijo \textbf{RF} (requisito funcional) o \textbf{RNF} (requisito no funcional) y un número correlativo. Permite referirse al requisito sin ambigüedad en el resto de la memoria.
+	\item[Nombre.] Título breve que resume el requisito.
+	\item[Prioridad.] Importancia del requisito para el producto, según la clasificación que propone la IEEE~830: \textbf{Alta}, si el sistema no es aceptable sin él (esencial); \textbf{Media}, si aporta un valor importante pero su ausencia no impide usar el sistema (condicional); y \textbf{Baja}, si es una mejora que puede posponerse (opcional).
+	\item[Actores.] Solo en los requisitos funcionales: los actores de la tabla~\ref{tab:actores} que intervienen en la función.
+	\item[Descripción.] Enunciado del requisito. Se redacta de forma inequívoca y, siempre que es posible, con un valor medible, para que su cumplimiento pueda verificarse.
+\end{description}
+
+Al final de la sección, la matriz de trazabilidad relaciona cada requisito con el objetivo específico del capítulo~\ref{cap:objetivos} del que procede.
+
+\subsection{Requisitos funcionales}
+\label{subsec:rf}
+
+Los requisitos funcionales describen los servicios que el sistema debe proporcionar y su comportamiento ante cada entrada. Se agrupan por subsistema, siguiendo la misma división que la perspectiva del producto (apartado~\ref{subsec:perspectiva}): la base \emph{direct drive}, la pedalera, el aro y su pantalla, y la aplicación. Esta última, por su amplitud, se divide a su vez en gestión de los periféricos, telemetría y dash, ingeniero de pista y análisis de telemetría.
+
+\subsubsection{Base \emph{direct drive} VH Grid DD15}
+
+La base es el periférico más exigente del sistema: debe ser reconocida como un volante con force feedback y transmitir al piloto las fuerzas que calcula el simulador. Sus requisitos funcionales se recogen en las tablas~\ref{tab:rf1} a~\ref{tab:rf10}.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF1 \\
+		\hline
+		Nombre & Volante FFB nativo \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La base se presentará a Windows como un volante USB HID con force feedback PID, sin instalar drivers ni dejar programas residentes. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF1 (Volante FFB nativo)}
+	\label{tab:rf1}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF2 \\
+		\hline
+		Nombre & Efectos DirectInput \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La base reproducirá los efectos de fuerza constante, muelle, amortiguación, fricción e inercia que envíe el simulador, cada uno con su ganancia ajustable. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF2 (Efectos DirectInput)}
+	\label{tab:rf2}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF3 \\
+		\hline
+		Nombre & Rango de giro y centrado \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá ajustar el rango de giro entre 90$^{\circ}$ y 1440$^{\circ}$ y fijar el centro del volante. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF3 (Rango de giro y centrado)}
+	\label{tab:rf3}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF4 \\
+		\hline
+		Nombre & Sensación general \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá ajustar la fuerza máxima, el suavizado de la señal, el refuerzo de las fuerzas pequeñas y la dureza del tope de giro. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF4 (Sensación general)}
+	\label{tab:rf4}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF5 \\
+		\hline
+		Nombre & Efectos base \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La base aplicará una amortiguación, una fricción y una inercia propias, independientes del juego y ajustables por el usuario. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF5 (Efectos base)}
+	\label{tab:rf5}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF6 \\
+		\hline
+		Nombre & Ecualizador FFB \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La base filtrará la señal de fuerza con un ecualizador de 6 bandas entre 5 y 60~Hz, con una ganancia de 0 a 500~\% por banda. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF6 (Ecualizador FFB)}
+	\label{tab:rf6}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF7 \\
+		\hline
+		Nombre & Curva FFB \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La base aplicará una curva de respuesta de 9 puntos entre la fuerza pedida por el juego y la entregada por el motor, con preajustes. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF7 (Curva FFB)}
+	\label{tab:rf7}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF8 \\
+		\hline
+		Nombre & Calibración anti-cogging \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto, constructor \\
+		\hline
+		Descripción & La base medirá el rizado magnético del motor, lo compensará y guardará la calibración en su memoria flash. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF8 (Calibración anti-cogging)}
+	\label{tab:rf8}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF9 \\
+		\hline
+		Nombre & Monitorización \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación mostrará el estado del motor en vivo y un registro de los últimos segundos del giro y de la fuerza, con la línea de saturación marcada. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF9 (Monitorización)}
+	\label{tab:rf9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF10 \\
+		\hline
+		Nombre & Reinicio y mantenimiento \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto, constructor \\
+		\hline
+		Descripción & El usuario podrá reiniciar la base y consultar sus opciones de mantenimiento desde la aplicación. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF10 (Reinicio y mantenimiento)}
+	\label{tab:rf10}
+\end{table}
+
+\subsubsection{Pedalera VH Axis}
+
+La pedalera debe medir la posición del acelerador y del embrague y la fuerza aplicada sobre el freno, y permitir calibrarlos y ajustar su respuesta (tablas~\ref{tab:rf11} a~\ref{tab:rf15}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF11 \\
+		\hline
+		Nombre & Tres ejes \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La pedalera se presentará como un mando USB con tres ejes: acelerador y embrague, medidos por posición con sensores Hall, y freno, medido por fuerza con una célula de carga. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF11 (Tres ejes)}
+	\label{tab:rf11}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF12 \\
+		\hline
+		Nombre & Calibración guiada \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación guiará la calibración del reposo y del fondo de cada pedal, y la del freno se expresará en kilos. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF12 (Calibración guiada)}
+	\label{tab:rf12}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF13 \\
+		\hline
+		Nombre & Curva de respuesta \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Cada pedal tendrá una curva de respuesta editable arrastrando sus puntos, con preajustes, zona muerta e inversión del sentido. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF13 (Curva de respuesta)}
+	\label{tab:rf13}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF14 \\
+		\hline
+		Nombre & Guardado automático \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Todo cambio de configuración se guardará solo en la EEPROM de la pedalera, sin que el usuario tenga que confirmarlo. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF14 (Guardado automático)}
+	\label{tab:rf14}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF15 \\
+		\hline
+		Nombre & Traza en vivo \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación mostrará la posición de los tres pedales en tiempo real, tanto en su página como en la de inicio. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF15 (Traza en vivo)}
+	\label{tab:rf15}
+\end{table}
+
+\subsubsection{Aro VH Formula Apex}
+
+El aro reúne los mandos que el piloto usa durante la conducción y una tira de LEDs que le informa del régimen del motor y de los eventos de la carrera (tablas~\ref{tab:rf16} a~\ref{tab:rf21}). Su pantalla, por su importancia, se trata en el apartado siguiente.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF16 \\
+		\hline
+		Nombre & Botones y encoders \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & El aro leerá su matriz de botones y sus encoders y los enviará al PC como botones de un mando USB estándar. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF16 (Botones y encoders)}
+	\label{tab:rf16}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF17 \\
+		\hline
+		Nombre & Palancas de embrague \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El aro leerá las palancas de embrague, con modo de funcionamiento y punto de mordida configurables. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF17 (Palancas de embrague)}
+	\label{tab:rf17}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF18 \\
+		\hline
+		Nombre & Barra de RPM \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La tira de LEDs mostrará las revoluciones con modo, llenado, reinicio al cambiar de marcha y umbral por LED configurables, y podrá ajustarse sola al régimen de cada coche. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF18 (Barra de RPM)}
+	\label{tab:rf18}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF19 \\
+		\hline
+		Nombre & Luces por eventos \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & El usuario podrá asignar a un rango de LEDs eventos de la carrera (banderas, TC, ABS, DRS, ERS, limitador, pit lane, coches cerca, pedales, combustible), con su color y su estilo: fijo, parpadeo, respiración o desplazamiento. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF19 (Luces por eventos)}
+	\label{tab:rf19}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF20 \\
+		\hline
+		Nombre & Perfiles de luces \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Las asignaciones de luces se agruparán en carpetas y se guardarán en perfiles por juego y por coche. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF20 (Perfiles de luces)}
+	\label{tab:rf20}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF21 \\
+		\hline
+		Nombre & Brillo \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá ajustar el brillo diurno y nocturno y apagar la tira cuando no haya juego; el aro recordará su brillo aunque arranque sin PC. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF21 (Brillo)}
+	\label{tab:rf21}
+\end{table}
+
+\subsubsection{Pantalla del aro}
+
+La pantalla integrada en el aro muestra el dash al piloto sin que tenga que apartar la vista de la pista y le permite cambiar ajustes del equipo sin soltar el volante (tablas~\ref{tab:rf22} a~\ref{tab:rf28}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF22 \\
+		\hline
+		Nombre & Pantalla como monitor \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La pantalla del aro se conectará al PC como un monitor más, que Windows reconocerá sin drivers adicionales, y la aplicación permitirá elegirla como destino del dash. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF22 (Pantalla como monitor)}
+	\label{tab:rf22}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF23 \\
+		\hline
+		Nombre & Dashes en la pantalla \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La pantalla del aro mostrará a pantalla completa cualquier dash de la galería o creado en el editor, adaptado a su resolución. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF23 (Dashes en la pantalla)}
+	\label{tab:rf23}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF24 \\
+		\hline
+		Nombre & Cambio de pantallas del dash \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El piloto podrá pasar de una pantalla a otra del dash con los botones del aro, sin soltar el volante. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF24 (Cambio de pantallas del dash)}
+	\label{tab:rf24}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF25 \\
+		\hline
+		Nombre & Configuración desde la pantalla \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Una combinación de botones del aro abrirá en la pantalla un menú desde el que el piloto podrá ajustar los parámetros generales del equipo (perfil y fuerza máxima del volante, brillo de los LEDs, punto de mordida del embrague, curva del freno\ldots) navegando con los botones y los encoders del aro. El menú podrá lanzar también macros de varias pulsaciones, comprobadas por telemetría. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF25 (Configuración desde la pantalla)}
+	\label{tab:rf25}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF26 \\
+		\hline
+		Nombre & Aplicación y confirmación de cambios \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Los cambios hechos desde la pantalla se aplicarán en vivo al periférico correspondiente y quedarán guardados igual que si se hicieran desde la aplicación. La pantalla mostrará el valor actual de cada parámetro y confirmará cada cambio. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF26 (Aplicación y confirmación de cambios)}
+	\label{tab:rf26}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF27 \\
+		\hline
+		Nombre & Dash automático por perfil \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & Al detectar el juego, la aplicación abrirá en la pantalla del aro el dash asociado al perfil activo, sin intervención del piloto. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF27 (Dash automático por perfil)}
+	\label{tab:rf27}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF28 \\
+		\hline
+		Nombre & Pantalla de reposo \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Cuando no haya ninguna sesión en curso, la pantalla mostrará el estado de los periféricos (conectados o no) y la versión de su firmware. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF28 (Pantalla de reposo)}
+	\label{tab:rf28}
+\end{table}
+
+\subsubsection{Aplicación: gestión de los periféricos}
+
+Este grupo recoge las funciones de la aplicación que permiten detectar, configurar, actualizar y mantener los periféricos (tablas~\ref{tab:rf29} a~\ref{tab:rf37}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF29 \\
+		\hline
+		Nombre & Detección automática \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación detectará y conectará los periféricos sin intervención del usuario, mostrará su estado y los reconectará si se pierde la conexión. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF29 (Detección automática)}
+	\label{tab:rf29}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF30 \\
+		\hline
+		Nombre & Configuración en vivo \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Todo cambio de ajuste se aplicará al periférico en el momento, sin reflashear su firmware. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF30 (Configuración en vivo)}
+	\label{tab:rf30}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF31 \\
+		\hline
+		Nombre & Perfiles \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá guardar perfiles de configuración (GT3, Fórmula, Rally\ldots) y la aplicación podrá aplicarlos solos al detectar el juego. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF31 (Perfiles)}
+	\label{tab:rf31}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF32 \\
+		\hline
+		Nombre & Actualización de firmware \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, constructor \\
+		\hline
+		Descripción & Al conectar un periférico con firmware antiguo, la aplicación ofrecerá grabar el nuevo con un clic, sin herramientas externas ni puente BOOT0. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF32 (Actualización de firmware)}
+	\label{tab:rf32}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF33 \\
+		\hline
+		Nombre & Asistente inicial \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & En el primer arranque, un asistente guiará al usuario por el volante, los pedales, el aro y la telemetría de sus juegos. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF33 (Asistente inicial)}
+	\label{tab:rf33}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF34 \\
+		\hline
+		Nombre & Lanzador de juegos \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La página de inicio mostrará los simuladores instalados, indicará cuáles tienen la telemetría configurada y los abrirá con un clic. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF34 (Lanzador de juegos)}
+	\label{tab:rf34}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF35 \\
+		\hline
+		Nombre & Copia de seguridad \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá exportar todos los ajustes y perfiles a un solo fichero y restaurarlos desde él. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF35 (Copia de seguridad)}
+	\label{tab:rf35}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF36 \\
+		\hline
+		Nombre & Ajustes de la aplicación \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá elegir idioma, tema claro u oscuro, arranque con Windows, ejecución en segundo plano y aviso de actualizaciones. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF36 (Ajustes de la aplicación)}
+	\label{tab:rf36}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF37 \\
+		\hline
+		Nombre & Diagnóstico \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto, constructor \\
+		\hline
+		Descripción & La aplicación generará un fichero de diagnóstico con la información necesaria para notificar una incidencia. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF37 (Diagnóstico)}
+	\label{tab:rf37}
+\end{table}
+
+\subsubsection{Aplicación: telemetría y dash}
+
+La aplicación recibe la telemetría de los simuladores y la muestra al piloto mediante dashes configurables, tanto en la pantalla del aro como en un monitor o un móvil (tablas~\ref{tab:rf38} a~\ref{tab:rf43}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF38 \\
+		\hline
+		Nombre & Telemetría \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Simulador \\
+		\hline
+		Descripción & La aplicación recibirá e interpretará la telemetría de los 18 simuladores soportados y la pondrá a disposición del aro, el dash, el ingeniero y el análisis. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF38 (Telemetría)}
+	\label{tab:rf38}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF39 \\
+		\hline
+		Nombre & Visor de telemetría \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación mostrará, variable a variable, los datos que envía el juego en ese momento. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF39 (Visor de telemetría)}
+	\label{tab:rf39}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF40 \\
+		\hline
+		Nombre & Galería de dashes \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación incluirá 20 dashes de serie, que el usuario podrá elegir y reproducir en el monitor que indique. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF40 (Galería de dashes)}
+	\label{tab:rf40}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF41 \\
+		\hline
+		Nombre & Dash en el móvil \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Un teléfono móvil podrá usarse como pantalla del dash tras vincularlo con un código QR. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF41 (Dash en el móvil)}
+	\label{tab:rf41}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF42 \\
+		\hline
+		Nombre & Editor de dashes \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá crear y modificar dashes con textos, gauges, barras, luces de cambio, mapa de pista, delta, radar, gráficas, imágenes, vídeo y páginas web, en varias pantallas, con fórmulas, deshacer y prueba en vivo. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF42 (Editor de dashes)}
+	\label{tab:rf42}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF43 \\
+		\hline
+		Nombre & Importar y exportar \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Los dashes se podrán exportar e importar en un fichero \texttt{.zip}. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF43 (Importar y exportar)}
+	\label{tab:rf43}
+\end{table}
+
+\subsubsection{Aplicación: ingeniero de pista}
+
+El ingeniero de pista informa al piloto por voz, responde a sus preguntas y le ayuda a planificar y seguir la estrategia de carrera (tablas~\ref{tab:rf44} a~\ref{tab:rf52}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF44 \\
+		\hline
+		Nombre & Avisos por voz \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & El ingeniero avisará por voz durante la conducción, agrupando los avisos por familias: spotter, combustible, ritmo, gomas, presiones, daños, rivales, tiempo, estrategia, boxes, entrenador y resultado. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF44 (Avisos por voz)}
+	\label{tab:rf44}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF45 \\
+		\hline
+		Nombre & Configuración de avisos \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá silenciar cada familia o hacerla más habladora, y elegir la personalidad que marca el tono general. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF45 (Configuración de avisos)}
+	\label{tab:rf45}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF46 \\
+		\hline
+		Nombre & Momento oportuno \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & El ingeniero retrasará los avisos no urgentes hasta un tramo en el que no distraigan, evitando las frenadas. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF46 (Momento oportuno)}
+	\label{tab:rf46}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF47 \\
+		\hline
+		Nombre & Preguntas por voz \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El piloto podrá preguntar al ingeniero por voz pulsando un botón del aro, y recibirá la respuesta por radio. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF47 (Preguntas por voz)}
+	\label{tab:rf47}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF48 \\
+		\hline
+		Nombre & Configuración de voz \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá elegir micrófono, altavoces, botón para hablar, voz (español o inglés) y efecto de radio. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF48 (Configuración de voz)}
+	\label{tab:rf48}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF49 \\
+		\hline
+		Nombre & Calculadora de estrategia \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & La aplicación calculará y comparará estrategias según el reglamento de la carrera (paradas obligatorias, juegos de gomas, repostaje, varios pilotos), permitirá mover las paradas a mano y mostrará la gasolina y el ritmo vuelta a vuelta. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF49 (Calculadora de estrategia)}
+	\label{tab:rf49}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF50 \\
+		\hline
+		Nombre & Estrategias guardadas \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Las estrategias se guardarán por coche y circuito, e incluirán el cálculo de la gasolina para la clasificación. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF50 (Estrategias guardadas)}
+	\label{tab:rf50}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF51 \\
+		\hline
+		Nombre & Seguimiento en carrera \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & El ingeniero seguirá la estrategia elegida y llamará al piloto a boxes en la vuelta que corresponda. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF51 (Seguimiento en carrera)}
+	\label{tab:rf51}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF52 \\
+		\hline
+		Nombre & Medir en pista \\
+		\hline
+		Prioridad & Baja \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & En unos libres, el ingeniero pedirá por radio las vueltas necesarias y rellenará la estrategia con los datos medidos. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF52 (Medir en pista)}
+	\label{tab:rf52}
+\end{table}
+
+\subsubsection{Aplicación: análisis de telemetría}
+
+Por último, la aplicación graba las sesiones y ofrece herramientas para analizarlas después (tablas~\ref{tab:rf53} a~\ref{tab:rf56}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF53 \\
+		\hline
+		Nombre & Grabación automática \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Actores & Piloto, simulador \\
+		\hline
+		Descripción & La aplicación grabará cada sesión sin intervención del usuario, respetando un límite de grabaciones configurable. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF53 (Grabación automática)}
+	\label{tab:rf53}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF54 \\
+		\hline
+		Nombre & Lista de sesiones \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá buscar y filtrar las sesiones por juego, coche y circuito, y ver el trazado, los tiempos y las condiciones de cada una. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF54 (Lista de sesiones)}
+	\label{tab:rf54}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF55 \\
+		\hline
+		Nombre & Hojas de análisis \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & Cada sesión se podrá estudiar en cuatro hojas: Base, Vehículo, Suspensión y Circuito, con gráficas canal a canal. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF55 (Hojas de análisis)}
+	\label{tab:rf55}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RF56 \\
+		\hline
+		Nombre & Comparación de vueltas \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Descripción & El usuario podrá comparar una vuelta con otra de referencia, saltar a cada sector o curva y hacer zoom común a todas las gráficas. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito funcional RF56 (Comparación de vueltas)}
+	\label{tab:rf56}
+\end{table}
+
+\subsection{Requisitos no funcionales}
+\label{subsec:rnf}
+
+Los requisitos no funcionales fijan las cualidades del sistema: cómo de rápido, seguro, barato, duradero y fácil de usar debe ser. Para que sean verificables, se expresan con un valor medible siempre que es posible. Se agrupan en las cinco categorías que más pesan en un periférico de simracing (latencia, seguridad, coste, durabilidad y usabilidad). Se añade un grupo propio con lo que debe cumplir la pantalla del aro y otro con los requisitos de compatibilidad, privacidad y mantenimiento.
+
+\subsubsection{Latencia y rendimiento}
+
+En un volante con force feedback, el retardo entre lo que ocurre en el juego y lo que nota el piloto es la cualidad más importante: si es grande, el coche se siente impreciso y el piloto corrige tarde. Lo mismo ocurre, en menor medida, con los pedales y las luces. Sus requisitos se recogen en las tablas~\ref{tab:rnf1} a~\ref{tab:rnf7}.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF1 \\
+		\hline
+		Nombre & Frecuencia FFB \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base atenderá los informes de force feedback del simulador con un intervalo de sondeo USB de 1~ms (1000~Hz). \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF1 (Frecuencia FFB)}
+	\label{tab:rnf1}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF2 \\
+		\hline
+		Nombre & Latencia FFB \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & El tiempo desde que llega un informe de fuerza hasta que el motor aplica el par correspondiente será inferior a 2~ms. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF2 (Latencia FFB)}
+	\label{tab:rnf2}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF3 \\
+		\hline
+		Nombre & Lectura de pedales \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Los pedales se leerán a unos 1000~Hz, con un filtrado del ruido del sensor que no añada un retardo perceptible. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF3 (Lectura de pedales)}
+	\label{tab:rnf3}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF4 \\
+		\hline
+		Nombre & Luces del aro \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La tira de LEDs reflejará un cambio de la telemetría en menos de 50~ms. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF4 (Luces del aro)}
+	\label{tab:rnf4}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF5 \\
+		\hline
+		Nombre & Ajustes en vivo \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Un cambio de ajuste en la aplicación surtirá efecto en el periférico en menos de 200~ms. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF5 (Ajustes en vivo)}
+	\label{tab:rnf5}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF6 \\
+		\hline
+		Nombre & Dash \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & El dash se refrescará a 30 imágenes por segundo como mínimo. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF6 (Dash)}
+	\label{tab:rnf6}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF7 \\
+		\hline
+		Nombre & Consumo de recursos \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Con el simulador en marcha, la aplicación no usará más del 10~\% de la CPU de un equipo de gama media, para no restar fotogramas al juego. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF7 (Consumo de recursos)}
+	\label{tab:rnf7}
+\end{table}
+
+\subsubsection{Seguridad}
+
+La base \emph{direct drive} es el único elemento del sistema que puede causar daño físico: su motor es capaz de girar el volante con fuerza y a gran velocidad, por ejemplo tras un choque en el juego o si el piloto suelta el volante. Por ello, los requisitos de seguridad son esenciales y se implementan en el firmware de la base, sin depender del PC ni de la aplicación (tablas~\ref{tab:rnf8} a~\ref{tab:rnf15}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF8 \\
+		\hline
+		Nombre & Sobrevelocidad \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base limitará o cortará el par si la velocidad del volante supera un umbral configurado, por ejemplo al soltarlo con fuerza aplicada. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF8 (Sobrevelocidad)}
+	\label{tab:rnf8}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF9 \\
+		\hline
+		Nombre & Protección térmica \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base reducirá el par de forma progresiva cuando la temperatura del motor o de la controladora se acerque a su límite, y lo cortará si lo alcanza. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF9 (Protección térmica)}
+	\label{tab:rnf9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF10 \\
+		\hline
+		Nombre & Tope de giro \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Al llegar al final del rango de giro, la base aplicará un tope progresivo que detenga el volante sin golpe. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF10 (Tope de giro)}
+	\label{tab:rnf10}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF11 \\
+		\hline
+		Nombre & Energía regenerada \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base limitará la energía que el motor devuelve a la fuente al frenar, para no dañarla. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF11 (Energía regenerada)}
+	\label{tab:rnf11}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF12 \\
+		\hline
+		Nombre & Oscilaciones \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base detectará las oscilaciones sostenidas del volante y las amortiguará o cortará el par. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF12 (Oscilaciones)}
+	\label{tab:rnf12}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF13 \\
+		\hline
+		Nombre & Pérdida de comunicación \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Si se pierde la comunicación USB o el juego deja de enviar fuerzas, la base llevará el par a cero en menos de 100~ms. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF13 (Pérdida de comunicación)}
+	\label{tab:rnf13}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF14 \\
+		\hline
+		Nombre & Arranque seguro \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La base no aplicará par hasta haber comprobado el estado del motor y del encoder. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF14 (Arranque seguro)}
+	\label{tab:rnf14}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF15 \\
+		\hline
+		Nombre & Firmware íntegro \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La aplicación comprobará que el firmware corresponde al periférico conectado y que no está dañado antes de grabarlo. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF15 (Firmware íntegro)}
+	\label{tab:rnf15}
+\end{table}
+
+\subsubsection{Coste}
+
+El coste es una de las razones de ser del proyecto, por lo que se fija como requisito y no solo como restricción (tablas~\ref{tab:rnf16} a~\ref{tab:rnf18}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF16 \\
+		\hline
+		Nombre & Coste de materiales \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & El coste total de los materiales de los tres periféricos será inferior al de un puesto comercial de gama media equivalente. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF16 (Coste de materiales)}
+	\label{tab:rnf16}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF17 \\
+		\hline
+		Nombre & Componentes comerciales \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Todos los componentes se podrán comprar al por menor, sin pedidos mínimos ni piezas fabricadas a medida. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF17 (Componentes comerciales)}
+	\label{tab:rnf17}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF18 \\
+		\hline
+		Nombre & Software sin coste \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & El sistema no dependerá de software ni de servicios de pago, ni de suscripciones. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF18 (Software sin coste)}
+	\label{tab:rnf18}
+\end{table}
+
+\subsubsection{Durabilidad y fiabilidad}
+
+Los periféricos deben conservar su configuración, funcionar sin la aplicación y soportar el uso continuado (tablas~\ref{tab:rnf19} a~\ref{tab:rnf24}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF19 \\
+		\hline
+		Nombre & Configuración persistente \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Cada periférico guardará su configuración en memoria no volátil y la conservará tras desconectarlo. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF19 (Configuración persistente)}
+	\label{tab:rnf19}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF20 \\
+		\hline
+		Nombre & Uso sin aplicación \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Los periféricos funcionarán como mandos con su última configuración aunque la aplicación esté cerrada o no instalada. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF20 (Uso sin aplicación)}
+	\label{tab:rnf20}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF21 \\
+		\hline
+		Nombre & Sesiones largas \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & El sistema funcionará sin fallos ni desconexiones durante sesiones continuas de al menos tres horas. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF21 (Sesiones largas)}
+	\label{tab:rnf21}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF22 \\
+		\hline
+		Nombre & Desgaste de memoria \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & El firmware solo escribirá en EEPROM o flash cuando un valor cambie, para no agotar sus ciclos de escritura. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF22 (Desgaste de memoria)}
+	\label{tab:rnf22}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF23 \\
+		\hline
+		Nombre & Resistencia mecánica \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & El freno soportará de forma repetida la fuerza máxima de la célula de carga sin deformación permanente ni pérdida de calibración. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF23 (Resistencia mecánica)}
+	\label{tab:rnf23}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF24 \\
+		\hline
+		Nombre & Actualización conservadora \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Al actualizar la aplicación o el firmware se conservarán los perfiles, los dashes y las calibraciones. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF24 (Actualización conservadora)}
+	\label{tab:rnf24}
+\end{table}
+
+\subsubsection{Usabilidad}
+
+El sistema está pensado para un piloto aficionado sin conocimientos técnicos, lo que fija los requisitos de usabilidad de las tablas~\ref{tab:rnf25} a~\ref{tab:rnf30}.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF25 \\
+		\hline
+		Nombre & Instalación sencilla \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La instalación se hará con un único instalador, que no pedirá permisos de administrador ni drivers. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF25 (Instalación sencilla)}
+	\label{tab:rnf25}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF26 \\
+		\hline
+		Nombre & Sin conocimientos técnicos \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Un piloto aficionado podrá completar la puesta en marcha con el asistente, sin conocimientos de electrónica ni de programación. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF26 (Sin conocimientos técnicos)}
+	\label{tab:rnf26}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF27 \\
+		\hline
+		Nombre & Idiomas \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La interfaz y la voz del ingeniero estarán disponibles en español e inglés. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF27 (Idiomas)}
+	\label{tab:rnf27}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF28 \\
+		\hline
+		Nombre & Respuesta visible \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Toda acción del usuario tendrá una respuesta visible en la interfaz, como la traza en vivo de los pedales o la vista previa de los LEDs. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF28 (Respuesta visible)}
+	\label{tab:rnf28}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF29 \\
+		\hline
+		Nombre & Uso sin soltar el volante \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Las funciones necesarias durante la conducción se podrán usar con los mandos del aro y por voz. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF29 (Uso sin soltar el volante)}
+	\label{tab:rnf29}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF30 \\
+		\hline
+		Nombre & Ajustes de uso diario a mano \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Los ajustes que se cambian a diario (rango de giro, fuerza máxima del volante y recorrido de los pedales) se podrán modificar directamente desde la página de inicio de la aplicación, sin entrar en la página de cada periférico. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF30 (Ajustes de uso diario a mano)}
+	\label{tab:rnf30}
+\end{table}
+
+\subsubsection{Pantalla del aro}
+
+La pantalla va montada en el aro, que gira, vibra y se desmonta, y el piloto la consulta de un vistazo mientras conduce. Estas condiciones fijan lo que debe cumplir como componente: su tamaño y su peso, su legibilidad, su velocidad de refresco, la resistencia de su cableado y de su montaje y la seguridad de los ajustes que se hacen desde ella (tablas~\ref{tab:rnf31} a~\ref{tab:rnf39}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF31 \\
+		\hline
+		Nombre & Tamaño y montaje \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La pantalla tendrá una diagonal de entre 4 y 7 pulgadas y se integrará en el aro sin tapar la visión de la pista ni estorbar a las manos, los botones o las palancas. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF31 (Tamaño y montaje)}
+	\label{tab:rnf31}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF32 \\
+		\hline
+		Nombre & Peso \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La pantalla y su soporte pesarán menos de 300~g, para no aumentar en exceso la inercia del aro ni restar fidelidad al force feedback. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF32 (Peso)}
+	\label{tab:rnf32}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF33 \\
+		\hline
+		Nombre & Legibilidad \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La pantalla tendrá una resolución mínima de $800\times480$ píxeles, un panel con amplio ángulo de visión (IPS o equivalente) y brillo suficiente para leerse de un vistazo con la luz habitual de la habitación. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF33 (Legibilidad)}
+	\label{tab:rnf33}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF34 \\
+		\hline
+		Nombre & Refresco y retardo \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La pantalla mostrará el dash a 30 imágenes por segundo como mínimo, y un cambio de la telemetría aparecerá en ella en menos de 100~ms. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF34 (Refresco y retardo)}
+	\label{tab:rnf34}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF35 \\
+		\hline
+		Nombre & Cableado y conexión \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & El cableado de la pantalla soportará el giro completo del volante sin desconectarse ni dañarse, y será compatible con el desmontaje rápido del aro. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF35 (Cableado y conexión)}
+	\label{tab:rnf35}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF36 \\
+		\hline
+		Nombre & Alimentación \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La pantalla se alimentará por USB, sin necesitar una fuente de alimentación adicional. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF36 (Alimentación)}
+	\label{tab:rnf36}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF37 \\
+		\hline
+		Nombre & Resistencia a vibraciones \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & La pantalla y su soporte resistirán las vibraciones y los golpes del force feedback sin perder la imagen ni aflojarse. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF37 (Resistencia a vibraciones)}
+	\label{tab:rnf37}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF38 \\
+		\hline
+		Nombre & Navegación rápida \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & Desde que se abre el menú, el piloto podrá llegar a cualquier parámetro general con un máximo de tres acciones con los mandos del aro. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF38 (Navegación rápida)}
+	\label{tab:rnf38}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF39 \\
+		\hline
+		Nombre & Límites de seguridad \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Los ajustes hechos desde la pantalla respetarán los mismos límites que la aplicación y que el firmware, de modo que nunca se pueda superar desde ella la fuerza máxima ni desactivar las protecciones de la base. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF39 (Límites de seguridad)}
+	\label{tab:rnf39}
+\end{table}
+
+\subsubsection{Otros requisitos no funcionales}
+
+Por último, se recogen los requisitos de compatibilidad, privacidad, mantenibilidad y licencias (tablas~\ref{tab:rnf40} a~\ref{tab:rnf44}).
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF40 \\
+		\hline
+		Nombre & Sistema operativo \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La aplicación funcionará en Windows 10 y 11 de 64 bits. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF40 (Sistema operativo)}
+	\label{tab:rnf40}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF41 \\
+		\hline
+		Nombre & Simuladores \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Los periféricos funcionarán con cualquier simulador compatible con DirectInput, y la telemetría con los 18 títulos soportados. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF41 (Simuladores)}
+	\label{tab:rnf41}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF42 \\
+		\hline
+		Nombre & Privacidad \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & Ningún dato saldrá del equipo: la voz, el reconocimiento y las grabaciones se procesarán y guardarán en local. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF42 (Privacidad)}
+	\label{tab:rnf42}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF43 \\
+		\hline
+		Nombre & Mantenibilidad \\
+		\hline
+		Prioridad & Media \\
+		\hline
+		Descripción & El código se organizará en módulos por subsistema, de forma que añadir un simulador o un elemento del dash no obligue a modificar el resto. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF43 (Mantenibilidad)}
+	\label{tab:rnf43}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & RNF44 \\
+		\hline
+		Nombre & Licencias \\
+		\hline
+		Prioridad & Alta \\
+		\hline
+		Descripción & La distribución incluirá los avisos de licencia de los componentes de terceros y las atribuciones de las voces. \\
+		\hline
+	\end{tabular}
+	\caption{Requisito no funcional RNF44 (Licencias)}
+	\label{tab:rnf44}
+\end{table}
+
+\subsection*{Trazabilidad}
+\addcontentsline{toc}{subsection}{Trazabilidad}
+
+Las tablas~\ref{tab:trazabilidad-of} y~\ref{tab:trazabilidad-onf} relacionan cada objetivo del capítulo~\ref{cap:objetivos} con los requisitos que se derivan de él. Permiten comprobar que todos los objetivos están cubiertos por al menos un requisito y que no hay requisitos sin un objetivo que los justifique. Cada requisito aparece una sola vez, junto al objetivo del que procede principalmente.
+
+{\renewcommand{\arraystretch}{1.4}
+\small
+\begin{longtable}{|p{2.9cm}|>{\raggedright\arraybackslash}p{5.2cm}|>{\raggedright\arraybackslash}p{5.2cm}|}
+	\hline
+	\textbf{Objetivo} & \textbf{Requisitos funcionales} & \textbf{Requisitos no funcionales} \\
+	\hline
+	\endhead
+	\caption{Matriz de trazabilidad entre los objetivos funcionales y los requisitos}
+	\label{tab:trazabilidad-of}
+	\endlastfoot
+	OF-01 & RF1 & --- \\
+	\hline
+	OF-02 & RF2 & --- \\
+	\hline
+	OF-03 & RF3 & --- \\
+	\hline
+	OF-04 & RF4, RF5 & --- \\
+	\hline
+	OF-05 & RF6, RF7 & --- \\
+	\hline
+	OF-06 & RF8 & --- \\
+	\hline
+	OF-07 & RF9, RF10 & --- \\
+	\hline
+	OF-08 & RF11 & --- \\
+	\hline
+	OF-09 & --- & RNF23 \\
+	\hline
+	OF-10 & RF12 & --- \\
+	\hline
+	OF-11 & RF13 & --- \\
+	\hline
+	OF-12 & RF15 & --- \\
+	\hline
+	OF-13 & RF14 & --- \\
+	\hline
+	OF-14 & RF16 & --- \\
+	\hline
+	OF-15 & RF17 & --- \\
+	\hline
+	OF-16 & RF18 & RNF4 \\
+	\hline
+	OF-17 & RF19 & --- \\
+	\hline
+	OF-18 & RF20 & --- \\
+	\hline
+	OF-19 & RF21 & --- \\
+	\hline
+	OF-20 & RF22, RF23, RF28 & RNF31 a RNF37 \\
+	\hline
+	OF-21 & RF29 & --- \\
+	\hline
+	OF-22 & RF30 & --- \\
+	\hline
+	OF-23 & RF27, RF31 & --- \\
+	\hline
+	OF-24 & RF32 & RNF15, RNF24 \\
+	\hline
+	OF-25 & RF38, RF39 & --- \\
+	\hline
+	OF-26 & RF34 & --- \\
+	\hline
+	OF-27 & RF33 & --- \\
+	\hline
+	OF-28 & RF35, RF37 & --- \\
+	\hline
+	OF-29 & RF40, RF41, RF43 & RNF6 \\
+	\hline
+	OF-30 & RF42 & --- \\
+	\hline
+	OF-31 & RF24, RF25, RF26 & RNF29, RNF38 \\
+	\hline
+	OF-32 & RF44, RF47, RF48 & --- \\
+	\hline
+	OF-33 & RF45, RF46 & --- \\
+	\hline
+	OF-34 & RF49 a RF52 & --- \\
+	\hline
+	OF-35 & RF53, RF54 & --- \\
+	\hline
+	OF-36 & RF55, RF56 & --- \\
+	\hline
+\end{longtable}}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.4}
+	\small
+	\begin{tabular}{|p{2.9cm}|>{\raggedright\arraybackslash}p{5.2cm}|>{\raggedright\arraybackslash}p{5.2cm}|}
+		\hline
+		\textbf{Objetivo} & \textbf{Requisitos funcionales} & \textbf{Requisitos no funcionales} \\
+		\hline
+		ONF-01 & --- & RNF3 \\
+		\hline
+		ONF-02 & --- & RNF1, RNF2, RNF5, RNF7 \\
+		\hline
+		ONF-03 & --- & RNF8 a RNF14, RNF39 \\
+		\hline
+		ONF-04 & --- & RNF40 \\
+		\hline
+		ONF-05 & --- & RNF41 \\
+		\hline
+		ONF-06 & RF36 & RNF26 a RNF28 \\
+		\hline
+		ONF-07 & --- & RNF30 \\
+		\hline
+		ONF-08 & --- & RNF25, RNF43 \\
+		\hline
+		ONF-09 & --- & RNF19 a RNF22 \\
+		\hline
+		ONF-10 & --- & RNF42 \\
+		\hline
+		ONF-11 & --- & RNF16 a RNF18 \\
+		\hline
+		ONF-12 & --- & RNF44 \\
+		\hline
+	\end{tabular}
+	\caption{Matriz de trazabilidad entre los objetivos no funcionales y los requisitos}
+	\label{tab:trazabilidad-onf}
+\end{table}
+
+En total se han especificado 56 requisitos funcionales y 44 no funcionales. Los de prioridad alta definen el producto mínimo aceptable y fueron los primeros en implementarse; los de prioridad media y baja se fueron incorporando en las iteraciones posteriores del ciclo de diseño descrito en el capítulo~\ref{cap:metodologia}.
+
+\section{Casos de uso}
+\label{sec:casos-uso}
+
+Los requisitos de la sección anterior describen el sistema función a función. Los casos de uso, en cambio, lo describen desde el punto de vista de quien lo usa, cada uno recoge una tarea completa que un actor realiza con el sistema para conseguir un fin, y muestra qué requisitos intervienen en ella. Sirven, por tanto, para comprobar que los requisitos permiten realizar las tareas reales del piloto y para preparar las pruebas de validación.
+
+Los casos de uso se representan con diagramas UML, en los que cada elipse es un caso de uso, cada figura humana es un actor de la tabla~\ref{tab:actores} y el recuadro marca los límites del sistema. La relación \guillemotleft extend\guillemotright{} indica que un caso de uso puede añadirse, de forma opcional, a otro mientras este se realiza. Los casos se dividen en dos grupos: los de configuración del puesto, que se realizan antes de conducir (figura~\ref{fig:cu-configuracion}), y los de conducción y análisis, que se realizan durante la sesión o después de ella (figura~\ref{fig:cu-conduccion}).
+
+\input{capitulos/figures/use_cases}
+
+La tabla~\ref{tab:cu-resumen} resume los quince casos de uso y los requisitos que intervienen en cada uno.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.4}
+	\small
+	\begin{tabularx}{\textwidth}{|l|>{\raggedright\arraybackslash}p{4.4cm}|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}X|}
+		\hline
+		\textbf{ID} & \textbf{Nombre} & \textbf{Actores} & \textbf{Requisitos} \\
+		\hline
+		CU1 & Realizar la primera puesta en marcha & Piloto & RF12, RF22, RF29, RF33, RF38, RNF25, RNF26 \\
+		\hline
+		CU2 & Configurar el volante & Piloto & RF2 a RF10, RF30 \\
+		\hline
+		CU3 & Calibrar la pedalera & Piloto & RF12 a RF15 \\
+		\hline
+		CU4 & Configurar las luces del aro & Piloto & RF17 a RF21 \\
+		\hline
+		CU5 & Actualizar el firmware de un periférico & Piloto, constructor & RF32, RNF15, RNF24 \\
+		\hline
+		CU6 & Flashear el firmware inicial del volante & Constructor & RNF14 \\
+		\hline
+		CU7 & Gestionar perfiles y copias de seguridad & Piloto & RF20, RF31, RF35 \\
+		\hline
+		CU8 & Lanzar un juego & Piloto, simulador & RF27, RF31, RF34 \\
+		\hline
+		CU9 & Conducir una sesión asistida & Piloto, simulador & RF1, RF11, RF16, RF18, RF23, RF38, RF44, RF51, RF53, RNF1 a RNF13, RNF34 \\
+		\hline
+		CU10 & Consultar al ingeniero por voz & Piloto & RF47, RF48, RNF29, RNF42 \\
+		\hline
+		CU11 & Planificar la estrategia de carrera & Piloto & RF49 a RF52 \\
+		\hline
+		CU12 & Diseñar un dash & Piloto & RF40 a RF43 \\
+		\hline
+		CU13 & Analizar una sesión grabada & Piloto & RF53 a RF56 \\
+		\hline
+		CU14 & Configurar el equipo desde la pantalla del aro & Piloto & RF24, RF25, RF26, RNF38, RNF39 \\
+		\hline
+		CU15 & Configurar la pantalla del aro & Piloto & RF22, RF23, RF27, RF28, RF40 \\
+		\hline
+	\end{tabularx}
+	\caption{Resumen de los casos de uso}
+	\label{tab:cu-resumen}
+\end{table}
+
+A continuación se detallan los casos de uso más representativos. En los flujos alternativos, el número indica el paso del flujo principal en el que se produce la alternativa, y el asterisco, que puede darse en cualquier paso. Los casos no detallados (CU2, CU4, CU6, CU7, CU8, CU12 y CU15) siguen el mismo esquema. CU6 se realiza fuera de la aplicación, con STM32CubeProgrammer, pero se incluye porque forma parte de la puesta en servicio del volante.
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU1 \\
+		\hline
+		Nombre & Realizar la primera puesta en marcha \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF12, RF22, RF29, RF33, RF38, RNF25, RNF26 \\
+		\hline
+		Precondiciones & La aplicación está instalada y los periféricos están montados, con firmware y conectados al PC. \\
+		\hline
+		Disparador & El piloto abre la aplicación por primera vez. \\
+		\hline
+		Flujo principal & 1.~La aplicación detecta los periféricos conectados y abre el asistente.\newline
+		2.~El asistente pide girar el volante hasta el centro y fija el rango de giro.\newline
+		3.~El asistente guía la calibración de cada pedal (CU3).\newline
+		4.~El asistente muestra una prueba de las luces y los botones del aro.\newline
+		5.~El asistente detecta la pantalla del aro y la propone como destino del dash.\newline
+		6.~La aplicación busca los simuladores instalados y explica cómo activar la telemetría de cada uno.\newline
+		7.~La aplicación guarda la configuración y abre la página de inicio. \\
+		\hline
+		Flujos alternativos & 1a.~Falta algún periférico: el asistente omite sus pasos y lo configura cuando se conecte.\newline
+		1b.~Un periférico tiene firmware antiguo: se ofrece actualizarlo (CU5) antes de seguir.\newline
+		5a.~No se detecta la pantalla del aro: el piloto puede elegir otro monitor o dejarlo para más tarde (CU15).\newline
+		*a.~El piloto cierra el asistente: puede reanudarlo desde Ajustes. \\
+		\hline
+		Postcondiciones & Los periféricos quedan calibrados, la pantalla del aro asignada al dash y la telemetría de los juegos detectados, configurada. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU1 (Realizar la primera puesta en marcha)}
+	\label{tab:cu1}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU3 \\
+		\hline
+		Nombre & Calibrar la pedalera \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF12, RF13, RF14, RF15 \\
+		\hline
+		Precondiciones & La pedalera está conectada y la aplicación la ha detectado. \\
+		\hline
+		Disparador & El piloto inicia la calibración en la página Pedalera o desde el asistente. \\
+		\hline
+		Flujo principal & 1.~La aplicación pide soltar los tres pedales y registra su posición de reposo.\newline
+		2.~La aplicación pide pisar a fondo el acelerador y el embrague y registra su recorrido máximo.\newline
+		3.~La aplicación pide pisar el freno con la fuerza máxima deseada y la muestra en kilos.\newline
+		4.~El piloto confirma los valores, viéndolos en la traza en vivo.\newline
+		5.~La pedalera guarda la calibración en su EEPROM. \\
+		\hline
+		Flujos alternativos & 3a.~La lectura es inestable o el recorrido es demasiado corto: la aplicación avisa y repite el paso.\newline
+		5a.~El piloto ajusta además la curva, la zona muerta o el sentido de un pedal: los cambios se guardan solos. \\
+		\hline
+		Postcondiciones & Los tres ejes recorren todo su rango y el freno responde a la fuerza calibrada. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU3 (Calibrar la pedalera)}
+	\label{tab:cu3}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU5 \\
+		\hline
+		Nombre & Actualizar el firmware de un periférico \\
+		\hline
+		Actores & Piloto (principal), constructor (si hay que recuperar el periférico) \\
+		\hline
+		Requisitos & RF32, RNF15, RNF24 \\
+		\hline
+		Precondiciones & El periférico está conectado y la aplicación incluye un firmware más reciente que el suyo. \\
+		\hline
+		Disparador & La aplicación detecta la diferencia de versión al conectar el periférico. \\
+		\hline
+		Flujo principal & 1.~La aplicación avisa de que hay un firmware nuevo y ofrece grabarlo.\newline
+		2.~El piloto acepta.\newline
+		3.~La aplicación comprueba que el firmware corresponde al periférico y que está íntegro.\newline
+		4.~La aplicación pone el periférico en modo de grabación, sin el puente BOOT0 en el caso del volante, y graba el firmware.\newline
+		5.~El periférico se reinicia y la aplicación lo vuelve a conectar.\newline
+		6.~La aplicación comprueba la nueva versión y restaura la configuración del usuario. \\
+		\hline
+		Flujos alternativos & 2a.~El piloto pospone la actualización: el periférico sigue funcionando con su versión.\newline
+		3a.~El firmware no supera la comprobación: no se graba y se informa del error.\newline
+		5a.~El periférico no vuelve a conectarse: la aplicación indica cómo reintentar la grabación; si falla, el constructor lo recupera por DFU (CU6). \\
+		\hline
+		Postcondiciones & El periférico funciona con el firmware nuevo y conserva su configuración. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU5 (Actualizar el firmware de un periférico)}
+	\label{tab:cu5}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU9 \\
+		\hline
+		Nombre & Conducir una sesión asistida \\
+		\hline
+		Actores & Piloto (principal), simulador de conducción (secundario) \\
+		\hline
+		Requisitos & RF1, RF11, RF16, RF18, RF23, RF38, RF44, RF51, RF53, RNF1 a RNF13, RNF34 \\
+		\hline
+		Precondiciones & Los periféricos están configurados, la aplicación está en marcha y la telemetría del juego está activada. \\
+		\hline
+		Disparador & El piloto sale a pista en el simulador. \\
+		\hline
+		Flujo principal & 1.~La aplicación detecta el juego y el coche, aplica el perfil correspondiente y abre su dash en la pantalla del aro.\newline
+		2.~El simulador lee los ejes y los botones de los periféricos y envía los efectos de fuerza a la base.\newline
+		3.~La aplicación recibe la telemetría y la distribuye a las luces y la pantalla del aro y al ingeniero.\newline
+		4.~Los LEDs del aro muestran las revoluciones y los eventos, y su pantalla muestra los datos de la sesión.\newline
+		5.~El ingeniero da los avisos por voz en los tramos oportunos y llama a boxes según la estrategia.\newline
+		6.~La aplicación graba la sesión.\newline
+		7.~Al cruzar la meta, el ingeniero comunica el resultado y la grabación se cierra. \\
+		\hline
+		Flujos alternativos & *a.~El piloto pregunta algo al ingeniero (CU10) o cambia un ajuste desde la pantalla del aro (CU14).\newline
+		*b.~Una protección de la base actúa: el par se limita o se corta y la aplicación lo indica.\newline
+		*c.~Se pierde la telemetría: los periféricos siguen funcionando como mandos, y las luces, la pantalla y el ingeniero quedan en espera. \\
+		\hline
+		Postcondiciones & La sesión queda grabada y disponible para su análisis (CU13). \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU9 (Conducir una sesión asistida)}
+	\label{tab:cu9}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU10 \\
+		\hline
+		Nombre & Consultar al ingeniero por voz \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF47, RF48, RNF29, RNF42 \\
+		\hline
+		Precondiciones & Hay una sesión en curso (CU9) y el micrófono y el botón para hablar están configurados. \\
+		\hline
+		Disparador & El piloto pulsa el botón del aro asignado para hablar. \\
+		\hline
+		Flujo principal & 1.~La aplicación empieza a escuchar por el micrófono.\newline
+		2.~El piloto formula la pregunta, por ejemplo cuánta gasolina le queda.\newline
+		3.~El piloto suelta el botón.\newline
+		4.~La aplicación reconoce la pregunta en local y busca la respuesta en la telemetría o en la estrategia.\newline
+		5.~El ingeniero responde por radio. \\
+		\hline
+		Flujos alternativos & 4a.~No se entiende la pregunta: el ingeniero pide que se repita.\newline
+		5a.~El piloto está en una frenada: la respuesta se retrasa hasta el siguiente tramo tranquilo. \\
+		\hline
+		Postcondiciones & El piloto recibe la información sin soltar el volante. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU10 (Consultar al ingeniero por voz)}
+	\label{tab:cu10}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU11 \\
+		\hline
+		Nombre & Planificar la estrategia de carrera \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF49, RF50, RF51, RF52 \\
+		\hline
+		Precondiciones & El piloto conoce el reglamento de la carrera. \\
+		\hline
+		Disparador & El piloto abre la pestaña Estrategia del ingeniero. \\
+		\hline
+		Flujo principal & 1.~El piloto elige coche y circuito, y la aplicación carga sus estrategias guardadas.\newline
+		2.~El piloto introduce los datos de la carrera: duración, ritmo, consumo, depósito, tiempo en boxes y gomas.\newline
+		3.~El piloto introduce el reglamento: paradas obligatorias y su ventana, juegos de gomas, repostaje y pilotos.\newline
+		4.~La aplicación calcula y compara las estrategias posibles.\newline
+		5.~El piloto elige una, ajusta a mano las paradas si lo desea y revisa la gasolina y el ritmo vuelta a vuelta.\newline
+		6.~La aplicación guarda la estrategia y la marca como la que seguirá el ingeniero. \\
+		\hline
+		Flujos alternativos & 2a.~El piloto no conoce su ritmo o su consumo: usa \emph{Medir en pista} y el ingeniero rellena los datos en unos libres.\newline
+		4a.~Ninguna estrategia cumple el reglamento: la aplicación indica qué restricción lo impide. \\
+		\hline
+		Postcondiciones & La estrategia elegida queda guardada y el ingeniero la seguirá en carrera (CU9). \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU11 (Planificar la estrategia de carrera)}
+	\label{tab:cu11}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU13 \\
+		\hline
+		Nombre & Analizar una sesión grabada \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF53, RF54, RF55, RF56 \\
+		\hline
+		Precondiciones & Existe al menos una sesión grabada. \\
+		\hline
+		Disparador & El piloto abre la página Análisis. \\
+		\hline
+		Flujo principal & 1.~La aplicación muestra la lista de sesiones.\newline
+		2.~El piloto filtra por juego, coche o circuito y selecciona una sesión, cuyo trazado y tiempos se muestran.\newline
+		3.~El piloto abre la sesión y elige una vuelta.\newline
+		4.~El piloto elige una vuelta de referencia para comparar.\newline
+		5.~El piloto recorre las hojas Base, Vehículo, Suspensión y Circuito, saltando a los sectores o curvas que le interesan.\newline
+		6.~El piloto identifica dónde pierde tiempo respecto a la referencia. \\
+		\hline
+		Flujos alternativos & 2a.~La búsqueda no devuelve sesiones: la aplicación indica que no hay grabaciones con esos filtros.\newline
+		4a.~No hay vuelta de referencia: las gráficas muestran solo la vuelta elegida. \\
+		\hline
+		Postcondiciones & El piloto obtiene conclusiones para mejorar su conducción o su reglaje. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU13 (Analizar una sesión grabada)}
+	\label{tab:cu13}
+\end{table}
+
+\clearpage   % una ficha de caso de uso por página, sin partir
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|l|p{10cm}|}
+		\hline
+		Identificador & CU14 \\
+		\hline
+		Nombre & Configurar el equipo desde la pantalla del aro \\
+		\hline
+		Actores & Piloto \\
+		\hline
+		Requisitos & RF24, RF25, RF26, RNF38, RNF39 \\
+		\hline
+		Precondiciones & La pantalla del aro está asignada al dash (CU15) y la aplicación está en marcha. \\
+		\hline
+		Disparador & El piloto pulsa la combinación de botones del aro que abre el menú. \\
+		\hline
+		Flujo principal & 1.~La pantalla muestra el menú con los parámetros generales agrupados por periférico.\newline
+		2.~El piloto navega con los encoders y elige un parámetro, por ejemplo la fuerza máxima del volante.\newline
+		3.~La pantalla muestra el valor actual del parámetro.\newline
+		4.~El piloto lo modifica con el encoder.\newline
+		5.~La aplicación aplica el cambio en vivo al periférico, lo guarda y la pantalla lo confirma.\newline
+		6.~El piloto cierra el menú y la pantalla vuelve a mostrar el dash. \\
+		\hline
+		Flujos alternativos & 4a.~El nuevo valor supera el límite permitido: se limita al máximo y la pantalla lo indica.\newline
+		4b.~El piloto elige una macro: la aplicación envía las pulsaciones al juego y comprueba por telemetría que han entrado; si no, lo avisa en la pantalla.\newline
+		5a.~El periférico no está conectado: el parámetro aparece deshabilitado y no se puede cambiar.\newline
+		*a.~El piloto no toca los mandos durante unos segundos: el menú se cierra solo y vuelve el dash. \\
+		\hline
+		Postcondiciones & El parámetro queda cambiado en el periférico y guardado, igual que si se hubiera hecho desde la aplicación. \\
+		\hline
+	\end{tabular}
+	\caption{Caso de uso CU14 (Configurar el equipo desde la pantalla del aro)}
+	\label{tab:cu14}
+\end{table}
+

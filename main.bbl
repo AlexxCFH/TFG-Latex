@@ -1,0 +1,3368 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{alvarezbrown_supergt}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5019f84f63a481047393000aa49f0d8e}{%
+           family={Alvarez\bibnamedelima Brown},
+           familyi={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{fullhash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{fullhashraw}{5019f84f63a481047393000aa49f0d8e}
+      \strng{bibnamehash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{authorbibnamehash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{authornamehash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{authorfullhash}{5019f84f63a481047393000aa49f0d8e}
+      \strng{authorfullhashraw}{5019f84f63a481047393000aa49f0d8e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Super GT [canal de YouTube]}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/@SuperGT
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/@SuperGT
+      \endverb
+    \endentry
+    \entry{hx711_datasheet}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d3391fb4851a36b5dfbe4c6b263a1338}{%
+           family={{Avia Semiconductor}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{fullhash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{fullhashraw}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{bibnamehash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{authorbibnamehash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{authornamehash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{authorfullhash}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \strng{authorfullhashraw}{d3391fb4851a36b5dfbe4c6b263a1338}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HX711: 24-Bit Analog-to-Digital Converter (ADC) for Weigh Scales}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
+      \endverb
+      \verb{url}
+      \verb https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
+      \endverb
+    \endentry
+    \entry{bakker_1987_tyre}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fe550c2c15bdde1f98e2a7b02aa66534}{%
+           family={Bakker},
+           familyi={B\bibinitperiod},
+           given={Egbert},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc523b4a030f6eeb7e5faa2727550700}{%
+           family={Nyborg},
+           familyi={N\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1b4dbc895c23e3f1394ca7053badfea0}{%
+           family={Pacejka},
+           familyi={P\bibinitperiod},
+           given={Hans\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAE International}%
+      }
+      \strng{namehash}{bd0c857ffa5e56b3aedea7b275c987ac}
+      \strng{fullhash}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \strng{fullhashraw}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \strng{bibnamehash}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \strng{authorbibnamehash}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \strng{authornamehash}{bd0c857ffa5e56b3aedea7b275c987ac}
+      \strng{authorfullhash}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \strng{authorfullhashraw}{2ef72e18b876b4d96f8b7695b4f81b54}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{SAE Technical Paper Series}
+      \field{number}{870421}
+      \field{title}{Tyre Modelling for Use in Vehicle Dynamics Studies}
+      \field{year}{1987}
+      \verb{doi}
+      \verb 10.4271/870421
+      \endverb
+    \endentry
+    \entry{bianchi_2002_cogging}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0acf5745bb07fd75cea049f1ec75a671}{%
+           family={Bianchi},
+           familyi={B\bibinitperiod},
+           given={Nicola},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de91b5bfc6a6660d9aa144fad422c57b}{%
+           family={Bolognani},
+           familyi={B\bibinitperiod},
+           given={Silverio},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{fullhash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{fullhashraw}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{bibnamehash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{authorbibnamehash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{authornamehash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{authorfullhash}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \strng{authorfullhashraw}{7bfd0cb65ec53d1fa8b8d213a80d0825}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Industry Applications}
+      \field{number}{5}
+      \field{title}{Design techniques for reducing the cogging torque in surface-mounted {PM} motors}
+      \field{volume}{38}
+      \field{year}{2002}
+      \field{pages}{1259\bibrangedash 1265}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/TIA.2002.802989
+      \endverb
+    \endentry
+    \entry{blackfalcon_2025_n24}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ff166014a6377058b8e83b4e78796077}{%
+           family={{Black Falcon}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff166014a6377058b8e83b4e78796077}
+      \strng{fullhash}{ff166014a6377058b8e83b4e78796077}
+      \strng{fullhashraw}{ff166014a6377058b8e83b4e78796077}
+      \strng{bibnamehash}{ff166014a6377058b8e83b4e78796077}
+      \strng{authorbibnamehash}{ff166014a6377058b8e83b4e78796077}
+      \strng{authornamehash}{ff166014a6377058b8e83b4e78796077}
+      \strng{authorfullhash}{ff166014a6377058b8e83b4e78796077}
+      \strng{authorfullhashraw}{ff166014a6377058b8e83b4e78796077}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Class victory and podium for Black Falcon at the ADAC RAVENOL 24h Race Nürburgring}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.black-falcon.de/en/black-falcon-en/news/700-class-victory-and-podium-for-black-falcon-at-the-adac-ravenol-24h-race-nuerburgring
+      \endverb
+      \verb{url}
+      \verb https://www.black-falcon.de/en/black-falcon-en/news/700-class-victory-and-podium-for-black-falcon-at-the-adac-ravenol-24h-race-nuerburgring
+      \endverb
+    \endentry
+    \entry{bmw_2020_dsc}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7867cc8ca15932cbab179c68ee4a8fbb}{%
+           family={{BMW Group}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{fullhash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{fullhashraw}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{bibnamehash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{authorbibnamehash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{authornamehash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{authorfullhash}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \strng{authorfullhashraw}{7867cc8ca15932cbab179c68ee4a8fbb}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BMW Group sets new standards for driving simulation}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.press.bmwgroup.com/global/article/detail/T0320021EN/
+      \endverb
+      \verb{url}
+      \verb https://www.press.bmwgroup.com/global/article/detail/T0320021EN/
+      \endverb
+    \endentry
+    \entry{brembo_2025_f1_numbers}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=11a30b9a418036170b3426702f690e77}{%
+           family={{Brembo}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{11a30b9a418036170b3426702f690e77}
+      \strng{fullhash}{11a30b9a418036170b3426702f690e77}
+      \strng{fullhashraw}{11a30b9a418036170b3426702f690e77}
+      \strng{bibnamehash}{11a30b9a418036170b3426702f690e77}
+      \strng{authorbibnamehash}{11a30b9a418036170b3426702f690e77}
+      \strng{authornamehash}{11a30b9a418036170b3426702f690e77}
+      \strng{authorfullhash}{11a30b9a418036170b3426702f690e77}
+      \strng{authorfullhashraw}{11a30b9a418036170b3426702f690e77}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{All the numbers of the 2025 Formula 1 Championship}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.brembo.com/en/motorsport/formula1/2025-numbers
+      \endverb
+      \verb{url}
+      \verb https://www.brembo.com/en/motorsport/formula1/2025-numbers
+      \endverb
+    \endentry
+    \entry{briz_2000_current_regulators}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=76da32f16999613ad1c64a802b732e17}{%
+           family={Briz},
+           familyi={B\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f56fb786246e29b7454b1b5dff8e0fc}{%
+           family={Degner},
+           familyi={D\bibinitperiod},
+           given={Michael\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf7032e1fb27a20daea92010238181d8}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Robert\bibnamedelima D.},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1963cf9dfee9a51f3c55570caddd6ab1}
+      \strng{fullhash}{fb353abfb10509985c8b557acf46dfd5}
+      \strng{fullhashraw}{fb353abfb10509985c8b557acf46dfd5}
+      \strng{bibnamehash}{fb353abfb10509985c8b557acf46dfd5}
+      \strng{authorbibnamehash}{fb353abfb10509985c8b557acf46dfd5}
+      \strng{authornamehash}{1963cf9dfee9a51f3c55570caddd6ab1}
+      \strng{authorfullhash}{fb353abfb10509985c8b557acf46dfd5}
+      \strng{authorfullhashraw}{fb353abfb10509985c8b557acf46dfd5}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Industry Applications}
+      \field{number}{3}
+      \field{title}{Analysis and design of current regulators using complex vectors}
+      \field{volume}{36}
+      \field{year}{2000}
+      \field{pages}{817\bibrangedash 825}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/28.845057
+      \endverb
+    \endentry
+    \entry{bsimracing_2015_t150}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d6b53bcee2b745c665dc4eae14d555d7}{%
+           family={{BSimRacing}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{fullhash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{fullhashraw}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{bibnamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorbibnamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authornamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorfullhash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorfullhashraw}{d6b53bcee2b745c665dc4eae14d555d7}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{9}
+      \field{month}{4}
+      \field{title}{Thrustmaster T150 Force Feedback Wheel Revealed}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bsimracing.com/thrustmaster-t150-force-feedback-wheel-revealed/
+      \endverb
+      \verb{url}
+      \verb https://www.bsimracing.com/thrustmaster-t150-force-feedback-wheel-revealed/
+      \endverb
+    \endentry
+    \entry{bsimracing_2025_alpha_evo}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d6b53bcee2b745c665dc4eae14d555d7}{%
+           family={{BSimRacing}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{fullhash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{fullhashraw}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{bibnamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorbibnamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authornamehash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorfullhash}{d6b53bcee2b745c665dc4eae14d555d7}
+      \strng{authorfullhashraw}{d6b53bcee2b745c665dc4eae14d555d7}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simagic Alpha EVO Wheelbases Up for Pre-Order}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bsimracing.com/simagic-alpha-evo-wheelbases-up-for-pre-order/
+      \endverb
+      \verb{url}
+      \verb https://www.bsimracing.com/simagic-alpha-evo-wheelbases-up-for-pre-order/
+      \endverb
+    \endentry
+    \entry{businesswire_2024_corsair_fanatec}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=52768c35bf4f17d9aa91cc4211475bc4}{%
+           family={{Business Wire}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{fullhash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{fullhashraw}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{bibnamehash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{authorbibnamehash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{authornamehash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{authorfullhash}{52768c35bf4f17d9aa91cc4211475bc4}
+      \strng{authorfullhashraw}{52768c35bf4f17d9aa91cc4211475bc4}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Corsair Closed Acquisition of the Fanatec Product Line from Endor AG}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://businesswire.com/news/home/20240923956832/en/
+      \endverb
+      \verb{url}
+      \verb https://businesswire.com/news/home/20240923956832/en/
+      \endverb
+    \endentry
+    \entry{caranddriver_verstappen_sim}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=43cc1190bd2b57769771f8d6a0687a93}{%
+           family={{Car and Driver}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{fullhash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{fullhashraw}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{bibnamehash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{authorbibnamehash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{authornamehash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{authorfullhash}{43cc1190bd2b57769771f8d6a0687a93}
+      \strng{authorfullhashraw}{43cc1190bd2b57769771f8d6a0687a93}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Max Verstappen Gives Us His Tips on Building an Accurate Racing Simulator}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.aol.com/articles/max-verstappen-gives-us-tips-170700688.html
+      \endverb
+      \verb{url}
+      \verb https://www.aol.com/articles/max-verstappen-gives-us-tips-170700688.html
+      \endverb
+    \endentry
+    \entry{choi_2013_vibrotactile}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3dfa8234859aa52e32924f547fa84569}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Seungmoon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=acc19bbe2c72318b1e2267326bf9037a}{%
+           family={Kuchenbecker},
+           familyi={K\bibinitperiod},
+           given={Katherine\bibnamedelima J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{fullhash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{fullhashraw}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{bibnamehash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{authorbibnamehash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{authornamehash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{authorfullhash}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \strng{authorfullhashraw}{ff0c4d9c48abc0b9224b09f9daeda265}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{9}
+      \field{title}{Vibrotactile Display: Perception, Technology, and Applications}
+      \field{volume}{101}
+      \field{year}{2013}
+      \field{pages}{2093\bibrangedash 2104}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/JPROC.2012.2221071
+      \endverb
+    \endentry
+    \entry{coachdave_delta}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd7e6e8acf4794473246e173281bf9be}{%
+           family={{Coach Dave Academy}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{fullhash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{fullhashraw}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{bibnamehash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{authorbibnamehash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{authornamehash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{authorfullhash}{bd7e6e8acf4794473246e173281bf9be}
+      \strng{authorfullhashraw}{bd7e6e8acf4794473246e173281bf9be}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Coach Dave Delta Help Centre \& FAQ Guide}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://coachdaveacademy.com/documentation/coach-dave-delta-help-centre-the-complete-faq-guide/
+      \endverb
+      \verb{url}
+      \verb https://coachdaveacademy.com/documentation/coach-dave-delta-help-centre-the-complete-faq-guide/
+      \endverb
+    \endentry
+    \entry{cosworth_iracing}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0d2dd663640e16b2cd2fcb1b192ec15c}{%
+           family={{Cosworth}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{fullhash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{fullhashraw}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{bibnamehash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{authorbibnamehash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{authornamehash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{authorfullhash}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \strng{authorfullhashraw}{0d2dd663640e16b2cd2fcb1b192ec15c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Unlock the Data Behind Every Lap: Pi Toolbox for iRacing}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cosworth.com/motorsport/iracing/
+      \endverb
+      \verb{url}
+      \verb https://cosworth.com/motorsport/iracing/
+      \endverb
+    \endentry
+    \entry{crewchief_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a984be8ea4430a476261830c396b17c8}{%
+           family={{Crew Chief}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a984be8ea4430a476261830c396b17c8}
+      \strng{fullhash}{a984be8ea4430a476261830c396b17c8}
+      \strng{fullhashraw}{a984be8ea4430a476261830c396b17c8}
+      \strng{bibnamehash}{a984be8ea4430a476261830c396b17c8}
+      \strng{authorbibnamehash}{a984be8ea4430a476261830c396b17c8}
+      \strng{authornamehash}{a984be8ea4430a476261830c396b17c8}
+      \strng{authorfullhash}{a984be8ea4430a476261830c396b17c8}
+      \strng{authorfullhashraw}{a984be8ea4430a476261830c396b17c8}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Crew Chief: web oficial y foro}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://thecrewchief.org/
+      \endverb
+      \verb{url}
+      \verb https://thecrewchief.org/
+      \endverb
+    \endentry
+    \entry{dmsb_permit_nordschleife}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=abecff63ea923f33ccf5596f27e95a2a}{%
+           family={{DMSB}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{fullhash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{fullhashraw}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{bibnamehash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{authorbibnamehash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{authornamehash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{authorfullhash}{abecff63ea923f33ccf5596f27e95a2a}
+      \strng{authorfullhashraw}{abecff63ea923f33ccf5596f27e95a2a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{DMSB Permit Nordschleife: requisitos de obtención}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.dmsb.de/de/lizenzen/dmsb-permit-nordschleife/
+      \endverb
+      \verb{url}
+      \verb https://www.dmsb.de/de/lizenzen/dmsb-permit-nordschleife/
+      \endverb
+    \endentry
+    \entry{ea_f1_25_udp}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2edc7dbb1a7e69555350e7c248384cae}{%
+           family={{Electronic Arts}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{fullhash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{fullhashraw}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{bibnamehash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{authorbibnamehash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{authornamehash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{authorfullhash}{2edc7dbb1a7e69555350e7c248384cae}
+      \strng{authorfullhashraw}{2edc7dbb1a7e69555350e7c248384cae}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{F1 Games Game Info Hub, foros oficiales de EA}
+      \field{title}{F1 25 UDP Specification}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://forums.ea.com/blog/f1-games-game-info-hub-en/f1%c2%ae-25-udp-specification/12187347
+      \endverb
+      \verb{url}
+      \verb https://forums.ea.com/blog/f1-games-game-info-hub-en/f1%c2%ae-25-udp-specification/12187347
+      \endverb
+    \endentry
+    \entry{endor_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b78d4560a4ac6d05759cafaff483f16}{%
+           family={{Endor AG}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{fullhash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{fullhashraw}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{bibnamehash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{authorbibnamehash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{authornamehash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{authorfullhash}{3b78d4560a4ac6d05759cafaff483f16}
+      \strng{authorfullhashraw}{3b78d4560a4ac6d05759cafaff483f16}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2023}
+      \field{title}{Comunicados corporativos y de resultados}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://endor.ag/?lang=en
+      \endverb
+      \verb{url}
+      \verb https://endor.ag/?lang=en
+      \endverb
+    \endentry
+    \entry{fanatec_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6dd5a29ef98b95ab536f6e1dbe470f4c}{%
+           family={{Fanatec}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{fullhash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{fullhashraw}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{bibnamehash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{authorbibnamehash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{authornamehash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{authorfullhash}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \strng{authorfullhashraw}{6dd5a29ef98b95ab536f6e1dbe470f4c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Web, tienda y noticias oficiales}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.fanatec.com/eu/en
+      \endverb
+      \verb{url}
+      \verb https://www.fanatec.com/eu/en
+      \endverb
+    \endentry
+    \entry{ffbeast_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c28e432a7ddb0f7f6346d9c21a8f3820}{%
+           family={{FFBeast}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{fullhash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{fullhashraw}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{bibnamehash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{authorbibnamehash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{authornamehash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{authorfullhash}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \strng{authorfullhashraw}{c28e432a7ddb0f7f6346d9c21a8f3820}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Documentación y licencias}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ffbeast.github.io/docs/en/
+      \endverb
+      \verb{url}
+      \verb https://ffbeast.github.io/docs/en/
+      \endverb
+    \endentry
+    \entry{fiawec_news}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=974a63183335ecef493fedcda8cb96d6}{%
+           family={{FIA WEC}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{fullhash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{fullhashraw}{974a63183335ecef493fedcda8cb96d6}
+      \strng{bibnamehash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{authorbibnamehash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{authornamehash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{authorfullhash}{974a63183335ecef493fedcda8cb96d6}
+      \strng{authorfullhashraw}{974a63183335ecef493fedcda8cb96d6}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Noticias oficiales del FIA World Endurance Championship y las 24 Horas de Le Mans}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.fiawec.com/en/news
+      \endverb
+      \verb{url}
+      \verb https://www.fiawec.com/en/news
+      \endverb
+    \endentry
+    \entry{formula1_news}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5df6ac71e119d30b437e6554ceb48b5d}{%
+           family={{Formula 1}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{fullhash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{fullhashraw}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{bibnamehash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{authorbibnamehash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{authornamehash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{authorfullhash}{5df6ac71e119d30b437e6554ceb48b5d}
+      \strng{authorfullhashraw}{5df6ac71e119d30b437e6554ceb48b5d}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Noticias oficiales: F1 Esports, Virtual Grand Prix y F1 Sim Racing}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2018}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.formula1.com/en/latest
+      \endverb
+      \verb{url}
+      \verb https://www.formula1.com/en/latest
+      \endverb
+    \endentry
+    \entry{garage61_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=46c9eca5786f5cfc6c43da81fe709de5}{%
+           family={{Garage 61}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{fullhash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{fullhashraw}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{bibnamehash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{authorbibnamehash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{authornamehash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{authorfullhash}{46c9eca5786f5cfc6c43da81fe709de5}
+      \strng{authorfullhashraw}{46c9eca5786f5cfc6c43da81fe709de5}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Garage 61}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://garage61.net/
+      \endverb
+      \verb{url}
+      \verb https://garage61.net/
+      \endverb
+    \endentry
+    \entry{github_docs}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d3b7c913cd04ebfec0e9ec32cb6fd58c}{%
+           family={{GitHub}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{bibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorbibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authornamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GitHub Docs: Projects, Issues, Milestones y Releases}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.github.com/
+      \endverb
+      \verb{url}
+      \verb https://docs.github.com/
+      \endverb
+    \endentry
+    \entry{gpblog_verstappen_sim}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=81053e25106d98d7a18691e26ce121ad}{%
+           family={{GPblog}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{fullhash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{fullhashraw}{81053e25106d98d7a18691e26ce121ad}
+      \strng{bibnamehash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{authorbibnamehash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{authornamehash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{authorfullhash}{81053e25106d98d7a18691e26ce121ad}
+      \strng{authorfullhashraw}{81053e25106d98d7a18691e26ce121ad}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Verstappen: ``They don't have that speed reference''}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gpblog.com/en/news/73538/verstappen-they-don-t-have-that-speed-reference.html
+      \endverb
+      \verb{url}
+      \verb https://www.gpblog.com/en/news/73538/verstappen-they-don-t-have-that-speed-reference.html
+      \endverb
+    \endentry
+    \entry{gpfans_2026_antonelli}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b2ab578635e1ceaf7a8fb4a8e56ffa31}{%
+           family={{GPFans}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{fullhash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{fullhashraw}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{bibnamehash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{authorbibnamehash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{authornamehash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{authorfullhash}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \strng{authorfullhashraw}{b2ab578635e1ceaf7a8fb4a8e56ffa31}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{F1 world champion Lando Norris' brother just helped his title rival by building him a £30k gadget}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gpfans.com/en/f1-news/1088816/f1-world-champion-lando-norris-brother-just-helped-his-title-rival-by-building-him-a-30k-gadget/
+      \endverb
+      \verb{url}
+      \verb https://www.gpfans.com/en/f1-news/1088816/f1-world-champion-lando-norris-brother-just-helped-his-title-rival-by-building-him-a-30k-gadget/
+      \endverb
+    \endentry
+    \entry{granturismo_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e2449e21ae7cd2ee6f8c8c65e8d54b77}{%
+           family={{Gran Turismo}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{fullhash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{fullhashraw}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{bibnamehash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{authorbibnamehash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{authornamehash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{authorfullhash}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \strng{authorfullhashraw}{e2449e21ae7cd2ee6f8c8c65e8d54b77}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Web oficial: GT Academy, Olympic Virtual Series y Gran Turismo World Series}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2008}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gran-turismo.com/world/
+      \endverb
+      \verb{url}
+      \verb https://www.gran-turismo.com/world/
+      \endverb
+    \endentry
+    \entry{iracing_360hz}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=555286d042eb750227c58d35ecca8e2a}{%
+           family={{Granite Devices Community}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{fullhash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{fullhashraw}{555286d042eb750227c58d35ecca8e2a}
+      \strng{bibnamehash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{authorbibnamehash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{authornamehash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{authorfullhash}{555286d042eb750227c58d35ecca8e2a}
+      \strng{authorfullhashraw}{555286d042eb750227c58d35ecca8e2a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hilo de foro con las explicaciones del personal de iRacing sobre el modo de 360~Hz}
+      \field{title}{iRacing 360Hz FFB with Simucube 2}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://community.granitedevices.com/t/iracing-360hz-ffb-with-simucube-2/10613
+      \endverb
+      \verb{url}
+      \verb https://community.granitedevices.com/t/iracing-360hz-ffb-with-simucube-2/10613
+      \endverb
+    \endentry
+    \entry{gtplanet_gt7_telemetry}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e204389026a94b1ed89a3a01e6d7ee37}{%
+           family={{GTPlanet}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{fullhash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{fullhashraw}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{bibnamehash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{authorbibnamehash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{authornamehash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{authorfullhash}{e204389026a94b1ed89a3a01e6d7ee37}
+      \strng{authorfullhashraw}{e204389026a94b1ed89a3a01e6d7ee37}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hilo de foro}
+      \field{title}{Overview of GT7 Telemetry Software}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gtplanet.net/forum/threads/overview-of-gt7-telemetry-software.418011/
+      \endverb
+      \verb{url}
+      \verb https://www.gtplanet.net/forum/threads/overview-of-gt7-telemetry-software.418011/
+      \endverb
+    \endentry
+    \entry{arduino_joystick_library}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0a0fc008faa268ed6c5de0b74b92b079}{%
+           family={Heironimus},
+           familyi={H\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{fullhash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{fullhashraw}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{bibnamehash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{authorbibnamehash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{authornamehash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{authorfullhash}{0a0fc008faa268ed6c5de0b74b92b079}
+      \strng{authorfullhashraw}{0a0fc008faa268ed6c5de0b74b92b079}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Arduino Joystick Library}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/MHeironimus/ArduinoJoystickLibrary
+      \endverb
+      \verb{url}
+      \verb https://github.com/MHeironimus/ArduinoJoystickLibrary
+      \endverb
+    \endentry
+    \entry{heusinkveld_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6e7e7510b6e659fb7a0537a7a599fb78}{%
+           family={{Heusinkveld}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{fullhash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{fullhashraw}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{bibnamehash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{authorbibnamehash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{authornamehash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{authorfullhash}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \strng{authorfullhashraw}{6e7e7510b6e659fb7a0537a7a599fb78}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Web y tienda oficial}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://heusinkveld.com/
+      \endverb
+      \verb{url}
+      \verb https://heusinkveld.com/
+      \endverb
+    \endentry
+    \entry{hevner_2004_dsr}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=e054261c7f1739e1ba1db0a45e385c1b}{%
+           family={Hevner},
+           familyi={H\bibinitperiod},
+           given={Alan\bibnamedelima R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5aec260b5b1381edc4b8ff6755f2d543}{%
+           family={March},
+           familyi={M\bibinitperiod},
+           given={Salvatore\bibnamedelima T.},
+           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c518c214dc9e77148493e9ea47f505ab}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jinsoo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65565df90d4793da7a2f20e5e1b07345}{%
+           family={Ram},
+           familyi={R\bibinitperiod},
+           given={Sudha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{fullhash}{b163bef761d9a2c79a3d232595321775}
+      \strng{fullhashraw}{b163bef761d9a2c79a3d232595321775}
+      \strng{bibnamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authorbibnamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authornamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authorfullhash}{b163bef761d9a2c79a3d232595321775}
+      \strng{authorfullhashraw}{b163bef761d9a2c79a3d232595321775}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{MIS Quarterly}
+      \field{number}{1}
+      \field{title}{Design Science in Information Systems Research}
+      \field{volume}{28}
+      \field{year}{2004}
+      \field{pages}{75\bibrangedash 105}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.2307/25148625
+      \endverb
+    \endentry
+    \entry{iad_2026_deriva}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=632f182b370c384c9f5c63eb1eb079c8}{%
+           family={{IAD, Instituto de Automovilismo Deportivo}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{fullhash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{fullhashraw}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{bibnamehash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{authorbibnamehash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{authornamehash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{authorfullhash}{632f182b370c384c9f5c63eb1eb079c8}
+      \strng{authorfullhashraw}{632f182b370c384c9f5c63eb1eb079c8}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{month}{7}
+      \field{title}{Deriva de un neumático\ldots{} ¿Qué es?}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://iad.la/deriva-de-un-neumatico-que-es/
+      \endverb
+      \verb{url}
+      \verb https://iad.la/deriva-de-un-neumatico-que-es/
+      \endverb
+    \endentry
+    \entry{ieee830}{standard}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6b600542ba3d4a21aea8e7d8ee988932}{%
+           family={{IEEE Computer Society}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{organization}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers}%
+      }
+      \strng{namehash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{fullhash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{fullhashraw}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{bibnamehash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{authorbibnamehash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{authornamehash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{authorfullhash}{6b600542ba3d4a21aea8e7d8ee988932}
+      \strng{authorfullhashraw}{6b600542ba3d4a21aea8e7d8ee988932}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{IEEE Std 830-1998}
+      \field{title}{IEEE Recommended Practice for Software Requirements Specifications}
+      \field{year}{1998}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.1998.88286
+      \endverb
+    \endentry
+    \entry{iracing_news}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=01d5ac2f9382f0a96b10208acbcbf582}{%
+           family={{iRacing}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{fullhash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{fullhashraw}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{bibnamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorbibnamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authornamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorfullhash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorfullhashraw}{01d5ac2f9382f0a96b10208acbcbf582}
+      \field{extraname}{1}
+      \field{sortinit}{i}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Noticias y comunicados oficiales}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2012}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.iracing.com/news/
+      \endverb
+      \verb{url}
+      \verb https://www.iracing.com/news/
+      \endverb
+    \endentry
+    \entry{iracing_historia}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=01d5ac2f9382f0a96b10208acbcbf582}{%
+           family={{iRacing}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{fullhash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{fullhashraw}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{bibnamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorbibnamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authornamehash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorfullhash}{01d5ac2f9382f0a96b10208acbcbf582}
+      \strng{authorfullhashraw}{01d5ac2f9382f0a96b10208acbcbf582}
+      \field{extraname}{2}
+      \field{sortinit}{i}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ownership \& History}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.iracing.com/ownership-history/
+      \endverb
+      \verb{url}
+      \verb https://www.iracing.com/ownership-history/
+      \endverb
+    \endentry
+    \entry{iso29148}{standard}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=81077c206f392162560480542b37f0cd}{%
+           family={{ISO/IEC/IEEE}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Ginebra}%
+      }
+      \list{organization}{1}{%
+        {International Organization for Standardization}%
+      }
+      \strng{namehash}{81077c206f392162560480542b37f0cd}
+      \strng{fullhash}{81077c206f392162560480542b37f0cd}
+      \strng{fullhashraw}{81077c206f392162560480542b37f0cd}
+      \strng{bibnamehash}{81077c206f392162560480542b37f0cd}
+      \strng{authorbibnamehash}{81077c206f392162560480542b37f0cd}
+      \strng{authornamehash}{81077c206f392162560480542b37f0cd}
+      \strng{authorfullhash}{81077c206f392162560480542b37f0cd}
+      \strng{authorfullhashraw}{81077c206f392162560480542b37f0cd}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO/IEC/IEEE 29148:2018}
+      \field{title}{Systems and software engineering -- Life cycle processes -- Requirements engineering}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.2018.8559686
+      \endverb
+    \endentry
+    \entry{jahns_1996_torque_ripple}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=625371795d8daeed14dbdd985501b89c}{%
+           family={Jahns},
+           familyi={J\bibinitperiod},
+           given={Thomas\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6584c85e0d5fc658f9a7d736f8d934b5}{%
+           family={Soong},
+           familyi={S\bibinitperiod},
+           given={Wen\bibnamedelima L.},
+           giveni={W\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{fullhash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{fullhashraw}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{bibnamehash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{authorbibnamehash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{authornamehash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{authorfullhash}{28b1c7cfd97db9e0b73f546a00922b17}
+      \strng{authorfullhashraw}{28b1c7cfd97db9e0b73f546a00922b17}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Industrial Electronics}
+      \field{number}{2}
+      \field{title}{Pulsating torque minimization techniques for permanent magnet {AC} motor drives: a review}
+      \field{volume}{43}
+      \field{year}{1996}
+      \field{pages}{321\bibrangedash 330}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/41.491356
+      \endverb
+    \endentry
+    \entry{kececi_2026_simracing_realism}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d89519fc5dfcdfeebe2d90bc0c768300}{%
+           family={Keçeci},
+           familyi={K\bibinitperiod},
+           given={Orçun},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{fullhash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{fullhashraw}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{bibnamehash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{authorbibnamehash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{authornamehash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{authorfullhash}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \strng{authorfullhashraw}{d89519fc5dfcdfeebe2d90bc0c768300}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Games Technology}
+      \field{number}{1}
+      \field{title}{The Parameters Determining Realism in Esports-Based Sim Racing}
+      \field{volume}{2026}
+      \field{year}{2026}
+      \field{pages}{2630082}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1155/ijcg/2630082
+      \endverb
+    \endentry
+    \entry{krishnan_2010_pmsm}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=79e41b14b0523dc4ab7e0b06a9beeeb0}{%
+           family={Krishnan},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{fullhash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{fullhashraw}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{bibnamehash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{authorbibnamehash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{authornamehash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{authorfullhash}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \strng{authorfullhashraw}{79e41b14b0523dc4ab7e0b06a9beeeb0}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Permanent Magnet Synchronous and Brushless DC Motor Drives}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.1201/9781420014235
+      \endverb
+    \endentry
+    \entry{acc_motec_blog}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5b56cdab4569e885f8d53e79f6f405e5}{%
+           family={{Kunos Simulazioni}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{fullhash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{fullhashraw}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{bibnamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorbibnamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authornamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorfullhash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorfullhashraw}{5b56cdab4569e885f8d53e79f6f405e5}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ACC Blog: MoTeC Telemetry and Dedicated ACC Workspace}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://overtake.gg/threads/acc-blog-motec-telemetry-and-dedicated-acc-workspace.165714/
+      \endverb
+      \verb{url}
+      \verb https://overtake.gg/threads/acc-blog-motec-telemetry-and-dedicated-acc-workspace.165714/
+      \endverb
+    \endentry
+    \entry{kunos_acc_shared_memory}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5b56cdab4569e885f8d53e79f6f405e5}{%
+           family={{Kunos Simulazioni}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{fullhash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{fullhashraw}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{bibnamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorbibnamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authornamehash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorfullhash}{5b56cdab4569e885f8d53e79f6f405e5}
+      \strng{authorfullhashraw}{5b56cdab4569e885f8d53e79f6f405e5}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Foro oficial de Kunos Simulazioni}
+      \field{title}{ACC Shared Memory Documentation}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.assettocorsa.net/forum/index.php?threads/acc-shared-memory-documentation.59965/
+      \endverb
+      \verb{url}
+      \verb https://www.assettocorsa.net/forum/index.php?threads/acc-shared-memory-documentation.59965/
+      \endverb
+    \endentry
+    \entry{logitech_g29}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=35a2cd20e2973dc3a2118abec99395a1}{%
+           family={{Logitech G}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{fullhash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{fullhashraw}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{bibnamehash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{authorbibnamehash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{authornamehash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{authorfullhash}{35a2cd20e2973dc3a2118abec99395a1}
+      \strng{authorfullhashraw}{35a2cd20e2973dc3a2118abec99395a1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{G920/G29 Driving Force Racing Wheel}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.logitechg.com/en-hk/products/driving/driving-force-racing-wheel.html
+      \endverb
+      \verb{url}
+      \verb https://www.logitechg.com/en-hk/products/driving/driving-force-racing-wheel.html
+      \endverb
+    \endentry
+    \entry{mrfr_2025_racing_sim}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0585f4ab93b0b5191d72ce69f0a4d7bc}{%
+           family={{Market Research Future}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Market Research Future}%
+      }
+      \strng{namehash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{fullhash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{fullhashraw}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{bibnamehash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{authorbibnamehash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{authornamehash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{authorfullhash}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \strng{authorfullhashraw}{0585f4ab93b0b5191d72ce69f0a4d7bc}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Racing Simulator Market Size, Share, Trends Report 2035}
+      \field{type}{Informe de mercado}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.marketresearchfuture.com/reports/racing-simulator-market-21942
+      \endverb
+      \verb{url}
+      \verb https://www.marketresearchfuture.com/reports/racing-simulator-market-21942
+      \endverb
+    \endentry
+    \entry{mri_2025_car_racing_games}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=939bb3a66e28d2f6b1b6b59519c8a73c}{%
+           family={{Market Research Intellect}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Market Research Intellect}%
+      }
+      \strng{namehash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{fullhash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{fullhashraw}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{bibnamehash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{authorbibnamehash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{authornamehash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{authorfullhash}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \strng{authorfullhashraw}{939bb3a66e28d2f6b1b6b59519c8a73c}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Car Racing Games Market (2026--2035)}
+      \field{type}{Informe de mercado}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.marketresearchintellect.com/product/car-racing-games-market/
+      \endverb
+      \verb{url}
+      \verb https://www.marketresearchintellect.com/product/car-racing-games-market/
+      \endverb
+    \endentry
+    \entry{marketsandmarkets_racing_sim}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4fb21352ee4fd5af5b5cc9e7b5714e5f}{%
+           family={{MarketsandMarkets}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {MarketsandMarkets}%
+      }
+      \strng{namehash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{fullhash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{fullhashraw}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{bibnamehash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{authorbibnamehash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{authornamehash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{authorfullhash}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \strng{authorfullhashraw}{4fb21352ee4fd5af5b5cc9e7b5714e5f}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Racing Simulator Market Report 2024--2030}
+      \field{type}{Informe de mercado}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.marketsandmarkets.com/Market-Reports/racing-simulator-market-247895850.html
+      \endverb
+      \verb{url}
+      \verb https://www.marketsandmarkets.com/Market-Reports/racing-simulator-market-247895850.html
+      \endverb
+    \endentry
+    \entry{maurya_2012_running_lean}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e994f6041a42cfd05a1f0107a5777733}{%
+           family={Maurya},
+           familyi={M\bibinitperiod},
+           given={Ash},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{fullhash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{fullhashraw}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{bibnamehash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{authorbibnamehash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{authornamehash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{authorfullhash}{e994f6041a42cfd05a1f0107a5777733}
+      \strng{authorfullhashraw}{e994f6041a42cfd05a1f0107a5777733}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-1-449-30517-8}
+      \field{title}{Running Lean: Iterate from Plan A to a Plan That Works}
+      \field{year}{2012}
+    \endentry
+    \entry{mclaren_2017_wfg}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=891b24e4f7c78264f0dedd3668077b47}{%
+           family={{McLaren}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{fullhash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{fullhashraw}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{bibnamehash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{authorbibnamehash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{authornamehash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{authorfullhash}{891b24e4f7c78264f0dedd3668077b47}
+      \strng{authorfullhashraw}{891b24e4f7c78264f0dedd3668077b47}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Rudy van Buren wins World's Fastest Gamer}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mclaren.com/racing/gaming/worlds-fastest-gamer/2017/rudy-van-buren-wins/
+      \endverb
+      \verb{url}
+      \verb https://www.mclaren.com/racing/gaming/worlds-fastest-gamer/2017/rudy-van-buren-wins/
+      \endverb
+    \endentry
+    \entry{mercedes_sim_driver}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=532848cbe115a0055e34ac2f2b53be6e}{%
+           family={{Mercedes-AMG Petronas F1 Team}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{fullhash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{fullhashraw}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{bibnamehash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{authorbibnamehash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{authornamehash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{authorfullhash}{532848cbe115a0055e34ac2f2b53be6e}
+      \strng{authorfullhashraw}{532848cbe115a0055e34ac2f2b53be6e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Feature: explaining the role of an F1 sim driver}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mercedesamgf1.com/en/news/2022/2022-italian-grand-prix/feature-explaining-role-f1-sim-driver
+      \endverb
+      \verb{url}
+      \verb https://www.mercedesamgf1.com/en/news/2022/2022-italian-grand-prix/feature-explaining-role-f1-sim-driver
+      \endverb
+    \endentry
+    \entry{microsoft_sidewinder_1998}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={{Microsoft}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{26}
+      \field{month}{5}
+      \field{note}{Nota de prensa}
+      \field{title}{Microsoft Drives Game Device Demand With Next-Generation Controllers At 1998 Electronics Entertainment Expo}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://news.microsoft.com/source/1998/05/26/microsoft-drives-game-device-demand-with-next-generation-controllers-at-1998-electronics-entertainment-expo/
+      \endverb
+      \verb{url}
+      \verb https://news.microsoft.com/source/1998/05/26/microsoft-drives-game-device-demand-with-next-generation-controllers-at-1998-electronics-entertainment-expo/
+      \endverb
+    \endentry
+    \entry{mordor_2025_racing_sim}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bed88ffefb47aac601ec95157a59baa3}{%
+           family={{Mordor Intelligence}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Mordor Intelligence}%
+      }
+      \strng{namehash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{fullhash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{fullhashraw}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{bibnamehash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{authorbibnamehash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{authornamehash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{authorfullhash}{bed88ffefb47aac601ec95157a59baa3}
+      \strng{authorfullhashraw}{bed88ffefb47aac601ec95157a59baa3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Racing Simulator Market: Size, Share \& 2030 Trends Report}
+      \field{type}{Informe de mercado}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mordorintelligence.com/industry-reports/racing-simulator-market
+      \endverb
+      \verb{url}
+      \verb https://www.mordorintelligence.com/industry-reports/racing-simulator-market
+      \endverb
+    \endentry
+    \entry{motec_i2}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9a2a17eed13978d71e4dd108d848a789}{%
+           family={{MoTeC}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{fullhash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{fullhashraw}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{bibnamehash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{authorbibnamehash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{authornamehash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{authorfullhash}{9a2a17eed13978d71e4dd108d848a789}
+      \strng{authorfullhashraw}{9a2a17eed13978d71e4dd108d848a789}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{i2 Data Analysis Software}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.motec.com.au/i2/i2overview/
+      \endverb
+      \verb{url}
+      \verb https://www.motec.com.au/i2/i2overview/
+      \endverb
+    \endentry
+    \entry{motorsport_com}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48a389ddded0318e589591fca1f85dc3}{%
+           family={{Motorsport.com}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{fullhash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{fullhashraw}{48a389ddded0318e589591fca1f85dc3}
+      \strng{bibnamehash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{authorbibnamehash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{authornamehash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{authorfullhash}{48a389ddded0318e589591fca1f85dc3}
+      \strng{authorfullhashraw}{48a389ddded0318e589591fca1f85dc3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Cobertura de NASCAR, NLS y 24 Horas de Nürburgring}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2018}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.motorsport.com/
+      \endverb
+      \verb{url}
+      \verb https://www.motorsport.com/
+      \endverb
+    \endentry
+    \entry{moza_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ea3252f6f33c4897c0719898d74ab639}{%
+           family={{MOZA Racing}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{fullhash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{fullhashraw}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{bibnamehash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{authorbibnamehash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{authornamehash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{authorfullhash}{ea3252f6f33c4897c0719898d74ab639}
+      \strng{authorfullhashraw}{ea3252f6f33c4897c0719898d74ab639}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Web, tienda y noticias oficiales}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://eu.mozaracing.com/
+      \endverb
+      \verb{url}
+      \verb https://eu.mozaracing.com/
+      \endverb
+    \endentry
+    \entry{muller_2010_load_cells}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=68ecddf4cf30b4bbce3f21a5f435129e}{%
+           family={Muller},
+           familyi={M\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bd60060fe6b93e1900a8d7562973f743}{%
+           family={Brito},
+           familyi={B\bibinitperiod},
+           given={Renato},
+           giveni={R\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=065a384c2b1faf31ea747da71fa6b9f6}{%
+           family={Pereira},
+           familyi={P\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65f9342b374ce5ea6df3173abaf8b3a0}{%
+           family={Brusamarello},
+           familyi={B\bibinitperiod},
+           given={Valner},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{52eb08071eda55b68604cd4dd0160e4b}
+      \strng{fullhash}{c282adbbab50e82b0b527b547b15552b}
+      \strng{fullhashraw}{c282adbbab50e82b0b527b547b15552b}
+      \strng{bibnamehash}{52eb08071eda55b68604cd4dd0160e4b}
+      \strng{authorbibnamehash}{52eb08071eda55b68604cd4dd0160e4b}
+      \strng{authornamehash}{52eb08071eda55b68604cd4dd0160e4b}
+      \strng{authorfullhash}{c282adbbab50e82b0b527b547b15552b}
+      \strng{authorfullhashraw}{c282adbbab50e82b0b527b547b15552b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Instrumentation \& Measurement Magazine}
+      \field{number}{1}
+      \field{title}{Load cells in force sensing analysis: theory and a novel application}
+      \field{volume}{13}
+      \field{year}{2010}
+      \field{pages}{15\bibrangedash 19}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/MIM.2010.5399212
+      \endverb
+    \endentry
+    \entry{murphy_2025_ffb_simracing}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=a33c5f04487fa00bfd93f9ec90d47f14}{%
+           family={Murphy},
+           familyi={M\bibinitperiod},
+           given={Ciara\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da74da1e9f3b1a09d922b76fae7cf048}{%
+           family={Toth},
+           familyi={T\bibinitperiod},
+           given={Adam\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=985d21e8282639e6e69fc0f17e400cdb}{%
+           family={Hojaji},
+           familyi={H\bibinitperiod},
+           given={Fazilat},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9fe3357b742ddfa13dd97cde7e8a5d29}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={Mark\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c4b0f3f7260ce2949bb0b4c4d1da7de0}
+      \strng{fullhash}{b3c4e32eb9cb61ac12275a1c6483b7fa}
+      \strng{fullhashraw}{b3c4e32eb9cb61ac12275a1c6483b7fa}
+      \strng{bibnamehash}{c4b0f3f7260ce2949bb0b4c4d1da7de0}
+      \strng{authorbibnamehash}{c4b0f3f7260ce2949bb0b4c4d1da7de0}
+      \strng{authornamehash}{c4b0f3f7260ce2949bb0b4c4d1da7de0}
+      \strng{authorfullhash}{b3c4e32eb9cb61ac12275a1c6483b7fa}
+      \strng{authorfullhashraw}{b3c4e32eb9cb61ac12275a1c6483b7fa}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Preprint en SSRN}
+      \field{title}{Force Feedback Drives Sim Racing Performance: The Influence of Force and Vibrotactile Haptic Feedback in Simulator Steering Wheels}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.2139/ssrn.5392178
+      \endverb
+    \endentry
+    \entry{nls_news}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8a07665e2c2c4b447f4b11be7af685ad}{%
+           family={{Nürburgring Langstrecken-Serie}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{fullhash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{fullhashraw}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{bibnamehash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{authorbibnamehash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{authornamehash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{authorfullhash}{8a07665e2c2c4b447f4b11be7af685ad}
+      \strng{authorfullhashraw}{8a07665e2c2c4b447f4b11be7af685ad}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Noticias oficiales de la NLS}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2015}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nuerburgring-langstrecken-serie.de/en/
+      \endverb
+      \verb{url}
+      \verb https://www.nuerburgring-langstrecken-serie.de/en/
+      \endverb
+    \endentry
+    \entry{odrive_github}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c66f8de152c9ce72d53c33fa86d9d635}{%
+           family={{ODrive Robotics}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{fullhash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{fullhashraw}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{bibnamehash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{authorbibnamehash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{authornamehash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{authorfullhash}{c66f8de152c9ce72d53c33fa86d9d635}
+      \strng{authorfullhashraw}{c66f8de152c9ce72d53c33fa86d9d635}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ODrive: High performance motor control}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/odriverobotics/ODrive
+      \endverb
+      \verb{url}
+      \verb https://github.com/odriverobotics/ODrive
+      \endverb
+    \endentry
+    \entry{overtake_ffb_analysis}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=01d5049610bd9b3f66917ae052d3e1fd}{%
+           family={{OverTake}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{fullhash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{fullhashraw}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{bibnamehash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{authorbibnamehash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{authornamehash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{authorfullhash}{01d5049610bd9b3f66917ae052d3e1fd}
+      \strng{authorfullhashraw}{01d5049610bd9b3f66917ae052d3e1fd}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hilo de foro}
+      \field{title}{FFB analysis: iRacing vs rFactor2}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.overtake.gg/threads/ffb-analysis-iracing-vs-rfactor2.61314/
+      \endverb
+      \verb{url}
+      \verb https://www.overtake.gg/threads/ffb-analysis-iracing-vs-rfactor2.61314/
+      \endverb
+    \endentry
+    \entry{pacejka_2012_tire}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b4dbc895c23e3f1394ca7053badfea0}{%
+           family={Pacejka},
+           familyi={P\bibinitperiod},
+           given={Hans\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Oxford}%
+      }
+      \list{publisher}{1}{%
+        {Butterworth-Heinemann}%
+      }
+      \strng{namehash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{fullhash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{fullhashraw}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{bibnamehash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{authorbibnamehash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{authornamehash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{authorfullhash}{1b4dbc895c23e3f1394ca7053badfea0}
+      \strng{authorfullhashraw}{1b4dbc895c23e3f1394ca7053badfea0}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Tire and Vehicle Dynamics}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1016/C2010-0-68548-8
+      \endverb
+    \endentry
+    \entry{peffers_2007_dsrm}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=3127efe8cdd4557b7228a8724f568529}{%
+           family={Peffers},
+           familyi={P\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8b17b21a3e4c61d1302f46cba38c6e50}{%
+           family={Tuunanen},
+           familyi={T\bibinitperiod},
+           given={Tuure},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=33ad207ea3031c6d744a31f5bc43c547}{%
+           family={Rothenberger},
+           familyi={R\bibinitperiod},
+           given={Marcus\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=edf3e165ce4429b30d49e353a7d1417a}{%
+           family={Chatterjee},
+           familyi={C\bibinitperiod},
+           given={Samir},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4ccaed1d47a4875e5f027cdf2d20bbca}
+      \strng{fullhash}{0d82c455b50c2b184d97697dac2e8660}
+      \strng{fullhashraw}{0d82c455b50c2b184d97697dac2e8660}
+      \strng{bibnamehash}{4ccaed1d47a4875e5f027cdf2d20bbca}
+      \strng{authorbibnamehash}{4ccaed1d47a4875e5f027cdf2d20bbca}
+      \strng{authornamehash}{4ccaed1d47a4875e5f027cdf2d20bbca}
+      \strng{authorfullhash}{0d82c455b50c2b184d97697dac2e8660}
+      \strng{authorfullhashraw}{0d82c455b50c2b184d97697dac2e8660}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Management Information Systems}
+      \field{number}{3}
+      \field{title}{A Design Science Research Methodology for Information Systems Research}
+      \field{volume}{24}
+      \field{year}{2007}
+      \field{pages}{45\bibrangedash 77}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.2753/MIS0742-1222240302
+      \endverb
+    \endentry
+    \entry{petrovic_2000_torque_ripple}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=aa6110720871a896d499c302e3a21128}{%
+           family={Petrovic},
+           familyi={P\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b4b1348b2a339f6a7cd20a9719df61dc}{%
+           family={Ortega},
+           familyi={O\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=711f6226bf5092354fee0e420eb1762b}{%
+           family={Stankovic},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=907eb7d41ce084d0c4aae1911809ef83}{%
+           family={Tadmor},
+           familyi={T\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0485873bba6b68a8ecb140ef65cf1c73}
+      \strng{fullhash}{5135212c1ef9072b0a5c66a204272092}
+      \strng{fullhashraw}{5135212c1ef9072b0a5c66a204272092}
+      \strng{bibnamehash}{0485873bba6b68a8ecb140ef65cf1c73}
+      \strng{authorbibnamehash}{0485873bba6b68a8ecb140ef65cf1c73}
+      \strng{authornamehash}{0485873bba6b68a8ecb140ef65cf1c73}
+      \strng{authorfullhash}{5135212c1ef9072b0a5c66a204272092}
+      \strng{authorfullhashraw}{5135212c1ef9072b0a5c66a204272092}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Power Electronics}
+      \field{number}{5}
+      \field{title}{Design and implementation of an adaptive controller for torque ripple minimization in {PM} synchronous motors}
+      \field{volume}{15}
+      \field{year}{2000}
+      \field{pages}{871\bibrangedash 880}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/63.867676
+      \endverb
+    \endentry
+    \entry{planetf1_russell_sim}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3f70c559a9b810133e68ebcb79316e8c}{%
+           family={{PlanetF1}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{fullhash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{fullhashraw}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{bibnamehash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{authorbibnamehash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{authornamehash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{authorfullhash}{3f70c559a9b810133e68ebcb79316e8c}
+      \strng{authorfullhashraw}{3f70c559a9b810133e68ebcb79316e8c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Russell unblurs the real/sim racing lines}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.planetf1.com/news/george-russell-sim-racing
+      \endverb
+      \verb{url}
+      \verb https://www.planetf1.com/news/george-russell-sim-racing
+      \endverb
+    \endentry
+    \entry{pocketgamer_2025_olympic_esports}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=13a200b54809ac90846e3d60500a9102}{%
+           family={{PocketGamer.biz}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{13a200b54809ac90846e3d60500a9102}
+      \strng{fullhash}{13a200b54809ac90846e3d60500a9102}
+      \strng{fullhashraw}{13a200b54809ac90846e3d60500a9102}
+      \strng{bibnamehash}{13a200b54809ac90846e3d60500a9102}
+      \strng{authorbibnamehash}{13a200b54809ac90846e3d60500a9102}
+      \strng{authornamehash}{13a200b54809ac90846e3d60500a9102}
+      \strng{authorfullhash}{13a200b54809ac90846e3d60500a9102}
+      \strng{authorfullhashraw}{13a200b54809ac90846e3d60500a9102}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Olympic Esports Games in Saudi Arabia delayed to 2027}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.pocketgamer.biz/olympic-esports-games-in-saudi-arabia-delayed-to-2027
+      \endverb
+      \verb{url}
+      \verb https://www.pocketgamer.biz/olympic-esports-games-in-saudi-arabia-delayed-to-2027
+      \endverb
+    \endentry
+    \entry{semver_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86c590c4ef15d0078286562a483eb052}{%
+           family={Preston-Werner},
+           familyi={P\bibinithyphendelim W\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{fullhash}{86c590c4ef15d0078286562a483eb052}
+      \strng{fullhashraw}{86c590c4ef15d0078286562a483eb052}
+      \strng{bibnamehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authorbibnamehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authornamehash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authorfullhash}{86c590c4ef15d0078286562a483eb052}
+      \strng{authorfullhashraw}{86c590c4ef15d0078286562a483eb052}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Semantic Versioning 2.0.0}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://semver.org/
+      \endverb
+      \verb{url}
+      \verb https://semver.org/
+      \endverb
+    \endentry
+    \entry{ramsden_2006_hall}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d90fcae5db6d62975234a1a075569182}{%
+           family={Ramsden},
+           familyi={R\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Burlington}%
+      }
+      \list{publisher}{1}{%
+        {Newnes}%
+      }
+      \strng{namehash}{d90fcae5db6d62975234a1a075569182}
+      \strng{fullhash}{d90fcae5db6d62975234a1a075569182}
+      \strng{fullhashraw}{d90fcae5db6d62975234a1a075569182}
+      \strng{bibnamehash}{d90fcae5db6d62975234a1a075569182}
+      \strng{authorbibnamehash}{d90fcae5db6d62975234a1a075569182}
+      \strng{authornamehash}{d90fcae5db6d62975234a1a075569182}
+      \strng{authorfullhash}{d90fcae5db6d62975234a1a075569182}
+      \strng{authorfullhashraw}{d90fcae5db6d62975234a1a075569182}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Hall-Effect Sensors: Theory and Application}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1016/B978-0-7506-7934-3.X5000-5
+      \endverb
+    \endentry
+    \entry{ruscio_2017_racing_realism}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3d0bf4b7f5e9b7cc21def8ef157deee5}{%
+           family={Ruscio},
+           familyi={R\bibinitperiod},
+           given={Daniele},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{fullhash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{fullhashraw}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{bibnamehash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{authorbibnamehash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{authornamehash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{authorfullhash}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \strng{authorfullhashraw}{3d0bf4b7f5e9b7cc21def8ef157deee5}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Human Aspects of Transportation}
+      \field{series}{Advances in Intelligent Systems and Computing}
+      \field{title}{What Driving Abilities Do Racing Video Games Stimulate? Rating the Levels of Realism Experienced in Commercial Racing Video Games}
+      \field{volume}{484}
+      \field{year}{2017}
+      \field{pages}{916\bibrangedash 926}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/978-3-319-60441-1_88
+      \endverb
+    \endentry
+    \entry{salim_2025_brushed_dc}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=36c579d612cef270fea5c0ff3b137044}{%
+           family={Salim},
+           familyi={S\bibinitperiod},
+           given={Aula\bibnamedelima Ghazi},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=184e957b940adb644aa8098e922df922}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Amer\bibnamedelima Mejbel},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{fullhash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{fullhashraw}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{bibnamehash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{authorbibnamehash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{authornamehash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{authorfullhash}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \strng{authorfullhashraw}{1f8c10ad523f59d00ff5dcf6ae6cddb1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tikrit Journal of Engineering Sciences}
+      \field{number}{4}
+      \field{title}{Finite Element Analysis of a Permanent Magnet Brushed {DC} Motor Based on {RMxprt/Maxwell 2D}}
+      \field{volume}{32}
+      \field{year}{2025}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.25130/tjes.32.4.22
+      \endverb
+    \endentry
+    \entry{sciencedirect_magic_formula}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ef7c6f0ea283a19b95a312f5ed3d44a4}{%
+           family={{ScienceDirect Topics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{fullhash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{fullhashraw}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{bibnamehash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{authorbibnamehash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{authornamehash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{authorfullhash}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \strng{authorfullhashraw}{ef7c6f0ea283a19b95a312f5ed3d44a4}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Magic Formula: an overview}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/topics/engineering/magic-formula
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/topics/engineering/magic-formula
+      \endverb
+    \endentry
+    \entry{ferrari_2021_simulator}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9fda3cd6764eb5199488c510f1929768}{%
+           family={{Scuderia Ferrari}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{fullhash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{fullhashraw}{9fda3cd6764eb5199488c510f1929768}
+      \strng{bibnamehash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{authorbibnamehash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{authornamehash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{authorfullhash}{9fda3cd6764eb5199488c510f1929768}
+      \strng{authorfullhashraw}{9fda3cd6764eb5199488c510f1929768}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mission Winnow: new simulator is completed}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ferrari.com/en-EN/formula1/articles/scuderia-ferrari-mission-winnows-new-simulator-is-completed
+      \endverb
+      \verb{url}
+      \verb https://ferrari.com/en-EN/formula1/articles/scuderia-ferrari-mission-winnows-new-simulator-is-completed
+      \endverb
+    \endentry
+    \entry{segel_1970_pedal_force}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dc594c5f31b5a5a05b89584cc42991bd}{%
+           family={Segel},
+           familyi={S\bibinitperiod},
+           given={Leonard},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5f3ddcf01a773adbadcc2f23f30c8f01}{%
+           family={Mortimer},
+           familyi={M\bibinitperiod},
+           given={Rudolf},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAE International}%
+      }
+      \strng{namehash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{fullhash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{fullhashraw}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{bibnamehash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{authorbibnamehash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{authornamehash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{authorfullhash}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \strng{authorfullhashraw}{62bde4a1255e4cf639aaecc2021b6a8c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{SAE Technical Paper Series}
+      \field{number}{700364}
+      \field{title}{Driver Braking Performance as a Function of Pedal-Force and Pedal-Displacement Levels}
+      \field{year}{1970}
+      \verb{doi}
+      \verb 10.4271/700364
+      \endverb
+    \endentry
+    \entry{simracingcockpit_ffb}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=422095067692fd5880305eeaf4661607}{%
+           family={{Sim Racing Cockpit}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{422095067692fd5880305eeaf4661607}
+      \strng{fullhash}{422095067692fd5880305eeaf4661607}
+      \strng{fullhashraw}{422095067692fd5880305eeaf4661607}
+      \strng{bibnamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authorbibnamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authornamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authorfullhash}{422095067692fd5880305eeaf4661607}
+      \strng{authorfullhashraw}{422095067692fd5880305eeaf4661607}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Force Feedback, what is FFB and how do I set it up?}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://simracingcockpit.gg/setup-force-feedback/
+      \endverb
+      \verb{url}
+      \verb https://simracingcockpit.gg/setup-force-feedback/
+      \endverb
+    \endentry
+    \entry{simracingcockpit_qr}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=422095067692fd5880305eeaf4661607}{%
+           family={{Sim Racing Cockpit}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{422095067692fd5880305eeaf4661607}
+      \strng{fullhash}{422095067692fd5880305eeaf4661607}
+      \strng{fullhashraw}{422095067692fd5880305eeaf4661607}
+      \strng{bibnamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authorbibnamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authornamehash}{422095067692fd5880305eeaf4661607}
+      \strng{authorfullhash}{422095067692fd5880305eeaf4661607}
+      \strng{authorfullhashraw}{422095067692fd5880305eeaf4661607}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quick Release: a Guide to QR Hubs for Sim Racing}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://simracingcockpit.gg/how-to-fit-a-qr-hub-to-a-sim-racing-wheel/
+      \endverb
+      \verb{url}
+      \verb https://simracingcockpit.gg/how-to-fit-a-qr-hub-to-a-sim-racing-wheel/
+      \endverb
+    \endentry
+    \entry{simlab_mercedes_f1_2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=245c15944e3b27d93aaac38d90ae5d19}{%
+           family={{Sim-Lab}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{fullhash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{fullhashraw}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{bibnamehash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{authorbibnamehash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{authornamehash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{authorfullhash}{245c15944e3b27d93aaac38d90ae5d19}
+      \strng{authorfullhashraw}{245c15944e3b27d93aaac38d90ae5d19}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mercedes-AMG PETRONAS Formula One Team Sim Racing Steering Wheel 2024}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://sim-lab.eu/products/mercedes-amg-petronas-formula-one-team-sim-racing-steering-wheel-2024
+      \endverb
+      \verb{url}
+      \verb https://sim-lab.eu/products/mercedes-amg-petronas-formula-one-team-sim-racing-steering-wheel-2024
+      \endverb
+    \endentry
+    \entry{simagic_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=73c614fa6201fe835270f383a4105886}{%
+           family={{Simagic}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{73c614fa6201fe835270f383a4105886}
+      \strng{fullhash}{73c614fa6201fe835270f383a4105886}
+      \strng{fullhashraw}{73c614fa6201fe835270f383a4105886}
+      \strng{bibnamehash}{73c614fa6201fe835270f383a4105886}
+      \strng{authorbibnamehash}{73c614fa6201fe835270f383a4105886}
+      \strng{authornamehash}{73c614fa6201fe835270f383a4105886}
+      \strng{authorfullhash}{73c614fa6201fe835270f383a4105886}
+      \strng{authorfullhashraw}{73c614fa6201fe835270f383a4105886}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Web, tienda y noticias oficiales}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://simagic.com/
+      \endverb
+      \verb{url}
+      \verb https://simagic.com/
+      \endverb
+    \endentry
+    \entry{simhub_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=35dcc7a35cc567e68f34cb61e89ea1e3}{%
+           family={{SimHub}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{fullhash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{fullhashraw}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{bibnamehash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{authorbibnamehash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{authornamehash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{authorfullhash}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \strng{authorfullhashraw}{35dcc7a35cc567e68f34cb61e89ea1e3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SimHub: web y documentación oficial}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.simhubdash.com/
+      \endverb
+      \verb{url}
+      \verb https://www.simhubdash.com/
+      \endverb
+    \endentry
+    \entry{simucube_safety}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d24fd78bcd75ff7d825a4d473aaa0b33}{%
+           family={{Simucube}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{fullhash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{fullhashraw}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{bibnamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorbibnamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authornamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorfullhash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorfullhashraw}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Simucube Online Guide}
+      \field{title}{Hazards \& safety}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.simucube.com/Simucube%202/Safety.html
+      \endverb
+      \verb{url}
+      \verb https://docs.simucube.com/Simucube%202/Safety.html
+      \endverb
+    \endentry
+    \entry{simucube_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d24fd78bcd75ff7d825a4d473aaa0b33}{%
+           family={{Simucube}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{fullhash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{fullhashraw}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{bibnamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorbibnamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authornamehash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorfullhash}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \strng{authorfullhashraw}{d24fd78bcd75ff7d825a4d473aaa0b33}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Web, tienda y noticias oficiales}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://simucube.com/
+      \endverb
+      \verb{url}
+      \verb https://simucube.com/
+      \endverb
+    \endentry
+    \entry{ina333_datasheet}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{SBOS445}
+      \field{title}{INA333: Micro-Power, Zero-Drift, Rail-to-Rail Out Instrumentation Amplifier}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/ina333.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/ina333.pdf
+      \endverb
+    \endentry
+    \entry{tbrc_2026_racing_sim}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d177c25a1fef0c5987de3ccb7977e52e}{%
+           family={{The Business Research Company}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {The Business Research Company}%
+      }
+      \strng{namehash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{fullhash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{fullhashraw}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{bibnamehash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{authorbibnamehash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{authornamehash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{authorfullhash}{d177c25a1fef0c5987de3ccb7977e52e}
+      \strng{authorfullhashraw}{d177c25a1fef0c5987de3ccb7977e52e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Racing Simulator Global Market Report 2026}
+      \field{type}{Informe de mercado}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.thebusinessresearchcompany.com/report/racing-simulator-global-market-report
+      \endverb
+      \verb{url}
+      \verb https://www.thebusinessresearchcompany.com/report/racing-simulator-global-market-report
+      \endverb
+    \endentry
+    \entry{therace_2020_baldwin}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe40f07cbe5757db91d475f409324d7e}{%
+           family={{The Race}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{fullhash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{fullhashraw}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{bibnamehash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{authorbibnamehash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{authornamehash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{authorfullhash}{fe40f07cbe5757db91d475f409324d7e}
+      \strng{authorfullhashraw}{fe40f07cbe5757db91d475f409324d7e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{World's Fastest Gamer Baldwin wins on British GT debut}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.the-race.com/gaming/worlds-fastest-gamer-baldwin-wins-on-british-gt-debut/
+      \endverb
+      \verb{url}
+      \verb https://www.the-race.com/gaming/worlds-fastest-gamer-baldwin-wins-on-british-gt-debut/
+      \endverb
+    \endentry
+    \entry{toffin_2007_steering_feedback}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5cabaa487c685a36c33f81a2d13a2173}{%
+           family={Toffin},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c380d6ca62a191767e3b64a866996d4}{%
+           family={Reymond},
+           familyi={R\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6cc3ef2596b9f40f3e83dcbe235d3952}{%
+           family={Kemeny},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b2fcf85c873e5b855994c595678ae8a}{%
+           family={Droulez},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1364e6376b71a875897961dd5b81e48a}
+      \strng{fullhash}{da4413e33599b017e51735e426f31a3f}
+      \strng{fullhashraw}{da4413e33599b017e51735e426f31a3f}
+      \strng{bibnamehash}{1364e6376b71a875897961dd5b81e48a}
+      \strng{authorbibnamehash}{1364e6376b71a875897961dd5b81e48a}
+      \strng{authornamehash}{1364e6376b71a875897961dd5b81e48a}
+      \strng{authorfullhash}{da4413e33599b017e51735e426f31a3f}
+      \strng{authorfullhashraw}{da4413e33599b017e51735e426f31a3f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Vehicle System Dynamics}
+      \field{number}{4}
+      \field{title}{Role of steering wheel feedback on driver performance: driving simulator and modeling analysis}
+      \field{volume}{45}
+      \field{year}{2007}
+      \field{pages}{375\bibrangedash 388}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1080/00423110601058874
+      \endverb
+    \endentry
+    \entry{traxion_news}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7932f48fd5c6a36d816e02a90b085291}{%
+           family={{Traxion}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{fullhash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{fullhashraw}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{bibnamehash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{authorbibnamehash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{authornamehash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{authorfullhash}{7932f48fd5c6a36d816e02a90b085291}
+      \strng{authorfullhashraw}{7932f48fd5c6a36d816e02a90b085291}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{endyear}{2026}
+      \field{title}{Noticias de simracing y eSports de motor}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://traxion.gg/
+      \endverb
+      \verb{url}
+      \verb https://traxion.gg/
+      \endverb
+    \endentry
+    \entry{openffboard_github}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0c54db3fdee46b08fb7bfb62a3aa51d}{%
+           family={{Ultrawipf}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{fullhash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{fullhashraw}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{bibnamehash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{authorbibnamehash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{authornamehash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{authorfullhash}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \strng{authorfullhashraw}{e0c54db3fdee46b08fb7bfb62a3aa51d}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{OpenFFBoard: a universal force feedback interface for DIY simulation devices}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/Ultrawipf/OpenFFBoard
+      \endverb
+      \verb{url}
+      \verb https://github.com/Ultrawipf/OpenFFBoard
+      \endverb
+    \endentry
+    \entry{usb_hid_pid}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=109f9e5e8d3391c90c982d3dca1ba799}{%
+           family={{USB Implementers Forum}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{fullhash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{fullhashraw}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{bibnamehash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{authorbibnamehash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{authornamehash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{authorfullhash}{109f9e5e8d3391c90c982d3dca1ba799}
+      \strng{authorfullhashraw}{109f9e5e8d3391c90c982d3dca1ba799}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Device Class Definition for Physical Interface Devices (PID)}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{version}{1.0}
+      \field{year}{1999}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.usb.org/sites/default/files/documents/pid1_01.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.usb.org/sites/default/files/documents/pid1_01.pdf
+      \endverb
+    \endentry
+    \entry{simxperience_ffb_myths}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eecec20bfcf80109f609f67e09c2ad9}{%
+           family={Villers},
+           familyi={V\bibinitperiod},
+           given={Berney},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {SimXperience}%
+      }
+      \strng{namehash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{fullhash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{fullhashraw}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{bibnamehash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{authorbibnamehash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{authornamehash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{authorfullhash}{7eecec20bfcf80109f609f67e09c2ad9}
+      \strng{authorfullhashraw}{7eecec20bfcf80109f609f67e09c2ad9}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Force Feedback Myths and Misunderstandings}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.simxperience.com/blog/simxperience-news-1/force-feedback-myths-and-misunderstandings-73
+      \endverb
+      \verb{url}
+      \verb https://www.simxperience.com/blog/simxperience-news-1/force-feedback-myths-and-misunderstandings-73
+      \endverb
+    \endentry
+    \entry{wang_2011_double_stator}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=1dca89f3f43067410effe4046e36a9a6}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yubin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e27b5fe2d66c47bf29fb4fd00d98428a}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78fb4869f1f5583ce326e5492780782d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Meng},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3570c8efdd91a7ed4df48e13048c5f4e}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Yi},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df822853c827c405200f30814d4ec739}{%
+           family={Chau},
+           familyi={C\bibinitperiod},
+           given={K.\bibnamedelimi T.},
+           giveni={K\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{498236da87d52dfdbadc8b0d3dbbd5d2}
+      \strng{fullhash}{d85db1bd5f1809629c95bf4d2a6b1dd9}
+      \strng{fullhashraw}{d85db1bd5f1809629c95bf4d2a6b1dd9}
+      \strng{bibnamehash}{498236da87d52dfdbadc8b0d3dbbd5d2}
+      \strng{authorbibnamehash}{498236da87d52dfdbadc8b0d3dbbd5d2}
+      \strng{authornamehash}{498236da87d52dfdbadc8b0d3dbbd5d2}
+      \strng{authorfullhash}{d85db1bd5f1809629c95bf4d2a6b1dd9}
+      \strng{authorfullhashraw}{d85db1bd5f1809629c95bf4d2a6b1dd9}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IET Electric Power Applications}
+      \field{number}{3}
+      \field{title}{Design of high-torque-density double-stator permanent magnet brushless motors}
+      \field{volume}{5}
+      \field{year}{2011}
+      \field{pages}{317\bibrangedash 323}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1049/iet-epa.2010.0187
+      \endverb
+    \endentry
+    \entry{weihrich_1982_tows}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e40d0ad21dfce5097932238f5f0efc2}{%
+           family={Weihrich},
+           familyi={W\bibinitperiod},
+           given={Heinz},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{fullhash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{fullhashraw}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{bibnamehash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{authorbibnamehash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{authornamehash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{authorfullhash}{9e40d0ad21dfce5097932238f5f0efc2}
+      \strng{authorfullhashraw}{9e40d0ad21dfce5097932238f5f0efc2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Long Range Planning}
+      \field{number}{2}
+      \field{title}{The {TOWS} matrix: a tool for situational analysis}
+      \field{volume}{15}
+      \field{year}{1982}
+      \field{pages}{54\bibrangedash 66}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/0024-6301(82)90120-0
+      \endverb
+    \endentry
+    \entry{wiki_grantrak10}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c677286866aad38f8e9b660f5411814}{%
+           family={{Wikipedia}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Gran Trak 10}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Gran_Trak_10
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Gran_Trak_10
+      \endverb
+    \endentry
+    \entry{wiki_indy500_sim}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c677286866aad38f8e9b660f5411814}{%
+           family={{Wikipedia}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Indianapolis 500: The Simulation}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Indianapolis_500:_The_Simulation
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Indianapolis_500:_The_Simulation
+      \endverb
+    \endentry
+    \entry{z1_web}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a08abd127f9a0ba8888b4b0fa8037a83}{%
+           family={{Z1 RaceTech}},
+           familyi={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{fullhash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{fullhashraw}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{bibnamehash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{authorbibnamehash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{authornamehash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{authorfullhash}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \strng{authorfullhashraw}{a08abd127f9a0ba8888b4b0fa8037a83}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Z1 Dashboard}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.z1simwheel.com/
+      \endverb
+      \verb{url}
+      \verb https://www.z1simwheel.com/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

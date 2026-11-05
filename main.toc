@@ -1,0 +1,195 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {catalan}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Acrónimos}{\es@scroman {xiv}}{section*.9}%
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.11}%
+\contentsline {chapter}{\numberline {2}Del problema a la solución: contexto y propuesta}{3}{chapter.22}%
+\contentsline {section}{\numberline {2.1}Contexto}{3}{section.23}%
+\contentsline {paragraph}{Periféricos caros.}{3}{paragraph*.24}%
+\contentsline {paragraph}{Periféricos cerrados.}{4}{paragraph*.25}%
+\contentsline {paragraph}{Sin un software que los una.}{4}{paragraph*.26}%
+\contentsline {paragraph}{Planteamiento del problema.}{5}{paragraph*.27}%
+\contentsline {section}{\numberline {2.2}Propuesta de valor}{5}{section.28}%
+\contentsline {subsection}{\numberline {2.2.1}Base de \textit {force feedback}}{6}{subsection.30}%
+\contentsline {paragraph}{Enfoque.}{6}{paragraph*.31}%
+\contentsline {paragraph}{Funciones previstas.}{6}{paragraph*.32}%
+\contentsline {paragraph}{Seguridad.}{7}{paragraph*.33}%
+\contentsline {subsection}{\numberline {2.2.2}Pedalera}{7}{subsection.34}%
+\contentsline {paragraph}{Enfoque.}{7}{paragraph*.35}%
+\contentsline {paragraph}{Funciones previstas.}{8}{paragraph*.36}%
+\contentsline {subsection}{\numberline {2.2.3}Aro}{8}{subsection.37}%
+\contentsline {paragraph}{Enfoque.}{8}{paragraph*.38}%
+\contentsline {paragraph}{Funciones previstas.}{8}{paragraph*.39}%
+\contentsline {subsection}{\numberline {2.2.4}Aplicación de escritorio}{9}{subsection.40}%
+\contentsline {paragraph}{Enfoque.}{9}{paragraph*.41}%
+\contentsline {paragraph}{Configuración de los periféricos.}{10}{paragraph*.42}%
+\contentsline {paragraph}{Pantallas de datos.}{10}{paragraph*.43}%
+\contentsline {paragraph}{Ingeniero de pista por voz.}{10}{paragraph*.44}%
+\contentsline {paragraph}{Análisis de telemetría.}{10}{paragraph*.45}%
+\contentsline {section}{\numberline {2.3}Estudio de viabilidad}{11}{section.46}%
+\contentsline {subsection}{\numberline {2.3.1}Análisis DAFO}{11}{subsection.47}%
+\contentsline {paragraph}{Debilidades.}{12}{paragraph*.49}%
+\contentsline {paragraph}{Amenazas.}{12}{paragraph*.50}%
+\contentsline {paragraph}{Fortalezas.}{13}{paragraph*.51}%
+\contentsline {paragraph}{Oportunidades.}{13}{paragraph*.52}%
+\contentsline {paragraph}{Conclusiones del análisis.}{13}{paragraph*.53}%
+\contentsline {subsection}{\numberline {2.3.2}Lean Canvas}{14}{subsection.54}%
+\contentsline {paragraph}{Problema y segmentos de clientes.}{14}{paragraph*.55}%
+\contentsline {paragraph}{Propuesta de valor y solución.}{16}{paragraph*.56}%
+\contentsline {paragraph}{Canales, fuentes de ingresos y estructura de costes.}{16}{paragraph*.58}%
+\contentsline {paragraph}{Métricas clave y ventaja diferencial.}{16}{paragraph*.59}%
+\contentsline {subsection}{\numberline {2.3.3}Análisis de riesgos}{17}{subsection.60}%
+\contentsline {paragraph}{Escalas de valoración.}{17}{paragraph*.61}%
+\contentsline {paragraph}{Riesgos técnicos.}{18}{paragraph*.64}%
+\contentsline {paragraph}{Riesgos de planificación y de coste.}{19}{paragraph*.65}%
+\contentsline {paragraph}{Riesgos legales: marcas y diseños de referencia.}{19}{paragraph*.66}%
+\contentsline {paragraph}{Plan de mitigación.}{19}{paragraph*.67}%
+\contentsline {subsection}{\numberline {2.3.4}Viabilidad económica}{20}{subsection.69}%
+\contentsline {paragraph}{Presupuesto del proyecto.}{21}{paragraph*.70}%
+\contentsline {chapter}{\numberline {3}Objetivos}{22}{chapter.72}%
+\contentsline {section}{\numberline {3.1}Objetivo general}{22}{section.73}%
+\contentsline {section}{\numberline {3.2}Objetivos funcionales}{23}{section.74}%
+\contentsline {subsection}{\numberline {3.2.1}Volante VH Grid DD15}{23}{subsection.75}%
+\contentsline {subsection}{\numberline {3.2.2}Pedalera VH Axis}{23}{subsection.77}%
+\contentsline {subsection}{\numberline {3.2.3}Aro VH Formula Apex}{24}{subsection.79}%
+\contentsline {subsection}{\numberline {3.2.4}Aplicación VH SimGrid: configuración de los periféricos}{25}{subsection.81}%
+\contentsline {subsection}{\numberline {3.2.5}Aplicación VH SimGrid: herramientas de apoyo al piloto}{25}{subsection.83}%
+\contentsline {section}{\numberline {3.3}Objetivos no funcionales}{26}{section.85}%
+\contentsline {chapter}{\numberline {4}Estado del arte}{29}{chapter.86}%
+\contentsline {section}{\numberline {4.1}Simracing y entrenamiento en simuladores}{29}{section.87}%
+\contentsline {subsection}{\numberline {4.1.1}Simracing como disciplina}{30}{subsection.88}%
+\contentsline {paragraph}{Definición.}{30}{paragraph*.89}%
+\contentsline {paragraph}{De entretenimiento a disciplina.}{31}{paragraph*.90}%
+\contentsline {subsection}{\numberline {4.1.2}Pilotos profesionales}{32}{subsection.92}%
+\contentsline {paragraph}{Usos del simulador.}{32}{paragraph*.93}%
+\contentsline {paragraph}{Fórmula~1.}{33}{paragraph*.94}%
+\contentsline {paragraph}{NASCAR.}{33}{paragraph*.95}%
+\contentsline {paragraph}{Resistencia.}{33}{paragraph*.96}%
+\contentsline {paragraph}{Rally.}{34}{paragraph*.97}%
+\contentsline {paragraph}{Max Verstappen.}{34}{paragraph*.98}%
+\contentsline {subsection}{\numberline {4.1.3}Simulación en ámbito profesional}{34}{subsection.99}%
+\contentsline {paragraph}{Equipos de competición.}{35}{paragraph*.100}%
+\contentsline {paragraph}{Fabricantes de automóviles.}{35}{paragraph*.101}%
+\contentsline {paragraph}{Academias y captación de talento.}{36}{paragraph*.102}%
+\contentsline {subsection}{\numberline {4.1.4}Del simulador a la vida real}{36}{subsection.103}%
+\contentsline {paragraph}{Transferencia del simulador a la pista.}{36}{paragraph*.104}%
+\contentsline {paragraph}{Lo que no se transfiere.}{37}{paragraph*.105}%
+\contentsline {paragraph}{Implicaciones para los periféricos.}{37}{paragraph*.106}%
+\contentsline {subsection}{\numberline {4.1.5}Competición y eSports}{38}{subsection.107}%
+\contentsline {paragraph}{Campeonatos oficiales.}{38}{paragraph*.108}%
+\contentsline {paragraph}{Equipos y patrocinio.}{38}{paragraph*.110}%
+\contentsline {paragraph}{Límites del modelo.}{39}{paragraph*.111}%
+\contentsline {subsection}{\numberline {4.1.6}Aficionados}{39}{subsection.112}%
+\contentsline {paragraph}{Cómo compite el aficionado.}{39}{paragraph*.113}%
+\contentsline {paragraph}{Una comunidad que crea contenido y hardware.}{39}{paragraph*.114}%
+\contentsline {paragraph}{La barrera del coste.}{40}{paragraph*.115}%
+\contentsline {section}{\numberline {4.2}Fundamentos técnicos de periféricos para simracing}{40}{section.116}%
+\contentsline {subsection}{\numberline {4.2.1}Simulación de conducción}{42}{subsection.118}%
+\contentsline {paragraph}{Modelo físico del vehículo.}{42}{paragraph*.119}%
+\contentsline {subparagraph}{Neumáticos.}{42}{subparagraph*.120}%
+\contentsline {subparagraph}{Vehículo.}{43}{subparagraph*.122}%
+\contentsline {subparagraph}{Circuito.}{44}{subparagraph*.124}%
+\contentsline {paragraph}{Frecuencia de cálculo y envío de datos.}{44}{paragraph*.125}%
+\contentsline {paragraph}{Comunicación con los periféricos.}{45}{paragraph*.126}%
+\contentsline {paragraph}{Telemetría.}{46}{paragraph*.127}%
+\contentsline {paragraph}{Implicaciones para los periféricos.}{46}{paragraph*.128}%
+\contentsline {subsection}{\numberline {4.2.2}Bases de force feedback}{46}{subsection.129}%
+\contentsline {paragraph}{Tipo de transmisión.}{47}{paragraph*.130}%
+\contentsline {subparagraph}{Engranajes.}{47}{subparagraph*.131}%
+\contentsline {subparagraph}{Correa.}{47}{subparagraph*.132}%
+\contentsline {subparagraph}{Accionamiento directo (\textit {direct drive}).}{47}{subparagraph*.133}%
+\contentsline {paragraph}{Motor.}{48}{paragraph*.135}%
+\contentsline {paragraph}{El control vectorial (FOC).}{48}{paragraph*.137}%
+\contentsline {paragraph}{Medida de la posición.}{50}{paragraph*.139}%
+\contentsline {paragraph}{Parámetros de una base.}{50}{paragraph*.140}%
+\contentsline {paragraph}{El firmware de la base.}{51}{paragraph*.141}%
+\contentsline {paragraph}{Implicaciones para el diseño.}{51}{paragraph*.142}%
+\contentsline {subsection}{\numberline {4.2.3}Pedaleras}{51}{subsection.143}%
+\contentsline {paragraph}{Medir recorrido o medir fuerza.}{52}{paragraph*.144}%
+\contentsline {paragraph}{Sensores de posición.}{52}{paragraph*.145}%
+\contentsline {paragraph}{Sensores de fuerza: la célula de carga.}{52}{paragraph*.146}%
+\contentsline {paragraph}{Resistencia y tacto del pedal.}{53}{paragraph*.148}%
+\contentsline {paragraph}{Retroalimentación háptica.}{53}{paragraph*.149}%
+\contentsline {paragraph}{Conexión y configuración.}{54}{paragraph*.150}%
+\contentsline {subsection}{\numberline {4.2.4}Aros}{55}{subsection.151}%
+\contentsline {paragraph}{Formatos.}{55}{paragraph*.152}%
+\contentsline {paragraph}{Mandos.}{55}{paragraph*.153}%
+\contentsline {paragraph}{Información al piloto.}{55}{paragraph*.154}%
+\contentsline {paragraph}{Electrónica.}{56}{paragraph*.155}%
+\contentsline {paragraph}{Conexión con la base.}{56}{paragraph*.156}%
+\contentsline {paragraph}{Materiales y fabricación.}{56}{paragraph*.157}%
+\contentsline {subsection}{\numberline {4.2.5}Software de apoyo para el piloto}{57}{subsection.158}%
+\contentsline {paragraph}{La telemetría como punto de partida.}{57}{paragraph*.159}%
+\contentsline {paragraph}{Información en tiempo real.}{57}{paragraph*.160}%
+\contentsline {paragraph}{Ingeniero y \textit {spotter} por voz.}{57}{paragraph*.161}%
+\contentsline {paragraph}{Análisis de telemetría.}{58}{paragraph*.162}%
+\contentsline {paragraph}{Limitaciones.}{58}{paragraph*.163}%
+\contentsline {section}{\numberline {4.3}Productos relacionados}{58}{section.164}%
+\contentsline {subsection}{\numberline {4.3.1}Mercado de periféricos}{59}{subsection.165}%
+\contentsline {paragraph}{Segmentación del mercado de periféricos.}{61}{paragraph*.168}%
+\contentsline {subsection}{\numberline {4.3.2}Productos comerciales}{61}{subsection.169}%
+\contentsline {paragraph}{Fanatec.}{61}{paragraph*.170}%
+\contentsline {paragraph}{Simucube.}{63}{paragraph*.174}%
+\contentsline {paragraph}{Moza.}{64}{paragraph*.177}%
+\contentsline {paragraph}{Simagic.}{65}{paragraph*.180}%
+\contentsline {paragraph}{Heusinkveld.}{66}{paragraph*.183}%
+\contentsline {paragraph}{Rasgos comunes.}{67}{paragraph*.185}%
+\contentsline {subsection}{\numberline {4.3.3}Proyectos open source y DIY}{67}{subsection.187}%
+\contentsline {paragraph}{ODrive.}{68}{paragraph*.192}%
+\contentsline {paragraph}{OpenFFBoard.}{69}{paragraph*.193}%
+\contentsline {paragraph}{FFBeast.}{69}{paragraph*.194}%
+\contentsline {paragraph}{Arduino Joystick Library.}{70}{paragraph*.195}%
+\contentsline {paragraph}{Rasgos comunes.}{70}{paragraph*.196}%
+\contentsline {section}{\numberline {4.4}Conclusión: el hueco que cubre este trabajo}{71}{section.199}%
+\contentsline {chapter}{\numberline {5}Metodología}{74}{chapter.200}%
+\contentsline {section}{\numberline {5.1}Design Science Research}{74}{section.201}%
+\contentsline {section}{\numberline {5.2}Metodología Kanban}{76}{section.209}%
+\contentsline {section}{\numberline {5.3}Herramientas}{77}{section.210}%
+\contentsline {chapter}{\numberline {6}Planificación}{79}{chapter.212}%
+\contentsline {section}{\numberline {6.1}Diagrama de Gantt}{81}{section.214}%
+\contentsline {chapter}{\numberline {7}Análisis y especificación de requisitos}{82}{chapter.216}%
+\contentsline {section}{\numberline {7.1}Descripción general}{83}{section.217}%
+\contentsline {subsection}{\numberline {7.1.1}Perspectiva del producto}{83}{subsection.218}%
+\contentsline {subsection}{\numberline {7.1.2}Características de los actores}{85}{subsection.220}%
+\contentsline {subsection}{\numberline {7.1.3}Restricciones generales}{85}{subsection.222}%
+\contentsline {subsection}{\numberline {7.1.4}Suposiciones y dependencias}{86}{subsection.223}%
+\contentsline {section}{\numberline {7.2}Requisitos específicos}{87}{section.230}%
+\contentsline {subsection}{\numberline {7.2.1}Requisitos funcionales}{88}{subsection.231}%
+\contentsline {subsubsection}{Base \emph {direct drive} VH Grid DD15}{88}{subsubsection*.232}%
+\contentsline {subsubsection}{Pedalera VH Axis}{93}{subsubsection*.243}%
+\contentsline {subsubsection}{Aro VH Formula Apex}{95}{subsubsection*.249}%
+\contentsline {subsubsection}{Pantalla del aro}{98}{subsubsection*.256}%
+\contentsline {subsubsection}{Aplicación: gestión de los periféricos}{102}{subsubsection*.264}%
+\contentsline {subsubsection}{Aplicación: telemetría y dash}{106}{subsubsection*.274}%
+\contentsline {subsubsection}{Aplicación: ingeniero de pista}{109}{subsubsection*.281}%
+\contentsline {subsubsection}{Aplicación: análisis de telemetría}{113}{subsubsection*.291}%
+\contentsline {subsection}{\numberline {7.2.2}Requisitos no funcionales}{115}{subsection.296}%
+\contentsline {subsubsection}{Latencia y rendimiento}{116}{subsubsection*.297}%
+\contentsline {subsubsection}{Seguridad}{118}{subsubsection*.305}%
+\contentsline {subsubsection}{Coste}{121}{subsubsection*.314}%
+\contentsline {subsubsection}{Durabilidad y fiabilidad}{122}{subsubsection*.318}%
+\contentsline {subsubsection}{Usabilidad}{124}{subsubsection*.325}%
+\contentsline {subsubsection}{Pantalla del aro}{126}{subsubsection*.332}%
+\contentsline {subsubsection}{Otros requisitos no funcionales}{129}{subsubsection*.342}%
+\contentsline {subsection}{Trazabilidad}{131}{table.caption.347}%
+\contentsline {section}{\numberline {7.3}Casos de uso}{133}{section.349}%
+\contentsline {chapter}{\numberline {8}Diseño del sistema}{144}{chapter.360}%
+\contentsline {section}{\numberline {8.1}Arquitectura conceptual}{144}{section.361}%
+\contentsline {section}{\numberline {8.2}Diseño de componentes}{144}{section.362}%
+\contentsline {section}{\numberline {8.3}Diseño de la persistencia}{144}{section.363}%
+\contentsline {section}{\numberline {8.4}Diseño de pruebas y validación}{144}{section.364}%
+\contentsline {section}{\numberline {8.5}Arquitectura tecnológica}{144}{section.365}%
+\contentsline {chapter}{\numberline {9}Implementación}{145}{chapter.366}%
+\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{145}{section.367}%
+\contentsline {section}{\numberline {9.2}Implementación de los componentes}{145}{section.368}%
+\contentsline {subsubsection}{Componente 1}{145}{subsubsection*.369}%
+\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{145}{section.370}%
+\contentsline {chapter}{\numberline {10}Resultados y análisis}{146}{chapter.371}%
+\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{146}{section.372}%
+\contentsline {section}{\numberline {10.2}Análisis de los resultados}{146}{section.373}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{147}{chapter.374}%
+\contentsline {section}{\numberline {11.1}Trabajo futuro}{147}{section.375}%
+\contentsline {chapter}{\numberline {A}Título del apéndice}{148}{appendix.376}%
+\contentsline {chapter}{Bibliografía}{149}{appendix*.377}%
+\contentsline {chapter}{Glosario}{158}{section*.378}%
