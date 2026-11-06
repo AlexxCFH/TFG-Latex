@@ -63,7 +63,7 @@
 \contentsline {table}{\numberline {7.25}{\ignorespaces Requisito funcional RF24 (Cambio de pantallas del dash)}}{100}{table.caption.259}%
 \contentsline {table}{\numberline {7.26}{\ignorespaces Requisito funcional RF25 (Configuración desde la pantalla)}}{100}{table.caption.260}%
 \contentsline {table}{\numberline {7.27}{\ignorespaces Requisito funcional RF26 (Aplicación y confirmación de cambios)}}{101}{table.caption.261}%
-\contentsline {table}{\numberline {7.28}{\ignorespaces Requisito funcional RF27 (Dash automático por perfil)}}{101}{table.caption.262}%
+\contentsline {table}{\numberline {7.28}{\ignorespaces Requisito funcional RF27 (Menú automático en la pantalla)}}{101}{table.caption.262}%
 \contentsline {table}{\numberline {7.29}{\ignorespaces Requisito funcional RF28 (Pantalla de reposo)}}{102}{table.caption.263}%
 \contentsline {table}{\numberline {7.30}{\ignorespaces Requisito funcional RF29 (Detección automática)}}{102}{table.caption.265}%
 \contentsline {table}{\numberline {7.31}{\ignorespaces Requisito funcional RF30 (Configuración en vivo)}}{103}{table.caption.266}%
@@ -149,6 +149,20 @@
 \contentsline {table}{\numberline {7.111}{\ignorespaces Caso de uso CU13 (Analizar una sesión grabada)}}{142}{table.caption.358}%
 \contentsline {table}{\numberline {7.112}{\ignorespaces Caso de uso CU14 (Configurar el equipo desde la pantalla del aro)}}{143}{table.caption.359}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Reparto de responsabilidades entre los periféricos y la aplicación.}}{147}{table.caption.368}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Componentes electrónicos del aro VH Formula Apex.}}{149}{table.caption.376}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Componentes electrónicos de la pedalera VH Axis.}}{152}{table.caption.383}%
+\contentsline {table}{\numberline {8.4}{\ignorespaces Componentes electrónicos de la base VH Grid DD15.}}{154}{table.caption.390}%
+\contentsline {table}{\numberline {8.5}{\ignorespaces Capas del firmware y su función.}}{157}{table.caption.397}%
+\contentsline {table}{\numberline {8.6}{\ignorespaces Protecciones de la base VH Grid DD15.}}{159}{table.caption.402}%
+\contentsline {table}{\numberline {8.7}{\ignorespaces Comparación entre Tkinter y Qt.}}{161}{table.caption.405}%
+\contentsline {table}{\numberline {8.8}{\ignorespaces Identidad USB de los periféricos.}}{165}{table.caption.418}%
+\contentsline {table}{\numberline {8.9}{\ignorespaces Tipos de informe HID PID que usa la base.}}{165}{table.caption.421}%
+\contentsline {table}{\numberline {8.10}{\ignorespaces Operaciones del canal \textit {vendor} de la base.}}{166}{table.caption.423}%
+\contentsline {table}{\numberline {8.11}{\ignorespaces Formato de los mensajes del canal \textit {vendor}.}}{166}{table.caption.424}%
+\contentsline {table}{\numberline {8.12}{\ignorespaces Operaciones del canal serie de la pedalera y el aro.}}{167}{table.caption.426}%
+\contentsline {table}{\numberline {8.13}{\ignorespaces Datos guardados en la memoria de cada periférico.}}{170}{table.caption.435}%
+\contentsline {table}{\numberline {8.14}{\ignorespaces Datos guardados por la aplicación.}}{172}{table.caption.437}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

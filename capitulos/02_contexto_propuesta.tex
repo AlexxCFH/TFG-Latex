@@ -1,5 +1,4 @@
 % !TeX root = ../main.tex
-% NOTA: los cambios aparecen en azul. Requiere \usepackage{xcolor} en el preámbulo.
 \chapter{Del problema a la solución: contexto y propuesta}
 \label{cap:problema-solucion}
 Este capítulo concreta el punto de partida, qué problema se quiere resolver y qué solución se propone para hacerlo, apoyándose en el análisis del sector y de los productos existentes que se desarrolla en el estado del arte (capítulo~\ref{cap:estado-arte}). En primer lugar se resume el contexto y se concreta el problema (sección~\ref{sec:contexto}). A continuación se presenta la propuesta, el ecosistema VH SimGrid, formado por tres periféricos y una aplicación de escritorio que los integra (sección~\ref{sec:propuesta}). Por último, se estudia la viabilidad de la propuesta desde los puntos de vista estratégico, de negocio, de riesgos y económico (sección~\ref{sec:viabilidad}).
@@ -111,7 +110,7 @@ Por último, la aplicación grabará automáticamente cada sesión y permitirá 
 \section{Estudio de viabilidad}
 \label{sec:viabilidad}
 
-Antes de comenzar el desarrollo conviene comprobar que la propuesta es viable, es decir, que tiene sentido frente a las alternativas existentes, que puede llevarse a cabo con los medios disponibles y que los riesgos que implica son asumibles. Aunque este trabajo es un proyecto académico, la propuesta se analiza como si fuera un producto, porque solo así puede valorarse si resuelve de verdad el problema planteado para un usuario real. El estudio se aborda desde cuatro puntos de vista complementarios: la posición estratégica de la propuesta frente al mercado, mediante un análisis DAFO (sección~\ref{sec:dafo}); su modelo de negocio, mediante un Lean Canvas (sección~\ref{sec:lean-canvas}); los riesgos del proyecto y su plan de mitigación (sección~\ref{sec:riesgos}), y su viabilidad económica, {\color{blue}mediante el análisis de los recursos disponibles y un presupuesto estimado} (sección~\ref{sec:viabilidad-economica}).
+Antes de comenzar el desarrollo conviene comprobar que la propuesta es viable, es decir, que tiene sentido frente a las alternativas existentes, que puede llevarse a cabo con los medios disponibles y que los riesgos que implica son asumibles. Aunque este trabajo es un proyecto académico, la propuesta se analiza como si fuera un producto, porque solo así puede valorarse si resuelve de verdad el problema planteado para un usuario real. El estudio se aborda desde cuatro puntos de vista complementarios: la posición estratégica de la propuesta frente al mercado, mediante un análisis DAFO (sección~\ref{sec:dafo}); su modelo de negocio, mediante un Lean Canvas (sección~\ref{sec:lean-canvas}); los riesgos del proyecto y su plan de mitigación (sección~\ref{sec:riesgos}), y su viabilidad económica, mediante el análisis de los recursos disponibles y un presupuesto estimado (sección~\ref{sec:viabilidad-economica}).
 
 \subsection{Análisis DAFO}
 \label{sec:dafo}
@@ -167,7 +166,7 @@ La propuesta de valor de VH SimGrid es ofrecer un puesto de simracing de gama me
 \paragraph{Canales, fuentes de ingresos y estructura de costes.}
 El canal principal de distribución será un repositorio público en GitHub, desde el que se publicarán el instalador de la aplicación y los firmwares de cada versión, y la propia aplicación avisará de las actualizaciones al usuario. Para dar a conocer el proyecto se emplearán los canales en los que se concentra la comunidad: foros y comunidades de simracing, redes sociales y plataformas de vídeo, en las que mostrar los periféricos en funcionamiento es la forma más eficaz de llegar al público, y eventos y competiciones de simracing. 
 En cuanto al flujo de ingresos, el software se distribuirá de forma gratuita para uso personal, lo que permite construir una base de usuarios sobre la que apoyar el resto de fuentes: la venta de kits de componentes, la venta de periféricos ya montados para quien no quiera fabricarlos, la venta de los archivos necesarios para que el usuario realice un montaje autónomo, como los modelos para impresión 3D, las licencias de uso comercial para academias y centros de simracing y las donaciones de la comunidad. 
-La estructura de costes, al no existir una empresa ni una plantilla, se reduce a los componentes y materiales, las herramientas de fabricación, principalmente la impresora 3D, y las horas de desarrollo, que son con diferencia el coste principal y se {\color{blue}estiman} en la sección~\ref{sec:viabilidad-economica}. Una eventual comercialización añadiría los costes de certificación, garantía y logística.
+La estructura de costes, al no existir una empresa ni una plantilla, se reduce a los componentes y materiales, las herramientas de fabricación, principalmente la impresora 3D, y las horas de desarrollo, que son con diferencia el coste principal y se estiman en la sección~\ref{sec:viabilidad-economica}. Una eventual comercialización añadiría los costes de certificación, garantía y logística.
 
 \paragraph{Métricas clave y ventaja diferencial.}
 Las métricas que permitirán comprobar si la propuesta funciona son cuatro. La primera es el coste de un puesto completo frente al de un equipo comercial equivalente, que mide directamente el cumplimiento de la propuesta de valor. Las otras tres miden la adopción y la calidad del sistema una vez publicado: el número de descargas de cada versión, el número de periféricos montados por otros usuarios y las incidencias abiertas y resueltas en el repositorio. Como la aplicación procesa todos los datos en local y no envía información fuera del equipo, estas métricas se obtendrán de los canales públicos y no del uso de la aplicación. Por último, la ventaja diferencial del proyecto es que los periféricos, su firmware y la aplicación se diseñan juntos, una integración que no ofrecen los fabricantes comerciales, sin incentivos para abrir sus ecosistemas a periféricos ajenos, ni los proyectos de fabricación propia, centrados en un único periférico. A ello se suma que el sistema es accesible para usuarios sin experiencia técnica, lo que amplía su público más allá de los aficionados a la electrónica.
@@ -175,9 +174,9 @@ Las métricas que permitirán comprobar si la propuesta funciona son cuatro. La 
 \subsection{Análisis de riesgos}
 \label{sec:riesgos}
 
-Todo proyecto está expuesto a sucesos que, si se producen, pueden retrasarlo, encarecerlo o impedir que alcance sus objetivos. El análisis de riesgos consiste en identificar esos sucesos antes de que ocurran, estimar su probabilidad y su impacto, y prever las medidas que los evitan o reducen sus consecuencias. En este proyecto los riesgos se agrupan en tres categorías: técnicos, de planificación y coste, y legales. Para cada uno se estima la probabilidad de que ocurra y el impacto que tendría sobre el proyecto en una escala de tres niveles (baja, media y alta), y la combinación de ambas determina su nivel de riesgo y la prioridad con la que debe atenderse{\color{blue}, según los criterios que se definen a continuación}.
+Todo proyecto está expuesto a sucesos que, si se producen, pueden retrasarlo, encarecerlo o impedir que alcance sus objetivos. El análisis de riesgos consiste en identificar esos sucesos antes de que ocurran, estimar su probabilidad y su impacto, y prever las medidas que los evitan o reducen sus consecuencias. En este proyecto los riesgos se agrupan en tres categorías: técnicos, de planificación y coste, y legales. Para cada uno se estima la probabilidad de que ocurra y el impacto que tendría sobre el proyecto en una escala de tres niveles (baja, media y alta), y la combinación de ambas determina su nivel de riesgo y la prioridad con la que debe atenderse, según los criterios que se definen a continuación.
 
-{\color{blue}
+
 	\paragraph{Escalas de valoración.}
 	Para que la valoración de cada riesgo no dependa de una impresión subjetiva, cada nivel de la escala se asocia a un criterio concreto, recogido en la tabla~\ref{tab:escalas-riesgo}. La probabilidad se expresa por la frecuencia con la que se espera que el suceso se presente durante el desarrollo, que se prevé de unos seis meses. El impacto se mide por sus consecuencias sobre el plazo, el coste, los objetivos del proyecto y, en los casos más graves, la integridad física del usuario o la situación legal del proyecto. Basta con que se cumpla uno de los criterios de impacto para asignar ese nivel.
 	
@@ -232,7 +231,7 @@ Todo proyecto está expuesto a sucesos que, si se producen, pueden retrasarlo, e
 		\item \textbf{Medio}: se planifican medidas preventivas y se revisa su estado al final de cada iteración del desarrollo.
 		\item \textbf{Alto}: es prioritario. Las medidas se aplican desde el inicio del proyecto o, como tarde, antes de empezar la fase a la que afecta, y su seguimiento es continuo. No se da por cerrada esa fase mientras el riesgo no se haya reducido.
 	\end{itemize}
-}
+
 
 \paragraph{Riesgos técnicos.}
 El riesgo más grave del proyecto es la seguridad de la base. Un motor capaz de mover el volante con fuerza puede lesionar las manos o las muñecas del piloto si el firmware falla, si el simulador envía una consigna anómala o si el volante se suelta durante un choque virtual. Además, un error de control puede hacer que el motor oscile o se embale, y una corriente excesiva puede sobrecalentarlo o dañar la controladora y la fuente de alimentación. Su probabilidad es media, porque el desarrollo del firmware implica necesariamente pruebas con el motor en funcionamiento, pero su impacto es alto, ya que afecta a la integridad física del usuario. El segundo riesgo técnico es la disponibilidad de los componentes. El proyecto depende de piezas de bajo coste, como los motores de recambio o las controladoras derivadas de proyectos abiertos, que se fabrican sin un compromiso de continuidad y cuyo precio puede variar, de modo que un componente puede dejar de fabricarse o cambiar de especificaciones durante el desarrollo. El tercer riesgo es la compatibilidad con los simuladores. Cada simulador publica su telemetría en un formato propio, puede cambiarlo con una actualización e interpreta el \textit{force feedback} a su manera, por lo que un periférico que funciona correctamente en un simulador puede comportarse de forma distinta en otro.
@@ -244,7 +243,7 @@ El proyecto abarca diseño mecánico, electrónica, firmware y una aplicación d
 El aro toma como referencia el volante de un monoplaza real de Fórmula~1, cuya forma, logotipos y nombres están protegidos por derechos de propiedad industrial e intelectual de sus titulares. Reproducir esos elementos, o usar marcas de terceros para identificar o promocionar el proyecto, podría vulnerar esos derechos, especialmente si el proyecto llegara a comercializarse. Un riesgo similar afecta al software: la aplicación incorporará bibliotecas y componentes de terceros cuyas licencias imponen condiciones de uso y de atribución, y los diseños de pantallas de datos inspirados en coches reales pueden incluir elementos protegidos. Por último, una eventual venta de periféricos obligaría a cumplir la normativa de seguridad de productos eléctricos, cuyo incumplimiento tendría consecuencias legales para el fabricante.
 
 \paragraph{Plan de mitigación.}
-La tabla~\ref{tab:riesgos} resume los riesgos identificados, su valoración {\color{blue}según los criterios de las tablas~\ref{tab:escalas-riesgo} y~\ref{tab:matriz-riesgo}} y las medidas previstas para cada uno. La prioridad máxima corresponde a la seguridad de la base, que se aborda como un requisito de diseño: el firmware limitará el par y la velocidad, vigilará la temperatura, frenará el volante al final de su recorrido y cortará el par ante cualquier fallo de comunicación, y estas protecciones se probarán en situaciones límite antes de usar la base con normalidad. Frente a la dependencia de componentes, se elegirán piezas basadas en estándares y con alternativas equivalentes, y se diseñará el firmware de forma que su sustitución afecte lo menos posible al resto del sistema. Frente a la variedad de simuladores, la aplicación aislará la lectura de cada uno en una capa común, de modo que un cambio en un simulador solo afecte a su adaptador. Los riesgos de planificación se reducen con un desarrollo iterativo e incremental, en el que cada periférico se lleva primero a una versión funcional antes de añadir funciones, y con un control de versiones que permita volver a un estado estable. Por último, los riesgos legales se evitan no reproduciendo logotipos ni marcas en las piezas, presentando el aro como un diseño propio inspirado en una referencia y respetando las licencias del software de terceros, cuyos avisos se incluirán con la aplicación.
+La tabla~\ref{tab:riesgos} resume los riesgos identificados, su valoración según los criterios de las tablas~\ref{tab:escalas-riesgo} y~\ref{tab:matriz-riesgo} y las medidas previstas para cada uno. La prioridad máxima corresponde a la seguridad de la base, que se aborda como un requisito de diseño: el firmware limitará el par y la velocidad, vigilará la temperatura, frenará el volante al final de su recorrido y cortará el par ante cualquier fallo de comunicación, y estas protecciones se probarán en situaciones límite antes de usar la base con normalidad. Frente a la dependencia de componentes, se elegirán piezas basadas en estándares y con alternativas equivalentes, y se diseñará el firmware de forma que su sustitución afecte lo menos posible al resto del sistema. Frente a la variedad de simuladores, la aplicación aislará la lectura de cada uno en una capa común, de modo que un cambio en un simulador solo afecte a su adaptador. Los riesgos de planificación se reducen con un desarrollo iterativo e incremental, en el que cada periférico se lleva primero a una versión funcional antes de añadir funciones, y con un control de versiones que permita volver a un estado estable. Por último, los riesgos legales se evitan no reproduciendo logotipos ni marcas en las piezas, presentando el aro como un diseño propio inspirado en una referencia y respetando las licencias del software de terceros, cuyos avisos se incluirán con la aplicación.
 
 \begin{table}[htbp]
 	\centering
@@ -259,7 +258,7 @@ La tabla~\ref{tab:riesgos} resume los riesgos identificados, su valoración {\co
 		Limitar el par y la velocidad, vigilar la temperatura, frenar el volante al final del recorrido y cortar el par ante fallos de comunicación, probándolo en situaciones límite. \\
 		RT-02 & Disponibilidad de componentes & Media & Medio & Medio &
 		Elegir piezas basadas en estándares y con alternativas equivalentes, y desacoplar el firmware del hardware concreto. \\
-		RT-03 & Compatibilidad con los simuladores & Alta & Medio & {\color{blue}Alto} &
+		RT-03 & Compatibilidad con los simuladores & Alta & Medio & Alto &
 		Aislar la lectura de cada simulador en un adaptador sobre una capa común. \\
 		RP-01 & Alcance mayor que el tiempo disponible & Alta & Alto & Alto &
 		Desarrollo iterativo e incremental: cada periférico llega a una versión funcional antes de ampliarlo. \\
@@ -280,10 +279,10 @@ La tabla~\ref{tab:riesgos} resume los riesgos identificados, su valoración {\co
 \subsection{Viabilidad económica}
 \label{sec:viabilidad-economica}
 
-La viabilidad económica se valora desde dos puntos de vista. El primero es el coste de construir un equipo completo, que es el que paga el usuario {\color{blue}y que debe quedar claramente por debajo del de un equipo comercial}. El segundo es el coste total del proyecto, que incluye además el tiempo de desarrollo y los medios empleados. Todas las cifras de esta sección son estimaciones previas al desarrollo.
+La viabilidad económica se valora desde dos puntos de vista. El primero es el coste de construir un equipo completo, que es el que paga el usuario y que debe quedar claramente por debajo del de un equipo comercial. El segundo es el coste total del proyecto, que incluye además el tiempo de desarrollo y los medios empleados. Todas las cifras de esta sección son estimaciones previas al desarrollo.
 
 \paragraph{Presupuesto del proyecto.}
-{\color{blue}Para los materiales de los tres periféricos se prevé una inversión de unos 600~euros, asumible con recursos propios y basada en componentes de bajo coste y fácil acceso.} A ese importe hay que sumar los demás conceptos que intervienen en el desarrollo, recogidos en la tabla~\ref{tab:presupuesto}. Se añade una partida de imprevistos del 15~\% sobre los materiales para cubrir los componentes que se dañen durante las pruebas y las piezas que haya que repetir al iterar el diseño. El software empleado es gratuito o dispone de licencia educativa. El concepto de mayor peso es, con diferencia, el tiempo de desarrollo, valorado con el coste horario de un ingeniero junior. Este coste se asume una sola vez, una vez desarrollado el sistema, cada puesto adicional cuesta solo sus materiales.
+Para los materiales de los tres periféricos se prevé una inversión de unos 600~euros, asumible con recursos propios y basada en componentes de bajo coste y fácil acceso. A ese importe hay que sumar los demás conceptos que intervienen en el desarrollo, recogidos en la tabla~\ref{tab:presupuesto}. Se añade una partida de imprevistos del 15~\% sobre los materiales para cubrir los componentes que se dañen durante las pruebas y las piezas que haya que repetir al iterar el diseño. El software empleado es gratuito o dispone de licencia educativa. El concepto de mayor peso es, con diferencia, el tiempo de desarrollo, valorado con el coste horario de un ingeniero junior. Este coste se asume una sola vez, una vez desarrollado el sistema, cada puesto adicional cuesta solo sus materiales.
 
 \begin{table}[htbp]
 	\centering
@@ -294,14 +293,14 @@ La viabilidad económica se valora desde dos puntos de vista. El primero es el c
 		\hline
 		\textbf{Concepto} & \textbf{Importe (€)} \\
 		\hline
-		{\color{blue}Materiales de los tres periféricos (estimación)} & {\color{blue}600} \\
-		Imprevistos: roturas y repetición de piezas (15~\% de los materiales) & {\color{blue}90} \\
+		Materiales de los tres periféricos (estimación) & 600 \\
+		Imprevistos: roturas y repetición de piezas (15~\% de los materiales) & 90 \\
 		Software (licencias gratuitas y educativas) & 0 \\
 		Desarrollo: 450~h a 25~€/h & 11\,250 \\
 		\hline
-		\textbf{Total} & {\color{blue}\textbf{11\,940}} \\
+		\textbf{Total} & \textbf{11\,940} \\
 		\hline
 	\end{tabular}
 \end{table}
 
-{\color{blue}Con una inversión en materiales asumible y la mano de obra disponible, el proyecto se considera viable desde el punto de vista económico. La comparación del coste real del equipo terminado con los equipos comerciales se realizará en el capítulo de resultados.}
+Con una inversión en materiales asumible y la mano de obra disponible, el proyecto se considera viable desde el punto de vista económico. La comparación del coste real del equipo terminado con los equipos comerciales se realizará en el capítulo de resultados.

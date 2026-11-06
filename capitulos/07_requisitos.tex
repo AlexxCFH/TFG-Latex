@@ -211,7 +211,7 @@ La base es el periférico más exigente del sistema: debe ser reconocida como un
 		\hline
 		Actores & Piloto \\
 		\hline
-		Descripción & La base aplicará una amortiguación, una fricción y una inercia propias, independientes del juego y ajustables por el usuario. \\
+		Descripción & La base aplicará una amortiguación propia, independiente del juego y ajustable por el usuario, y permitirá ajustar la ganancia de los efectos de muelle, amortiguación, fricción e inercia que pida el juego. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito funcional RF5 (Efectos base)}
@@ -519,7 +519,7 @@ El aro reúne los mandos que el piloto usa durante la conducción y una tira de 
 		\hline
 		Actores & Piloto \\
 		\hline
-		Descripción & Las asignaciones de luces se agruparán en carpetas y se guardarán en perfiles por juego y por coche. \\
+		Descripción & Las asignaciones de luces se organizarán por zonas de LEDs y se guardarán en perfiles, y la aplicación podrá recordar y aplicar el perfil de cada juego. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito funcional RF20 (Perfiles de luces)}
@@ -657,16 +657,16 @@ La pantalla integrada en el aro muestra el dash al piloto sin que tenga que apar
 		\hline
 		Identificador & RF27 \\
 		\hline
-		Nombre & Dash automático por perfil \\
+		Nombre & Menú automático en la pantalla \\
 		\hline
 		Prioridad & Media \\
 		\hline
 		Actores & Piloto, simulador \\
 		\hline
-		Descripción & Al detectar el juego, la aplicación abrirá en la pantalla del aro el dash asociado al perfil activo, sin intervención del piloto. \\
+		Descripción & Al enchufar el aro con su pantalla conectada, la aplicación abrirá en ella el dash de menú, desde el que el piloto podrá elegir el dash sin soltar el volante. \\
 		\hline
 	\end{tabular}
-	\caption{Requisito funcional RF27 (Dash automático por perfil)}
+	\caption{Requisito funcional RF27 (Menú automático en la pantalla)}
 	\label{tab:rf27}
 \end{table}
 
@@ -1434,7 +1434,7 @@ La base \emph{direct drive} es el único elemento del sistema que puede causar d
 		\hline
 		Prioridad & Alta \\
 		\hline
-		Descripción & La base reducirá el par de forma progresiva cuando la temperatura del motor o de la controladora se acerque a su límite, y lo cortará si lo alcanza. \\
+		Descripción & La base reducirá el par de forma progresiva cuando la temperatura estimada del motor o la medida en la controladora se acerque a su límite, y lo anulará si la controladora alcanza el suyo. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito no funcional RNF9 (Protección térmica)}
@@ -1506,7 +1506,7 @@ La base \emph{direct drive} es el único elemento del sistema que puede causar d
 		\hline
 		Prioridad & Alta \\
 		\hline
-		Descripción & Si se pierde la comunicación USB o el juego deja de enviar fuerzas, la base llevará el par a cero en menos de 100~ms. \\
+		Descripción & Si el juego deja de enviar informes durante 2~s, la base llevará el par a cero de forma gradual en menos de 1~s. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito no funcional RNF13 (Pérdida de comunicación)}
@@ -1542,7 +1542,7 @@ La base \emph{direct drive} es el único elemento del sistema que puede causar d
 		\hline
 		Prioridad & Alta \\
 		\hline
-		Descripción & La aplicación comprobará que el firmware corresponde al periférico conectado y que no está dañado antes de grabarlo. \\
+		Descripción & La aplicación elegirá el firmware que corresponde al periférico conectado y comprobará la grabación al terminar. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito no funcional RNF15 (Firmware íntegro)}
@@ -1676,7 +1676,7 @@ Los periféricos deben conservar su configuración, funcionar sin la aplicación
 		\hline
 		Prioridad & Media \\
 		\hline
-		Descripción & El firmware solo escribirá en EEPROM o flash cuando un valor cambie, para no agotar sus ciclos de escritura. \\
+		Descripción & El sistema solo escribirá en EEPROM o flash cuando haya cambios, para no agotar sus ciclos de escritura. \\
 		\hline
 	\end{tabular}
 	\caption{Requisito no funcional RNF22 (Desgaste de memoria)}
@@ -2144,13 +2144,13 @@ Las tablas~\ref{tab:trazabilidad-of} y~\ref{tab:trazabilidad-onf} relacionan cad
 	\hline
 	OF-19 & RF21 & --- \\
 	\hline
-	OF-20 & RF22, RF23, RF28 & RNF31 a RNF37 \\
+	OF-20 & RF22, RF23, RF27, RF28 & RNF31 a RNF37 \\
 	\hline
 	OF-21 & RF29 & --- \\
 	\hline
 	OF-22 & RF30 & --- \\
 	\hline
-	OF-23 & RF27, RF31 & --- \\
+	OF-23 & RF31 & --- \\
 	\hline
 	OF-24 & RF32 & RNF15, RNF24 \\
 	\hline
@@ -2252,7 +2252,7 @@ La tabla~\ref{tab:cu-resumen} resume los quince casos de uso y los requisitos qu
 		\hline
 		CU7 & Gestionar perfiles y copias de seguridad & Piloto & RF20, RF31, RF35 \\
 		\hline
-		CU8 & Lanzar un juego & Piloto, simulador & RF27, RF31, RF34 \\
+		CU8 & Lanzar un juego & Piloto, simulador & RF31, RF34 \\
 		\hline
 		CU9 & Conducir una sesión asistida & Piloto, simulador & RF1, RF11, RF16, RF18, RF23, RF38, RF44, RF51, RF53, RNF1 a RNF13, RNF34 \\
 		\hline
@@ -2367,8 +2367,8 @@ A continuación se detallan los casos de uso más representativos. En los flujos
 		\hline
 		Flujo principal & 1.~La aplicación avisa de que hay un firmware nuevo y ofrece grabarlo.\newline
 		2.~El piloto acepta.\newline
-		3.~La aplicación comprueba que el firmware corresponde al periférico y que está íntegro.\newline
-		4.~La aplicación pone el periférico en modo de grabación, sin el puente BOOT0 en el caso del volante, y graba el firmware.\newline
+		3.~La aplicación elige el firmware que corresponde al periférico conectado.\newline
+		4.~La aplicación pone el periférico en modo de grabación, sin el puente BOOT0 en el caso del volante, graba el firmware y comprueba la grabación.\newline
 		5.~El periférico se reinicia y la aplicación lo vuelve a conectar.\newline
 		6.~La aplicación comprueba la nueva versión y restaura la configuración del usuario. \\
 		\hline
@@ -2401,7 +2401,7 @@ A continuación se detallan los casos de uso más representativos. En los flujos
 		\hline
 		Disparador & El piloto sale a pista en el simulador. \\
 		\hline
-		Flujo principal & 1.~La aplicación detecta el juego y el coche, aplica el perfil correspondiente y abre su dash en la pantalla del aro.\newline
+		Flujo principal & 1.~La aplicación detecta el juego y el coche y aplica el perfil correspondiente, mientras la pantalla del aro muestra el dash elegido.\newline
 		2.~El simulador lee los ejes y los botones de los periféricos y envía los efectos de fuerza a la base.\newline
 		3.~La aplicación recibe la telemetría y la distribuye a las luces y la pantalla del aro y al ingeniero.\newline
 		4.~Los LEDs del aro muestran las revoluciones y los eventos, y su pantalla muestra los datos de la sesión.\newline

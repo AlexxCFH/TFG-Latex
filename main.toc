@@ -2,7 +2,7 @@
 \babel@toc {catalan}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Acrónimos}{\es@scroman {xiv}}{section*.9}%
+\contentsline {chapter}{Acrónimos}{\es@scroman {xvii}}{section*.9}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.11}%
 \contentsline {chapter}{\numberline {2}Del problema a la solución: contexto y propuesta}{3}{chapter.22}%
 \contentsline {section}{\numberline {2.1}Contexto}{3}{section.23}%
@@ -176,20 +176,76 @@
 \contentsline {section}{\numberline {7.3}Casos de uso}{133}{section.349}%
 \contentsline {chapter}{\numberline {8}Diseño del sistema}{144}{chapter.360}%
 \contentsline {section}{\numberline {8.1}Arquitectura conceptual}{144}{section.361}%
-\contentsline {section}{\numberline {8.2}Diseño de componentes}{144}{section.362}%
-\contentsline {section}{\numberline {8.3}Diseño de la persistencia}{144}{section.363}%
-\contentsline {section}{\numberline {8.4}Diseño de pruebas y validación}{144}{section.364}%
-\contentsline {section}{\numberline {8.5}Arquitectura tecnológica}{144}{section.365}%
-\contentsline {chapter}{\numberline {9}Implementación}{145}{chapter.366}%
-\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{145}{section.367}%
-\contentsline {section}{\numberline {9.2}Implementación de los componentes}{145}{section.368}%
-\contentsline {subsubsection}{Componente 1}{145}{subsubsection*.369}%
-\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{145}{section.370}%
-\contentsline {chapter}{\numberline {10}Resultados y análisis}{146}{chapter.371}%
-\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{146}{section.372}%
-\contentsline {section}{\numberline {10.2}Análisis de los resultados}{146}{section.373}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{147}{chapter.374}%
-\contentsline {section}{\numberline {11.1}Trabajo futuro}{147}{section.375}%
-\contentsline {chapter}{\numberline {A}Título del apéndice}{148}{appendix.376}%
-\contentsline {chapter}{Bibliografía}{149}{appendix*.377}%
-\contentsline {chapter}{Glosario}{158}{section*.378}%
+\contentsline {subsection}{\numberline {8.1.1}Visión general del ecosistema}{144}{subsection.362}%
+\contentsline {subsection}{\numberline {8.1.2}Reparto de responsabilidades}{145}{subsection.364}%
+\contentsline {section}{\numberline {8.2}Diseño de componentes}{147}{section.369}%
+\contentsline {subsection}{\numberline {8.2.1}Criterios de diseño}{147}{subsection.370}%
+\contentsline {paragraph}{Materiales baratos y fáciles de trabajar.}{147}{paragraph*.371}%
+\contentsline {paragraph}{Componentes comerciales al por menor.}{148}{paragraph*.372}%
+\contentsline {subsection}{\numberline {8.2.2}Aro VH Formula Apex}{148}{subsection.373}%
+\contentsline {paragraph}{Requisitos.}{148}{paragraph*.374}%
+\contentsline {paragraph}{Electrónica.}{148}{paragraph*.375}%
+\contentsline {paragraph}{Concepto mecánico.}{150}{paragraph*.378}%
+\contentsline {subsection}{\numberline {8.2.3}Pedalera VH Axis}{151}{subsection.380}%
+\contentsline {paragraph}{Requisitos.}{151}{paragraph*.381}%
+\contentsline {paragraph}{Electrónica.}{151}{paragraph*.382}%
+\contentsline {paragraph}{Concepto mecánico.}{152}{paragraph*.385}%
+\contentsline {subsection}{\numberline {8.2.4}Base VH Grid DD15}{153}{subsection.387}%
+\contentsline {paragraph}{Requisitos.}{153}{paragraph*.388}%
+\contentsline {paragraph}{Electrónica.}{153}{paragraph*.389}%
+\contentsline {paragraph}{Concepto mecánico.}{155}{paragraph*.392}%
+\contentsline {section}{\numberline {8.3}Arquitectura tecnológica}{156}{section.394}%
+\contentsline {subsection}{\numberline {8.3.1}Firmware}{156}{subsection.395}%
+\contentsline {paragraph}{Separación entre el juego y la configuración.}{157}{paragraph*.398}%
+\contentsline {paragraph}{Parámetros en RAM y escritura bajo demanda.}{157}{paragraph*.399}%
+\contentsline {paragraph}{Base VH Grid DD15.}{158}{paragraph*.400}%
+\contentsline {paragraph}{Pedalera VH Axis y aro VH Formula Apex.}{159}{paragraph*.403}%
+\contentsline {subsection}{\numberline {8.3.2}Aplicación}{160}{subsection.404}%
+\contentsline {paragraph}{Interfaz: vistas y controladores.}{161}{paragraph*.407}%
+\contentsline {paragraph}{Lógica.}{162}{paragraph*.408}%
+\contentsline {paragraph}{Ejecución concurrente.}{162}{paragraph*.409}%
+\contentsline {paragraph}{Ejemplo de funcionamiento.}{163}{paragraph*.410}%
+\contentsline {section}{\numberline {8.4}Protocolos de comunicación}{163}{section.411}%
+\contentsline {subsection}{\numberline {8.4.1}Identidad USB}{164}{subsection.417}%
+\contentsline {subsection}{\numberline {8.4.2}Comunicación con la base}{165}{subsection.419}%
+\contentsline {paragraph}{Interfaz HID PID.}{165}{paragraph*.420}%
+\contentsline {paragraph}{Canal \textit {vendor}.}{165}{paragraph*.422}%
+\contentsline {subsection}{\numberline {8.4.3}Comunicación con la pedalera y el aro}{167}{subsection.425}%
+\contentsline {subsection}{\numberline {8.4.4}Dash en dispositivos móviles}{168}{subsection.427}%
+\contentsline {section}{\numberline {8.5}Diseño de la persistencia}{169}{section.433}%
+\contentsline {subsection}{\numberline {8.5.1}Periféricos}{170}{subsection.434}%
+\contentsline {subsection}{\numberline {8.5.2}Aplicación}{171}{subsection.436}%
+\contentsline {section}{\numberline {8.6}Experiencia de usuario (UX)}{173}{section.438}%
+\contentsline {subsection}{\numberline {8.6.1}Primera configuración}{173}{subsection.439}%
+\contentsline {subsection}{\numberline {8.6.2}Calibración de los pedales}{173}{subsection.440}%
+\contentsline {subsection}{\numberline {8.6.3}Actualización de firmware}{173}{subsection.441}%
+\contentsline {subsection}{\numberline {8.6.4}Perfiles automáticos}{173}{subsection.442}%
+\contentsline {section}{\numberline {8.7}Interfaces de usuario (UI)}{173}{section.443}%
+\contentsline {subsection}{\numberline {8.7.1}Estructura general}{173}{subsection.444}%
+\contentsline {subsection}{\numberline {8.7.2}Página de inicio}{173}{subsection.445}%
+\contentsline {subsection}{\numberline {8.7.3}Página de configuración de la base}{173}{subsection.446}%
+\contentsline {subsection}{\numberline {8.7.4}Página de configuración del aro}{173}{subsection.447}%
+\contentsline {subsection}{\numberline {8.7.5}Página de configuración de la pedalera}{173}{subsection.448}%
+\contentsline {subsection}{\numberline {8.7.6}Biblioteca de dash y editor}{173}{subsection.449}%
+\contentsline {subsection}{\numberline {8.7.7}Ingeniero de pista}{173}{subsection.450}%
+\contentsline {subsection}{\numberline {8.7.8}Análisis de la telemetría}{173}{subsection.451}%
+\contentsline {subsection}{\numberline {8.7.9}Ajustes de la aplicación}{173}{subsection.452}%
+\contentsline {section}{\numberline {8.8}Guía de estilos}{173}{section.453}%
+\contentsline {subsection}{\numberline {8.8.1}Paleta de colores}{173}{subsection.454}%
+\contentsline {subsection}{\numberline {8.8.2}Tipografía}{173}{subsection.455}%
+\contentsline {subsection}{\numberline {8.8.3}Iconografía}{173}{subsection.456}%
+\contentsline {subsection}{\numberline {8.8.4}Componentes reutilizables}{173}{subsection.457}%
+\contentsline {section}{\numberline {8.9}Diseño de pruebas y validación}{173}{section.458}%
+\contentsline {chapter}{\numberline {9}Implementación}{174}{chapter.459}%
+\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{174}{section.460}%
+\contentsline {section}{\numberline {9.2}Implementación de los componentes}{174}{section.461}%
+\contentsline {subsubsection}{Componente 1}{174}{subsubsection*.462}%
+\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{174}{section.463}%
+\contentsline {chapter}{\numberline {10}Resultados y análisis}{175}{chapter.464}%
+\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{175}{section.465}%
+\contentsline {section}{\numberline {10.2}Análisis de los resultados}{175}{section.466}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{176}{chapter.467}%
+\contentsline {section}{\numberline {11.1}Trabajo futuro}{176}{section.468}%
+\contentsline {chapter}{\numberline {A}Título del apéndice}{177}{appendix.469}%
+\contentsline {chapter}{Bibliografía}{178}{appendix*.470}%
+\contentsline {chapter}{Glosario}{187}{section*.471}%

@@ -33,6 +33,18 @@
 \contentsline {figure}{\numberline {7.2}{\ignorespaces Diagrama de casos de uso de la configuración del puesto}}{134}{figure.caption.350}%
 \contentsline {figure}{\numberline {7.3}{\ignorespaces Diagrama de casos de uso de la conducción y el análisis}}{134}{figure.caption.350}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Diagrama de bloques del ecosistema VH SimGrid. (Fuente propia)}}{146}{figure.caption.363}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Esquema de conexiones del aro VH Formula Apex. (Fuente propia)}}{150}{figure.caption.377}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Diseño del aro VH Formula Apex. (Fuente propia)}}{151}{figure.caption.379}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Esquema de conexiones de la pedalera VH Axis. (Fuente propia)}}{152}{figure.caption.384}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Diseño de la pedalera VH Axis. (Fuente propia)}}{153}{figure.caption.386}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Esquema de conexiones de la base VH Grid DD15. (Fuente propia)}}{155}{figure.caption.391}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Diseño de la base VH Grid DD15. (Fuente propia)}}{155}{figure.caption.393}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Arquitectura en capas del firmware de los tres periféricos. (Fuente propia)}}{156}{figure.caption.396}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Cadena de procesado de la fuerza en la base VH Grid DD15. (Fuente propia)}}{158}{figure.caption.401}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Arquitectura de la aplicación VH SimGrid. (Fuente propia)}}{161}{figure.caption.406}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Secuencia de conexión entre la aplicación y un periférico. (Fuente propia)}}{164}{figure.caption.416}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Secuencia de vinculación y envío del \textit {dash} a un dispositivo móvil. (Fuente propia)}}{169}{figure.caption.432}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
