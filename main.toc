@@ -216,36 +216,36 @@
 \contentsline {subsection}{\numberline {8.5.1}Periféricos}{170}{subsection.434}%
 \contentsline {subsection}{\numberline {8.5.2}Aplicación}{171}{subsection.436}%
 \contentsline {section}{\numberline {8.6}Experiencia de usuario (UX)}{173}{section.438}%
-\contentsline {subsection}{\numberline {8.6.1}Primera configuración}{173}{subsection.439}%
-\contentsline {subsection}{\numberline {8.6.2}Calibración de los pedales}{173}{subsection.440}%
-\contentsline {subsection}{\numberline {8.6.3}Actualización de firmware}{173}{subsection.441}%
-\contentsline {subsection}{\numberline {8.6.4}Perfiles automáticos}{173}{subsection.442}%
-\contentsline {section}{\numberline {8.7}Interfaces de usuario (UI)}{173}{section.443}%
-\contentsline {subsection}{\numberline {8.7.1}Estructura general}{173}{subsection.444}%
-\contentsline {subsection}{\numberline {8.7.2}Página de inicio}{173}{subsection.445}%
-\contentsline {subsection}{\numberline {8.7.3}Página de configuración de la base}{173}{subsection.446}%
-\contentsline {subsection}{\numberline {8.7.4}Página de configuración del aro}{173}{subsection.447}%
-\contentsline {subsection}{\numberline {8.7.5}Página de configuración de la pedalera}{173}{subsection.448}%
-\contentsline {subsection}{\numberline {8.7.6}Biblioteca de dash y editor}{173}{subsection.449}%
-\contentsline {subsection}{\numberline {8.7.7}Ingeniero de pista}{173}{subsection.450}%
-\contentsline {subsection}{\numberline {8.7.8}Análisis de la telemetría}{173}{subsection.451}%
-\contentsline {subsection}{\numberline {8.7.9}Ajustes de la aplicación}{173}{subsection.452}%
-\contentsline {section}{\numberline {8.8}Guía de estilos}{173}{section.453}%
-\contentsline {subsection}{\numberline {8.8.1}Paleta de colores}{173}{subsection.454}%
-\contentsline {subsection}{\numberline {8.8.2}Tipografía}{173}{subsection.455}%
-\contentsline {subsection}{\numberline {8.8.3}Iconografía}{173}{subsection.456}%
-\contentsline {subsection}{\numberline {8.8.4}Componentes reutilizables}{173}{subsection.457}%
-\contentsline {section}{\numberline {8.9}Diseño de pruebas y validación}{173}{section.458}%
-\contentsline {chapter}{\numberline {9}Implementación}{174}{chapter.459}%
-\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{174}{section.460}%
-\contentsline {section}{\numberline {9.2}Implementación de los componentes}{174}{section.461}%
-\contentsline {subsubsection}{Componente 1}{174}{subsubsection*.462}%
-\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{174}{section.463}%
-\contentsline {chapter}{\numberline {10}Resultados y análisis}{175}{chapter.464}%
-\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{175}{section.465}%
-\contentsline {section}{\numberline {10.2}Análisis de los resultados}{175}{section.466}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{176}{chapter.467}%
-\contentsline {section}{\numberline {11.1}Trabajo futuro}{176}{section.468}%
-\contentsline {chapter}{\numberline {A}Título del apéndice}{177}{appendix.469}%
-\contentsline {chapter}{Bibliografía}{178}{appendix*.470}%
-\contentsline {chapter}{Glosario}{187}{section*.471}%
+\contentsline {subsection}{\numberline {8.6.1}Primera configuración}{174}{subsection.440}%
+\contentsline {subsection}{\numberline {8.6.2}Calibración de los pedales}{175}{subsection.442}%
+\contentsline {subsection}{\numberline {8.6.3}Actualización de firmware}{176}{subsection.444}%
+\contentsline {subsection}{\numberline {8.6.4}Perfiles automáticos}{178}{subsection.446}%
+\contentsline {section}{\numberline {8.7}Interfaces de usuario (UI)}{179}{section.448}%
+\contentsline {subsection}{\numberline {8.7.1}Estructura general}{179}{subsection.449}%
+\contentsline {subsection}{\numberline {8.7.2}Página de inicio}{179}{subsection.450}%
+\contentsline {subsection}{\numberline {8.7.3}Página de configuración de la base}{179}{subsection.451}%
+\contentsline {subsection}{\numberline {8.7.4}Página de configuración del aro}{179}{subsection.452}%
+\contentsline {subsection}{\numberline {8.7.5}Página de configuración de la pedalera}{179}{subsection.453}%
+\contentsline {subsection}{\numberline {8.7.6}Biblioteca de dash y editor}{179}{subsection.454}%
+\contentsline {subsection}{\numberline {8.7.7}Ingeniero de pista}{179}{subsection.455}%
+\contentsline {subsection}{\numberline {8.7.8}Análisis de la telemetría}{179}{subsection.456}%
+\contentsline {subsection}{\numberline {8.7.9}Ajustes de la aplicación}{179}{subsection.457}%
+\contentsline {section}{\numberline {8.8}Guía de estilos}{179}{section.458}%
+\contentsline {subsection}{\numberline {8.8.1}Paleta de colores}{179}{subsection.459}%
+\contentsline {subsection}{\numberline {8.8.2}Tipografía}{179}{subsection.460}%
+\contentsline {subsection}{\numberline {8.8.3}Iconografía}{179}{subsection.461}%
+\contentsline {subsection}{\numberline {8.8.4}Componentes reutilizables}{179}{subsection.462}%
+\contentsline {section}{\numberline {8.9}Diseño de pruebas y validación}{179}{section.463}%
+\contentsline {chapter}{\numberline {9}Implementación}{180}{chapter.464}%
+\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{180}{section.465}%
+\contentsline {section}{\numberline {9.2}Implementación de los componentes}{180}{section.466}%
+\contentsline {subsubsection}{Componente 1}{180}{subsubsection*.467}%
+\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{180}{section.468}%
+\contentsline {chapter}{\numberline {10}Resultados y análisis}{181}{chapter.469}%
+\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{181}{section.470}%
+\contentsline {section}{\numberline {10.2}Análisis de los resultados}{181}{section.471}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{182}{chapter.472}%
+\contentsline {section}{\numberline {11.1}Trabajo futuro}{182}{section.473}%
+\contentsline {chapter}{\numberline {A}Título del apéndice}{183}{appendix.474}%
+\contentsline {chapter}{Bibliografía}{184}{appendix*.475}%
+\contentsline {chapter}{Glosario}{193}{section*.476}%

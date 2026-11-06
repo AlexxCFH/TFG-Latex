@@ -610,10 +610,108 @@ Se distinguen dos tipos de datos según su tamaño y su uso:
 Por último, la aplicación permite reunir sus datos en un solo fichero \texttt{.zip} de copia de seguridad, que el usuario puede guardar o llevar a otro ordenador y restaurar después (RF35). La copia incluye también las sesiones grabadas, porque son lo único que no se puede volver a generar, y deja fuera solo el certificado del dispositivo móvil, que lleva una clave privada y se crea de nuevo en cada equipo. Los \textit{dashes} pueden además exportarse e importarse de uno en uno en un fichero comprimido \texttt{.vhdash.zip}, para compartirlos con otros usuarios (RF43).
 
 \section{Experiencia de usuario (UX)}
+\label{sec:ux}
+El usuario objetivo de VH SimGrid es un piloto aficionado, no un tecnico (tabla~\ref{tab:actores}). Debe poder utilizar, calibrar y poner en marcha el equipo sin necesidad de tener conocimientos de programación o electronica (RNF26). Por eso la experiencia de usuario no se limita al aspecto de las pantallas, que se trata en la sección~\ref{sec:ui}, sino que abarca cómo se desarrollan los pasos que tiene cada una, en qué orden, qué ve el piloto en cada momento y qué ocurre cuando algo sale mal.
+
+El diseño de la interacción se apoya en las heurísticas de usabilidad de Nielsen~\cite{nielsen1994}, adaptadas al contexto del simracing. La tabla~\ref{tab:principios-ux} recoge los principios aplicados y cómo se reflejan en el sistema.
+
+\begin{table}[H]
+	\centering
+	\caption{Principios de experiencia de usuario aplicados en VH SimGrid.}
+	\label{tab:principios-ux}
+	\small
+	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{Principio} & \textbf{Aplicación en el sistema} \\
+		\midrule
+		Funcionar al conectar & Los periféricos se detectan y se configuran solos, y la aplicación lee su estado real en lugar de pedírselo al usuario (RF29). \\
+		Visibilidad del estado & Cada acción tiene una respuesta visible: la traza en vivo de los pedales, la vista previa de los LEDs, el estado de cada periférico o el perfil activo (RNF28). \\
+		Guiar en lugar de configurar & Las tareas con varios pasos, como la puesta en marcha o la calibración, se resuelven con asistentes que piden una sola acción cada vez. \\
+		Lenguaje del piloto & Los valores se expresan en las unidades que entiende el piloto, como los kilos en el freno o los grados de giro, y no en lecturas del sensor. \\
+		Prevención de errores & Los valores fuera de rango se limitan, el firmware se comprueba antes de grabarlo y las lecturas dudosas se repiten (RNF15 y RNF39). \\
+		Control del usuario & Toda tarea guiada puede posponerse o cerrarse y reanudarse después, y toda decisión automática puede cambiarse a mano. \\
+		Sin soltar el volante & Lo que se necesita durante la conducción se maneja con los mandos del aro o por voz (RNF29). \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+Los apartados siguientes describen los cuatro flujos en los que estos principios tienen más peso. Cada uno se representa con un diagrama de flujo y se corresponde con un caso de uso del capítulo~\ref{cap:requisitos}.
+
 \subsection{Primera configuración}
+\label{subsec:ux-asistente}
+La primera vez que se abre la aplicación, un asistente guía al piloto por la puesta en marcha completa del equipo (RF33), siguiendo el caso de uso CU1. Su flujo se muestra en la figura~\ref{fig:ux-asistente}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/ux-asistente.png}
+	\caption{Flujo del asistente de primera configuración. (Fuente propia)}
+	\label{fig:ux-asistente}
+\end{figure}
+El diseño del asistente responde a varias decisiones:
+
+\begin{itemize}
+	\item \textbf{Un paso por periférico, en orden de importancia.} El asistente empieza por el volante, sigue con los pedales y el aro, y termina con la pantalla del aro y los juegos. Cada paso pide una sola acción y muestra el resultado antes de pasar al siguiente, de modo que el piloto nunca tiene que recordar qué hizo antes.
+	\item \textbf{El firmware primero.} Antes de configurar nada, el asistente comprueba que cada periférico tiene la última versión de firmware y, si no la tiene, ofrece actualizarlo. Así se evita calibrar un periférico con un firmware que va a cambiar justo después.
+	\item \textbf{Adaptado a lo que hay conectado.} Si falta un periférico, el asistente omite sus pasos en lugar de detenerse, y lo configura cuando se conecte. Quien solo tiene la pedalera puede completar el asistente igual que quien tiene el equipo completo.
+	\item \textbf{Las tareas fuera de la aplicación, explicadas.} Activar la telemetría depende de cada juego y no puede hacerlo la aplicación. Para ese paso, el asistente detecta los juegos instalados y explica, para cada uno, qué opción hay que activar.
+	\item \textbf{Siempre se puede salir.} El asistente puede cerrarse en cualquier paso y reanudarse más tarde desde los ajustes de la aplicación.
+\end{itemize}
+
 \subsection{Calibración de los pedales}
+\label{subsec:ux-calibracion}
+La calibración indica a la pedalera dónde empieza y dónde acaba el recorrido de cada pedal y qué fuerza máxima se quiere aplicar en el freno (RF12). Sigue el caso de uso CU3 y su flujo se representa en la figura~\ref{fig:ux-calibracion}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/ux-calibracion.png}
+	\caption{Flujo de la calibración guiada de los pedales. (Fuente propia)}
+	\label{fig:ux-calibracion}
+\end{figure}
+
+En una calibración tradicional, el usuario introduce a mano los valores mínimo y máximo de cada eje, unos números que no significan nada para un piloto. La calibración de VH SimGrid sustituye esos números por acciones físicas: soltar los pedales, pisarlos a fondo y frenar con la fuerza deseada. La aplicación toma cada lectura de la traza en vivo, de modo que el piloto ve en todo momento cómo responde el pedal mientras lo pisa, y después envía los valores a la pedalera con el mensaje de calibración (apartado~\ref{subsec:protocolo-pedalera-aro}).
+
+El freno merece un tratamiento propio. Como mide la fuerza y no el recorrido, su fondo no es una posición física, sino la fuerza máxima con la que el piloto quiere frenar, que la aplicación muestra en kilos. Así el piloto decide la dureza del freno en una unidad que entiende, y puede reconocer de un vistazo si ha calibrado un freno blando o uno firme.
+
+La aplicación comprueba además cada lectura antes de aceptarla. Si la señal es inestable, porque el pie aún se mueve, o el recorrido es demasiado corto para ser un pedal pisado a fondo, avisa del problema y repite el paso, en lugar de guardar una calibración que haría que el pedal no llegara nunca al 100~\%. Por último, la calibración y los ajustes que se hagan después, como la curva o la zona muerta, se guardan solos en la pedalera, sin un botón de guardar que el piloto pueda olvidar pulsar (RF14).
+
 \subsection{Actualización de firmware}
+\label{subsec:ux-firmware}
+Actualizar el firmware de un microcontrolador suele exigir herramientas específicas, poner la placa en modo de grabación a mano y saber qué fichero corresponde a cada dispositivo. VH SimGrid reduce todo eso a una sola decisión del piloto: aceptar o no la actualización (RF32). El flujo, que sigue el caso de uso CU5, se muestra en la figura~\ref{fig:ux-firmware}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/ux-firmware.png}
+	\caption{Flujo de la actualización de firmware de un periférico. (Fuente propia)}
+	\label{fig:ux-firmware}
+\end{figure}
+
+Las decisiones de diseño más relevantes son las siguientes:
+
+\begin{itemize}
+	\item \textbf{Ofrecer, no imponer.} La aplicación compara la versión del periférico con la que incluye al conectarlo, y si hay una más reciente lo comunica y deja la decisión al piloto, mostrando ambas versiones. Si la pospone, el periférico sigue funcionando con su versión actual, y la aplicación lo recuerda más adelante. De este modo, una actualización nunca interrumpe una sesión.
+	\item \textbf{Sin intervención física.} La aplicación pone ella misma el periférico en modo de grabación mediante una orden de su canal de configuración. En la base, esto evita abrir la carcasa para colocar el puente BOOT0, y en la pedalera y el aro, instalar herramientas externas.
+	\item \textbf{Comprobar antes de grabar.} La aplicación elige el firmware según la identidad USB del periférico y comprueba que el fichero le corresponde y no está dañado. Si no supera la comprobación, no se graba, porque un firmware equivocado podría dejar el periférico inutilizable (RNF15).
+	\item \textbf{Conservar la configuración.} Tras la grabación, la aplicación vuelve a conectar el periférico, comprueba la nueva versión y le restaura la configuración del usuario, de modo que el piloto no tiene que volver a calibrar nada (RNF24).
+	\item \textbf{Un camino de recuperación.} Si el periférico no vuelve a conectarse, la aplicación indica cómo reintentar la grabación y, como último recurso, cómo recuperarlo por DFU, la única operación que requiere la intervención del constructor (CU6).
+\end{itemize}
+
 \subsection{Perfiles automáticos}
+\label{subsec:ux-perfiles}
+Cada juego, e incluso cada coche, se conduce mejor con unos ajustes distintos: un GT3 pide un \textit{force feedback} y un rango de giro diferentes a los de un monoplaza o un coche de rally. Los perfiles automáticos evitan que el piloto tenga que cambiar estos ajustes a mano cada vez que cambia de juego o de coche (RF31). Su funcionamiento se representa en la figura~\ref{fig:ux-perfiles}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/ux-perfiles.png}
+	\caption{Flujo de la aplicación automática de perfiles. (Fuente propia)}
+	\label{fig:ux-perfiles}
+\end{figure}
+
+La selección del perfil se hace en dos niveles, del más general al más concreto. Cuando la aplicación detecta que se ha abierto un juego, aplica el perfil asociado a ese juego o, si no tiene ninguno, el perfil por defecto. Después, cuando la telemetría identifica el coche, comprueba si existe un perfil específico para él y, si existe, lo aplica en lugar del anterior. Este orden permite que el piloto configure solo lo que necesita: un perfil por juego cubre la mayoría de los casos, y los perfiles por coche quedan para las excepciones.
+
+Aplicar un perfil no se limita a los ajustes de los periféricos. Con ellos se cargan también la asignación de luces del aro y el \textit{dash} asociado, que se abre en la pantalla del aro (RF20 y RF27), de modo que todo el equipo cambia a la vez. El proceso se repite cada vez que cambia el coche o el juego.
+
+Como toda decisión automática, el cambio de perfil debe ser visible y reversible. La aplicación muestra un aviso discreto con el nombre del perfil aplicado, que informa al piloto sin interrumpirle, y el piloto puede elegir otro perfil a mano en cualquier momento, desde la aplicación o desde la pantalla del aro (RF25).
+
 
 \section{Interfaces de usuario (UI)}
 \subsection{Estructura general}

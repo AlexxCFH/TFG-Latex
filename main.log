@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.18)  6 NOV 2026 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.18)  6 NOV 2026 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2371,7 +2371,7 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 7.3pt on input line 11.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 12.
-<img/ejemplo.png, id=1158, 803.0pt x 451.6875pt>
+<img/ejemplo.png, id=1168, 803.0pt x 451.6875pt>
 File: img/ejemplo.png Graphic file (type png)
 <use img/ejemplo.png>
 Package pdftex.def Info: img/ejemplo.png  used on input line 18.
@@ -2443,7 +2443,7 @@ LaTeX Info: Redefining \sptext on input line 110.
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
  [10]
-<img/DAFO.png, id=1261, 931.48pt x 690.58pt>
+<img/DAFO.png, id=1271, 931.48pt x 690.58pt>
 File: img/DAFO.png Graphic file (type png)
 <use img/DAFO.png>
 Package pdftex.def Info: img/DAFO.png  used on input line 122.
@@ -2465,7 +2465,7 @@ LaTeX Info: Redefining \. on input line 165.
 LaTeX Info: Redefining \% on input line 165.
 
 [14]
-<img/Lean-Canvas.png, id=1295, 993.7125pt x 592.2125pt>
+<img/Lean-Canvas.png, id=1305, 993.7125pt x 592.2125pt>
 File: img/Lean-Canvas.png Graphic file (type png)
 <use img/Lean-Canvas.png>
 Package pdftex.def Info: img/Lean-Canvas.png  used on input line 165.
@@ -2621,13 +2621,13 @@ LaTeX Info: Redefining \sptext on input line 181.
 LaTeX Info: Redefining \. on input line 181.
 LaTeX Info: Redefining \% on input line 181.
  [41]
-<img/EA-angulo-deriva-neumatico.png, id=1576, 322.20375pt x 265.59225pt>
+<img/EA-angulo-deriva-neumatico.png, id=1586, 322.20375pt x 265.59225pt>
 File: img/EA-angulo-deriva-neumatico.png Graphic file (type png)
 <use img/EA-angulo-deriva-neumatico.png>
 Package pdftex.def Info: img/EA-angulo-deriva-neumatico.png  used on input line
  196.
 (pdftex.def)             Requested size: 132.30666pt x 109.06372pt.
-<img/EA-formula-magica-neumatico.png, id=1579, 634.16925pt x 466.74374pt>
+<img/EA-formula-magica-neumatico.png, id=1589, 634.16925pt x 466.74374pt>
 File: img/EA-formula-magica-neumatico.png Graphic file (type png)
 <use img/EA-formula-magica-neumatico.png>
 Package pdftex.def Info: img/EA-formula-magica-neumatico.png  used on input lin
@@ -2639,12 +2639,12 @@ LaTeX Info: Redefining \% on input line 208.
  [42
 
 ]
-<img/EA-rpmHisto.png, id=1592, 841.9455pt x 393.26926pt>
+<img/EA-rpmHisto.png, id=1602, 841.9455pt x 393.26926pt>
 File: img/EA-rpmHisto.png Graphic file (type png)
 <use img/EA-rpmHisto.png>
 Package pdftex.def Info: img/EA-rpmHisto.png  used on input line 223.
 (pdftex.def)             Requested size: 210.80507pt x 98.46109pt.
-<img/EA-suspensionHisto.png, id=1593, 846.16125pt x 376.40625pt>
+<img/EA-suspensionHisto.png, id=1603, 846.16125pt x 376.40625pt>
 File: img/EA-suspensionHisto.png Graphic file (type png)
 <use img/EA-suspensionHisto.png>
 Package pdftex.def Info: img/EA-suspensionHisto.png  used on input line 230.
@@ -2674,17 +2674,17 @@ LaTeX Info: Redefining \sptext on input line 308.
 LaTeX Info: Redefining \. on input line 308.
 LaTeX Info: Redefining \% on input line 308.
  [47]
-<img/EA-motorDC.png, id=1668, 236.082pt x 153.57375pt>
+<img/EA-motorDC.png, id=1678, 236.082pt x 153.57375pt>
 File: img/EA-motorDC.png Graphic file (type png)
 <use img/EA-motorDC.png>
 Package pdftex.def Info: img/EA-motorDC.png  used on input line 317.
 (pdftex.def)             Requested size: 141.12889pt x 91.80516pt.
-<img/EA-motorBLDC.png, id=1670, 643.40375pt x 390.45876pt>
+<img/EA-motorBLDC.png, id=1680, 643.40375pt x 390.45876pt>
 File: img/EA-motorBLDC.png Graphic file (type png)
 <use img/EA-motorBLDC.png>
 Package pdftex.def Info: img/EA-motorBLDC.png  used on input line 324.
 (pdftex.def)             Requested size: 141.12889pt x 85.64499pt.
-<img/EA-motorPMSM.png, id=1672, 257.16075pt x 188.50426pt>
+<img/EA-motorPMSM.png, id=1682, 257.16075pt x 188.50426pt>
 File: img/EA-motorPMSM.png Graphic file (type png)
 <use img/EA-motorPMSM.png>
 Package pdftex.def Info: img/EA-motorPMSM.png  used on input line 331.
@@ -2710,7 +2710,7 @@ LaTeX Info: Redefining \. on input line 404.
 LaTeX Info: Redefining \% on input line 404.
 
 [52]
-<img/EA-celulaCarga.png, id=1736, 516.12825pt x 251.7405pt>
+<img/EA-celulaCarga.png, id=1746, 516.12825pt x 251.7405pt>
 File: img/EA-celulaCarga.png Graphic file (type png)
 <use img/EA-celulaCarga.png>
 Package pdftex.def Info: img/EA-celulaCarga.png  used on input line 411.
@@ -2829,7 +2829,7 @@ LaTeX Info: Redefining \sptext on input line 39.
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
  [75]
-<img/DSR.png, id=2052, 560.0925pt x 415.5525pt>
+<img/DSR.png, id=2062, 560.0925pt x 415.5525pt>
 File: img/DSR.png Graphic file (type png)
 <use img/DSR.png>
 Package pdftex.def Info: img/DSR.png  used on input line 43.
@@ -2842,7 +2842,7 @@ LaTeX Info: Redefining \sptext on input line 71.
 LaTeX Info: Redefining \. on input line 71.
 LaTeX Info: Redefining \% on input line 71.
  [77]
-<img/Kanban.png, id=2070, 1112.958pt x 498.06075pt>
+<img/Kanban.png, id=2080, 1112.958pt x 498.06075pt>
 File: img/Kanban.png Graphic file (type png)
 <use img/Kanban.png>
 Package pdftex.def Info: img/Kanban.png  used on input line 76.
@@ -2867,7 +2867,7 @@ LaTeX Info: Redefining \sptext on input line 55.
 LaTeX Info: Redefining \. on input line 55.
 LaTeX Info: Redefining \% on input line 55.
  [80]
-<img/gantt_github.png, id=2085, 1011.78pt x 578.16pt>
+<img/gantt_github.png, id=2095, 1011.78pt x 578.16pt>
 File: img/gantt_github.png Graphic file (type png)
 <use img/gantt_github.png>
 Package pdftex.def Info: img/gantt_github.png  used on input line 62.
@@ -3165,7 +3165,7 @@ Cap\'{\i }tulo 8.
 
 
 ]
-<img/diagrama-bloques.png, id=2431, 3011.25pt x 2168.1pt>
+<img/diagrama-bloques.png, id=2441, 3011.25pt x 2168.1pt>
 File: img/diagrama-bloques.png Graphic file (type png)
 <use img/diagrama-bloques.png>
 Package pdftex.def Info: img/diagrama-bloques.png  used on input line 39.
@@ -3194,7 +3194,7 @@ LaTeX Info: Redefining \sptext on input line 110.
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
  [148]
-<img/aro-esquema.png, id=2462, 788.7066pt x 777.8661pt>
+<img/aro-esquema.png, id=2472, 788.7066pt x 777.8661pt>
 File: img/aro-esquema.png Graphic file (type png)
 <use img/aro-esquema.png>
 Package pdftex.def Info: img/aro-esquema.png  used on input line 133.
@@ -3215,7 +3215,7 @@ LaTeX Info: Redefining \sptext on input line 173.
 LaTeX Info: Redefining \. on input line 173.
 LaTeX Info: Redefining \% on input line 173.
  [151]
-<img/pedalera-esquema.png, id=2482, 608.0316pt x 434.5836pt>
+<img/pedalera-esquema.png, id=2492, 608.0316pt x 434.5836pt>
 File: img/pedalera-esquema.png Graphic file (type png)
 <use img/pedalera-esquema.png>
 Package pdftex.def Info: img/pedalera-esquema.png  used on input line 176.
@@ -3239,7 +3239,7 @@ LaTeX Info: Redefining \sptext on input line 201.
 LaTeX Info: Redefining \. on input line 201.
 LaTeX Info: Redefining \% on input line 201.
 [153]
-<img/base-esquema.png, id=2497, 669.4611pt x 412.9026pt>
+<img/base-esquema.png, id=2507, 669.4611pt x 412.9026pt>
 File: img/base-esquema.png Graphic file (type png)
 <use img/base-esquema.png>
 Package pdftex.def Info: img/base-esquema.png  used on input line 224.
@@ -3256,7 +3256,7 @@ LaTeX Info: Redefining \sptext on input line 243.
 LaTeX Info: Redefining \. on input line 243.
 LaTeX Info: Redefining \% on input line 243.
  [155 <./img/base-esquema.png (PNG copy)>]
-<img/capas-firmware.png, id=2511, 3011.25pt x 1927.2pt>
+<img/capas-firmware.png, id=2521, 3011.25pt x 1927.2pt>
 File: img/capas-firmware.png Graphic file (type png)
 <use img/capas-firmware.png>
 Package pdftex.def Info: img/capas-firmware.png  used on input line 250.
@@ -3269,7 +3269,7 @@ LaTeX Info: Redefining \sptext on input line 282.
 LaTeX Info: Redefining \. on input line 282.
 LaTeX Info: Redefining \% on input line 282.
  [157]
-<img/cadena-fuerza.png, id=2524, 3011.25pt x 1154.3125pt>
+<img/cadena-fuerza.png, id=2534, 3011.25pt x 1154.3125pt>
 File: img/cadena-fuerza.png Graphic file (type png)
 <use img/cadena-fuerza.png>
 Package pdftex.def Info: img/cadena-fuerza.png  used on input line 287.
@@ -3283,19 +3283,15 @@ LaTeX Info: Redefining \sptext on input line 293.
 LaTeX Info: Redefining \. on input line 293.
 LaTeX Info: Redefining \% on input line 293.
 [158 <./img/cadena-fuerza.png (PNG copy)>]
-
-LaTeX Warning: Reference `subsec:ux-firmware' on page 159 undefined on input li
-ne 314.
-
 LaTeX Info: Redefining \sptext on input line 320.
 LaTeX Info: Redefining \. on input line 320.
 LaTeX Info: Redefining \% on input line 320.
-[159]
+ [159]
 LaTeX Info: Redefining \sptext on input line 346.
 LaTeX Info: Redefining \. on input line 346.
 LaTeX Info: Redefining \% on input line 346.
  [160]
-<img/arquitectura-app.png, id=2542, 3312.375pt x 1806.75pt>
+<img/arquitectura-app.png, id=2553, 3312.375pt x 1806.75pt>
 File: img/arquitectura-app.png Graphic file (type png)
 <use img/arquitectura-app.png>
 Package pdftex.def Info: img/arquitectura-app.png  used on input line 351.
@@ -3308,7 +3304,7 @@ LaTeX Info: Redefining \sptext on input line 374.
 LaTeX Info: Redefining \. on input line 374.
 LaTeX Info: Redefining \% on input line 374.
  [162]
-<img/secuencia-conexion.png, id=2557, 3011.25pt x 2168.1pt>
+<img/secuencia-conexion.png, id=2568, 3011.25pt x 2168.1pt>
 File: img/secuencia-conexion.png Graphic file (type png)
 <use img/secuencia-conexion.png>
 Package pdftex.def Info: img/secuencia-conexion.png  used on input line 392.
@@ -3337,7 +3333,7 @@ LaTeX Info: Redefining \sptext on input line 518.
 LaTeX Info: Redefining \. on input line 518.
 LaTeX Info: Redefining \% on input line 518.
 [167]
-<img/secuencia-movil.png, id=2592, 3011.25pt x 1686.3pt>
+<img/secuencia-movil.png, id=2603, 3011.25pt x 1686.3pt>
 File: img/secuencia-movil.png Graphic file (type png)
 <use img/secuencia-movil.png>
 Package pdftex.def Info: img/secuencia-movil.png  used on input line 533.
@@ -3365,16 +3361,65 @@ LaTeX Info: Redefining \% on input line 602.
 LaTeX Info: Redefining \sptext on input line 611.
 LaTeX Info: Redefining \. on input line 611.
 LaTeX Info: Redefining \% on input line 611.
- [172])
+ [172]
+
+LaTeX Warning: Reference `sec:ui' on page 173 undefined on input line 614.
+
+<img/ux-asistente.png, id=2636, 2007.5pt x 1957.3125pt>
+File: img/ux-asistente.png Graphic file (type png)
+<use img/ux-asistente.png>
+Package pdftex.def Info: img/ux-asistente.png  used on input line 646.
+(pdftex.def)             Requested size: 352.81552pt x 343.99826pt.
+LaTeX Info: Redefining \sptext on input line 649.
+LaTeX Info: Redefining \. on input line 649.
+LaTeX Info: Redefining \% on input line 649.
+[173]
+LaTeX Info: Redefining \sptext on input line 656.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+ [174 <./img/ux-asistente.png>]
+<img/ux-calibracion.png, id=2648, 2007.5pt x 1636.1125pt>
+File: img/ux-calibracion.png Graphic file (type png)
+<use img/ux-calibracion.png>
+Package pdftex.def Info: img/ux-calibracion.png  used on input line 666.
+(pdftex.def)             Requested size: 352.81552pt x 287.54726pt.
+LaTeX Info: Redefining \sptext on input line 673.
+LaTeX Info: Redefining \. on input line 673.
+LaTeX Info: Redefining \% on input line 673.
+ [175 <./img/ux-calibracion.png>]
+<img/ux-firmware.png, id=2655, 2007.5pt x 2248.4pt>
+File: img/ux-firmware.png Graphic file (type png)
+<use img/ux-firmware.png>
+Package pdftex.def Info: img/ux-firmware.png  used on input line 683.
+(pdftex.def)             Requested size: 330.76329pt x 370.45538pt.
+LaTeX Info: Redefining \sptext on input line 687.
+LaTeX Info: Redefining \. on input line 687.
+LaTeX Info: Redefining \% on input line 687.
+ [176]
+LaTeX Info: Redefining \sptext on input line 695.
+LaTeX Info: Redefining \. on input line 695.
+LaTeX Info: Redefining \% on input line 695.
+
+[177 <./img/ux-firmware.png>]
+<img/ux-perfiles.png, id=2665, 2007.5pt x 1856.9375pt>
+File: img/ux-perfiles.png Graphic file (type png)
+<use img/ux-perfiles.png>
+Package pdftex.def Info: img/ux-perfiles.png  used on input line 704.
+(pdftex.def)             Requested size: 352.81552pt x 326.35733pt.
+LaTeX Info: Redefining \sptext on input line 711.
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
+ [178 <./img/ux-perfiles.png>])
 LaTeX Info: Redefining \sptext on input line 49.
 LaTeX Info: Redefining \. on input line 49.
 LaTeX Info: Redefining \% on input line 49.
- [173]
+ [179]
 \openout2 = `capitulos/09_implementacion.aux'.
 
- (capitulos/09_implementacion.tex
+
+(capitulos/09_implementacion.tex
 Cap\'{\i }tulo 9.
-) [174
+) [180
 
 
 
@@ -3384,7 +3429,7 @@ Cap\'{\i }tulo 9.
 
  (capitulos/10_resultados.tex
 Cap\'{\i }tulo 10.
-) [175
+) [181
 
 
 
@@ -3394,7 +3439,7 @@ Cap\'{\i }tulo 10.
 
  (capitulos/11_conclusiones.tex
 Cap\'{\i }tulo 11.
-) [176
+) [182
 
 
 
@@ -3404,7 +3449,7 @@ Cap\'{\i }tulo 11.
 
  (apendices/A_apendice.tex
 Ap\'{e}ndice A.
-) [177
+) [183
 
 
 
@@ -3423,7 +3468,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/it' will be
 LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
 (Font)              scaled to size 11.28003pt on input line 60.
 
-[178
+[184
 
 
 
@@ -3433,11 +3478,11 @@ LaTeX Font Info:    Font shape `T1/qhv/m/sc' will be
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [179]
+ [185]
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [180]
+ [186]
 
 Package biblatex Warning: No driver for 'standard'.
 (biblatex)                Using fallback driver on input line 60.
@@ -3449,29 +3494,29 @@ Package biblatex Warning: No driver for 'standard'.
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
-[181]
+[187]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.27202pt on input line 60.
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [182]
+ [188]
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [183]
+ [189]
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [184]
+ [190]
 LaTeX Info: Redefining \sptext on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- [185] (main.gls
+ [191] (main.gls
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [186]) [187
+ [192]) [193
 
 
 ] (main.aux
@@ -3497,16 +3542,16 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E309655FFDB08355C6863AA7210F8C2E;19543.
+(rerunfilecheck)             Checksum: 8D01E5A9709092FC07EC5D01F8DE018A;19543.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 65563 strings out of 467870
- 1482451 string characters out of 5416418
- 2489584 words of memory out of 5000000
- 92562 multiletter control sequences out of 15000+600000
+ 65618 strings out of 467870
+ 1483690 string characters out of 5416418
+ 2490448 words of memory out of 5000000
+ 92605 multiletter control sequences out of 15000+600000
  777026 words of font info for 184 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,19n,120p,2554b,3748s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -3525,9 +3570,9 @@ pfb><C:/Users/Alejandro/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/
 zplbi.pfb><C:/Users/Alejandro/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 newpx/zplr.pfb><C:/Users/Alejandro/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/newpx/zplri.pfb>
-Output written on main.pdf (213 pages, 7230647 bytes).
+Output written on main.pdf (219 pages, 7890942 bytes).
 PDF statistics:
- 3055 PDF objects out of 3580 (max. 8388607)
- 783 named destinations out of 1000 (max. 500000)
- 1199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3112 PDF objects out of 3580 (max. 8388607)
+ 795 named destinations out of 1000 (max. 500000)
+ 1219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

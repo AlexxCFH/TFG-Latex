@@ -2068,6 +2068,44 @@
       \verb 10.2139/ssrn.5392178
       \endverb
     \endentry
+    \entry{nielsen1994}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=753054f71283d85f82cda8e35daf6bac}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{fullhash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{fullhashraw}{753054f71283d85f82cda8e35daf6bac}
+      \strng{bibnamehash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{authorbibnamehash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{authornamehash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{authorfullhash}{753054f71283d85f82cda8e35daf6bac}
+      \strng{authorfullhashraw}{753054f71283d85f82cda8e35daf6bac}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '94)}
+      \field{title}{Enhancing the Explanatory Power of Usability Heuristics}
+      \field{year}{1994}
+      \field{pages}{152\bibrangedash 158}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1145/191666.191729
+      \endverb
+    \endentry
     \entry{nls_news}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8a07665e2c2c4b447f4b11be7af685ad}{%

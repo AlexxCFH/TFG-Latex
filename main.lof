@@ -45,6 +45,10 @@
 \contentsline {figure}{\numberline {8.10}{\ignorespaces Arquitectura de la aplicación VH SimGrid. (Fuente propia)}}{161}{figure.caption.406}%
 \contentsline {figure}{\numberline {8.11}{\ignorespaces Secuencia de conexión entre la aplicación y un periférico. (Fuente propia)}}{164}{figure.caption.416}%
 \contentsline {figure}{\numberline {8.12}{\ignorespaces Secuencia de vinculación y envío del \textit {dash} a un dispositivo móvil. (Fuente propia)}}{169}{figure.caption.432}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Flujo del asistente de primera configuración. (Fuente propia)}}{174}{figure.caption.441}%
+\contentsline {figure}{\numberline {8.14}{\ignorespaces Flujo de la calibración guiada de los pedales. (Fuente propia)}}{175}{figure.caption.443}%
+\contentsline {figure}{\numberline {8.15}{\ignorespaces Flujo de la actualización de firmware de un periférico. (Fuente propia)}}{177}{figure.caption.445}%
+\contentsline {figure}{\numberline {8.16}{\ignorespaces Flujo de la aplicación automática de perfiles. (Fuente propia)}}{178}{figure.caption.447}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
