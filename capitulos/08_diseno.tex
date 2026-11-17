@@ -41,7 +41,7 @@ La figura~\ref{fig:diagrama-bloques} resume estos elementos y los canales que lo
 	\label{fig:diagrama-bloques}
 \end{figure}
 
-El diseño separa dos flujos que en la práctica circulan a la vez. El \textbf{flujo de conducción} va del simulador a los periféricos y de los periféricos al simulador, a través de Windows: las órdenes de force feedback, los ejes de los pedales y los botones del aro. El \textbf{flujo de información} va del simulador a la aplicación y de ella al piloto: la telemetría, los LEDs, el dash en la pantalla del aro y en el dispositivo móvil, y la voz del ingeniero. El primero es crítico en tiempo y en seguridad; el segundo enriquece la experiencia. Esta separación es la base del reparto de responsabilidades que se describe a continuación. El detalle de cada canal se recoge en la sección~\ref{sec:protocolos}.
+El diseño separa dos flujos que en la práctica circulan a la vez. El \textbf{flujo de conducción} va del simulador a los periféricos y de los periféricos al simulador, a través de Windows: las órdenes de \textit{force feedback}, los ejes de los pedales y los botones del aro. El \textbf{flujo de información} va del simulador a la aplicación y de ella al piloto: la telemetría, los LEDs, el \textit{dash} en la pantalla del aro y en el dispositivo móvil, y la voz del ingeniero. El primero es crítico en tiempo y en seguridad; el segundo enriquece la experiencia. Esta separación es la base del reparto de responsabilidades que se describe a continuación. El detalle de cada canal se recoge en la sección~\ref{sec:protocolos}.
 
 \subsection{Reparto de responsabilidades}
 \label{subsec:reparto-responsabilidades}
@@ -50,12 +50,12 @@ El principio que guía el diseño es que \textbf{el hardware funciona sin la apl
 Esta decisión responde a tres motivos:
 
 \begin{enumerate}
-	\item \textbf{Latencia.} Las órdenes de force feedback viajan del simulador a la base sin pasar por la aplicación. Todo el procesado de la fuerza (curva, ecualizador, efectos base y rango de giro) se ejecuta en el propio firmware, en tiempo real.
+	\item \textbf{Latencia.} Las órdenes de \textit{force feedback} viajan del simulador a la base sin pasar por la aplicación. Todo el procesado de la fuerza (curva, ecualizador, efectos base y rango de giro) se ejecuta en el propio firmware, en tiempo real.
 	\item \textbf{Robustez y seguridad.} Un cierre inesperado de la aplicación no afecta a la conducción. Las protecciones de la base residen en su firmware y actúan siempre, con independencia del estado del ordenador.
 	\item \textbf{Compatibilidad.} Al presentarse como dispositivos HID estándar, los periféricos funcionan en cualquier simulador compatible con DirectInput, incluidos los que la aplicación no admite para telemetría.
 \end{enumerate}
 
-En consecuencia, la aplicación se reserva tres tipos de funciones: las de \textbf{configuración} (ajustes en vivo, calibraciones, perfiles y actualización de firmware), las que \textbf{dependen de la telemetría} (los LEDs de revoluciones y eventos del aro, el dash en su pantalla, el ingeniero de pista y la grabación de sesiones) y las de \textbf{gestión} (perfiles automáticos por juego y por coche, y copias de seguridad). La tabla~\ref{tab:reparto-responsabilidades} detalla este reparto.
+En consecuencia, la aplicación se reserva tres tipos de funciones: las de \textbf{configuración} (ajustes en vivo, calibraciones, perfiles y actualización de firmware), las que \textbf{dependen de la telemetría} (los LEDs de revoluciones y eventos del aro, el \textit{dash} en su pantalla, el ingeniero de pista y la grabación de sesiones) y las de \textbf{gestión} (perfiles automáticos por juego y por coche, y copias de seguridad). La tabla~\ref{tab:reparto-responsabilidades} detalla este reparto.
 
 \begin{table}[H]
 	\centering
@@ -67,17 +67,17 @@ En consecuencia, la aplicación se reserva tres tipos de funciones: las de \text
 		\textbf{Elemento} & \textbf{Funciona sin la aplicación} & \textbf{Requiere la aplicación} \\
 		\midrule
 		Base VH Grid DD15 &
-		Force feedback nativo y efectos (constante, \emph{spring}, \emph{damper}, fricción e inercia); curva, ecualizador y rango de giro; anti-cogging; protecciones de seguridad; ajustes guardados en flash. &
+		\textit{Force feedback} nativo y efectos (constante, \emph{spring}, \emph{damper}, fricción e inercia); curva, ecualizador y rango de giro; anti-cogging; protecciones de seguridad; ajustes guardados en flash. &
 		Modificar los ajustes; cambio automático de perfil; actualización de firmware. \\
 		Pedalera VH Axis &
 		Lectura de los tres pedales; calibración, curvas y zona muerta guardadas en EEPROM. &
 		Calibración guiada; edición de curvas; traza en vivo; actualización de firmware. \\
 		Aro VH Formula Apex &
-		Botones y encoders como mando estándar; brillo guardado. &
-		LEDs de revoluciones y eventos y dash en la pantalla HDMI, que dependen de la telemetría; configuración de luces; actualización de firmware. \\
+		Botones y \textit{encoders} como mando estándar; brillo guardado. &
+		LEDs de revoluciones y eventos y \textit{dash} en la pantalla HDMI, que dependen de la telemetría; configuración de luces; actualización de firmware. \\
 		Aplicación VH SimGrid &
 		--- &
-		Telemetría, dash, ingeniero de pista, análisis de sesiones, perfiles y copias de seguridad. \\
+		Telemetría, \textit{dash}, ingeniero de pista, análisis de sesiones, perfiles y copias de seguridad. \\
 		\bottomrule
 	\end{tabularx}
 \end{table}
@@ -140,7 +140,7 @@ El aro sigue la forma de los volantes de los monoplazas actuales, los cuales se 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/ejemplo.png}
+	\includegraphics[width=0.8\textwidth]{img/VFA-plano.png}
 	\caption{Diseño del aro VH Formula Apex. (Fuente propia)}
 	\label{fig:render-aro}
 \end{figure}
@@ -151,7 +151,7 @@ El aro sigue la forma de los volantes de los monoplazas actuales, los cuales se 
 La pedalera debe presentarse como un mando de tres ejes, con el acelerador y el embrague medidos por posición y el freno por fuerza (RF11), y guardar su configuración en su propia memoria (RF14 y RNF19). Debe leer los pedales a unos 1000~Hz sin un retardo perceptible (RNF3). Mecánicamente, el freno debe soportar de forma repetida la fuerza máxima de la célula de carga sin deformarse ni perder la calibración (RNF23).
 
 \paragraph{Electrónica.}
-La pedalera usa un Arduino Micro, que monta el mismo ATmega32U4 que el aro y comparte con él la ventaja del USB nativo, es mando HID de tres ejes y puerto serie de configuración a la vez. El acelerador y el embrague miden su recorrido con sensores de efecto Hall, que detectan la posición de un imán sin contacto y no se desgastan. Su salida es analógica y se lee directamente con el conversor del microcontrolador.
+La pedalera usa un Arduino Micro, que monta el mismo ATmega32U4 que el aro y comparte con él la ventaja del USB nativo: es mando HID de tres ejes y puerto serie de configuración a la vez. El acelerador y el embrague miden su recorrido con sensores de efecto Hall, que detectan la posición de un imán sin contacto y no se desgastan. Su salida es analógica y se lee directamente con el conversor del microcontrolador.
 
 El freno mide la fuerza con una célula de carga de 200~kg. Su señal es del orden de milivoltios y necesita amplificarse antes de digitalizarla. La solución habitual en proyectos de este tipo es el módulo HX711, un conversor de alta resolución pensado para básculas, pero su frecuencia de muestreo máxima, de 80 muestras por segundo, es muy inferior a los 1000~Hz que exige el requisito RNF3. Por eso, y tras las pruebas realizadas, se ha decidido usar en su lugar un amplificador de instrumentación INA333, que amplifica la señal del puente de la célula de forma continua y la entrega al conversor del microcontrolador, que puede leerla a la misma frecuencia que los otros dos pedales. La resolución que se pierde frente al HX711 se compensa con el filtrado digital de la señal. La tabla~\ref{tab:componentes-pedalera} resume los componentes y la figura~\ref{fig:esquema-pedalera} muestra sus conexiones.
 
@@ -184,7 +184,7 @@ Cada pedal es un brazo que gira sobre un eje fijado a la base de la pedalera, co
 \begin{figure}[H]
 	\centering
 	% TODO: render CAD de la pedalera
-	\includegraphics[width=0.8\textwidth]{img/ejemplo.png}
+	\includegraphics[width=0.8\textwidth]{img/PED-plano.png}
 	\caption{Diseño de la pedalera VH Axis. (Fuente propia)}
 	\label{fig:render-pedalera}
 \end{figure}
@@ -232,7 +232,7 @@ En un motor de buje el eje es fijo y lo que gira es la carcasa exterior, que en 
 \begin{figure}[H]
 	\centering
 	% TODO: render CAD de la base
-	\includegraphics[width=0.8\textwidth]{img/ejemplo.png}
+	\includegraphics[width=0.8\textwidth]{img/BFF-plano.png}
 	\caption{Diseño de la base VH Grid DD15. (Fuente propia)}
 	\label{fig:render-base}
 \end{figure}
@@ -278,7 +278,7 @@ Cada periférico ofrece un canal HID estándar para el simulador y otro independ
 La capa transversal de configuración mantiene una única copia de los parámetros activos en RAM, que es la que leen las capas de procesado y control. Un cambio llegado desde la aplicación se aplica sobre esa copia y tiene efecto inmediato (RNF5). La escritura en memoria no volátil se hace aparte y solo cuando un valor ha cambiado, para no agotar los ciclos de escritura de la flash y la EEPROM (RNF22). Al arrancar, el periférico carga esa copia guardada, de modo que conserva su configuración aunque se conecte a otro ordenador (RNF19). El contenido exacto de lo que se guarda se describe en la sección~\ref{sec:persistencia}.
 
 \paragraph{Base VH Grid DD15.}
-La base es el periférico con la escritura más exigente porque debe atender a la vez tres tipos de trabajo con plazos muy distintos. El \textbf{lazo de control} se ejecuta a 8~kHz con la máxima prioridad: lee la corriente y la posición del motor y calcula la tensión de cada fase mediante el control FOC. Ninguna otra tarea puede retrasarlo, porque un retraso lo notaría el piloto y podría comprometer su seguridad. La \textbf{tarea de fuerza} se ejecuta cada milisegundo (RNF1): recoge los informes recibidos por USB, calcula la fuerza, aplica las protecciones y deja la corriente pedida a disposición del lazo de control. Por último, las \textbf{operaciones puntuales}, como ejecutar la calibración anti-cogging o guardar la configuración en flash, se resuelven dentro de esa misma tarea. Guardar pasa el motor a reposo durante un instante, porque la escritura en flash congela el procesador, y por eso la aplicación agrupa los cambios en lugar de guardar cada uno.
+La base es el periférico con la estructura más exigente porque debe atender a la vez tres tipos de trabajo con plazos muy distintos. El \textbf{lazo de control} se ejecuta a 8~kHz con la máxima prioridad: lee la corriente y la posición del motor y calcula la tensión de cada fase mediante el control FOC. Ninguna otra tarea puede retrasarlo, porque un retraso lo notaría el piloto y podría comprometer su seguridad. La \textbf{tarea de fuerza} se ejecuta cada milisegundo (RNF1): recoge los informes recibidos por USB, calcula la fuerza, aplica las protecciones y deja la corriente pedida a disposición del lazo de control. Por último, las \textbf{operaciones puntuales}, como ejecutar la calibración anti-cogging o guardar la configuración en flash, se resuelven dentro de esa misma tarea. Guardar pasa el motor a reposo durante un instante, porque la escritura en flash congela el procesador, y por eso la aplicación agrupa los cambios en lugar de guardar cada uno.
 
 La fuerza que pide el simulador atraviesa una cadena de etapas antes de llegar al motor, representada en la figura~\ref{fig:cadena-fuerza}. El motor de efectos calcula la fuerza de cada efecto activo, e interpola y suaviza la fuerza constante para eliminar los escalones entre informes (RF2). Los efectos que dependen del movimiento (amortiguación, fricción e inercia) y la amortiguación base propia del volante (RF5) siguen un canal aparte, porque cualquier retardo en ellos puede provocar oscilaciones. El resto pasa por el ecualizador de seis bandas (RF6) y por la curva de respuesta de nueve puntos, con su exponente y su fuerza mínima (RF7), y se escala con la fuerza máxima elegida por el usuario (RF4). Por último se suman los dos canales y la fuerza del tope de giro, que tiene su propio límite para mantenerse firme con cualquier fuerza de juego (RF3). Todo este procesado se ejecuta en el propio firmware, lo que mantiene la latencia por debajo de los 2~ms que exige el requisito RNF2.
 
@@ -314,7 +314,7 @@ Las protecciones que limitan la corriente (regeneración, térmica y límite abs
 La base incorpora además una orden de mantenimiento, recibida por el canal \textit{vendor}, que la reinicia en modo de actualización. Esto permite grabar un firmware nuevo desde la aplicación sin manipular la placa (RF32), como se describe en el apartado~\ref{subsec:ux-firmware}.
 
 \paragraph{Pedalera VH Axis y aro VH Formula Apex.}
-La pedalera y el aro tienen tareas mucho más sencillas, que no justifican un sistema operativo. Su firmware se organiza como un bucle principal, con cada tarea temporizada a su propio periodo, que recorre las capas en orden, primero lee las entradas, las procesa, actualiza los informes HID y por último atiende los mensajes del puerto serie.
+La pedalera y el aro tienen tareas mucho más sencillas, que no justifican un sistema operativo. Su firmware se organiza como un bucle principal, con cada tarea temporizada a su propio periodo, que recorre las capas en orden: primero lee las entradas, las procesa, actualiza los informes HID y por último atiende los mensajes del puerto serie.
 
 En la pedalera, cada vuelta del bucle lee los tres sensores a unos 1000~Hz (RNF3) y los somete a la misma secuencia que consiste en el filtrado del ruido, normalización entre los puntos de reposo y fondo de la calibración, zona muerta y curva de respuesta (RF12 y RF13). El sentido del pedal se deduce de cuál de sus dos puntos de calibración es mayor, de modo que la calibración guiada resuelve sola un sensor montado al revés, y la aplicación ofrece además una casilla que intercambia ambos puntos. El valor resultante se envía como eje del mando HID. Como toda la transformación se hace en el firmware, la pedalera entrega al simulador la respuesta configurada aunque la aplicación esté cerrada.
 
@@ -378,7 +378,7 @@ El recorrido de un cambio de ajuste muestra cómo colaboran las capas. Cuando el
 \label{sec:protocolos}
 Los protocolos de comunicación son el contrato entre las partes del sistema, es decir, fijan cómo se identifica el periférico, qué mensajes intercambia con el simulador y con la aplicación y, además, cómo se comunica la aplicación con un dispositivo móvil para reproducir el \textit{dash}.
 
-Todos los periféricos siguen el mismo patrón, ya presentado en la sección~\ref{sec:arquitectura-tecnologica}, cada uno ofrece dos canales, uno HID estándar para el simulador y otro de configuración para la aplicación. La primera sigue especificaciones públicas y no se modifica; la segunda es propia del proyecto y es la que se describe con más detalle. Además, todas las comunicaciones de configuración siguen la misma secuencia al conectar un periférico, representada en la figura~\ref{fig:secuencia-conexion}:
+Todos los periféricos siguen el mismo patrón, ya presentado en la sección~\ref{sec:arquitectura-tecnologica}: cada uno ofrece dos canales, uno HID estándar para el simulador y otro de configuración para la aplicación. El primero sigue especificaciones públicas y no se modifica; el segundo es propio del proyecto y es la que se describe con más detalle. Además, todas las comunicaciones de configuración siguen la misma secuencia al conectar un periférico, representada en la figura~\ref{fig:secuencia-conexion}:
 
 \begin{enumerate}
 	\item Al enchufarlo, el periférico se identifica ante Windows con su identidad USB y su nombre, y el sistema avisa a la aplicación.
@@ -442,7 +442,7 @@ La comunicación con el simulador sigue la especificación HID PID (\textit{Phys
 La base atiende estos informes cada milisegundo (RNF1). Si dejan de llegar, porque se pierde la comunicación o el juego se cierra, la vigilancia de la comunicación lleva el par a cero (RNF13).
 
 \paragraph{Canal \textit{vendor}.}
-La configuración de la base viaja por un canal \textit{vendor}, es decir, un informe HID definido por el propio fabricante (identificador \texttt{0xA1}), dentro de la misma interfaz, que Windows no interpreta, de modo que no interfiere con los informes PID que usa el juego. El diseño del canal se basa en un modelo de \textbf{parámetros}, es decir, cada ajuste de la base (fuerza máxima, rango de giro, cada banda del ecualizador, cada punto de la curva\ldots) tiene un identificador numérico, y la aplicación los lee y escribe de uno en uno. Este modelo tiene dos ventajas, por un lado añadir un ajuste nuevo en el firmware solo requiere asignarle un identificador, sin cambiar el formato de los mensajes, y por otro lado, la aplicación puede aplicar cualquier cambio al instante, sin reenviar la configuración completa (RF30 y RNF5). La tabla~\ref{tab:canal-vendor} resume las operaciones del canal.
+La configuración de la base viaja por un canal \textit{vendor}, es decir, un informe HID definido por el propio fabricante (identificador \texttt{0xA1}), dentro de la misma interfaz, que Windows no interpreta, de modo que no interfiere con los informes PID que usa el juego. El diseño del canal se basa en un modelo de \textbf{parámetros}, es decir, cada ajuste de la base (fuerza máxima, rango de giro, cada banda del ecualizador, cada punto de la curva\ldots) tiene un identificador numérico, y la aplicación los lee y escribe de uno en uno. Este modelo tiene dos ventajas: por un lado, añadir un ajuste nuevo en el firmware solo requiere asignarle un identificador, sin cambiar el formato de los mensajes, y por otro lado, la aplicación puede aplicar cualquier cambio al instante, sin reenviar la configuración completa (RF30 y RNF5). La tabla~\ref{tab:canal-vendor} resume las operaciones del canal.
 
 \begin{table}[H]
 	\centering
@@ -565,7 +565,7 @@ La base guarda sus datos en la memoria flash del STM32F405, y la pedalera y el a
 	\end{tabularx}
 \end{table}
 
-La posición del centro del volante no se conserva entre sesiones, esto es debido a que el encoder es incremental, la base no conoce su posición absoluta al arrancar y toma como centro la posición en la que se enciende. En la pedalera, la inversión de un pedal no necesita un dato propio, porque se deduce de cuál de sus dos valores, reposo o fondo, es mayor.
+La posición del centro del volante no se conserva entre sesiones porque el encoder es incremental: la base no conoce su posición absoluta al arrancar y toma como centro la posición en la que se enciende. En la pedalera, la inversión de un pedal no necesita un dato propio, porque se deduce de cuál de sus dos valores, reposo o fondo, es mayor.
 
 En el aro no se guarda la asignación de luces por eventos ni los umbrales de revoluciones, porque solo tienen sentido con la telemetría y, por tanto, con la aplicación abierta. Tampoco el modo y el punto de mordida de las palancas de embrague. Todos ellos los guarda la aplicación (apartado~\ref{subsec:persistencia-aplicacion}).
 
@@ -611,7 +611,7 @@ Por último, la aplicación permite reunir sus datos en un solo fichero \texttt{
 
 \section{Experiencia de usuario (UX)}
 \label{sec:ux}
-El usuario objetivo de VH SimGrid es un piloto aficionado, no un tecnico (tabla~\ref{tab:actores}). Debe poder utilizar, calibrar y poner en marcha el equipo sin necesidad de tener conocimientos de programación o electronica (RNF26). Por eso la experiencia de usuario no se limita al aspecto de las pantallas, que se trata en la sección~\ref{sec:ui}, sino que abarca cómo se desarrollan los pasos que tiene cada una, en qué orden, qué ve el piloto en cada momento y qué ocurre cuando algo sale mal.
+El usuario objetivo de VH SimGrid es un piloto aficionado, no un técnico (tabla~\ref{tab:actores}). Debe poder utilizar, calibrar y poner en marcha el equipo sin necesidad de tener conocimientos de programación o electrónica (RNF26). Por eso la experiencia de usuario no se limita al aspecto de las pantallas, que se trata en la sección~\ref{sec:ui}, sino que abarca cómo se desarrollan los pasos que tiene cada una, en qué orden, qué ve el piloto en cada momento y qué ocurre cuando algo sale mal.
 
 El diseño de la interacción se apoya en las heurísticas de usabilidad de Nielsen~\cite{nielsen1994}, adaptadas al contexto del simracing. La tabla~\ref{tab:principios-ux} recoge los principios aplicados y cómo se reflejan en el sistema.
 
@@ -668,7 +668,7 @@ La calibración indica a la pedalera dónde empieza y dónde acaba el recorrido 
 	\label{fig:ux-calibracion}
 \end{figure}
 
-En una calibración tradicional, el usuario introduce a mano los valores mínimo y máximo de cada eje, unos números que no significan nada para un piloto. La calibración de VH SimGrid sustituye esos números por acciones físicas: soltar los pedales, pisarlos a fondo y frenar con la fuerza deseada. La aplicación toma cada lectura de la traza en vivo, de modo que el piloto ve en todo momento cómo responde el pedal mientras lo pisa, y después envía los valores a la pedalera con el mensaje de calibración (apartado~\ref{subsec:protocolo-pedalera-aro}).
+En una calibración tradicional, el usuario introduce a mano los valores mínimo y máximo de cada eje, unos números que no significan nada para un piloto. La calibración de VH SimGrid sustituye esos números por acciones físicas, como es soltar los pedales, pisarlos a fondo y frenar con la fuerza deseada. La aplicación toma cada lectura de la traza en vivo, de modo que el piloto ve en todo momento cómo responde el pedal mientras lo pisa, y después envía los valores a la pedalera con el mensaje de calibración (apartado~\ref{subsec:protocolo-pedalera-aro}).
 
 El freno merece un tratamiento propio. Como mide la fuerza y no el recorrido, su fondo no es una posición física, sino la fuerza máxima con la que el piloto quiere frenar, que la aplicación muestra en kilos. Así el piloto decide la dureza del freno en una unidad que entiende, y puede reconocer de un vistazo si ha calibrado un freno blando o uno firme.
 
@@ -676,7 +676,7 @@ La aplicación comprueba además cada lectura antes de aceptarla. Si la señal e
 
 \subsection{Actualización de firmware}
 \label{subsec:ux-firmware}
-Actualizar el firmware de un microcontrolador suele exigir herramientas específicas, poner la placa en modo de grabación a mano y saber qué fichero corresponde a cada dispositivo. VH SimGrid reduce todo eso a una sola decisión del piloto: aceptar o no la actualización (RF32). El flujo, que sigue el caso de uso CU5, se muestra en la figura~\ref{fig:ux-firmware}.
+Actualizar el firmware de un microcontrolador suele exigir herramientas específicas, poner la placa en modo de grabación a mano y saber qué fichero corresponde a cada dispositivo. VH SimGrid reduce todo eso a una sola decisión del piloto, aceptar o no la actualización (RF32). El flujo, que sigue el caso de uso CU5, se muestra en la figura~\ref{fig:ux-firmware}.
 
 \begin{figure}[H]
 	\centering
@@ -714,20 +714,433 @@ Como toda decisión automática, el cambio de perfil debe ser visible y reversib
 
 
 \section{Interfaces de usuario (UI)}
+\label{sec:ui}
+Este proyecto, aparte del diseño físico del hardware, también necesita una aplicación que permita controlar y calibrar dichos periféricos. Para ello, en esta sección trataremos cómo es cada pantalla de la aplicación, qué contiene, dónde está cada cosa y por qué. Todas las páginas se apoyan en dos ideas. La primera es que el piloto pueda ver el estado real del equipo, leído de los periféricos, y no unos valores que haya escrito antes (RF29 y RNF28). La segunda es que los elementos más usados queden a la vista y los menos usados queden un nivel más abajo, en una pestaña o en un desplegable.
+
+Las figuras de esta sección son \textit{mockups} de baja fidelidad. Usan tonos neutros para que se vea la estructura sin distraer con el color, y solo marcan en rojo, el color de acento de la marca, los elementos activos. Los colores, las tipografías y los componentes reales se tratan en la sección~\ref{sec:guia-estilos}. Los números en rojo de cada figura señalan los elementos que se explican en el texto.
+
 \subsection{Estructura general}
+\label{subsec:ui-estructura}
+Todas las páginas comparten el mismo armazón, representado en la figura~\ref{fig:ui-estructura}. De esta forma, el usuario sabe de manera intuitiva dónde están los elementos comunes de las diferentes páginas.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-estructura.png}
+	\caption[Estructura general de la ventana]{Estructura general de la ventana de la aplicación. (Fuente propia)}
+	\label{fig:ui-estructura}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Barra de título propia.} Sustituye a la de Windows para mantener la estética oscura de la aplicación. Conserva el icono, el nombre y los botones de minimizar, maximizar y cerrar, y se comporta como la del sistema al arrastrarla o ajustarla a un lado de la pantalla. Debajo puede aparecer una franja que avisa de una versión nueva de la aplicación.
+	\item \textbf{Barra lateral de navegación.} Tiene un icono por página: inicio, base, aro, pedalera, \textit{dash}, ingeniero de pista y análisis, con los ajustes abajo, separados del resto porque se usan poco. La página activa se marca con una barra roja y con el icono en rojo, y cada icono muestra su nombre al pasar el ratón. Se eligió una barra de iconos en lugar de un menú con texto para dejar el máximo espacio al contenido, que en páginas como el análisis lo necesita.
+	\item \textbf{Cabecera de página.} Lleva el nombre de la página o del periférico, un indicador de estado con color (conectado, desconectado, activo) y la acción principal, como conectar o apagar. En las páginas de los periféricos incluye a la derecha la barra de perfil: la casilla \textit{Automático}, que activa los perfiles automáticos (apartado~\ref{subsec:ux-perfiles}), el desplegable con el perfil activo y los botones para guardarlo, crear uno nuevo o borrarlo (RF31).
+	\item \textbf{Pestañas de sección.} Cuando una página tiene más contenido del que cabe en una pantalla, se reparte en pestañas, siempre en la misma franja y con la activa subrayada en rojo. La franja no se desplaza con el contenido, por lo que siempre se ve en qué sección se está.
+	\item \textbf{Islas de contenido.} El contenido se agrupa en tarjetas con las esquinas redondeadas, llamadas \textit{islas} en el proyecto, cada una con un título que dice qué contiene. Si una isla tiene que agrupar algo dentro, se usan \textit{sub-islas} de un tono algo más claro.
+	\item \textbf{Pie.} Muestra la versión de la aplicación y, en el centro, el juego detectado en cada momento. Así el piloto sabe, sin cambiar de página, si la aplicación está recibiendo la telemetría.
+\end{enumerate}
+
+La ventana se abre a $1240\times800$ píxeles y se puede reducir hasta $820\times540$. Al tamaño de inicio, cada página cabe entera sin barras de desplazamiento. Si la ventana se hace más pequeña, solo se desplaza el contenido, mientras la cabecera y las pestañas se quedan fijas. Además, la aplicación puede seguir en segundo plano en el área de notificación de Windows al cerrar la ventana, para que los perfiles automáticos, las luces del aro y el ingeniero sigan funcionando mientras se juega. Todos los textos de la interfaz están en español y en inglés (RNF27).
+
 \subsection{Página de inicio}
+\label{subsec:ui-inicio}
+La página de inicio (figura~\ref{fig:ui-inicio}) es lo primero que ve el piloto al abrir la aplicación. Su objetivo es responder de un vistazo a dos preguntas: a qué se puede jugar y si el equipo está listo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-inicio.png}
+	\caption[Página de inicio]{Mockup de la página de inicio. (Fuente propia)}
+	\label{fig:ui-inicio}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Lanzador de juegos.} Un carrusel con la portada de cada simulador compatible, que se abre con un clic (RF34). Los juegos instalados van primero y los que no lo están se muestran atenuados.
+	\item \textbf{Estado de la telemetría.} Debajo de cada portada se indica si el juego no está instalado, si está instalado pero sin la telemetría activada o si está configurado. Así se detecta antes de empezar a conducir la causa más frecuente de que el aro o el \textit{dash} no respondan, que es la telemetría desactivada en el juego.
+	\item \textbf{Tarjetas de los periféricos.} Cada periférico tiene una tarjeta con su estado, el botón de conectar o desconectar y un menú con las opciones menos frecuentes, como abrir su página o actualizar el firmware.
+	\item \textbf{Volante en vivo.} El dibujo del volante gira con el volante real y muestra el ángulo, lo que sirve para comprobar el centrado. Debajo están los rangos de giro más habituales, que se aplican con un solo clic, y el deslizador para elegir cualquier otro.
+	\item \textbf{Fuerza máxima de la base.} Es el único ajuste de la base que se cambia a menudo, según el coche o preferencias personales del piloto.
+	\item \textbf{Pedales en vivo.} Una barra por pedal muestra su posición en tiempo real (RF15), con los botones \textit{Mín} y \textit{Máx} para corregir el recorrido sin abrir la calibración completa.
+\end{enumerate}
+
 \subsection{Página de configuración de la base}
+\label{subsec:ui-base}
+La página de la base VH Grid DD15 reúne todo el ajuste del \textit{force feedback}. Se organiza en cuatro pestañas, de la más usada a la menos usada: \textit{Configuración}, \textit{Ecualizador FFB}, \textit{Curva FFB base} y \textit{Varios}. La primera, que es la que se usa casi siempre, se muestra en la figura~\ref{fig:ui-base}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-base.png}
+	\caption[Página de configuración de la base]{Mockup de la página de configuración de la base, pestaña \textit{Configuración}. (Fuente propia)}
+	\label{fig:ui-base}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Barra de perfil.} Los ajustes de la base se guardan en perfiles, y la casilla \textit{Automático} hace que la aplicación cambie de perfil sola según el juego y el coche (RF31).
+	\item \textbf{Pestañas.} El ecualizador permite subir o bajar las fuerzas según su frecuencia (RF6). La curva cambia la relación entre la fuerza que pide el juego y la que entrega el motor (RF7). \textit{Varios} reúne la monitorización: el estado del motor y el registro de los últimos segundos de giro y fuerza, con la saturación marcada (RF9).
+	\item \textbf{Rango de dirección.} Muestra el volante en vivo y permite fijar el rango de giro y el centro (RF3).
+	\item \textbf{Sensación FFB.} Son los ajustes que definen el carácter general de la dirección (RF4). Cada uno es un deslizador con una casilla en la que se puede escribir el valor exacto, y con una insignia de ayuda que lo explica en lenguaje de piloto. Los nombres describen el efecto que se nota en las manos, como \textit{Refuerzo de las fuerzas pequeñas}, y no su nombre técnico.
+	\item \textbf{Mantenimiento.} Las operaciones que se usan poco y tardan, como el reinicio, el recalibrado o la calibración anti-\textit{cogging} (RF8 y RF10), van juntas y abajo, lejos de los ajustes de uso diario. Debajo se indica la fecha de la última calibración.
+	\item \textbf{Efectos base.} Ajustan los efectos que genera la propia base y el peso de los que pide el juego (RF5).
+\end{enumerate}
+
+Cada cambio se envía a la base en el momento y se nota en el volante sin tener que guardar ni salir del juego (RF30). Si la base no está conectada, los controles se atenúan y se muestra por qué no se pueden usar.
+
 \subsection{Página de configuración del aro}
+\label{subsec:ui-aro}
+La página del aro VH Formula Apex configura sus luces y sus palancas de embrague. Tiene tres pestañas: \textit{Configuraciones generales}, con el brillo y el modo de las palancas (RF17 y RF21), \textit{Configuración de las RPM}, con los umbrales y colores de la barra de revoluciones (RF18), y \textit{Asignación de luces}, que es la que se representa en la figura~\ref{fig:ui-aro}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-aro.png}
+	\caption[Página de configuración del aro]{Mockup de la página del aro, pestaña \textit{Asignación de luces}. (Fuente propia)}
+	\label{fig:ui-aro}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Barra de perfil.} Igual que en la base, aunque aquí cada perfil guarda la asignación de luces (RF20).
+	\item \textbf{Pestañas.} Separan los ajustes que se fijan una vez, en la primera pestaña, de los que cambian de un coche a otro, en las otras dos.
+	\item \textbf{Vista previa.} Una fila de 24 círculos reproduce la tira de LEDs del aro con los mismos colores que se ven en el aro.
+	\item \textbf{Añadir efecto.} Crea una regla nueva que enciende las luces cuando ocurre algo en el juego (RF19).
+	\item \textbf{Fila de efecto.} Cada regla se lee de izquierda a derecha como una frase: si está activa, su grupo (bandera, coche o RPM), el evento, los LEDs que usa, el color y el modo, fijo o parpadeo.
+	\item \textbf{Qué está pasando.} Muestra los datos del juego que usan las luces y la regla que manda en cada momento. Así el piloto ve por qué se ha encendido una luz y no tiene que adivinarlo.
+	\item \textbf{Banco de pruebas.} Encienden la tira de prueba, la apagan o simulan una vuelta, para ajustar las luces sin abrir el juego. La simulación puede además mover las revoluciones con el acelerador real de la pedalera.
+\end{enumerate}
+
 \subsection{Página de configuración de la pedalera}
+\label{subsec:ui-pedalera}
+La página de la pedalera VH Axis (figura~\ref{fig:ui-pedalera}) no tiene pestañas, porque todo su contenido cabe en una pantalla. Los tres pedales se muestran en columnas iguales y en el mismo orden que tienen bajo los pies: embrague, freno y acelerador.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-pedalera.png}
+	\caption[Página de configuración de la pedalera]{Mockup de la página de la pedalera. (Fuente propia)}
+	\label{fig:ui-pedalera}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Barra de perfil.} Cada perfil guarda las curvas y las zonas muertas de los tres pedales.
+	\item \textbf{Traza de pedales.} Una gráfica que avanza en tiempo real con los tres pedales superpuestos (RF15). Sirve para comprobar el solape entre freno y acelerador, la progresividad de una frenada o si un pedal tiene ruido.
+	\item \textbf{Color por pedal.} Cada pedal tiene su color, azul el embrague, rojo el freno y verde el acelerador, que se repite en la traza, la curva y la barra de lectura para que se identifique de un vistazo. Junto al nombre está la opción de invertir el eje.
+	\item \textbf{Preajustes.} Aplican de un clic las curvas más comunes (lineal, progresiva y suave), representadas con un icono de su forma en lugar de con un nombre.
+	\item \textbf{Editor de curva.} Los puntos de la curva se arrastran con el ratón y la curva se redibuja suavizada entre ellos (RF13). El eje horizontal es el recorrido del pedal y el vertical la salida que ve el juego.
+	\item \textbf{Lectura en vivo.} La barra muestra la salida del pedal en porcentaje. En el freno se muestra además en kilos, que es la unidad con la que el piloto piensa la frenada.
+	\item \textbf{Calibrar.} Abre la calibración guiada descrita en el apartado~\ref{subsec:ux-calibracion} (RF12).
+\end{enumerate}
+
+Como en el resto de periféricos, cada cambio se guarda solo en la pedalera (RF14), por lo que la página no tiene botón de guardar, salvo para guardar el perfil.
+
 \subsection{Biblioteca de dash y editor}
+\label{subsec:ui-dash}
+La página del \textit{dash} tiene dos vistas: la biblioteca, para elegir y reproducir un \textit{dash}, y el editor, para crearlo o modificarlo.
+
+La biblioteca (figura~\ref{fig:ui-dash-galeria}) muestra los \textit{dashes} disponibles, tanto los 20 que vienen de serie como los del usuario (RF40), con una miniatura de cada uno.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-dash-galeria.png}
+	\caption[Biblioteca de dashes]{Mockup de la biblioteca de \textit{dashes}. (Fuente propia)}
+	\label{fig:ui-dash-galeria}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Dash activo y estado.} El nombre del \textit{dash} seleccionado y si se está reproduciendo o está detenido.
+	\item \textbf{Modo de vista.} Carrusel, cuadrícula o lista, según se quiera ver las miniaturas grandes o encontrar rápido uno por su nombre.
+	\item \textbf{Pantalla de destino.} El monitor en el que se reproduce el \textit{dash}, normalmente la pantalla del aro. La aplicación la reconoce por su identidad y no por su número, que Windows puede cambiar al conectar o desconectar monitores.
+	\item \textbf{Exportar, importar y móvil.} Los dos primeros comparten \textit{dashes} en un fichero (RF43). El tercero abre el código QR para usar un móvil como pantalla (RF41).
+	\item \textbf{Crear un dash nuevo.} Va siempre en la primera posición, para que no haya que buscarlo.
+	\item \textbf{Dash seleccionado.} Se marca con un borde rojo. En la miniatura aparecen además los botones para borrarlo o duplicarlo.
+	\item \textbf{Acciones.} \textit{Editar} abre el editor y \textit{Reproducir}, el botón principal y el único en rojo relleno, lleva el \textit{dash} a la pantalla elegida. Mientras se reproduce, este botón pasa a ser \textit{Detener}.
+\end{enumerate}
+
+El editor (figura~\ref{fig:ui-dash-editor}) ocupa toda la ventana y oculta la barra lateral, porque necesita espacio y además cuando se edita no hace falta ir a otra página. Su disposición sigue la de los editores gráficos más conocidos, con herramientas a la izquierda, lienzo en el centro y propiedades a la derecha, de modo que quien ya haya usado uno se maneja en él sin aprender nada nuevo (RF42).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-dash-editor.png}
+	\caption[Editor de dashes]{Mockup del editor de \textit{dashes}. (Fuente propia)}
+	\label{fig:ui-dash-editor}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Menús.} El botón para salir del editor y los menús \textit{Archivo}, \textit{Dash}, \textit{Editar}, \textit{Elementos} y \textit{Herramientas}, con todas las órdenes y sus atajos de teclado.
+	\item \textbf{Barra de herramientas.} Probar el \textit{dash} con datos en vivo, elegir la pantalla y las órdenes de uso más frecuente: rejilla, guías, imán, alinear, distribuir, ordenar, bloquear, borrar, deshacer y rehacer. A la derecha están el zoom y la resolución del lienzo.
+	\item \textbf{Caja de herramientas.} Todos los tipos de elemento, cada uno con su icono y con un buscador. Se añaden al lienzo arrastrándolos.
+	\item \textbf{Pantallas del dash.} Un \textit{dash} puede tener varias pantallas, que el piloto recorre con los botones del aro (RF24). Aquí se elige qué botón del aro pasa a la anterior y a la siguiente.
+	\item \textbf{Lienzo.} Muestra la pantalla a su tamaño real, $800\times480$ píxeles en el aro, con el elemento seleccionado marcado con un recuadro.
+	\item \textbf{Tira de pantallas.} Miniaturas de todas las pantallas, para cambiar de una a otra y reordenarlas.
+	\item \textbf{Jerarquía.} La lista de elementos de la pantalla, con botones para editar, bloquear y ocultar cada uno. Es imprescindible en \textit{dashes} con avisos superpuestos que solo aparecen en ciertas condiciones.
+	\item \textbf{Propiedades.} Los atributos del elemento seleccionado. Cualquier valor puede ser fijo o calculado con una fórmula a partir de la telemetría, lo que se marca con el icono \textit{fx}.
+\end{enumerate}
+
 \subsection{Ingeniero de pista}
+\label{subsec:ui-ingeniero}
+La página del ingeniero de pista tiene un interruptor general en la cabecera y tres pestañas. La pestaña \textit{Voz} configura el micrófono, con su nivel en vivo, la sensibilidad y la supresión de ruido, los altavoces, con su volumen y velocidad, la voz del ingeniero, con el motor, el idioma, el efecto de radio y el botón del aro con el que se le habla (RF48). Cada dispositivo tiene un botón de prueba, para comprobar que se oye y se escucha antes de salir a pista.
+
+La pestaña \textit{Avisos} (figura~\ref{fig:ui-ingeniero-avisos}) decide qué cuenta el ingeniero y cuánto habla (RF44 y RF45).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-ingeniero-avisos.png}
+	\caption[Ingeniero de pista: avisos]{Mockup de la página del ingeniero de pista, pestaña \textit{Avisos}. (Fuente propia)}
+	\label{fig:ui-ingeniero-avisos}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Interruptor general.} Enciende o apaga el ingeniero sin perder su configuración.
+	\item \textbf{Pestañas.} \textit{Voz}, \textit{Avisos} y \textit{Estrategia}.
+	\item \textbf{Personalidad.} Marca el tono general: \textit{Seco}, solo lo urgente, \textit{Normal}, lo importante, y \textit{Hablador}, también comentarios.
+	\item \textbf{Familias de avisos.} Los avisos se agrupan en familias, cada una con un icono y un color. Para no llenar la página de colores, las familias relacionadas comparten uno: sucesos en pista, el coche, la conducción, la estrategia, el tiempo y la radio (apartado~\ref{subsec:estilo-colores}).
+	\item \textbf{Nivel por familia.} Cada familia sigue a la personalidad general o tiene su propio nivel, de modo que el piloto puede, por ejemplo, tener un \textit{spotter} hablador y un entrenador silenciado.
+	\item \textbf{Familia desplegada.} Al desplegar una familia aparecen sus avisos uno a uno, con un interruptor para cada uno. De esta forma, lo habitual se resuelve con un desplegable y lo concreto queda un nivel más abajo.
+\end{enumerate}
+
+La pestaña \textit{Estrategia} (figura~\ref{fig:ui-ingeniero-estrategia}) es la calculadora de estrategias de carrera (RF49 y RF50).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-ingeniero-estrategia.png}
+	\caption[Ingeniero de pista: estrategia]{Mockup de la página del ingeniero de pista, pestaña \textit{Estrategia}. (Fuente propia)}
+	\label{fig:ui-ingeniero-estrategia}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Estrategias guardadas.} Contiene una lista con estrategias guardadas por coche y circuito. Los botones de arriba crean, activan, duplican y borran estrategias. La estrategia activa es la que sigue el ingeniero en carrera (RF51).
+	\item \textbf{Medir en pista.} En unos libres, el ingeniero pide por radio las vueltas necesarias y rellena la estrategia con el consumo, el ritmo y el desgaste medidos en pista (RF52).
+	\item \textbf{Opciones comparadas.} Cada tarjeta es una estrategia con un número distinto de paradas, con su diferencia de tiempo respecto a la mejor, que se marca con una estrella. El botón \textit{+} añade una opción a mano.
+	\item \textbf{Línea de tandas.} Indica los sucesos de la carrera de principio a fin, dividida en tandas con las vueltas, el piloto y la gasolina de cada una. Las paradas se pueden arrastrar para moverlas a mano.
+	\item \textbf{Gráficas.} El combustible disponible y el ritmo previsto vuelta a vuelta, con las paradas sombreadas.
+	\item \textbf{Datos de la carrera.} Cuatro subpestañas separan los datos de la carrera, el reglamento (paradas obligatorias, juegos de gomas, repostaje), las tandas por piloto y el cálculo de gasolina para la clasificación.
+	\item \textbf{Parámetros.} Cada dato es una casilla con su unidad escrita debajo y flechas para ajustarlo. Las opciones cerradas, como el modo de gasolina, son botones de píldora, para que se vean todas las posibilidades sin abrir un desplegable.
+\end{enumerate}
+
 \subsection{Análisis de la telemetría}
+\label{subsec:ui-analisis}
+La página de análisis también tiene dos vistas. La primera es la lista de sesiones grabadas (figura~\ref{fig:ui-sesiones}), que sirve para encontrar la sesión que se quiere estudiar (RF54).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-sesiones.png}
+	\caption[Lista de sesiones]{Mockup de la lista de sesiones grabadas. (Fuente propia)}
+	\label{fig:ui-sesiones}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Buscador y filtros.} Permiten buscar las sesiones y filtrarlas por juego, coche y circuito. El contador de la cabecera indica cuántas sesiones se muestran del total.
+	\item \textbf{Tarjeta de sesión.} El circuito y el coche, el tipo de sesión, la fecha y las vueltas, con el trazado en miniatura. Con doble clic abre la sesión y el icono de la papelera la borra.
+	\item \textbf{Mejor vuelta en morado.} Se sigue la convención de las retransmisiones y de los programas de análisis profesionales, en los que el morado marca el mejor tiempo. Aquí señala la mejor vuelta del piloto en ese circuito con ese coche.
+	\item \textbf{Ficha del circuito.} El trazado con la línea de meta y los datos del circuito.
+	\item \textbf{Tiempos y condiciones.} La mejor vuelta, el ritmo, la temperatura del asfalto y del aire y los datos de la sesión seleccionada.
+\end{enumerate}
+
+La segunda vista (figura~\ref{fig:ui-analisis}) estudia una sesión canal a canal (RF55 y RF56).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-analisis.png}
+	\caption[Análisis de una sesión]{Mockup del análisis de una sesión, hoja \textit{Base}. (Fuente propia)}
+	\label{fig:ui-analisis}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Volver a las sesiones.} Junto al botón están el juego, el coche y el circuito de la sesión abierta.
+	\item \textbf{Hojas.} \textit{Base}, \textit{Vehículo}, \textit{Suspensión} y \textit{Circuito}, cada una con los canales que interesan para estudiar ese aspecto.
+	\item \textbf{Subhojas.} Cada hoja tiene varias vistas, como la comparación de vueltas, el delta, el piloto, las velocidades de rueda, el subviraje y el sobreviraje o los histogramas. Sus nombres siguen los de los programas de análisis de competición, para poder estandarizar dicha sección.
+	\item \textbf{Vuelta y referencia.} La vuelta que se estudia y la vuelta con la que se compara, que por defecto es la más rápida, en morado. Las flechas pasan de una vuelta a otra.
+	\item \textbf{Tiras de vuelta, sector y curva.} Tres franjas sobre el eje de tiempo que permiten saltar a una vuelta, un sector o una curva y encuadrarla. Los sectores se colorean según se gane o se pierda tiempo frente a la referencia. Las vueltas no válidas se marcan en rojo y las que tienen parada en boxes, en amarillo.
+	\item \textbf{Trazas.} Los canales apilados con el mismo eje de tiempo. La vuelta estudiada se dibuja con su color y la de referencia en gris, debajo, de modo que se ve en qué punto se frena antes o si se acelera después. El zoom se aplica a todas las gráficas a la vez.
+	\item \textbf{Cursor común.} Una línea vertical marca el mismo instante en todas las trazas, en la tira de curvas y en el mapa del circuito.
+\end{enumerate}
+
 \subsection{Ajustes de la aplicación}
+\label{subsec:ui-ajustes}
+La página de ajustes (figura~\ref{fig:ui-ajustes}) reúne lo que afecta a la aplicación en general y no a un periférico (RF36). Está en la parte de abajo de la barra lateral, separada del resto, porque se usa poco.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/ui-ajustes.png}
+	\caption[Ajustes de la aplicación]{Mockup de la página de ajustes, pestaña \textit{Aplicación}. (Fuente propia)}
+	\label{fig:ui-ajustes}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Pestañas.} \textit{Aplicación} y \textit{Telemetría}. Esta última muestra, variable a variable, los datos que envía el juego en ese momento (RF39) y sirve para diagnosticar si un juego está enviando datos.
+	\item \textbf{Preferencias.} Cada preferencia ocupa una fila con su nombre, una frase que explica qué hace y un interruptor o un desplegable a la derecha. La frase evita tener que probar la opción para saber qué hace. El modo oscuro se cambia en el momento, sin reiniciar, con una transición que barre la ventana desde una esquina.
+	\item \textbf{Grabaciones de sesión.} El número máximo de grabaciones y el espacio que pueden ocupar, con el total actual (RF53).
+	\item \textbf{Puesta a punto.} Vuelve a abrir el asistente de primera configuración (apartado~\ref{subsec:ux-asistente}) y el menú del \textit{dash}.
+	\item \textbf{Actualizaciones y copias.} Buscar una versión nueva y exportar o importar la copia de seguridad (RF35).
+	\item \textbf{Carpetas.} Accesos a las carpetas de grabaciones, perfiles y registro, y al fichero de diagnóstico que se adjunta al notificar una incidencia (RF37).
+\end{enumerate}
 
 \section{Guía de estilos}
+\label{sec:guia-estilos}
+La guía de estilos recoge las normas visuales que siguen todas las pantallas, para que la aplicación tenga un aspecto coherente aunque cada página tenga funciones distintas. En la implementación, estas normas viven en un módulo de tema con la paleta, las medidas y la fuente, y una hoja de estilos de Qt (QSS) generada a partir de él. Ninguna página define sus propios colores. Cuando una necesita uno, lo pide al tema por su rol, de modo que un cambio en la guía, o el paso de modo oscuro a claro, llega a toda la aplicación a la vez.
+
 \subsection{Paleta de colores}
+\label{subsec:estilo-colores}
+La paleta de la aplicación parte de una paleta principal, a la que se añaden dos grupos de colores con un significado concreto. Los tres grupos se representan en la figura~\ref{fig:estilo-paleta}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/estilo-paleta.png}
+	\caption[Paleta de colores]{Paleta de colores de VH SimGrid. (Fuente propia)}
+	\label{fig:estilo-paleta}
+\end{figure}
+
 \subsection{Tipografía}
+\label{subsec:estilo-tipografia}
+La aplicación usa la familia Roboto en sus pesos regular, medio y negrita. Se eligió por su buena legibilidad en pantalla a tamaños pequeños, por tener cifras de anchura uniforme, que evitan que los valores en vivo bailen al cambiar, y por su licencia libre, que permite incluirla con la aplicación (RNF44). Las fuentes se cargan desde la propia aplicación, por lo que el aspecto no depende de las fuentes instaladas en cada equipo. La figura~\ref{fig:estilo-tipografia} muestra los tres pesos de la familia y la escala tipográfica, con un ejemplo real de cada nivel. Los ejemplos están ampliados respecto a su tamaño en pantalla para que se lean en el documento, pero conservan la proporción entre ellos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/estilo-tipografia.png}
+	\caption[Tipografía]{Familia tipográfica y escala de tamaños de la aplicación. (Fuente propia)}
+	\label{fig:estilo-tipografia}
+\end{figure}
+
+La jerarquía se marca con el peso y el color más que con el tamaño: los títulos van en el color de texto principal y en negrita, y las descripciones, en el color de texto secundario. Los textos de la interfaz se escriben en el lenguaje del piloto, con frases cortas y sin términos de programación.
+
 \subsection{Iconografía}
+\label{subsec:estilo-iconos}
+Todos los iconos de la aplicación son gráficos vectoriales SVG propios, con un trazo y un estilo comunes. La figura~\ref{fig:estilo-iconos} muestra los principales, agrupados por uso.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/estilo-iconos.png}
+	\caption[Iconografía]{Iconografía de la aplicación. (Fuente propia)}
+	\label{fig:estilo-iconos}
+\end{figure}
+
 \subsection{Componentes reutilizables}
+\label{subsec:estilo-componentes}
+Las páginas se construyen con un conjunto reducido de componentes comunes, representados en la figura~\ref{fig:estilo-componentes}. Usar siempre los mismos hace que un control se reconozca en cualquier página y que una mejora en un componente llegue a todas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/estilo-componentes.png}
+	\caption[Componentes reutilizables]{Componentes reutilizables de la interfaz. (Fuente propia)}
+	\label{fig:estilo-componentes}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Botón de píldora.} Todos los botones de texto tienen forma de píldora, con un radio igual a la mitad de su altura. Tienen borde y fondo transparente, se rellenan de rojo al pasar el ratón y se atenúan cuando están desactivados. La acción principal de cada página, que es solo una, va rellena de rojo desde el principio. Hay además una versión pequeña para las opciones y los rangos rápidos, en la que la opción elegida va rellena.
+	\item \textbf{Indicador de estado.} Un punto de color seguido de una palabra, como \textit{Conectado}, \textit{Desconectado} o \textit{Esperando}, siempre al lado del nombre del periférico o de la función.
+	\item \textbf{Pestañas y subpestañas.} Las pestañas de sección van en una franja propia con la activa en rojo y subrayada. Las subpestañas, dentro del contenido, solo se subrayan, para que no compitan con las pestañas.
+	\item \textbf{Interruptor.} Para cualquier opción de sí o no. Se prefirió a la casilla de verificación porque se lee mejor si está encendido y es más fácil de pulsar.
+	\item \textbf{Deslizador con valor editable.} Los valores numéricos se ajustan con un deslizador para los cambios rápidos y con una casilla al lado en la que se puede escribir el valor exacto, con su unidad. La rueda del ratón no cambia los deslizadores ni los desplegables al desplazar la página, para que un valor no se modifique sin querer.
+	\item \textbf{Desplegable.} Para elegir entre muchas opciones. Cuando son pocas, se usan botones de píldora, que las muestran todas a la vez.
+	\item \textbf{Insignia de ayuda.} Un pequeño círculo junto a una etiqueta que, al pasar el ratón, explica el ajuste. Permite que las etiquetas sean cortas sin dejar a nadie sin la explicación.
+	\item \textbf{Isla y sub-isla.} Las tarjetas que agrupan el contenido, con 12 píxeles de radio y sin borde. La sub-isla, más clara y con un borde suave, agrupa filas dentro de una isla.
+	\item \textbf{Lectura en vivo.} Una barra que se llena con el color del canal y muestra el valor en el centro, como la de los pedales.
+	\item \textbf{Preajuste.} Botones cuadrados con un icono que aplican una configuración de un clic.
+	\item \textbf{Barra de perfil.} El conjunto de casilla automática, desplegable y botones que repiten todas las páginas de periféricos.
+	\item \textbf{Puntos de paso.} En el asistente, indican cuántos pasos hay, cuáles se han hecho y en cuál se está.
+\end{itemize}
 
 \section{Diseño de pruebas y validación}
+\label{sec:diseno-pruebas}
+Las pruebas se diseñan a la vez que el sistema, porque son la forma de comprobar que cumple los requisitos del capítulo~\ref{cap:requisitos} y corresponden a la etapa de evaluación de la metodología (capítulo~\ref{cap:metodologia}). Esta sección describe qué se prueba, cómo y con qué criterio se da por buena cada prueba. Los resultados obtenidos se presentan en el capítulo de resultados.
+
+El sistema mezcla software, firmware y hardware, y no todo se puede probar igual. La lógica de la aplicación se puede comprobar de forma automática cientos de veces al día, pero las protecciones de la base solo se pueden comprobar con el motor girando y la sensación del \textit{force feedback} solo se puede juzgar conduciendo. Por eso las pruebas se organizan en cuatro niveles, representados en la figura~\ref{fig:pruebas-niveles}, que van de lo más rápido y frecuente a lo más cercano al uso real.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/pruebas-niveles.png}
+	\caption[Niveles de prueba]{Niveles de prueba del sistema. (Fuente propia)}
+	\label{fig:pruebas-niveles}
+\end{figure}
+
+Cada nivel atrapa los errores que el anterior no puede ver. Un fallo en el cálculo de la gasolina se detecta en el primer nivel en segundos, mientras que un rebote del volante contra el tope solo aparece en el tercero. La regla es comprobar cada cosa en el nivel más bajo en el que se pueda, porque cuanto más bajo es el nivel, antes se detecta el fallo y más barato es corregirlo.
+
+\subsection{Pruebas automáticas}
+\label{subsec:pruebas-automaticas}
+Las pruebas automáticas comprueban la lógica de la aplicación sin interfaz, sin periféricos y sin ningún juego abierto. Para ello, la aplicación separa el cálculo de la presentación (sección~\ref{sec:ui}), de modo que el cálculo de una estrategia, la regla que decide un aviso del ingeniero o la lectura de un paquete de telemetría son funciones que se pueden llamar con unos datos de entrada y comprobar su resultado. Cuando hace falta un juego, se usan muestras de telemetría grabadas de sesiones reales, y cuando hace falta un periférico, se simulan sus respuestas.
+
+La tabla~\ref{tab:pruebas-areas} resume qué comprueban las pruebas de cada parte de la aplicación.
+
+\begin{table}[H]
+	\centering
+	\caption{Áreas cubiertas por las pruebas automáticas.}
+	\label{tab:pruebas-areas}
+	\small
+	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.6cm}X@{}}
+		\toprule
+		\textbf{Área} & \textbf{Qué se comprueba} \\
+		\midrule
+		Telemetría de los juegos & Que cada juego se lee bien: los canales, sus unidades y los casos raros de cada uno, como la pausa, la vuelta a boxes o una sesión que se reinicia (RF38). \\
+		Ingeniero de pista & Que cada regla avisa cuando debe y solo cuando debe, que los avisos respetan el nivel de cada familia y el momento oportuno, y que las preguntas por voz se entienden en los dos idiomas (RF44 a RF47). \\
+		Estrategia & Que el cálculo de paradas, gasolina y ritmo es correcto y cumple el reglamento de la carrera, y que las estrategias se guardan y se recuperan (RF49 a RF52). \\
+		Dash y editor & Las fórmulas, las condiciones de visibilidad, la geometría de los elementos, el deshacer y la lectura de los \textit{dashes} de serie (RF40 a RF43). \\
+		Dash en el móvil & El emparejamiento por código QR, el cifrado de la conexión y el envío de imágenes (RF41). \\
+		Sesiones y análisis & La grabación, el índice de sesiones, la detección de vueltas, sectores y curvas y la comparación entre vueltas (RF53 a RF56). \\
+		Periféricos & Las luces del aro, el tratamiento de la señal de los pedales, los perfiles automáticos y la identidad USB de cada periférico (RF18 a RF20 y RF29). \\
+		Aplicación general & La copia de seguridad, la comprobación de las actualizaciones, la sincronización de versiones y que todos los textos estén traducidos (RF35, RNF15 y RNF27). \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+En total, las pruebas suman más de 140 ficheros y unos 2400 casos. Su diseño sigue tres reglas:
+
+\begin{itemize}
+	\item \textbf{Cada prueba, en su propio proceso.} Algunas pruebas crean ventanas o cambian el fichero de ajustes, y si compartieran proceso, una podría alterar el resultado de la siguiente. Ejecutarlas por separado garantiza que cada una empieza desde cero.
+	\item \textbf{Descubrimiento automático.} El lanzador ejecuta todos los ficheros cuyo nombre empieza por \texttt{test\_}, sin una lista escrita a mano. Así, una prueba nueva entra en la batería solo con crear el fichero, y no puede quedarse olvidada fuera.
+	\item \textbf{Sin pantalla y con tiempo límite.} Las pruebas que necesitan la interfaz se ejecutan con Qt en modo sin pantalla, y cada una tiene un tiempo máximo, para que una prueba bloqueada no detenga toda la batería.
+\end{itemize}
+
+Hay además una prueba que merece mención aparte, el \textbf{espejo del protocolo}. El firmware de la base y la aplicación definen por separado, uno en C y otra en Python, los mismos códigos de mensaje y la misma estructura de configuración (sección~\ref{sec:protocolos}). Esta prueba lee ambos ficheros y comprueba que coinciden, de modo que un cambio en un lado que no se haya hecho en el otro se detecta antes de grabar un firmware que la aplicación no entendería.
+
+\subsection{Integración continua}
+\label{subsec:pruebas-ci}
+Las pruebas automáticas solo sirven si se ejecutan siempre. Por eso el repositorio tiene un proceso de integración continua en GitHub Actions que se lanza con cada envío de cambios y que, en paralelo:
+
+\begin{enumerate}
+	\item Compila el firmware de la base para su microcontrolador ARM y lo enlaza completo.
+	\item Compila el firmware de la pedalera y el del aro, cada uno con su nombre y su identificador USB (apartado~\ref{subsec:identidad-usb}).
+	\item Compila todos los módulos de la aplicación, comprueba que las versiones de la aplicación y de los firmwares están sincronizadas y ejecuta el espejo del protocolo y el resto de pruebas automáticas.
+\end{enumerate}
+
+Si cualquier paso falla, el cambio se marca como erróneo y se corrige antes de seguir. La publicación de una versión es un proceso aparte, que solo se lanza al crear una etiqueta de versión: vuelve a compilar los tres firmwares y la aplicación, genera el instalador y lo publica en el repositorio del proyecto. Así, lo que llega al usuario se ha compilado siempre en un entorno limpio y no en el equipo del desarrollador.
+
+\subsection{Pruebas de los periféricos en banco}
+\label{subsec:pruebas-banco}
+El tercer nivel prueba los periféricos reales, conectados al ordenador pero sin conducir. Para observar lo que ocurre dentro de cada uno se usan herramientas de diagnóstico propias, que se conectan en paralelo a la aplicación: un monitor de seguridad que muestra en vivo las protecciones que activa la base, un registro del arranque de la base y comprobaciones del enlace del aro y de la telemetría de algunos juegos. Las pruebas previstas para cada periférico son las siguientes:
+
+\begin{itemize}
+	\item \textbf{Base.} Se provocan a propósito las situaciones de las que deben proteger los requisitos de seguridad: soltar el volante con fuerza aplicada, para la sobrevelocidad (RNF8), llevarlo contra el final del recorrido, para el tope (RNF10), dejarlo oscilar libre, para el detector de oscilaciones (RNF12), cerrar el juego en plena curva, para la pérdida de comunicación (RNF13), y mantener una fuerza alta durante minutos, para la protección térmica (RNF9). En cada caso se comprueba que la protección actúa, que lo hace sin golpes y que la base se recupera sola. También se comprueba que no aplica par al arrancar hasta haber verificado el motor y el encoder (RNF14).
+	\item \textbf{Pedalera.} Se comprueba que cada pedal recorre de 0 a 100~\% sin saltos ni zonas muertas no deseadas, que la señal en reposo no tiene ruido visible en la traza y que el freno marca en kilos una lectura coherente con la fuerza aplicada (RNF3).
+	\item \textbf{Aro.} Se comprueba cada botón, encoder y palanca en el monitor de mandos, que las luces responden a la telemetría y al banco de pruebas de la aplicación (RNF4) y que la pantalla muestra el \textit{dash} con fluidez (RNF34).
+	\item \textbf{Comunes.} Se comprueba que cada periférico conserva su configuración tras desconectarlo (RNF19), que funciona como mando con la aplicación cerrada (RNF20) y que una actualización de firmware conserva la calibración del usuario (RNF24).
+\end{itemize}
+
+\subsection{Validación en pista}
+\label{subsec:pruebas-pista}
+El último nivel es el uso real: sesiones de conducción con los simuladores compatibles, con los tres periféricos y la aplicación funcionando a la vez. Es el único nivel en el que se puede juzgar lo que el piloto percibe, como la sensación de la dirección o si los avisos del ingeniero llegan en buen momento, y el que corresponde al objetivo de validar el ecosistema en condiciones reales (capítulo~\ref{cap:objetivos}). Durante estas sesiones, un registro guarda el estado de la base en un fichero para revisarlo después, de modo que cualquier anomalía se puede analizar aunque no se notara al conducir.
+
+La tabla~\ref{tab:pruebas-rnf} recoge los requisitos no funcionales medibles, cómo se mide cada uno y el criterio para darlo por cumplido.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{7.6cm}>{\raggedright\arraybackslash}p{\dimexpr\textwidth-10cm\relax}@{}}
+	\caption{Validación de los requisitos no funcionales medibles.}
+	\label{tab:pruebas-rnf} \\
+	\toprule
+	\textbf{Req.} & \textbf{Cómo se mide} & \textbf{Criterio de aceptación} \\
+	\midrule
+	\endfirsthead
+	\toprule
+	\textbf{Req.} & \textbf{Cómo se mide} & \textbf{Criterio de aceptación} \\
+	\midrule
+	\endhead
+		RNF1 & Intervalo de sondeo USB de la base, medido en Windows & 1~ms \\
+		RNF2 & Tiempo desde el informe de fuerza hasta la orden al motor & Menos de 2~ms \\
+		RNF4 & Retardo entre un cambio de la telemetría y la tira de LEDs & Menos de 50~ms \\
+		RNF5 & Retardo entre un ajuste en la aplicación y su efecto & Menos de 200~ms \\
+		RNF6, RNF34 & Imágenes por segundo del \textit{dash} en la pantalla del aro & 30 o más \\
+		RNF7 & Uso de CPU de la aplicación con un simulador en marcha & 10~\% o menos \\
+		RNF13 & Tiempo hasta que el par llega a cero tras cerrar el juego & A cero en menos de 1~s tras 2~s sin informes \\
+		RNF21 & Sesión continua con el equipo completo & 3~h sin fallos ni desconexiones \\
+		RNF38 & Acciones con el aro para llegar a un parámetro general del menú & 3 o menos \\
+		RNF40 & Instalación y uso en ambas versiones de Windows & Windows 10 y 11 de 64 bits \\
+		RNF41 & Sesión de prueba con cada simulador soportado & Telemetría correcta en los 18 títulos \\
+	\bottomrule
+\end{longtable}
+}
+
+Los requisitos funcionales se validan recorriendo los casos de uso del capítulo~\ref{cap:requisitos} de principio a fin sobre el equipo real, como la primera puesta en marcha (CU1), la calibración de la pedalera (CU3), la actualización de firmware (CU5) o una sesión asistida por el ingeniero (CU9). Un caso de uso se da por superado cuando se completa sin errores y sin necesidad de herramientas externas a la aplicación.
+
+Por último, cuando en el banco o en pista aparece un fallo que las pruebas automáticas no habían detectado, además de corregirlo se añade una prueba automática que reproduce esa misma situación. Es lo que se conoce como prueba de regresión. A partir de ese momento, la prueba se ejecuta con cada cambio, de modo que si el fallo vuelve a aparecer se detecta en segundos y no hay que volver a encontrarlo conduciendo.

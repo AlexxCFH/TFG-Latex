@@ -1,0 +1,495 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Bold.ttf'); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #ffffff; font-family: Roboto, sans-serif; color: #333; font-size: 13px; }
+.lienzo { position: relative; padding: 18px; }
+.ventana { position: relative; width: 1240px; height: 800px; border: 2px solid #444; border-radius: 6px;
+           overflow: hidden; display: flex; flex-direction: column; background: #fafafa; }
+.titlebar { height: 32px; background: #3a3a3a; color: #eee; display: flex; align-items: center;
+            padding: 0 12px; font-size: 12px; gap: 8px; flex: none; }
+.titlebar .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.titlebar .ctrl { margin-left: auto; display: flex; gap: 22px; color: #ccc; font-size: 14px; }
+.cuerpo { flex: 1; display: flex; min-height: 0; }
+.sidebar { width: 70px; background: #e2e2e2; border-right: 1px solid #c8c8c8; display: flex;
+           flex-direction: column; align-items: center; padding-top: 14px; gap: 20px; flex: none; }
+.sidebar .marca { font-weight: 700; font-style: italic; font-size: 22px; color: #555; margin-bottom: 6px; }
+.sidebar .item { position: relative; width: 70px; display: flex; justify-content: center; }
+.sidebar .item.activo::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background: #FF073A; }
+.sidebar .abajo { margin-top: auto; margin-bottom: 16px; }
+.pagina { flex: 1; padding: 12px 26px 22px 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.footer { height: 28px; background: #3a3a3a; color: #ddd; font-size: 11px; display: flex;
+          align-items: center; padding: 0 12px; flex: none; }
+.footer .centro { margin: 0 auto; }
+.footer .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.cabecera { display: flex; align-items: center; gap: 14px; min-height: 40px; }
+.h1 { font-size: 21px; font-weight: 700; color: #222; }
+.h2 { font-size: 17px; font-weight: 700; color: #222; }
+.h3 { font-size: 14px; font-weight: 500; color: #555; }
+.suave { color: #888; }
+.estado { font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ok { color: #2eb857; } .ko { color: #FF073A; }
+.pill { border: 1.5px solid #444; border-radius: 999px; padding: 6px 20px; font-size: 12px; font-weight: 700;
+        color: #333; background: #fff; white-space: nowrap; display: inline-block; text-align: center; }
+.pill.primario { background: #FF073A; border-color: #FF073A; color: #fff; padding: 8px 30px; }
+.pill.off { border-color: #c4c4c4; color: #b0b0b0; background: #f0f0f0; }
+.pill.mini { padding: 3px 12px; font-size: 11px; }
+.pill.on { background: #444; color: #fff; }
+.perfil { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; }
+.check { width: 16px; height: 16px; border: 1.5px solid #999; border-radius: 3px; display: inline-block; background: #fff; }
+.check.si { background: #FF073A; border-color: #FF073A; }
+.combo { border: 1px solid #bbb; border-radius: 6px; background: #fff; padding: 8px 12px; display: flex;
+         align-items: center; justify-content: space-between; gap: 18px; font-size: 13px; color: #444; }
+.combo::after { content: ''; width: 7px; height: 7px; border-right: 2px solid #666; border-bottom: 2px solid #666;
+                transform: rotate(45deg) translateY(-3px); }
+.tabs { background: #ececec; border-radius: 12px; height: 62px; display: flex; justify-content: center;
+        align-items: center; gap: 46px; flex: none; }
+.tab { font-size: 18px; font-weight: 500; color: #555; padding: 8px 10px; }
+.tab.activo { color: #FF073A; border-bottom: 3px solid #FF073A; }
+.subtabs { display: flex; gap: 26px; font-size: 14px; color: #555; }
+.subtabs .activo { color: #222; border-bottom: 2px solid #FF073A; padding-bottom: 6px; }
+.isla { background: #efefef; border: 1px solid #dadada; border-radius: 12px; padding: 16px 18px; }
+.subisla { background: #e4e4e4; border: 1px solid #d2d2d2; border-radius: 10px; padding: 10px 14px; }
+.fila { display: flex; gap: 20px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.ayuda { display: inline-flex; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #999;
+         font-size: 8px; font-weight: 700; align-items: center; justify-content: center; color: #777;
+         vertical-align: middle; margin-left: 4px; }
+.slider { display: flex; align-items: center; gap: 12px; }
+.slider .riel { flex: 1; height: 4px; background: #cfcfcf; border-radius: 2px; position: relative; }
+.slider .riel i { position: absolute; left: 0; top: 0; bottom: 0; background: #888; border-radius: 2px; }
+.slider .riel b { position: absolute; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: #fff;
+                  border: 2px solid #777; margin-left: -9px; }
+.slider .valor { width: 70px; border: 1px solid #ccc; background: #fff; border-radius: 4px; text-align: center;
+                 padding: 4px 0; font-size: 12px; color: #555; }
+.toggle { width: 46px; height: 24px; border-radius: 12px; background: #cfcfcf; position: relative; flex: none; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+.toggle.si { background: #FF073A; }
+.toggle.si::after { left: 25px; }
+.ph { background: #dcdcdc; border: 1px solid #c4c4c4; border-radius: 8px; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center; color: #555; font-size: 12px; font-weight: 500; }
+.ph.x { background: linear-gradient(to top right, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)),
+                     linear-gradient(to top left, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)), #e3e3e3; }
+.barra { height: 26px; border-radius: 13px; background: #e2e2e2; border: 1px solid #d0d0d0; position: relative;
+         overflow: hidden; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.barra i { position: absolute; left: 0; top: 0; bottom: 0; opacity: .55; }
+.barra span { position: relative; }
+.n { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: #FF073A; color: #fff;
+     font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+     box-shadow: 0 0 0 3px #fff; z-index: 10; }
+.ni { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; background: #FF073A; color: #fff;
+      font-weight: 700; font-size: 13px; align-items: center; justify-content: center; flex: none;
+      vertical-align: middle; margin: 0 4px; box-shadow: 0 0 0 2px #fff; font-style: normal; }
+.marco-rojo { outline: 2.5px solid #FF073A; outline-offset: -1px; }
+.region { position: absolute; border: 2px dashed #FF073A; border-radius: 8px; z-index: 9; }
+.leyenda { position: absolute; background: #fff; color: #FF073A; font-weight: 700; font-size: 13px; padding: 2px 8px;
+           border: 1.5px solid #FF073A; border-radius: 6px; z-index: 10; white-space: nowrap; }
+</style></head><body>
+<div class="lienzo"><div class="ventana">
+  <div class="titlebar"><span class="logo">VH</span> VH SimGrid<span class="ctrl"><span>&#8211;</span><span>&#9633;</span><span>&#10005;</span></span></div>
+  <div class="cuerpo"><div class="pagina">
+<div style="display:flex;align-items:center;gap:22px;margin:-12px -26px 0 -26px;padding:6px 10px;background:#e8e8e8;border-bottom:1px solid #d0d0d0">
+  <span class="pill">&#8592; Cerrar editor</span><span>Archivo</span><span>Dash</span><span>Editar</span><span>Elementos</span><span>Herramientas</span><span class="ni">1</span>
+  <b style="margin-left:auto;font-size:16px">AMR23 - Formula Alpha 23</b></div>
+<div style="display:flex;align-items:center;gap:12px;margin:-12px -26px 0 -26px;padding:6px 10px;background:#efefef;border-bottom:1px solid #d0d0d0">
+  <span>&#9656; Probar dash</span><div class="combo" style="width:150px;padding:4px 10px">Pantalla del aro</div>
+  <span>Overlay transparente</span><div style="display:flex;gap:12px;align-items:center"><svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="20" height="20" rx="1" fill="none" stroke="#555" stroke-width="1.6"/>
+<line x1="9" y1="2" x2="9" y2="22" stroke="#555" stroke-width="1.6"/>
+<line x1="16" y1="2" x2="16" y2="22" stroke="#555" stroke-width="1.6"/>
+<line x1="2" y1="9" x2="22" y2="9" stroke="#555" stroke-width="1.6"/>
+<line x1="2" y1="16" x2="22" y2="16" stroke="#555" stroke-width="1.6"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Guias de alineacion: dos cajas y la linea de puntos que las enhebra
+       cuando sus bordes coinciden. Mismo trazo que el resto de iconos del
+       editor (crema, 2px). -->
+  <g fill="none" stroke="#555" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" rx="1"/>
+    <rect x="4" y="14" width="12" height="6" rx="1"/>
+    <path d="M4 2v20" stroke-dasharray="3 3"/>
+  </g>
+</svg>
+<svg style="width:18px;height:18px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Iman de "ajustar a la rejilla", del mismo trazo que el resto de iconos
+       del editor (crema, 2px, esquinas redondeadas). Apagado = movimiento
+       libre al pixel. -->
+  <g fill="none" stroke="#555" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 4v8a6 6 0 0 0 12 0V4"/>
+    <path d="M6 10h4"/>
+    <path d="M14 10h4"/>
+    <path d="M6 4h4"/>
+    <path d="M14 4h4"/>
+  </g>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="2" height="20" fill="#555"/>
+<rect x="6" y="4" width="16" height="3" fill="#555"/>
+<rect x="6" y="10.5" width="10" height="3" fill="#555"/>
+<rect x="6" y="17" width="14" height="3" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="11" y="2" width="2" height="20" fill="#555"/>
+<rect x="4" y="4" width="16" height="3" fill="#555"/>
+<rect x="7" y="10.5" width="10" height="3" fill="#555"/>
+<rect x="5" y="17" width="14" height="3" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="2" width="2" height="20" fill="#555"/>
+<rect x="2" y="4" width="16" height="3" fill="#555"/>
+<rect x="8" y="10.5" width="10" height="3" fill="#555"/>
+<rect x="4" y="17" width="14" height="3" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="20" height="2" fill="#555"/>
+<rect x="4" y="6" width="3" height="16" fill="#555"/>
+<rect x="10.5" y="6" width="3" height="10" fill="#555"/>
+<rect x="17" y="6" width="3" height="14" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="11" width="20" height="2" fill="#555"/>
+<rect x="4" y="4" width="3" height="16" fill="#555"/>
+<rect x="10.5" y="7" width="3" height="10" fill="#555"/>
+<rect x="17" y="5" width="3" height="14" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="20" width="20" height="2" fill="#555"/>
+<rect x="4" y="2" width="3" height="16" fill="#555"/>
+<rect x="10.5" y="8" width="3" height="10" fill="#555"/>
+<rect x="17" y="4" width="3" height="14" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="2" height="20" fill="#555"/>
+<rect x="20" y="2" width="2" height="20" fill="#555"/>
+<rect x="6" y="7" width="3" height="10" fill="#555"/>
+<rect x="15" y="7" width="3" height="10" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="20" height="2" fill="#555"/>
+<rect x="2" y="20" width="20" height="2" fill="#555"/>
+<rect x="7" y="6" width="10" height="3" fill="#555"/>
+<rect x="7" y="15" width="10" height="3" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="4" width="12" height="12" rx="1" fill="none" stroke="#555" stroke-width="2"/>
+<rect x="9" y="9" width="12" height="12" rx="1" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="9" y="9" width="12" height="12" rx="1" fill="none" stroke="#555" stroke-width="2"/>
+<rect x="4" y="4" width="12" height="12" rx="1" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="#555" stroke-width="2" fill="none"/>
+<rect x="5" y="10" width="14" height="10" rx="2" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5" y="7" width="14" height="14" rx="1" fill="#555"/>
+<rect x="3" y="4" width="18" height="2.5" rx="1" fill="#555"/>
+<rect x="9" y="1" width="6" height="2.5" rx="1" fill="#555"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 8 L2 8 L2 4" stroke="#555" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 8C4.5 4 9 2 13 3c5 1.3 8 6 6.7 11S12 21.5 8 19" stroke="#555" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+</svg>
+<svg style="width:18px;height:18px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 8 L22 8 L22 4" stroke="#555" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22 8C19.5 4 15 2 11 3c-5 1.3-8 6-6.7 11S12 21.5 16 19" stroke="#555" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+</svg>
+</div><span class="ni">2</span>
+  <span style="margin-left:auto">– 100 % +</span><span>800×480 px</span></div>
+<div class="fila" style="flex:1;gap:12px;margin:0 -16px -12px -16px;min-height:0">
+  <div class="isla col" style="width:210px;gap:2px;padding:10px 12px"><b style="margin-bottom:6px">Caja de herramientas <span class="ni">3</span></b>
+    <div class="combo" style="padding:4px 8px;margin-bottom:6px;color:#999">Buscar elemento…</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3" y="4" width="18" height="3" fill="#555"/>
+<rect x="10.5" y="4" width="3" height="16" fill="#555"/>
+</svg>
+Texto</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="#555" stroke-width="2"/>
+<circle cx="8" cy="10" r="2" fill="#555"/>
+<path d="M4 17l5-5 4 4 3-3 4 4" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+Imagen</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#555" stroke-width="2"/>
+</svg>
+Rectángulo</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="12" cy="12" rx="10" ry="7" stroke="#555" stroke-width="2"/>
+</svg>
+Elipse</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="7" width="20" height="10" rx="3" stroke="#555" stroke-width="2"/>
+</svg>
+Botón</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="8" fill="#555"/>
+</svg>
+Luz de cambio</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="5" width="14" height="14" rx="2" stroke="#555" stroke-width="2"/>
+<path d="M18 9L22 6.5V17.5L18 15V9Z" stroke="#555" stroke-width="2" stroke-linejoin="round"/>
+</svg>
+Vídeo</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="9" stroke="#555" stroke-width="2"/>
+<ellipse cx="12" cy="12" rx="4" ry="9" stroke="#555" stroke-width="2"/>
+<line x1="3" y1="12" x2="21" y2="12" stroke="#555" stroke-width="2"/>
+</svg>
+Página web</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="#555" stroke-width="2"/>
+<rect x="7" y="11" width="10" height="7" fill="#555"/>
+</svg>
+Gauge lineal</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="9" fill="none" stroke="#555" stroke-width="2"/>
+<line x1="12" y1="12" x2="12" y2="5" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+<circle cx="12" cy="12" r="1.6" fill="#555"/>
+</svg>
+Gauge circular</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 18a8 8 0 0 1 16 0" fill="none" stroke="#555" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
+Gauge de arco</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="2" width="8" height="2.6" rx="1.3" fill="#555"/>
+<rect x="8" y="5.6" width="8" height="2.6" rx="1.3" fill="#555"/>
+<rect x="8" y="9.2" width="8" height="2.6" rx="1.3" fill="#555"/>
+<rect x="8" y="12.8" width="8" height="2.6" rx="1.3" fill="#555" fill-opacity="0.45"/>
+<rect x="8" y="16.4" width="8" height="2.6" rx="1.3" fill="#555" fill-opacity="0.45"/>
+<rect x="8" y="20" width="8" height="2" rx="1" fill="#555" fill-opacity="0.45"/>
+</svg>
+Barra segmentada</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="9" height="9" rx="2" fill="#555"/>
+<rect x="13" y="2" width="9" height="9" rx="2" fill="#555"/>
+<rect x="2" y="13" width="9" height="9" rx="2" fill="#555"/>
+<rect x="13" y="13" width="9" height="9" rx="2" fill="#555"/>
+</svg>
+Neumáticos</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 18 L7 8 L11 16 L15 4 L19 14 L22 10" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+Traza</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3 L21 19 H3 Z" stroke="#555" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<path d="M8 15 H16 M12 11 V19" stroke="#555" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
+Delta de tiempo</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 14 C3 8 7 4 12 4 C17 4 19 7 16 10 C13 13 15 16 19 15 C22 14.3 21 20 15 20 C7 20 3 18 3 14 Z"
+      stroke="#555" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="16" cy="10" r="1.8" fill="#555"/>
+</svg>
+Mapa de pista</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="4" width="4" height="4" rx="1" fill="#555"/>
+<path d="M9 6 H21" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+<rect x="2" y="10" width="4" height="4" rx="1" stroke="#555" stroke-width="1.6" fill="none"/>
+<path d="M9 12 H21" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+<rect x="2" y="16" width="4" height="4" rx="1" stroke="#555" stroke-width="1.6" fill="none"/>
+<path d="M9 18 H21" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+</svg>
+Posiciones</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#555" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#555"/>
+<rect x="14" y="6" width="5" height="5" fill="#555"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#555"/>
+</svg>
+Widget (otro dash)</div></div>
+  <div class="col" style="flex:1;gap:10px;min-width:0">
+    <div style="display:flex;gap:8px;align-items:center"><span class="pill mini on" style="border-radius:6px">PAGE 1</span><span class="pill mini" style="border-radius:6px">PAGE 2</span><span class="pill mini" style="border-radius:6px">SETUP</span>
+      <span class="suave" style="margin-left:12px">Botones del aro: &lt; Sin asignar &nbsp; &gt; Sin asignar</span><span class="ni">4</span></div>
+    <div style="background:#d9d9d9;flex:1;display:flex;align-items:center;justify-content:center;border-radius:8px;gap:10px">
+      <div style="width:460px;height:276px;outline:2px dashed #888"><div style="background:#3a3a3a;border-radius:6px;height:276px;position:relative;color:#eee;font-family:Roboto">
+<div style="position:absolute;left:10px;top:8px;right:10px;height:10px;background:linear-gradient(90deg,#2eb857 0 45%,#f2c230 45% 75%,#FF073A 75%);border-radius:3px;opacity:.85"></div>
+<div style="position:absolute;left:50%;top:55px;transform:translateX(-50%);font-size:120px;font-weight:700">4</div>
+<div style="position:absolute;left:12px;top:40px;font-size:11px;color:#aaa">VEL</div><div style="position:absolute;left:12px;top:54px;font-size:22px;font-weight:700">187</div>
+<div style="position:absolute;right:12px;top:40px;font-size:11px;color:#aaa">DELTA</div><div style="position:absolute;right:12px;top:54px;font-size:22px;font-weight:700;color:#2eb857">-0.32</div>
+<div style="position:absolute;left:12px;bottom:12px;font-size:16px">1:58.412</div><div style="position:absolute;right:12px;bottom:12px;font-size:16px">7850</div>
+</div></div><span class="ni">5</span></div>
+    <div class="isla col" style="gap:8px;padding:10px 12px"><b>Pantallas <span class="ni">6</span></b><div style="display:flex;gap:14px"><div style="width:150px;flex:none;text-align:center"><div style="background:#3a3a3a;border-radius:6px;height:110px;position:relative;color:#eee;font-family:Roboto">
+<div style="position:absolute;left:10px;top:8px;right:10px;height:10px;background:linear-gradient(90deg,#2eb857 0 45%,#f2c230 45% 75%,#FF073A 75%);border-radius:3px;opacity:.85"></div>
+<div style="position:absolute;left:50%;top:22px;transform:translateX(-50%);font-size:44px;font-weight:700">3</div>
+<div style="position:absolute;left:12px;top:40px;font-size:11px;color:#aaa">VEL</div><div style="position:absolute;left:12px;top:54px;font-size:22px;font-weight:700">187</div>
+<div style="position:absolute;right:12px;top:40px;font-size:11px;color:#aaa">DELTA</div><div style="position:absolute;right:12px;top:54px;font-size:22px;font-weight:700;color:#2eb857">-0.32</div>
+<div style="position:absolute;left:12px;bottom:12px;font-size:16px">1:58.412</div><div style="position:absolute;right:12px;bottom:12px;font-size:16px">7850</div>
+</div><div style="margin-top:4px">PAGE 1</div></div><div style="width:150px;flex:none;text-align:center"><div style="background:#3a3a3a;border-radius:6px;height:110px;position:relative;color:#eee;font-family:Roboto">
+<div style="position:absolute;left:10px;top:8px;right:10px;height:10px;background:linear-gradient(90deg,#2eb857 0 45%,#f2c230 45% 75%,#FF073A 75%);border-radius:3px;opacity:.85"></div>
+<div style="position:absolute;left:50%;top:22px;transform:translateX(-50%);font-size:44px;font-weight:700">4</div>
+<div style="position:absolute;left:12px;top:40px;font-size:11px;color:#aaa">VEL</div><div style="position:absolute;left:12px;top:54px;font-size:22px;font-weight:700">187</div>
+<div style="position:absolute;right:12px;top:40px;font-size:11px;color:#aaa">DELTA</div><div style="position:absolute;right:12px;top:54px;font-size:22px;font-weight:700;color:#2eb857">-0.32</div>
+<div style="position:absolute;left:12px;bottom:12px;font-size:16px">1:58.412</div><div style="position:absolute;right:12px;bottom:12px;font-size:16px">7850</div>
+</div><div style="margin-top:4px">PAGE 2</div></div><div style="width:150px;flex:none;text-align:center"><div style="background:#3a3a3a;border-radius:6px;height:110px;position:relative;color:#eee;font-family:Roboto">
+<div style="position:absolute;left:10px;top:8px;right:10px;height:10px;background:linear-gradient(90deg,#2eb857 0 45%,#f2c230 45% 75%,#FF073A 75%);border-radius:3px;opacity:.85"></div>
+<div style="position:absolute;left:50%;top:22px;transform:translateX(-50%);font-size:44px;font-weight:700">5</div>
+<div style="position:absolute;left:12px;top:40px;font-size:11px;color:#aaa">VEL</div><div style="position:absolute;left:12px;top:54px;font-size:22px;font-weight:700">187</div>
+<div style="position:absolute;right:12px;top:40px;font-size:11px;color:#aaa">DELTA</div><div style="position:absolute;right:12px;top:54px;font-size:22px;font-weight:700;color:#2eb857">-0.32</div>
+<div style="position:absolute;left:12px;bottom:12px;font-size:16px">1:58.412</div><div style="position:absolute;right:12px;bottom:12px;font-size:16px">7850</div>
+</div><div style="margin-top:4px">SETUP</div></div></div></div>
+  </div>
+  <div class="col" style="width:290px;gap:10px">
+    <div class="isla col" style="gap:2px;padding:10px 12px"><b style="margin-bottom:6px">Jerarquía de pantalla <span class="ni">7</span></b>
+      <div class="combo" style="padding:4px 8px;margin-bottom:4px;color:#999">Buscar…</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Barra de RPM</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z" stroke="#777" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.2" fill="#777"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Marcha</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z" stroke="#777" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.2" fill="#777"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Velocidad</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z" stroke="#777" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.2" fill="#777"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Delta</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z" stroke="#777" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.2" fill="#777"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Tiempo de vuelta</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z" stroke="#777" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.2" fill="#777"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Aviso de frenada</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.9 5.1C10.6 5.03 11.28 5 12 5C18.5 5 22 12 22 12C21.6 12.77 20.94 13.79 20 14.8M6.2 7.2C3.6 9 2 12 2 12C2 12 5.5 18 12 18C13.5 18 14.8 17.66 15.9 17.15" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 3L21 21" stroke="#777" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</div><div style="display:flex;align-items:center;gap:8px;padding:4px 0"><svg style="width:16px;height:16px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="3" width="20" height="18" rx="2" stroke="#666" stroke-width="2" fill="none"/>
+<rect x="5" y="6" width="7" height="5" fill="#666"/>
+<rect x="14" y="6" width="5" height="5" fill="#666"/>
+<rect x="5" y="13.5" width="14" height="4.5" fill="#666"/>
+</svg>
+<span style="flex:1">Aviso de boxes</span><svg style="width:15px;height:15px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Lapiz de "editar", del mismo trazo que el resto de iconos del editor
+       (crema, 2px, esquinas redondeadas). Sale en el arbol de jerarquia solo
+       en los elementos de tipo widget: abre la pieza para editarla. -->
+  <g fill="none" stroke="#777" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 16.5 15.6 4.9a2 2 0 0 1 2.8 0l0.7 0.7a2 2 0 0 1 0 2.8L7.5 20H4z"/>
+    <path d="M14.2 6.3 17.7 9.8"/>
+  </g>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10V7a5 5 0 0 1 9-3" stroke="#777" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="5" y="10" width="14" height="10" rx="2" stroke="#777" stroke-width="2" fill="none"/>
+</svg>
+<svg style="width:15px;height:15px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.9 5.1C10.6 5.03 11.28 5 12 5C18.5 5 22 12 22 12C21.6 12.77 20.94 13.79 20 14.8M6.2 7.2C3.6 9 2 12 2 12C2 12 5.5 18 12 18C13.5 18 14.8 17.66 15.9 17.15" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 3L21 21" stroke="#777" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</div></div>
+    <div class="isla col" style="flex:1;gap:8px;padding:10px 12px"><b>Propiedades <span class="ni">8</span></b><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Nombre</span><span>Marcha</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">X / Y</span><span>350 / 120</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Ancho / Alto</span><span>100 / 140</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Texto</span><span>[Gear]</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Fuente</span><span>Roboto Bold 120</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Color</span><span>Calculado  fx</span></div><div style="display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:3px 0"><span class="suave">Visible si</span><span>siempre</span></div></div>
+  </div>
+</div></div></div>
+  <div class="footer"><span>Versión 0.11.0 &nbsp;|&nbsp; Copyright © 2026 VH SimGrid</span><span class="centro">Ningún simulador detectado</span><span class="logo">VH</span></div>
+</div></div></body></html>

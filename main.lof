@@ -39,16 +39,33 @@
 \contentsline {figure}{\numberline {8.4}{\ignorespaces Esquema de conexiones de la pedalera VH Axis. (Fuente propia)}}{152}{figure.caption.384}%
 \contentsline {figure}{\numberline {8.5}{\ignorespaces Diseño de la pedalera VH Axis. (Fuente propia)}}{153}{figure.caption.386}%
 \contentsline {figure}{\numberline {8.6}{\ignorespaces Esquema de conexiones de la base VH Grid DD15. (Fuente propia)}}{155}{figure.caption.391}%
-\contentsline {figure}{\numberline {8.7}{\ignorespaces Diseño de la base VH Grid DD15. (Fuente propia)}}{155}{figure.caption.393}%
-\contentsline {figure}{\numberline {8.8}{\ignorespaces Arquitectura en capas del firmware de los tres periféricos. (Fuente propia)}}{156}{figure.caption.396}%
-\contentsline {figure}{\numberline {8.9}{\ignorespaces Cadena de procesado de la fuerza en la base VH Grid DD15. (Fuente propia)}}{158}{figure.caption.401}%
-\contentsline {figure}{\numberline {8.10}{\ignorespaces Arquitectura de la aplicación VH SimGrid. (Fuente propia)}}{161}{figure.caption.406}%
-\contentsline {figure}{\numberline {8.11}{\ignorespaces Secuencia de conexión entre la aplicación y un periférico. (Fuente propia)}}{164}{figure.caption.416}%
-\contentsline {figure}{\numberline {8.12}{\ignorespaces Secuencia de vinculación y envío del \textit {dash} a un dispositivo móvil. (Fuente propia)}}{169}{figure.caption.432}%
-\contentsline {figure}{\numberline {8.13}{\ignorespaces Flujo del asistente de primera configuración. (Fuente propia)}}{174}{figure.caption.441}%
-\contentsline {figure}{\numberline {8.14}{\ignorespaces Flujo de la calibración guiada de los pedales. (Fuente propia)}}{175}{figure.caption.443}%
-\contentsline {figure}{\numberline {8.15}{\ignorespaces Flujo de la actualización de firmware de un periférico. (Fuente propia)}}{177}{figure.caption.445}%
-\contentsline {figure}{\numberline {8.16}{\ignorespaces Flujo de la aplicación automática de perfiles. (Fuente propia)}}{178}{figure.caption.447}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Diseño de la base VH Grid DD15. (Fuente propia)}}{156}{figure.caption.393}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Arquitectura en capas del firmware de los tres periféricos. (Fuente propia)}}{157}{figure.caption.396}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Cadena de procesado de la fuerza en la base VH Grid DD15. (Fuente propia)}}{159}{figure.caption.401}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Arquitectura de la aplicación VH SimGrid. (Fuente propia)}}{162}{figure.caption.406}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Secuencia de conexión entre la aplicación y un periférico. (Fuente propia)}}{165}{figure.caption.416}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Secuencia de vinculación y envío del \textit {dash} a un dispositivo móvil. (Fuente propia)}}{170}{figure.caption.432}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Flujo del asistente de primera configuración. (Fuente propia)}}{175}{figure.caption.441}%
+\contentsline {figure}{\numberline {8.14}{\ignorespaces Flujo de la calibración guiada de los pedales. (Fuente propia)}}{176}{figure.caption.443}%
+\contentsline {figure}{\numberline {8.15}{\ignorespaces Flujo de la actualización de firmware de un periférico. (Fuente propia)}}{178}{figure.caption.445}%
+\contentsline {figure}{\numberline {8.16}{\ignorespaces Flujo de la aplicación automática de perfiles. (Fuente propia)}}{179}{figure.caption.447}%
+\contentsline {figure}{\numberline {8.17}{\ignorespaces Estructura general de la ventana}}{181}{figure.caption.450}%
+\contentsline {figure}{\numberline {8.18}{\ignorespaces Página de inicio}}{183}{figure.caption.458}%
+\contentsline {figure}{\numberline {8.19}{\ignorespaces Página de configuración de la base}}{184}{figure.caption.466}%
+\contentsline {figure}{\numberline {8.20}{\ignorespaces Página de configuración del aro}}{185}{figure.caption.474}%
+\contentsline {figure}{\numberline {8.21}{\ignorespaces Página de configuración de la pedalera}}{187}{figure.caption.483}%
+\contentsline {figure}{\numberline {8.22}{\ignorespaces Biblioteca de dashes}}{188}{figure.caption.492}%
+\contentsline {figure}{\numberline {8.23}{\ignorespaces Editor de dashes}}{189}{figure.caption.500}%
+\contentsline {figure}{\numberline {8.24}{\ignorespaces Ingeniero de pista: avisos}}{191}{figure.caption.510}%
+\contentsline {figure}{\numberline {8.25}{\ignorespaces Ingeniero de pista: estrategia}}{192}{figure.caption.517}%
+\contentsline {figure}{\numberline {8.26}{\ignorespaces Lista de sesiones}}{193}{figure.caption.526}%
+\contentsline {figure}{\numberline {8.27}{\ignorespaces Análisis de una sesión}}{194}{figure.caption.532}%
+\contentsline {figure}{\numberline {8.28}{\ignorespaces Ajustes de la aplicación}}{195}{figure.caption.541}%
+\contentsline {figure}{\numberline {8.29}{\ignorespaces Paleta de colores}}{196}{figure.caption.550}%
+\contentsline {figure}{\numberline {8.30}{\ignorespaces Tipografía}}{197}{figure.caption.552}%
+\contentsline {figure}{\numberline {8.31}{\ignorespaces Iconografía}}{198}{figure.caption.554}%
+\contentsline {figure}{\numberline {8.32}{\ignorespaces Componentes reutilizables}}{198}{figure.caption.556}%
+\contentsline {figure}{\numberline {8.33}{\ignorespaces Niveles de prueba}}{200}{figure.caption.558}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

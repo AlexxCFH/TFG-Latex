@@ -1,0 +1,114 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Bold.ttf'); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #ffffff; font-family: Roboto, sans-serif; color: #333; font-size: 13px; }
+.lienzo { position: relative; padding: 18px; }
+.ventana { position: relative; width: 1240px; height: 800px; border: 2px solid #444; border-radius: 6px;
+           overflow: hidden; display: flex; flex-direction: column; background: #fafafa; }
+.titlebar { height: 32px; background: #3a3a3a; color: #eee; display: flex; align-items: center;
+            padding: 0 12px; font-size: 12px; gap: 8px; flex: none; }
+.titlebar .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.titlebar .ctrl { margin-left: auto; display: flex; gap: 22px; color: #ccc; font-size: 14px; }
+.cuerpo { flex: 1; display: flex; min-height: 0; }
+.sidebar { width: 70px; background: #e2e2e2; border-right: 1px solid #c8c8c8; display: flex;
+           flex-direction: column; align-items: center; padding-top: 14px; gap: 20px; flex: none; }
+.sidebar .marca { font-weight: 700; font-style: italic; font-size: 22px; color: #555; margin-bottom: 6px; }
+.sidebar .item { position: relative; width: 70px; display: flex; justify-content: center; }
+.sidebar .item.activo::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background: #FF073A; }
+.sidebar .abajo { margin-top: auto; margin-bottom: 16px; }
+.pagina { flex: 1; padding: 12px 26px 22px 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.footer { height: 28px; background: #3a3a3a; color: #ddd; font-size: 11px; display: flex;
+          align-items: center; padding: 0 12px; flex: none; }
+.footer .centro { margin: 0 auto; }
+.footer .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.cabecera { display: flex; align-items: center; gap: 14px; min-height: 40px; }
+.h1 { font-size: 21px; font-weight: 700; color: #222; }
+.h2 { font-size: 17px; font-weight: 700; color: #222; }
+.h3 { font-size: 14px; font-weight: 500; color: #555; }
+.suave { color: #888; }
+.estado { font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ok { color: #2eb857; } .ko { color: #FF073A; }
+.pill { border: 1.5px solid #444; border-radius: 999px; padding: 6px 20px; font-size: 12px; font-weight: 700;
+        color: #333; background: #fff; white-space: nowrap; display: inline-block; text-align: center; }
+.pill.primario { background: #FF073A; border-color: #FF073A; color: #fff; padding: 8px 30px; }
+.pill.off { border-color: #c4c4c4; color: #b0b0b0; background: #f0f0f0; }
+.pill.mini { padding: 3px 12px; font-size: 11px; }
+.pill.on { background: #444; color: #fff; }
+.perfil { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; }
+.check { width: 16px; height: 16px; border: 1.5px solid #999; border-radius: 3px; display: inline-block; background: #fff; }
+.check.si { background: #FF073A; border-color: #FF073A; }
+.combo { border: 1px solid #bbb; border-radius: 6px; background: #fff; padding: 8px 12px; display: flex;
+         align-items: center; justify-content: space-between; gap: 18px; font-size: 13px; color: #444; }
+.combo::after { content: ''; width: 7px; height: 7px; border-right: 2px solid #666; border-bottom: 2px solid #666;
+                transform: rotate(45deg) translateY(-3px); }
+.tabs { background: #ececec; border-radius: 12px; height: 62px; display: flex; justify-content: center;
+        align-items: center; gap: 46px; flex: none; }
+.tab { font-size: 18px; font-weight: 500; color: #555; padding: 8px 10px; }
+.tab.activo { color: #FF073A; border-bottom: 3px solid #FF073A; }
+.subtabs { display: flex; gap: 26px; font-size: 14px; color: #555; }
+.subtabs .activo { color: #222; border-bottom: 2px solid #FF073A; padding-bottom: 6px; }
+.isla { background: #efefef; border: 1px solid #dadada; border-radius: 12px; padding: 16px 18px; }
+.subisla { background: #e4e4e4; border: 1px solid #d2d2d2; border-radius: 10px; padding: 10px 14px; }
+.fila { display: flex; gap: 20px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.ayuda { display: inline-flex; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #999;
+         font-size: 8px; font-weight: 700; align-items: center; justify-content: center; color: #777;
+         vertical-align: middle; margin-left: 4px; }
+.slider { display: flex; align-items: center; gap: 12px; }
+.slider .riel { flex: 1; height: 4px; background: #cfcfcf; border-radius: 2px; position: relative; }
+.slider .riel i { position: absolute; left: 0; top: 0; bottom: 0; background: #888; border-radius: 2px; }
+.slider .riel b { position: absolute; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: #fff;
+                  border: 2px solid #777; margin-left: -9px; }
+.slider .valor { width: 70px; border: 1px solid #ccc; background: #fff; border-radius: 4px; text-align: center;
+                 padding: 4px 0; font-size: 12px; color: #555; }
+.toggle { width: 46px; height: 24px; border-radius: 12px; background: #cfcfcf; position: relative; flex: none; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+.toggle.si { background: #FF073A; }
+.toggle.si::after { left: 25px; }
+.ph { background: #dcdcdc; border: 1px solid #c4c4c4; border-radius: 8px; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center; color: #555; font-size: 12px; font-weight: 500; }
+.ph.x { background: linear-gradient(to top right, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)),
+                     linear-gradient(to top left, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)), #e3e3e3; }
+.barra { height: 26px; border-radius: 13px; background: #e2e2e2; border: 1px solid #d0d0d0; position: relative;
+         overflow: hidden; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.barra i { position: absolute; left: 0; top: 0; bottom: 0; opacity: .55; }
+.barra span { position: relative; }
+.n { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: #FF073A; color: #fff;
+     font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+     box-shadow: 0 0 0 3px #fff; z-index: 10; }
+.ni { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; background: #FF073A; color: #fff;
+      font-weight: 700; font-size: 13px; align-items: center; justify-content: center; flex: none;
+      vertical-align: middle; margin: 0 4px; box-shadow: 0 0 0 2px #fff; font-style: normal; }
+.marco-rojo { outline: 2.5px solid #FF073A; outline-offset: -1px; }
+.region { position: absolute; border: 2px dashed #FF073A; border-radius: 8px; z-index: 9; }
+.leyenda { position: absolute; background: #fff; color: #FF073A; font-weight: 700; font-size: 13px; padding: 2px 8px;
+           border: 1.5px solid #FF073A; border-radius: 6px; z-index: 10; white-space: nowrap; }
+</style></head><body><div style="padding:20px;width:1160px"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px 40px">
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Botón píldora</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill">Normal</span><span class="pill" style="background:#FF073A;border-color:#FF073A;color:#fff">Encima</span><span class="pill off">Desactivado</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Botón principal y mini</div><div style="display:flex;gap:8px;align-items:center"><span class="pill primario">Reproducir</span><span class="pill mini">Mín</span><span class="pill mini on">900</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Indicador de estado</div><div style="display:flex;gap:16px"><span class="estado ok">Conectado</span><span class="estado ko">Desconectado</span><span class="estado" style="color:#e0a63a">Esperando</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Pestañas de sección</div><div class="tabs" style="height:46px;gap:26px;padding:0 20px"><span class="tab activo" style="font-size:15px">Activa</span><span class="tab" style="font-size:15px">Otra</span><span class="tab" style="font-size:15px">Otra</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Subpestañas</div><div class="subtabs"><span class="activo">Carrera</span><span>Reglamento</span><span>Tandas</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Interruptor</div><div style="display:flex;gap:14px;align-items:center"><span class="toggle si"></span> sí <span class="toggle"></span> no</div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Deslizador con valor editable</div><div style="width:320px"><div class="col" style="gap:4px"><div>Fuerza máxima<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:65%"></i><b style="left:65%"></b></div><div class="valor">11.2 A</div></div></div></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Desplegable</div><div class="combo" style="width:240px">Como el general</div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Insignia de ayuda</div><div>Zona muerta <span class="ayuda">!</span> <span class="suave" style="font-size:12px">&#8594; explicación al pasar el ratón</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Isla (tarjeta)</div><div class="isla" style="width:300px;height:90px"><div class="h3">Título de isla</div></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Sub-isla</div><div class="isla" style="width:300px;padding:10px"><div class="subisla">Fila dentro de una isla</div></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Lectura en vivo</div><div class="barra" style="width:300px"><i style="width:52%;background:#FF073A"></i><span>41.6 kg (52 %)</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Preajuste</div><div style="display:flex;gap:6px"><span style="border:1px solid #c4c4c4;border-radius:5px;padding:3px;background:#fff"><svg style="width:22px;height:22px;display:block" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="3.0,29.0 6.2,25.6 9.5,22.5 12.8,19.1 16.0,16.0 19.2,12.6 22.5,9.5 25.8,6.1 29.0,3.0" stroke="#666" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span><span style="border:1px solid #c4c4c4;border-radius:5px;padding:3px;background:#fff"><svg style="width:22px;height:22px;display:block" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="3.0,29.0 7.3,28.0 11.7,26.4 16.0,23.8 20.3,19.1 24.7,12.1 29.0,3.0" stroke="#666" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span><span style="border:1px solid #c4c4c4;border-radius:5px;padding:3px;background:#fff"><svg style="width:22px;height:22px;display:block" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="3.0,29.0 6.2,27.7 9.5,25.9 12.8,23.3 16.0,19.9 19.2,16.0 22.5,11.8 25.8,7.7 29.0,3.0" stroke="#666" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Barra de perfil</div><div style="display:flex;gap:8px;align-items:center"><span class="check si"></span> Auto <div class="combo" style="width:110px">GT3</div><span class="pill mini">Guardar</span></div></div>
+<div class="col" style="gap:10px;align-items:flex-start"><div class="h3" style="color:#222">Puntos de paso (asistente)</div><div style="display:flex;gap:8px;align-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#FF073A"></span><span style="width:10px;height:10px;border-radius:50%;background:#FF073A"></span><span style="width:26px;height:10px;border-radius:5px;background:#FF073A"></span><span style="width:10px;height:10px;border-radius:50%;background:#ccc"></span><span style="width:10px;height:10px;border-radius:50%;background:#ccc"></span></div></div>
+</div></div></body></html>

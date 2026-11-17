@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Bold.ttf'); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #ffffff; font-family: Roboto, sans-serif; color: #333; font-size: 13px; }
+.lienzo { position: relative; padding: 18px; }
+.ventana { position: relative; width: 1240px; height: 800px; border: 2px solid #444; border-radius: 6px;
+           overflow: hidden; display: flex; flex-direction: column; background: #fafafa; }
+.titlebar { height: 32px; background: #3a3a3a; color: #eee; display: flex; align-items: center;
+            padding: 0 12px; font-size: 12px; gap: 8px; flex: none; }
+.titlebar .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.titlebar .ctrl { margin-left: auto; display: flex; gap: 22px; color: #ccc; font-size: 14px; }
+.cuerpo { flex: 1; display: flex; min-height: 0; }
+.sidebar { width: 70px; background: #e2e2e2; border-right: 1px solid #c8c8c8; display: flex;
+           flex-direction: column; align-items: center; padding-top: 14px; gap: 20px; flex: none; }
+.sidebar .marca { font-weight: 700; font-style: italic; font-size: 22px; color: #555; margin-bottom: 6px; }
+.sidebar .item { position: relative; width: 70px; display: flex; justify-content: center; }
+.sidebar .item.activo::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background: #FF073A; }
+.sidebar .abajo { margin-top: auto; margin-bottom: 16px; }
+.pagina { flex: 1; padding: 12px 26px 22px 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.footer { height: 28px; background: #3a3a3a; color: #ddd; font-size: 11px; display: flex;
+          align-items: center; padding: 0 12px; flex: none; }
+.footer .centro { margin: 0 auto; }
+.footer .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.cabecera { display: flex; align-items: center; gap: 14px; min-height: 40px; }
+.h1 { font-size: 21px; font-weight: 700; color: #222; }
+.h2 { font-size: 17px; font-weight: 700; color: #222; }
+.h3 { font-size: 14px; font-weight: 500; color: #555; }
+.suave { color: #888; }
+.estado { font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ok { color: #2eb857; } .ko { color: #FF073A; }
+.pill { border: 1.5px solid #444; border-radius: 999px; padding: 6px 20px; font-size: 12px; font-weight: 700;
+        color: #333; background: #fff; white-space: nowrap; display: inline-block; text-align: center; }
+.pill.primario { background: #FF073A; border-color: #FF073A; color: #fff; padding: 8px 30px; }
+.pill.off { border-color: #c4c4c4; color: #b0b0b0; background: #f0f0f0; }
+.pill.mini { padding: 3px 12px; font-size: 11px; }
+.pill.on { background: #444; color: #fff; }
+.perfil { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; }
+.check { width: 16px; height: 16px; border: 1.5px solid #999; border-radius: 3px; display: inline-block; background: #fff; }
+.check.si { background: #FF073A; border-color: #FF073A; }
+.combo { border: 1px solid #bbb; border-radius: 6px; background: #fff; padding: 8px 12px; display: flex;
+         align-items: center; justify-content: space-between; gap: 18px; font-size: 13px; color: #444; }
+.combo::after { content: ''; width: 7px; height: 7px; border-right: 2px solid #666; border-bottom: 2px solid #666;
+                transform: rotate(45deg) translateY(-3px); }
+.tabs { background: #ececec; border-radius: 12px; height: 62px; display: flex; justify-content: center;
+        align-items: center; gap: 46px; flex: none; }
+.tab { font-size: 18px; font-weight: 500; color: #555; padding: 8px 10px; }
+.tab.activo { color: #FF073A; border-bottom: 3px solid #FF073A; }
+.subtabs { display: flex; gap: 26px; font-size: 14px; color: #555; }
+.subtabs .activo { color: #222; border-bottom: 2px solid #FF073A; padding-bottom: 6px; }
+.isla { background: #efefef; border: 1px solid #dadada; border-radius: 12px; padding: 16px 18px; }
+.subisla { background: #e4e4e4; border: 1px solid #d2d2d2; border-radius: 10px; padding: 10px 14px; }
+.fila { display: flex; gap: 20px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.ayuda { display: inline-flex; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #999;
+         font-size: 8px; font-weight: 700; align-items: center; justify-content: center; color: #777;
+         vertical-align: middle; margin-left: 4px; }
+.slider { display: flex; align-items: center; gap: 12px; }
+.slider .riel { flex: 1; height: 4px; background: #cfcfcf; border-radius: 2px; position: relative; }
+.slider .riel i { position: absolute; left: 0; top: 0; bottom: 0; background: #888; border-radius: 2px; }
+.slider .riel b { position: absolute; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: #fff;
+                  border: 2px solid #777; margin-left: -9px; }
+.slider .valor { width: 70px; border: 1px solid #ccc; background: #fff; border-radius: 4px; text-align: center;
+                 padding: 4px 0; font-size: 12px; color: #555; }
+.toggle { width: 46px; height: 24px; border-radius: 12px; background: #cfcfcf; position: relative; flex: none; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+.toggle.si { background: #FF073A; }
+.toggle.si::after { left: 25px; }
+.ph { background: #dcdcdc; border: 1px solid #c4c4c4; border-radius: 8px; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center; color: #555; font-size: 12px; font-weight: 500; }
+.ph.x { background: linear-gradient(to top right, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)),
+                     linear-gradient(to top left, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)), #e3e3e3; }
+.barra { height: 26px; border-radius: 13px; background: #e2e2e2; border: 1px solid #d0d0d0; position: relative;
+         overflow: hidden; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.barra i { position: absolute; left: 0; top: 0; bottom: 0; opacity: .55; }
+.barra span { position: relative; }
+.n { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: #FF073A; color: #fff;
+     font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+     box-shadow: 0 0 0 3px #fff; z-index: 10; }
+.ni { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; background: #FF073A; color: #fff;
+      font-weight: 700; font-size: 13px; align-items: center; justify-content: center; flex: none;
+      vertical-align: middle; margin: 0 4px; box-shadow: 0 0 0 2px #fff; font-style: normal; }
+.marco-rojo { outline: 2.5px solid #FF073A; outline-offset: -1px; }
+.region { position: absolute; border: 2px dashed #FF073A; border-radius: 8px; z-index: 9; }
+.leyenda { position: absolute; background: #fff; color: #FF073A; font-weight: 700; font-size: 13px; padding: 2px 8px;
+           border: 1.5px solid #FF073A; border-radius: 6px; z-index: 10; white-space: nowrap; }
+</style></head><body><div style="padding:20px;width:1060px"><div class="h2" style="margin-bottom:10px">a) Familia Roboto</div><div style="display:flex;gap:12px"><div style="flex:1;border:1px solid #ddd;border-radius:10px;padding:12px 16px"><div style="font-size:12px;color:#888">Roboto Regular · 400</div><div style="font-weight:400;font-size:38px;color:#222">Aa</div><div style="font-weight:400;font-size:14px;color:#444">ABCDEFGHIJKLMNÑ abcdefghijklmnñ<br>0123456789 · 1:58.412 · 41.6 kg</div></div><div style="flex:1;border:1px solid #ddd;border-radius:10px;padding:12px 16px"><div style="font-size:12px;color:#888">Roboto Medium · 500</div><div style="font-weight:500;font-size:38px;color:#222">Aa</div><div style="font-weight:500;font-size:14px;color:#444">ABCDEFGHIJKLMNÑ abcdefghijklmnñ<br>0123456789 · 1:58.412 · 41.6 kg</div></div><div style="flex:1;border:1px solid #ddd;border-radius:10px;padding:12px 16px"><div style="font-size:12px;color:#888">Roboto Bold · 700</div><div style="font-weight:700;font-size:38px;color:#222">Aa</div><div style="font-weight:700;font-size:14px;color:#444">ABCDEFGHIJKLMNÑ abcdefghijklmnñ<br>0123456789 · 1:58.412 · 41.6 kg</div></div></div><div class="h2" style="margin:22px 0 4px">b) Escala tipográfica</div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Título de página</div><div style="font-size:12px;color:#888">14 pt · semi-negrita</div></div><div style="font-size:34px;font-weight:600;color:#222">Ingeniero de pista</div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Pestañas y títulos de tarjeta</div><div style="font-size:12px;color:#888">13 pt · negrita</div></div><div style="font-size:31px;font-weight:700;color:#222">Configuración &nbsp; Freno</div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Texto general</div><div style="font-size:12px;color:#888">10 pt · regular</div></div><div style="font-size:24px;font-weight:400;color:#333">Fuerza máxima del volante &nbsp; 11.2 A</div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Texto secundario</div><div style="font-size:12px;color:#888">10 pt · regular</div></div><div style="font-size:24px;font-weight:400;color:#8a8178">Se aplicará al volver a abrir la aplicación.</div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Barra de título</div><div style="font-size:12px;color:#888">9 pt · regular</div></div><div style="font-size:22px;font-weight:400;color:#333">VH SimGrid</div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Botones de píldora</div><div style="font-size:12px;color:#888">9 pt · negrita</div></div><div style="font-size:22px;font-weight:700;color:#333"><span class="pill" style="font-size:inherit;padding:6px 26px">Calibrar</span></div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Botones pequeños y preajustes</div><div style="font-size:12px;color:#888">8 pt · negrita</div></div><div style="font-size:19px;font-weight:700;color:#333"><span class="pill mini" style="font-size:inherit">Mín</span> <span class="pill mini on" style="font-size:inherit">900</span></div></div><div style="display:flex;align-items:center;gap:20px;padding:10px 0;border-bottom:1px solid #eee"><div style="width:270px;flex:none"><div style="font-weight:700;font-size:14px">Insignia de ayuda</div><div style="font-size:12px;color:#888">7 pt · negrita</div></div><div style="font-size:17px;font-weight:700;color:#333">Zona muerta <span class="ayuda" style="width:22px;height:22px;font-size:inherit">!</span></div></div></div></body></html>

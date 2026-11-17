@@ -189,63 +189,67 @@
 \contentsline {subsection}{\numberline {8.2.3}Pedalera VH Axis}{151}{subsection.380}%
 \contentsline {paragraph}{Requisitos.}{151}{paragraph*.381}%
 \contentsline {paragraph}{Electrónica.}{151}{paragraph*.382}%
-\contentsline {paragraph}{Concepto mecánico.}{152}{paragraph*.385}%
+\contentsline {paragraph}{Concepto mecánico.}{153}{paragraph*.385}%
 \contentsline {subsection}{\numberline {8.2.4}Base VH Grid DD15}{153}{subsection.387}%
 \contentsline {paragraph}{Requisitos.}{153}{paragraph*.388}%
-\contentsline {paragraph}{Electrónica.}{153}{paragraph*.389}%
+\contentsline {paragraph}{Electrónica.}{154}{paragraph*.389}%
 \contentsline {paragraph}{Concepto mecánico.}{155}{paragraph*.392}%
 \contentsline {section}{\numberline {8.3}Arquitectura tecnológica}{156}{section.394}%
 \contentsline {subsection}{\numberline {8.3.1}Firmware}{156}{subsection.395}%
-\contentsline {paragraph}{Separación entre el juego y la configuración.}{157}{paragraph*.398}%
-\contentsline {paragraph}{Parámetros en RAM y escritura bajo demanda.}{157}{paragraph*.399}%
+\contentsline {paragraph}{Separación entre el juego y la configuración.}{158}{paragraph*.398}%
+\contentsline {paragraph}{Parámetros en RAM y escritura bajo demanda.}{158}{paragraph*.399}%
 \contentsline {paragraph}{Base VH Grid DD15.}{158}{paragraph*.400}%
-\contentsline {paragraph}{Pedalera VH Axis y aro VH Formula Apex.}{159}{paragraph*.403}%
-\contentsline {subsection}{\numberline {8.3.2}Aplicación}{160}{subsection.404}%
-\contentsline {paragraph}{Interfaz: vistas y controladores.}{161}{paragraph*.407}%
+\contentsline {paragraph}{Pedalera VH Axis y aro VH Formula Apex.}{160}{paragraph*.403}%
+\contentsline {subsection}{\numberline {8.3.2}Aplicación}{161}{subsection.404}%
+\contentsline {paragraph}{Interfaz: vistas y controladores.}{162}{paragraph*.407}%
 \contentsline {paragraph}{Lógica.}{162}{paragraph*.408}%
-\contentsline {paragraph}{Ejecución concurrente.}{162}{paragraph*.409}%
+\contentsline {paragraph}{Ejecución concurrente.}{163}{paragraph*.409}%
 \contentsline {paragraph}{Ejemplo de funcionamiento.}{163}{paragraph*.410}%
-\contentsline {section}{\numberline {8.4}Protocolos de comunicación}{163}{section.411}%
-\contentsline {subsection}{\numberline {8.4.1}Identidad USB}{164}{subsection.417}%
-\contentsline {subsection}{\numberline {8.4.2}Comunicación con la base}{165}{subsection.419}%
-\contentsline {paragraph}{Interfaz HID PID.}{165}{paragraph*.420}%
-\contentsline {paragraph}{Canal \textit {vendor}.}{165}{paragraph*.422}%
-\contentsline {subsection}{\numberline {8.4.3}Comunicación con la pedalera y el aro}{167}{subsection.425}%
-\contentsline {subsection}{\numberline {8.4.4}Dash en dispositivos móviles}{168}{subsection.427}%
-\contentsline {section}{\numberline {8.5}Diseño de la persistencia}{169}{section.433}%
-\contentsline {subsection}{\numberline {8.5.1}Periféricos}{170}{subsection.434}%
-\contentsline {subsection}{\numberline {8.5.2}Aplicación}{171}{subsection.436}%
-\contentsline {section}{\numberline {8.6}Experiencia de usuario (UX)}{173}{section.438}%
-\contentsline {subsection}{\numberline {8.6.1}Primera configuración}{174}{subsection.440}%
-\contentsline {subsection}{\numberline {8.6.2}Calibración de los pedales}{175}{subsection.442}%
-\contentsline {subsection}{\numberline {8.6.3}Actualización de firmware}{176}{subsection.444}%
-\contentsline {subsection}{\numberline {8.6.4}Perfiles automáticos}{178}{subsection.446}%
-\contentsline {section}{\numberline {8.7}Interfaces de usuario (UI)}{179}{section.448}%
-\contentsline {subsection}{\numberline {8.7.1}Estructura general}{179}{subsection.449}%
-\contentsline {subsection}{\numberline {8.7.2}Página de inicio}{179}{subsection.450}%
-\contentsline {subsection}{\numberline {8.7.3}Página de configuración de la base}{179}{subsection.451}%
-\contentsline {subsection}{\numberline {8.7.4}Página de configuración del aro}{179}{subsection.452}%
-\contentsline {subsection}{\numberline {8.7.5}Página de configuración de la pedalera}{179}{subsection.453}%
-\contentsline {subsection}{\numberline {8.7.6}Biblioteca de dash y editor}{179}{subsection.454}%
-\contentsline {subsection}{\numberline {8.7.7}Ingeniero de pista}{179}{subsection.455}%
-\contentsline {subsection}{\numberline {8.7.8}Análisis de la telemetría}{179}{subsection.456}%
-\contentsline {subsection}{\numberline {8.7.9}Ajustes de la aplicación}{179}{subsection.457}%
-\contentsline {section}{\numberline {8.8}Guía de estilos}{179}{section.458}%
-\contentsline {subsection}{\numberline {8.8.1}Paleta de colores}{179}{subsection.459}%
-\contentsline {subsection}{\numberline {8.8.2}Tipografía}{179}{subsection.460}%
-\contentsline {subsection}{\numberline {8.8.3}Iconografía}{179}{subsection.461}%
-\contentsline {subsection}{\numberline {8.8.4}Componentes reutilizables}{179}{subsection.462}%
-\contentsline {section}{\numberline {8.9}Diseño de pruebas y validación}{179}{section.463}%
-\contentsline {chapter}{\numberline {9}Implementación}{180}{chapter.464}%
-\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{180}{section.465}%
-\contentsline {section}{\numberline {9.2}Implementación de los componentes}{180}{section.466}%
-\contentsline {subsubsection}{Componente 1}{180}{subsubsection*.467}%
-\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{180}{section.468}%
-\contentsline {chapter}{\numberline {10}Resultados y análisis}{181}{chapter.469}%
-\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{181}{section.470}%
-\contentsline {section}{\numberline {10.2}Análisis de los resultados}{181}{section.471}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{182}{chapter.472}%
-\contentsline {section}{\numberline {11.1}Trabajo futuro}{182}{section.473}%
-\contentsline {chapter}{\numberline {A}Título del apéndice}{183}{appendix.474}%
-\contentsline {chapter}{Bibliografía}{184}{appendix*.475}%
-\contentsline {chapter}{Glosario}{193}{section*.476}%
+\contentsline {section}{\numberline {8.4}Protocolos de comunicación}{164}{section.411}%
+\contentsline {subsection}{\numberline {8.4.1}Identidad USB}{165}{subsection.417}%
+\contentsline {subsection}{\numberline {8.4.2}Comunicación con la base}{166}{subsection.419}%
+\contentsline {paragraph}{Interfaz HID PID.}{166}{paragraph*.420}%
+\contentsline {paragraph}{Canal \textit {vendor}.}{166}{paragraph*.422}%
+\contentsline {subsection}{\numberline {8.4.3}Comunicación con la pedalera y el aro}{168}{subsection.425}%
+\contentsline {subsection}{\numberline {8.4.4}Dash en dispositivos móviles}{169}{subsection.427}%
+\contentsline {section}{\numberline {8.5}Diseño de la persistencia}{170}{section.433}%
+\contentsline {subsection}{\numberline {8.5.1}Periféricos}{171}{subsection.434}%
+\contentsline {subsection}{\numberline {8.5.2}Aplicación}{172}{subsection.436}%
+\contentsline {section}{\numberline {8.6}Experiencia de usuario (UX)}{174}{section.438}%
+\contentsline {subsection}{\numberline {8.6.1}Primera configuración}{175}{subsection.440}%
+\contentsline {subsection}{\numberline {8.6.2}Calibración de los pedales}{176}{subsection.442}%
+\contentsline {subsection}{\numberline {8.6.3}Actualización de firmware}{177}{subsection.444}%
+\contentsline {subsection}{\numberline {8.6.4}Perfiles automáticos}{179}{subsection.446}%
+\contentsline {section}{\numberline {8.7}Interfaces de usuario (UI)}{180}{section.448}%
+\contentsline {subsection}{\numberline {8.7.1}Estructura general}{180}{subsection.449}%
+\contentsline {subsection}{\numberline {8.7.2}Página de inicio}{182}{subsection.457}%
+\contentsline {subsection}{\numberline {8.7.3}Página de configuración de la base}{184}{subsection.465}%
+\contentsline {subsection}{\numberline {8.7.4}Página de configuración del aro}{185}{subsection.473}%
+\contentsline {subsection}{\numberline {8.7.5}Página de configuración de la pedalera}{186}{subsection.482}%
+\contentsline {subsection}{\numberline {8.7.6}Biblioteca de dash y editor}{188}{subsection.491}%
+\contentsline {subsection}{\numberline {8.7.7}Ingeniero de pista}{190}{subsection.509}%
+\contentsline {subsection}{\numberline {8.7.8}Análisis de la telemetría}{193}{subsection.525}%
+\contentsline {subsection}{\numberline {8.7.9}Ajustes de la aplicación}{195}{subsection.540}%
+\contentsline {section}{\numberline {8.8}Guía de estilos}{196}{section.548}%
+\contentsline {subsection}{\numberline {8.8.1}Paleta de colores}{196}{subsection.549}%
+\contentsline {subsection}{\numberline {8.8.2}Tipografía}{197}{subsection.551}%
+\contentsline {subsection}{\numberline {8.8.3}Iconografía}{197}{subsection.553}%
+\contentsline {subsection}{\numberline {8.8.4}Componentes reutilizables}{198}{subsection.555}%
+\contentsline {section}{\numberline {8.9}Diseño de pruebas y validación}{200}{section.557}%
+\contentsline {subsection}{\numberline {8.9.1}Pruebas automáticas}{200}{subsection.559}%
+\contentsline {subsection}{\numberline {8.9.2}Integración continua}{202}{subsection.561}%
+\contentsline {subsection}{\numberline {8.9.3}Pruebas de los periféricos en banco}{202}{subsection.565}%
+\contentsline {subsection}{\numberline {8.9.4}Validación en pista}{203}{subsection.566}%
+\contentsline {chapter}{\numberline {9}Implementación}{205}{chapter.567}%
+\contentsline {section}{\numberline {9.1}Entorno y estructura del proyecto}{205}{section.568}%
+\contentsline {section}{\numberline {9.2}Implementación de los componentes}{205}{section.569}%
+\contentsline {subsubsection}{Componente 1}{205}{subsubsection*.570}%
+\contentsline {section}{\numberline {9.3}Desafíos encontrados y soluciones adoptadas}{205}{section.571}%
+\contentsline {chapter}{\numberline {10}Resultados y análisis}{206}{chapter.572}%
+\contentsline {section}{\numberline {10.1}Resultados de las pruebas y validación}{206}{section.573}%
+\contentsline {section}{\numberline {10.2}Análisis de los resultados}{206}{section.574}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{207}{chapter.575}%
+\contentsline {section}{\numberline {11.1}Trabajo futuro}{207}{section.576}%
+\contentsline {chapter}{\numberline {A}Título del apéndice}{208}{appendix.577}%
+\contentsline {chapter}{Bibliografía}{209}{appendix*.578}%
+\contentsline {chapter}{Glosario}{218}{section*.579}%

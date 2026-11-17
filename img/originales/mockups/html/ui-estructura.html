@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: Roboto; src: url('file:///C:/Users/Alejandro/Desktop/Nueva carpeta/ui/configurador/assets/fuentes/Roboto-Bold.ttf'); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #ffffff; font-family: Roboto, sans-serif; color: #333; font-size: 13px; }
+.lienzo { position: relative; padding: 18px; }
+.ventana { position: relative; width: 1240px; height: 800px; border: 2px solid #444; border-radius: 6px;
+           overflow: hidden; display: flex; flex-direction: column; background: #fafafa; }
+.titlebar { height: 32px; background: #3a3a3a; color: #eee; display: flex; align-items: center;
+            padding: 0 12px; font-size: 12px; gap: 8px; flex: none; }
+.titlebar .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.titlebar .ctrl { margin-left: auto; display: flex; gap: 22px; color: #ccc; font-size: 14px; }
+.cuerpo { flex: 1; display: flex; min-height: 0; }
+.sidebar { width: 70px; background: #e2e2e2; border-right: 1px solid #c8c8c8; display: flex;
+           flex-direction: column; align-items: center; padding-top: 14px; gap: 20px; flex: none; }
+.sidebar .marca { font-weight: 700; font-style: italic; font-size: 22px; color: #555; margin-bottom: 6px; }
+.sidebar .item { position: relative; width: 70px; display: flex; justify-content: center; }
+.sidebar .item.activo::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background: #FF073A; }
+.sidebar .abajo { margin-top: auto; margin-bottom: 16px; }
+.pagina { flex: 1; padding: 12px 26px 22px 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.footer { height: 28px; background: #3a3a3a; color: #ddd; font-size: 11px; display: flex;
+          align-items: center; padding: 0 12px; flex: none; }
+.footer .centro { margin: 0 auto; }
+.footer .logo { font-weight: 700; color: #FF073A; font-style: italic; }
+.cabecera { display: flex; align-items: center; gap: 14px; min-height: 40px; }
+.h1 { font-size: 21px; font-weight: 700; color: #222; }
+.h2 { font-size: 17px; font-weight: 700; color: #222; }
+.h3 { font-size: 14px; font-weight: 500; color: #555; }
+.suave { color: #888; }
+.estado { font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ok { color: #2eb857; } .ko { color: #FF073A; }
+.pill { border: 1.5px solid #444; border-radius: 999px; padding: 6px 20px; font-size: 12px; font-weight: 700;
+        color: #333; background: #fff; white-space: nowrap; display: inline-block; text-align: center; }
+.pill.primario { background: #FF073A; border-color: #FF073A; color: #fff; padding: 8px 30px; }
+.pill.off { border-color: #c4c4c4; color: #b0b0b0; background: #f0f0f0; }
+.pill.mini { padding: 3px 12px; font-size: 11px; }
+.pill.on { background: #444; color: #fff; }
+.perfil { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; }
+.check { width: 16px; height: 16px; border: 1.5px solid #999; border-radius: 3px; display: inline-block; background: #fff; }
+.check.si { background: #FF073A; border-color: #FF073A; }
+.combo { border: 1px solid #bbb; border-radius: 6px; background: #fff; padding: 8px 12px; display: flex;
+         align-items: center; justify-content: space-between; gap: 18px; font-size: 13px; color: #444; }
+.combo::after { content: ''; width: 7px; height: 7px; border-right: 2px solid #666; border-bottom: 2px solid #666;
+                transform: rotate(45deg) translateY(-3px); }
+.tabs { background: #ececec; border-radius: 12px; height: 62px; display: flex; justify-content: center;
+        align-items: center; gap: 46px; flex: none; }
+.tab { font-size: 18px; font-weight: 500; color: #555; padding: 8px 10px; }
+.tab.activo { color: #FF073A; border-bottom: 3px solid #FF073A; }
+.subtabs { display: flex; gap: 26px; font-size: 14px; color: #555; }
+.subtabs .activo { color: #222; border-bottom: 2px solid #FF073A; padding-bottom: 6px; }
+.isla { background: #efefef; border: 1px solid #dadada; border-radius: 12px; padding: 16px 18px; }
+.subisla { background: #e4e4e4; border: 1px solid #d2d2d2; border-radius: 10px; padding: 10px 14px; }
+.fila { display: flex; gap: 20px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.ayuda { display: inline-flex; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #999;
+         font-size: 8px; font-weight: 700; align-items: center; justify-content: center; color: #777;
+         vertical-align: middle; margin-left: 4px; }
+.slider { display: flex; align-items: center; gap: 12px; }
+.slider .riel { flex: 1; height: 4px; background: #cfcfcf; border-radius: 2px; position: relative; }
+.slider .riel i { position: absolute; left: 0; top: 0; bottom: 0; background: #888; border-radius: 2px; }
+.slider .riel b { position: absolute; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: #fff;
+                  border: 2px solid #777; margin-left: -9px; }
+.slider .valor { width: 70px; border: 1px solid #ccc; background: #fff; border-radius: 4px; text-align: center;
+                 padding: 4px 0; font-size: 12px; color: #555; }
+.toggle { width: 46px; height: 24px; border-radius: 12px; background: #cfcfcf; position: relative; flex: none; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+.toggle.si { background: #FF073A; }
+.toggle.si::after { left: 25px; }
+.ph { background: #dcdcdc; border: 1px solid #c4c4c4; border-radius: 8px; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center; color: #555; font-size: 12px; font-weight: 500; }
+.ph.x { background: linear-gradient(to top right, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)),
+                     linear-gradient(to top left, transparent calc(50% - 1px), #c4c4c4, transparent calc(50% + 1px)), #e3e3e3; }
+.barra { height: 26px; border-radius: 13px; background: #e2e2e2; border: 1px solid #d0d0d0; position: relative;
+         overflow: hidden; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.barra i { position: absolute; left: 0; top: 0; bottom: 0; opacity: .55; }
+.barra span { position: relative; }
+.n { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: #FF073A; color: #fff;
+     font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+     box-shadow: 0 0 0 3px #fff; z-index: 10; }
+.ni { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; background: #FF073A; color: #fff;
+      font-weight: 700; font-size: 13px; align-items: center; justify-content: center; flex: none;
+      vertical-align: middle; margin: 0 4px; box-shadow: 0 0 0 2px #fff; font-style: normal; }
+.marco-rojo { outline: 2.5px solid #FF073A; outline-offset: -1px; }
+.region { position: absolute; border: 2px dashed #FF073A; border-radius: 8px; z-index: 9; }
+.leyenda { position: absolute; background: #fff; color: #FF073A; font-weight: 700; font-size: 13px; padding: 2px 8px;
+           border: 1.5px solid #FF073A; border-radius: 6px; z-index: 10; white-space: nowrap; }
+</style></head><body>
+<div class="lienzo"><div class="ventana">
+  <div class="titlebar"><span class="logo">VH</span> VH SimGrid<span class="ctrl"><span>&#8211;</span><span>&#9633;</span><span>&#10005;</span></span></div>
+  <div class="cuerpo"><div class="sidebar"><div class="marca">VH</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.33337 15.8333V8.33332C3.33337 8.06943 3.39254 7.81943 3.51087 7.58332C3.62921 7.34721 3.79226 7.15277 4.00004 6.99999L9.00004 3.24999C9.29171 3.02777 9.62504 2.91666 10 2.91666C10.375 2.91666 10.7084 3.02777 11 3.24999L16 6.99999C16.2084 7.15277 16.3717 7.34721 16.49 7.58332C16.6084 7.81943 16.6673 8.06943 16.6667 8.33332V15.8333C16.6667 16.2917 16.5034 16.6842 16.1767 17.0108C15.85 17.3375 15.4578 17.5005 15 17.5H12.5C12.2639 17.5 12.0662 17.42 11.9067 17.26C11.7473 17.1 11.6673 16.9022 11.6667 16.6667V12.5C11.6667 12.2639 11.5867 12.0661 11.4267 11.9067C11.2667 11.7472 11.0689 11.6672 10.8334 11.6667H9.16671C8.9306 11.6667 8.73282 11.7467 8.57337 11.9067C8.41393 12.0667 8.33393 12.2644 8.33337 12.5V16.6667C8.33337 16.9028 8.25337 17.1008 8.09337 17.2608C7.93337 17.4208 7.7356 17.5005 7.50004 17.5H5.00004C4.54171 17.5 4.14949 17.3369 3.82337 17.0108C3.49726 16.6847 3.33393 16.2922 3.33337 15.8333Z" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461 445">
+<path d="M 180.75 410.55 C172.37,419.62 162.00,413.26 162.00,399.05 L 162.00 393.00 L 122.64 393.00 L 114.44 401.00 C105.60,409.63 102.98,410.63 97.20,407.57 C95.72,406.79 81.82,393.40 66.32,377.82 C42.38,353.76 38.05,348.95 37.48,345.86 C36.61,341.10 37.75,339.08 46.13,330.36 L 53.00 323.21 L 53.00 284.00 L 46.45 284.00 C36.15,284.00 32.00,280.66 32.00,272.38 C32.00,269.81 32.80,268.05 34.92,265.92 C37.59,263.25 38.45,263.00 44.80,263.00 C52.79,263.00 53.77,262.26 53.43,256.50 C53.29,254.30 53.14,247.44 53.09,241.25 L 53.00 230.00 L 45.90 230.00 C39.16,230.00 38.63,229.83 35.40,226.60 C32.78,223.98 32.00,222.37 32.00,219.55 C32.00,211.49 36.39,208.00 46.53,208.00 C49.54,208.00 52.15,207.47 52.70,206.75 C53.22,206.06 53.61,198.98 53.57,191.00 L 53.50 176.50 L 46.45 176.00 C35.90,175.25 32.00,171.88 32.00,163.49 C32.00,161.36 32.89,159.07 34.41,157.31 C36.58,154.78 37.62,154.45 44.66,154.00 L 52.50 153.50 L 52.77 134.09 L 53.04 114.69 L 45.60 107.04 C37.61,98.83 35.68,94.45 38.01,89.86 C39.66,86.62 93.85,32.21 97.20,30.43 C103.31,27.19 107.63,28.93 116.97,38.43 L 123.44 45.00 L 162.00 45.00 L 162.00 38.97 C162.00,32.10 163.90,26.66 166.85,25.08 C169.40,23.71 176.53,23.68 179.04,25.02 C182.11,26.66 183.44,30.02 183.99,37.50 L 184.50 44.50 L 216.50 44.50 L 217.00 36.66 C217.45,29.62 217.78,28.58 220.31,26.41 C224.51,22.80 231.18,23.03 235.08,26.92 C237.51,29.35 238.03,30.74 238.17,35.17 C238.27,38.10 238.39,41.40 238.44,42.50 C238.53,44.41 239.24,44.50 254.52,44.50 L 270.50 44.50 L 271.06 37.50 C271.93,26.69 274.17,23.98 282.18,24.02 C289.82,24.06 293.00,28.30 293.00,38.43 L 293.00 45.00 L 331.56 45.00 L 338.03 38.43 C347.37,28.94 351.68,27.19 357.80,30.43 C359.28,31.21 373.44,44.84 389.25,60.72 C416.13,87.70 418.00,89.81 418.00,93.14 C418.00,97.25 414.88,101.93 407.12,109.46 L 402.00 114.42 L 402.00 154.00 L 408.55 154.00 C418.97,154.00 423.00,157.02 423.00,164.80 C423.00,172.18 417.47,175.98 406.75,175.99 L 402.00 176.00 L 402.00 208.00 L 408.07 208.00 C417.99,208.00 423.00,211.69 423.00,218.99 C423.00,222.85 422.49,224.11 419.95,226.55 C417.25,229.14 416.07,229.51 409.43,229.84 L 401.95 230.22 L 402.23 246.36 L 402.50 262.50 L 410.34 263.00 C417.38,263.45 418.42,263.78 420.59,266.31 C422.34,268.34 423.00,270.31 423.00,273.45 C423.00,277.17 422.49,278.24 419.47,280.90 C416.24,283.73 415.33,284.00 408.97,284.00 L 402.00 284.00 L 402.00 323.36 L 410.00 331.56 C419.35,341.14 420.09,343.88 415.12,350.60 C412.04,354.77 368.71,397.97 360.69,404.86 C352.87,411.59 348.83,410.39 336.00,397.53 L 331.50 393.02 L 312.36 393.01 L 293.22 393.00 L 292.84 400.44 C292.42,408.83 290.42,412.05 284.39,414.04 C276.84,416.53 271.00,409.95 271.00,398.94 L 271.00 392.95 L 254.75 393.23 L 238.50 393.50 L 238.20 400.50 C237.85,408.66 236.07,411.82 230.70,413.86 C227.52,415.07 226.71,415.02 223.32,413.36 C218.39,410.95 217.03,408.02 217.01,399.75 L 217.00 393.00 L 184.00 393.00 L 184.00 400.01 C184.00,406.54 183.77,407.27 180.75,410.55 ZM 202.50 347.07 C214.79,349.63 244.49,349.16 256.50,346.21 C307.25,333.74 346.04,293.35 356.11,242.50 C358.24,231.77 357.94,202.61 355.61,192.50 C351.35,174.07 342.81,155.24 332.49,141.53 C320.63,125.77 301.97,110.38 284.60,102.01 C266.99,93.53 252.33,89.99 232.00,89.30 C214.35,88.71 201.38,90.45 186.51,95.43 C141.40,110.52 109.73,145.93 99.84,192.33 C96.93,205.99 96.66,230.52 99.29,243.00 C104.83,269.27 116.25,291.05 134.24,309.65 C152.67,328.69 176.19,341.59 202.50,347.07 ZM 241.77 259.86 C223.91,265.65 208.31,261.69 195.97,248.23 C186.28,237.65 182.42,224.30 185.01,210.30 C186.99,199.60 193.96,188.86 202.69,183.09 C212.69,176.46 228.39,174.14 239.99,177.59 C254.07,181.77 264.96,192.47 269.14,206.24 C272.13,216.07 271.42,227.37 267.26,236.26 C262.03,247.43 252.30,256.44 241.77,259.86 ZM 333.74 364.24 L 352.49 383.01 L 391.49 344.01 L 372.50 325.00 C362.06,314.55 353.28,306.00 352.98,306.00 C352.68,306.00 349.08,310.11 344.97,315.13 C338.13,323.49 325.85,335.35 318.12,341.07 C316.40,342.34 315.00,343.85 315.00,344.43 C315.00,345.01 323.43,353.92 333.74,364.24 ZM 348.94 127.25 C350.81,129.86 352.60,132.00 352.93,132.00 C353.25,132.00 362.06,123.45 372.50,113.00 L 391.48 94.00 L 372.50 75.00 C362.06,64.55 353.06,56.00 352.50,56.00 C351.94,56.00 343.03,64.46 332.71,74.79 L 313.93 93.59 L 321.87 99.84 C330.73,106.81 343.75,120.00 348.94,127.25 ZM 82.51 113.06 L 101.50 132.12 L 105.50 127.31 C113.34,117.89 127.61,103.73 134.31,98.72 L 141.12 93.64 L 122.32 74.82 C111.98,64.47 103.06,56.00 102.50,56.00 C101.94,56.00 92.94,64.55 82.50,75.00 L 63.52 94.00 ZM 82.74 363.24 C93.05,373.56 101.71,382.00 102.00,382.00 C102.86,382.00 140.44,344.10 139.95,343.73 C128.16,334.92 114.62,321.70 106.90,311.49 C104.62,308.47 102.28,306.00 101.69,306.00 C100.32,306.00 64.00,342.09 64.00,343.45 C64.00,344.02 72.43,352.92 82.74,363.24 ZM 220.62 239.53 C228.73,242.42 234.94,240.87 242.27,234.11 C247.57,229.22 249.43,224.22 248.80,216.55 C247.88,205.48 238.71,197.50 227.00,197.57 C207.40,197.70 198.78,221.06 213.25,234.82 C215.18,236.65 218.49,238.77 220.62,239.53 ZM 153.00 74.50 C157.10,78.62 160.67,82.00 160.93,82.00 C161.20,82.00 165.04,80.45 169.46,78.55 C179.77,74.14 194.67,70.28 206.88,68.88 C218.30,67.57 222.26,65.41 211.50,66.36 C207.65,66.71 191.24,66.99 175.03,66.99 L 145.55 67.00 ZM 75.00 268.44 C75.00,285.80 75.35,300.00 75.78,300.00 C76.20,300.00 79.69,296.84 83.51,292.99 L 90.47 285.97 L 88.67 281.24 C81.64,262.79 77.00,246.42 77.00,240.10 C77.00,239.01 76.55,237.84 76.00,237.50 C75.34,237.09 75.00,247.66 75.00,268.44 ZM 75.00 169.56 C75.00,199.72 75.87,208.07 77.52,193.84 C78.42,186.04 82.79,170.70 86.86,161.01 C88.59,156.90 90.00,153.09 90.00,152.54 C90.00,151.38 76.92,138.00 75.78,138.00 C75.35,138.00 75.00,152.20 75.00,169.56 ZM 287.27 79.45 C290.15,80.76 292.96,81.87 293.53,81.92 C294.09,81.96 297.90,78.62 302.00,74.50 L 309.45 67.00 L 278.02 67.00 C260.74,67.00 247.03,67.37 247.55,67.82 C248.07,68.28 252.55,69.40 257.50,70.31 C267.41,72.14 279.21,75.76 287.27,79.45 ZM 371.67 293.18 C375.35,296.88 378.72,299.67 379.17,299.39 C380.24,298.73 380.26,240.00 379.20,240.00 C378.75,240.00 377.83,243.35 377.14,247.45 C375.73,255.83 372.24,267.13 367.91,277.35 C366.31,281.12 365.00,284.71 365.00,285.33 C365.00,285.95 368.00,289.48 371.67,293.18 ZM 377.09 190.25 C377.80,194.51 378.75,198.00 379.20,198.00 C379.64,198.00 380.00,184.50 380.00,168.00 C380.00,150.48 379.62,138.00 379.08,138.00 C377.85,138.00 365.58,150.80 365.19,152.50 C365.02,153.24 365.79,155.63 366.90,157.81 C370.12,164.11 375.67,181.79 377.09,190.25 ZM 250.00 370.13 C250.00,370.61 263.27,371.00 279.50,371.00 C295.73,371.00 309.00,370.62 309.00,370.16 C309.00,368.99 295.42,356.00 294.19,356.00 C293.64,356.00 290.12,357.37 286.38,359.05 C278.22,362.72 261.87,367.68 254.97,368.60 C252.24,368.96 250.00,369.65 250.00,370.13 ZM 146.64 370.30 C147.67,371.34 204.00,371.15 204.00,370.11 C204.00,369.63 201.91,368.91 199.35,368.53 C192.46,367.50 176.39,362.54 168.62,359.05 C164.88,357.37 161.28,356.00 160.63,356.00 C158.96,356.00 145.79,369.46 146.64,370.30 ZM 378.61 207.42 C379.56,209.90 380.00,209.29 380.00,205.50 C380.00,203.57 379.55,202.00 379.00,202.00 C377.89,202.00 377.67,204.98 378.61,207.42 ZM 378.10 233.75 C378.04,234.44 378.45,235.00 379.00,235.00 C379.55,235.00 379.96,233.31 379.90,231.25 C379.81,227.90 379.71,227.77 379.00,230.00 C378.56,231.38 378.15,233.06 378.10,233.75 Z" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32.5 0C41.1195 0 49.386 3.4241 55.481 9.51903C61.5759 15.614 65 23.8805 65 32.5C65 41.1195 61.5759 49.386 55.481 55.481C49.386 61.5759 41.1195 65 32.5 65C23.8805 65 15.614 61.5759 9.51903 55.481C3.4241 49.386 0 41.1195 0 32.5C0 23.8805 3.4241 15.614 9.51903 9.51903C15.614 3.4241 23.8805 0 32.5 0ZM9.28571 32.5C9.28462 37.8516 11.1326 43.0392 14.5168 47.1849C17.901 51.3306 22.6137 54.1797 27.8571 55.25V46.4286C27.8571 42.7345 26.3897 39.1917 23.7776 36.5796C21.1654 33.9675 17.6227 32.5 13.9286 32.5H9.28571ZM51.0714 32.5C47.3773 32.5 43.8346 33.9675 41.2224 36.5796C38.6103 39.1917 37.1429 42.7345 37.1429 46.4286V55.25C42.3863 54.1797 47.099 51.3306 50.4832 47.1849C53.8674 43.0392 55.7154 37.8516 55.7143 32.5H51.0714ZM32.5 27.8571C31.2686 27.8571 30.0877 28.3463 29.217 29.217C28.3463 30.0877 27.8571 31.2686 27.8571 32.5C27.8571 33.7314 28.3463 34.9123 29.217 35.783C30.0877 36.6537 31.2686 37.1429 32.5 37.1429C33.7314 37.1429 34.9123 36.6537 35.783 35.783C36.6537 34.9123 37.1429 33.7314 37.1429 32.5C37.1429 31.2686 36.6537 30.0877 35.783 29.217C34.9123 28.3463 33.7314 27.8571 32.5 27.8571ZM32.5 9.28572C27.9827 9.28533 23.5634 10.6029 19.7839 13.077C16.0043 15.5511 13.0287 19.0741 11.2218 23.2143H53.7782C51.9713 19.0741 48.9957 15.5511 45.2161 13.077C41.4366 10.6029 37.0173 9.28533 32.5 9.28572Z" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.477936 49.0164H64.5221V65H0.477936V49.0164ZM61.6544 54.3443H3.34558V58.0738H61.6544V54.3443Z" fill="#555"/>
+<path d="M11.4706 34.6312H5.25732V50.6148H11.4706V34.6312Z" fill="#555"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.25735 0H11.4706L16.7279 5.86065V30.9016L11.4706 36.7623H5.25735L0 30.9016V5.86065L5.25735 0ZM6.21326 3.19672H10.5147L13.8603 6.92622V29.8361L10.5147 33.5656H6.21326L2.86768 29.8361V6.92622L6.21326 3.19672Z" fill="#555"/>
+<path d="M8.36396 13C9.52538 13 10.4669 11.9505 10.4669 10.6558C10.4669 9.36105 9.52538 8.31149 8.36396 8.31149C7.20254 8.31149 6.26102 9.36105 6.26102 10.6558C6.26102 11.9505 7.20254 13 8.36396 13Z" fill="#555"/>
+<path d="M8.36396 20.9918C9.52538 20.9918 10.4669 19.9422 10.4669 18.6475C10.4669 17.3528 9.52538 16.3033 8.36396 16.3033C7.20254 16.3033 6.26102 17.3528 6.26102 18.6475C6.26102 19.9422 7.20254 20.9918 8.36396 20.9918Z" fill="#555"/>
+<path d="M8.36396 28.9836C9.52538 28.9836 10.4669 27.934 10.4669 26.6393C10.4669 25.3446 9.52538 24.2951 8.36396 24.2951C7.20254 24.2951 6.26102 25.3446 6.26102 26.6393C6.26102 27.934 7.20254 28.9836 8.36396 28.9836Z" fill="#555"/>
+<path d="M35.6066 34.6312H29.3934V50.6148H35.6066V34.6312Z" fill="#555"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M26.2867 0H38.7132L43.4926 5.32787V31.4344L38.7132 36.7623H26.2867L21.5073 31.4344V5.32787L26.2867 0ZM27.2426 3.19672H37.7574L40.625 6.39344V30.3688L37.7574 33.5656H27.2426L24.375 30.3688V6.39344L27.2426 3.19672Z" fill="#555"/>
+<path d="M32.5 13C33.6614 13 34.6029 11.9505 34.6029 10.6558C34.6029 9.36105 33.6614 8.31149 32.5 8.31149C31.3386 8.31149 30.3971 9.36105 30.3971 10.6558C30.3971 11.9505 31.3386 13 32.5 13Z" fill="#555"/>
+<path d="M32.5 20.9918C33.6614 20.9918 34.6029 19.9422 34.6029 18.6475C34.6029 17.3528 33.6614 16.3033 32.5 16.3033C31.3386 16.3033 30.3971 17.3528 30.3971 18.6475C30.3971 19.9422 31.3386 20.9918 32.5 20.9918Z" fill="#555"/>
+<path d="M32.5 28.9836C33.6614 28.9836 34.6029 27.934 34.6029 26.6393C34.6029 25.3446 33.6614 24.2951 32.5 24.2951C31.3386 24.2951 30.3971 25.3446 30.3971 26.6393C30.3971 27.934 31.3386 28.9836 32.5 28.9836Z" fill="#555"/>
+<path d="M59.7427 34.6312H53.5294V50.6148H59.7427V34.6312Z" fill="#555"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M53.5294 0H59.7427L65 5.86065V30.9016L59.7427 36.7623H53.5294L48.2721 30.9016V5.86065L53.5294 0ZM54.4853 3.19672H58.7868L62.1324 6.92622V29.8361L58.7868 33.5656H54.4853L51.1397 29.8361V6.92622L54.4853 3.19672Z" fill="#555"/>
+<path d="M56.636 13C57.7974 13 58.739 11.9505 58.739 10.6558C58.739 9.36105 57.7974 8.31149 56.636 8.31149C55.4746 8.31149 54.5331 9.36105 54.5331 10.6558C54.5331 11.9505 55.4746 13 56.636 13Z" fill="#555"/>
+<path d="M56.636 20.9918C57.7974 20.9918 58.739 19.9422 58.739 18.6475C58.739 17.3528 57.7974 16.3033 56.636 16.3033C55.4746 16.3033 54.5331 17.3528 54.5331 18.6475C54.5331 19.9422 55.4746 20.9918 56.636 20.9918Z" fill="#555"/>
+<path d="M56.636 28.9836C57.7974 28.9836 58.739 27.934 58.739 26.6393C58.739 25.3446 57.7974 24.2951 56.636 24.2951C55.4746 24.2951 54.5331 25.3446 54.5331 26.6393C54.5331 27.934 55.4746 28.9836 56.636 28.9836Z" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="6" width="56" height="38" rx="6" fill="#555"/>
+<rect x="9" y="11" width="46" height="28" rx="3" fill="#110707"/>
+<rect x="27" y="44" width="10" height="7" fill="#555"/>
+<rect x="16" y="51" width="32" height="7" rx="3.5" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.8333 6.81668C14.575 4.16668 13.0083 0 8.1667 0C3.32502 0 1.75834 4.16668 1.50002 6.81668C0.59377 7.16062 -0.00400325 8.0307 2.01856e-05 9V10.1667C2.01856e-05 11.4554 1.04471 12.5 2.33334 12.5C3.62201 12.5 4.6667 11.4553 4.6667 10.1667V9C4.66248 8.0516 4.0867 7.19941 3.20834 6.84168C3.37502 5.30832 4.1917 1.66668 8.1667 1.66668C12.1417 1.66668 12.95 5.30832 13.1167 6.84168C12.2401 7.2002 11.6672 8.05297 11.6667 9V10.1667C11.6685 10.6057 11.7937 11.0354 12.028 11.4068C12.2622 11.7781 12.5962 12.076 12.9917 12.2667C12.6417 12.925 11.75 13.8167 9.55834 14.0833C9.12025 13.4181 8.27264 13.1558 7.53537 13.4574C6.79815 13.759 6.37733 14.5401 6.53108 15.3217C6.68483 16.1032 7.37014 16.6667 8.1667 16.6667C8.47535 16.665 8.77745 16.5776 9.03935 16.4142C9.30125 16.2509 9.51266 16.0181 9.65002 15.7417C13.225 15.3333 14.3667 13.4917 14.725 12.4083C15.6944 12.0943 16.3464 11.1856 16.3333 10.1667V9C16.3374 8.0307 15.7396 7.16062 14.8333 6.81668ZM3.00002 10.1667C3.00002 10.5348 2.70154 10.8333 2.33334 10.8333C1.96514 10.8333 1.6667 10.5349 1.6667 10.1667V9C1.66603 8.91202 1.68277 8.82478 1.71597 8.74331C1.74917 8.66184 1.79817 8.58774 1.86015 8.52529C1.92212 8.46284 1.99584 8.41328 2.07705 8.37945C2.15827 8.34563 2.24538 8.32822 2.33336 8.32822C2.42134 8.32822 2.50845 8.34563 2.58967 8.37945C2.67088 8.41328 2.7446 8.46284 2.80657 8.52529C2.86855 8.58774 2.91755 8.66184 2.95075 8.74331C2.98395 8.82478 3.00069 8.91202 3.00002 9V10.1667ZM13.3333 9C13.3333 8.6318 13.6318 8.33332 14 8.33332C14.3682 8.33332 14.6667 8.6318 14.6667 9V10.1667C14.6667 10.5348 14.3682 10.8333 14 10.8333C13.6318 10.8333 13.3333 10.5349 13.3333 10.1667V9Z" fill="#555"/>
+</svg>
+</div><div class="item"><svg style="width:30px;height:30px;display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 18 L7 8 L11 16 L15 4 L19 14 L22 10" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div><div class="item abajo"><svg style="width:30px;height:30px;display:block" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.1 4.64833L8.05 0L0 4.64833V13.9433L8.05 18.5917L16.1 13.9433V4.64833ZM8.05 12.6292C7.16595 12.6292 6.3181 12.278 5.69298 11.6529C5.06786 11.0277 4.71667 10.1799 4.71667 9.29583C4.71667 8.41178 5.06786 7.56393 5.69298 6.93881C6.3181 6.31369 7.16595 5.9625 8.05 5.9625C8.93406 5.9625 9.7819 6.31369 10.407 6.93881C11.0321 7.56393 11.3833 8.41178 11.3833 9.29583C11.3833 10.1799 11.0321 11.0277 10.407 11.6529C9.7819 12.278 8.93406 12.6292 8.05 12.6292Z" fill="#555"/>
+</svg>
+</div></div><div class="pagina">
+<div class="cabecera"><span class="h1">Nombre de la página</span><span class="estado ok">Estado</span>
+<span class="pill">Acción principal</span>
+<div class="perfil"><span class="check si"></span> Automático <span style="margin-left:8px">Perfil</span>
+<div class="combo" style="width:200px">Perfil activo</div><span class="pill">Guardar</span><span class="pill">Nuevo</span><span class="pill">Borrar</span></div></div>
+<div class="tabs"><span class="tab activo">Sección 1</span><span class="tab">Sección 2</span><span class="tab">Sección 3</span></div>
+<div class="fila" style="flex:1">
+  <div class="isla col" style="flex:1"><div class="h3">Isla de contenido</div>
+    <div class="col" style="gap:4px"><div>Ajuste<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:40%"></i><b style="left:40%"></b></div><div class="valor">40</div></div></div><div class="col" style="gap:4px"><div>Ajuste<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:65%"></i><b style="left:65%"></b></div><div class="valor">65</div></div></div><div class="col" style="gap:4px"><div>Ajuste<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:20%"></i><b style="left:20%"></b></div><div class="valor">20</div></div></div></div>
+  <div class="isla col" style="flex:1"><div class="h3">Isla de contenido</div>
+    <div class="col" style="gap:4px"><div>Ajuste<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:55%"></i><b style="left:55%"></b></div><div class="valor">55</div></div></div><div class="col" style="gap:4px"><div>Ajuste<span class="ayuda">!</span></div><div class="slider"><div class="riel"><i style="width:30%"></i><b style="left:30%"></b></div><div class="valor">30</div></div></div></div>
+  <div class="isla col" style="flex:1"><div class="h3">Isla de contenido</div>
+    <div class="ph x" style="flex:1"></div></div>
+</div></div></div>
+  <div class="footer"><span>Versión 0.11.0 &nbsp;|&nbsp; Copyright © 2026 VH SimGrid</span><span class="centro">Ningún simulador detectado</span><span class="logo">VH</span></div>
+</div><div class="region" style="left:20px;top:20px;width:1240px;height:32px"></div><div class="region" style="left:20px;top:52px;width:70px;height:740px"></div><div class="region" style="left:110px;top:58px;width:1130px;height:52px"></div><div class="region" style="left:110px;top:118px;width:1130px;height:72px"></div><div class="region" style="left:110px;top:196px;width:1130px;height:580px"></div><div class="region" style="left:20px;top:792px;width:1240px;height:28px"></div><div class="n" style="left:600px;top:23px">1</div><div class="n" style="left:42px;top:470px">2</div><div class="n" style="left:1236px;top:71px">3</div><div class="n" style="left:1236px;top:141px">4</div><div class="n" style="left:1236px;top:470px">5</div><div class="n" style="left:600px;top:795px">6</div></div></body></html>
